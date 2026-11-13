@@ -31,3 +31,13 @@ Date: 2026-11-13
 | 15 | Analytics | None in the prototype. |
 | 16 | Photo ID entry point | Hidden until the feature ships. |
 | 17 | Sign-in merge | Local sightings merge into the account automatically. |
+
+## Tech-stack answers (2026-11-13)
+
+| # | Topic | Decision |
+|---|---|---|
+| 18 | iNaturalist CC BY-NC images | Allowed in the private MVP, each flagged "replace before launch". |
+| 19 | Supabase plan | Free tier for the prototype; move to Pro before public launch. |
+| 20 | Preview deployments | Public (no personal data in previews). |
+| 21 | Budgets | Accepted as in ADR 0001/0004 (≤ 450 KB initial JS gz, optional 75 MB photo pack, Wi-Fi only by default). |
+| 22 | Checklist edition | Latest Ceylon Bird Club checklist (decision #13 confirmed). |
