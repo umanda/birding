@@ -29,6 +29,8 @@ Expo + React Native + react-native-web + Expo Router (web first, native later), 
 
 **4. Runtime validation.** **zod** at every boundary: content import (xlsx rows to JSON/SQLite), local storage reads, and the sync API. Types for those shapes are `z.infer`, so there is one source. Inside the app we trust the types. Revisit valibot only if bundle size is measured as a problem.
 
+Client-side reads of tiny values (e.g. stored language) use hand-written type guards to keep zod out of the app bundle; zod stays in build tools and tests.
+
 **5. Domain typing conventions.**
 - String-literal unions, derived from the data dictionary, never enums: `type IucnCategory = 'LC' | 'NT' | 'VU' | 'EN' | 'CR' | 'DD' | 'NE'`; `OccurrenceCode` likewise. Define a `const` tuple and derive the type (`as const`) so zod (`z.enum`) and the type share one list.
 - Branded ids only for `SpeciesId` and `PlateId` (`string & { __brand: 'SpeciesId' }`), created solely by the validator. Nothing else is branded.
