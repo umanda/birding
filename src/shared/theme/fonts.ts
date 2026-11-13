@@ -1,28 +1,24 @@
-import { NotoSans_400Regular } from '@expo-google-fonts/noto-sans/400Regular';
-import { NotoSans_600SemiBold } from '@expo-google-fonts/noto-sans/600SemiBold';
-import { NotoSans_700Bold } from '@expo-google-fonts/noto-sans/700Bold';
-import { NotoSans_400Regular_Italic } from '@expo-google-fonts/noto-sans/400Regular_Italic';
-import { NotoSansSinhala_400Regular } from '@expo-google-fonts/noto-sans-sinhala/400Regular';
-import { NotoSansSinhala_600SemiBold } from '@expo-google-fonts/noto-sans-sinhala/600SemiBold';
-import { NotoSansSinhala_700Bold } from '@expo-google-fonts/noto-sans-sinhala/700Bold';
+import type { TextStyle } from 'react-native';
 
-// Bundled in the app binary / web export, so fonts work offline.
+// Latin uses the platform system font. Only Sinhala ships a font (subset TTFs, bundled so it
+// works offline), because many devices lack a good Sinhala face and web first-load size matters.
 export const fontAssets = {
-  NotoSans_400Regular,
-  NotoSans_600SemiBold,
-  NotoSans_700Bold,
-  NotoSans_400Regular_Italic,
-  NotoSansSinhala_400Regular,
-  NotoSansSinhala_600SemiBold,
-  NotoSansSinhala_700Bold,
+  NotoSansSinhala_400Regular: require('../../../assets/fonts/NotoSansSinhala-400Regular.ttf'),
+  NotoSansSinhala_700Bold: require('../../../assets/fonts/NotoSansSinhala-700Bold.ttf'),
 };
 
-type Script = 'latin' | 'sinhala';
+export type Script = 'si' | 'en';
 type Weight = 400 | 600 | 700;
 
-const WEIGHT_SUFFIX: Record<Weight, string> = { 400: 'Regular', 600: 'SemiBold', 700: 'Bold' };
+const SINHALA_BOLD_FROM = 600;
 
-export function fontFamily(script: Script, weight: Weight): string {
-  const family = script === 'sinhala' ? 'NotoSansSinhala' : 'NotoSans';
-  return `${family}_${weight}${WEIGHT_SUFFIX[weight]}`;
+type FontStyle = Pick<TextStyle, 'fontFamily' | 'fontWeight'>;
+
+export function fontStyle(script: Script, weight: Weight): FontStyle {
+  if (script !== 'si') return { fontFamily: undefined, fontWeight: `${weight}` };
+  // Only 400 and 700 are shipped, so 600 renders as bold.
+  const isBold = weight >= SINHALA_BOLD_FROM;
+  return isBold
+    ? { fontFamily: 'NotoSansSinhala_700Bold', fontWeight: '700' }
+    : { fontFamily: 'NotoSansSinhala_400Regular', fontWeight: '400' };
 }

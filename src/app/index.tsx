@@ -1,9 +1,9 @@
 import { Stack } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 
-import { fontFamily } from '@/shared/theme/fonts';
-import { BASE_FONT_SIZE, space, type } from '@/shared/theme/tokens';
-import { useTheme } from '@/shared/theme/useTheme';
+import { fontStyle } from '@/shared/theme/fonts';
+import { BASE_FONT_SIZE, space, typography } from '@/shared/theme/tokens';
+import { useTheme } from '@/shared/theme/use-theme';
 
 export default function HomeScreen() {
   const { colors } = useTheme();
@@ -24,13 +24,13 @@ const styles = StyleSheet.create({
     gap: space[2],
   },
   title: {
-    fontFamily: fontFamily('latin', type.display.weight),
-    fontSize: type.display.size * BASE_FONT_SIZE,
-    lineHeight: type.display.size * BASE_FONT_SIZE * type.display.lineHeightLatin,
+    ...fontStyle('en', typography.display.weight),
+    fontSize: typography.display.size * BASE_FONT_SIZE,
+    lineHeight: typography.display.size * BASE_FONT_SIZE * typography.display.lineHeightLatin,
   },
   sinhala: {
-    fontFamily: fontFamily('sinhala', type.body.weight),
-    fontSize: type.body.size * BASE_FONT_SIZE,
-    lineHeight: type.body.size * BASE_FONT_SIZE * type.body.lineHeightSinhala,
+    ...fontStyle('si', typography.body.weight),
+    fontSize: typography.body.size * BASE_FONT_SIZE,
+    lineHeight: typography.body.size * BASE_FONT_SIZE * typography.body.lineHeightSinhala,
   },
 });

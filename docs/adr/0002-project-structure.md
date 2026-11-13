@@ -60,8 +60,8 @@ docs/                     product, design, adr, specs
   `lang` on the root per script so Sinhala line-heights apply.
 - **Styling:** `tokens.ts` mirrors the UX 01 §8 YAML exactly (colours light/dark, type scale with
   per-script line-heights, space, radius, sizes). Components use `StyleSheet.create` with values from
-  `useTheme()`, and there are no raw hex values outside `tokens.ts`. Fonts: Noto Sans + Noto Sans Sinhala,
-  self-hosted and subset, loaded with `expo-font`.
+  `useTheme()`, and there are no raw hex values outside `tokens.ts`. Fonts: system font for Latin; Noto Sans
+  Sinhala (400/700) self-hosted for Sinhala, to keep first web load small (amended 2026-11-13).
 
 ## Consequences
 - New features follow one pattern. Reviewers can check boundaries mechanically.

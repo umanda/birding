@@ -15,12 +15,11 @@ const colorPairs = {
   endemic: pair('#1B7A3E', '#6FD08C'),
   resident: pair('#B45309', '#FDBA74'),
   migrant: pair('#1D4ED8', '#93C5FD'),
+  badgeText: pair('#FFFFFF', '#121212'), // text on E/R/M badge fills
 };
 
 export type ColorName = keyof typeof colorPairs;
 export type Colors = Record<ColorName, string>;
-
-export const BADGE_TEXT = pair('#FFFFFF', '#121212');
 
 function pickMode(mode: ColorMode): Colors {
   const names = Object.keys(colorPairs) as ColorName[];
@@ -41,7 +40,8 @@ export type TypeStyle = {
 
 export const BASE_FONT_SIZE = 16;
 
-export const type = {
+// camelCase keys: these are data objects, not scalar constants.
+export const typography = {
   display: { size: 1.75, weight: 700, lineHeightLatin: 1.3, lineHeightSinhala: 1.5 },
   title: { size: 1.25, weight: 600, lineHeightLatin: 1.3, lineHeightSinhala: 1.5 },
   body: { size: 1.0, weight: 400, lineHeightLatin: 1.4, lineHeightSinhala: 1.7 },
@@ -49,7 +49,7 @@ export const type = {
   caption: { size: 0.8125, weight: 400, lineHeightLatin: 1.35, lineHeightSinhala: 1.6 },
 } satisfies Record<string, TypeStyle>;
 
-export type TypeName = keyof typeof type;
+export type TypeName = keyof typeof typography;
 
 export const space = [0, 4, 8, 12, 16, 24, 32, 48] as const;
 export const SCREEN_PADDING = 16;
