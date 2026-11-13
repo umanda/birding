@@ -1,0 +1,11 @@
+{
+  "app.title": "Sri Lanka Birds",
+  "tabs.identify": "Identify",
+  "tabs.search": "Search",
+  "tabs.browse": "Browse",
+  "tabs.lifeList": "Life list",
+  "tabs.me": "Me",
+  "common.notRecorded": "Not recorded",
+  "search.results.one": "{count} result",
+  "search.results.other": "{count} results"
+}

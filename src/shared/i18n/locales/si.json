@@ -1,0 +1,11 @@
+{
+  "app.title": "ශ්‍රී ලංකාවේ පක්ෂීන්",
+  "tabs.identify": "හඳුනාගන්න",
+  "tabs.search": "සොයන්න",
+  "tabs.browse": "පිරික්සන්න",
+  "tabs.lifeList": "මගේ ලැයිස්තුව",
+  "tabs.me": "මම",
+  "common.notRecorded": "වාර්තා වී නැත",
+  "search.results.one": "ප්‍රතිඵල {count}",
+  "search.results.other": "ප්‍රතිඵල {count}"
+}
