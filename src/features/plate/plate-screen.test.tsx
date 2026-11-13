@@ -4,7 +4,9 @@ import { renderRouter, screen, within } from 'expo-router/testing-library';
 
 import { BrowseScreen } from '@/features/browse';
 import { SettingsProvider } from '@/features/settings';
-import { getPlate, getSpecies, getSpeciesByPlate } from '@/shared/data/content';
+import { getPlate, getSpeciesByPlate } from '@/shared/data/content';
+import type { OccurrenceFilter } from '@/shared/data/content';
+import { matchesFilters } from '@/shared/data/occurrence-filter';
 import { createMemoryStore } from '@/test-utils/memory-store';
 
 import { PlateRoute } from './plate-screen';
@@ -27,43 +29,42 @@ const routes = {
 };
 const PLATE_1 = 'plate-01';
 const PLATE_2 = 'plate-02';
-const PLATE_1_TITLE = getPlate(PLATE_1)?.title.en ?? '';
-const speciesNames = (plateId: string): string[] =>
-  getSpeciesByPlate(plateId).map(({ names }) => names.en);
+const COMPOUND_CODE_SPECIES = 'Indian Spot-billed Duck'; // plate-02, code R/M
+const plateTitle = (id: string): string => getPlate(id)?.title.en ?? '';
 
-type Node = { props?: { title?: string }; children?: unknown };
-const collectTitles = (node: unknown): string[] => {
-  if (typeof node !== 'object' || node === null) return [];
-  const { props, children } = node as Node;
-  const own = props?.title ? [props.title] : [];
-  return own.concat([children ?? []].flat().flatMap(collectTitles));
-};
-const headerTitles = (): string[] => collectTitles(screen.toJSON());
+const expectedNames = (plateId: string, filters: OccurrenceFilter[] = []): string[] =>
+  getSpeciesByPlate(plateId)
+    .filter((species) => matchesFilters(species, filters))
+    .map(({ names }) => names.en);
+
+// The primary name is the first text in each SpeciesRow link.
+const shownNames = (): string[] =>
+  screen
+    .getAllByRole('link')
+    .map((link) => String(within(link).getAllByText(/./)[0]?.props.children));
 
 describe('PlateRoute', () => {
-  it('shows the header and lists species in plate_order', async () => {
+  it('shows the heading and lists species in plate_order', async () => {
     await renderRouter(routes, { initialUrl: `/plate/${PLATE_1}` });
-    await screen.findByText('Painted Francolin');
-    // The native header title is a prop, not text, so look for it in the rendered tree.
-    expect(headerTitles()).toContain(`Plate 1 · ${PLATE_1_TITLE}`);
-    const names = speciesNames(PLATE_1);
-    const shown = screen
-      .getAllByRole('link')
-      .map((link) => within(link).getAllByText(/./)[0]?.props.children);
-    expect(shown).toEqual(names);
+    expect(
+      await screen.findByRole('header', { name: `Plate 1 · ${plateTitle(PLATE_1)}` }),
+    ).toBeTruthy();
+    expect(shownNames()).toEqual(expectedNames(PLATE_1));
   });
 
   it('applies the occ filter from the route', async () => {
     await renderRouter(routes, { initialUrl: `/plate/${PLATE_1}?occ=E` });
-    expect(await screen.findByText('Sri Lanka Junglefowl')).toBeTruthy();
-    expect(screen.getAllByRole('link')).toHaveLength(2);
-    expect(screen.queryByText('Indian Peafowl')).toBeNull();
+    await screen.findByRole('header');
+    const expected = expectedNames(PLATE_1, ['E']);
+    expect(expected.length).toBeLessThan(expectedNames(PLATE_1).length);
+    expect(shownNames()).toEqual(expected);
   });
 
-  it.each(['R', 'M'])('keeps compound codes under the %s filter', async (occ) => {
-    await renderRouter(routes, { initialUrl: `/plate/${PLATE_2}?occ=${occ}` });
-    const compound = getSpecies('slb-anas-poecilorhyncha')?.names.en ?? '';
-    expect(await screen.findByText(compound)).toBeTruthy();
+  it.each(['R', 'M'] as const)('keeps compound codes under the %s filter', async (filter) => {
+    await renderRouter(routes, { initialUrl: `/plate/${PLATE_2}?occ=${filter}` });
+    await screen.findByRole('header');
+    expect(shownNames()).toEqual(expectedNames(PLATE_2, [filter]));
+    expect(shownNames()).toContain(COMPOUND_CODE_SPECIES);
   });
 
   it('shows the empty state and clears the filter', async () => {
@@ -71,7 +72,8 @@ describe('PlateRoute', () => {
     await renderRouter(routes, { initialUrl: `/plate/${PLATE_2}?occ=E` });
     expect(await screen.findByText('No species match these filters')).toBeTruthy();
     await user.press(screen.getByRole('button', { name: 'Clear filters' }));
-    expect(await screen.findByText(speciesNames(PLATE_2)[0] ?? '')).toBeTruthy();
+    expect(await screen.findByRole('link', { name: /Little Grebe/ })).toBeTruthy();
+    expect(shownNames()).toEqual(expectedNames(PLATE_2));
     expect(screen).toHaveSearchParams({ id: PLATE_2 });
   });
 
@@ -87,7 +89,7 @@ describe('PlateRoute', () => {
     const user = userEvent.setup();
     await renderRouter(routes, { initialUrl: '/browse?occ=E' });
     await user.press(
-      await screen.findByRole('link', { name: new RegExp(`^Plate 1 · ${PLATE_1_TITLE}`) }),
+      await screen.findByRole('link', { name: new RegExp(`^Plate 1 · ${plateTitle(PLATE_1)}`) }),
     );
     expect(screen).toHavePathname(`/plate/${PLATE_1}`);
     expect(screen).toHaveSearchParams({ id: PLATE_1, occ: 'E' });

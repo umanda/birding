@@ -1,19 +1,17 @@
 import { Link, Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { matchesFilters, parseFilters } from '@/features/browse/plate-filter';
 import { useSettings } from '@/features/settings';
-import { localized } from '@/features/species/localized';
 import { getPlate, getSpeciesByPlate } from '@/shared/data/content';
+import { matchesFilters, parseFilters } from '@/shared/data/occurrence-filter';
 import type { Language } from '@/shared/i18n/language';
+import { localized } from '@/shared/i18n/localized';
 import { SCREEN_PADDING, radius, size, space } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
 import { SpeciesRow } from '@/shared/ui/species-row';
 
-type MessageProps = { message: string; action: string; language: Language } & (
-  { href: '/browse' } | { onPress: () => void }
-);
+type MessageProps = { message: string; language: Language };
 
 export function PlateRoute(): React.JSX.Element {
   const { id, occ } = useLocalSearchParams<{ id?: string | string[]; occ?: string | string[] }>();
@@ -26,33 +24,42 @@ export function PlateRoute(): React.JSX.Element {
     return (
       <>
         <Stack.Screen options={{ title: t('plate.notFound'), headerTitle: '' }} />
-        <Message
+        <NotFound
           message={t('plate.notFound')}
           action={t('plate.goToBrowse')}
-          href="/browse"
           language={language}
         />
       </>
     );
   }
 
-  const heading = `${t('browse.plate', { number: plate.plate_number })} · ${localized(plate.title, language).text}`;
+  const title = localized(plate.title, language);
+  const heading = `${t('browse.plate', { number: plate.plate_number })} · ${title.text}`;
   const filters = parseFilters(occ);
   const species = getSpeciesByPlate(plate.plate_id).filter((s) => matchesFilters(s, filters));
 
+  // The on-page heading is the one h1, so the header shows only the back button.
   return (
     <>
-      <Stack.Screen options={{ title: heading, headerTitle: heading }} />
+      <Stack.Screen options={{ title: heading, headerTitle: '' }} />
       <FlatList
         style={{ backgroundColor: colors.bg }}
         contentContainerStyle={styles.list}
         data={species}
         keyExtractor={(item) => item.species_id}
+        ListHeaderComponent={
+          <Text
+            accessibilityRole="header"
+            style={[typeStyle('title', title.language), { color: colors.text }]}
+          >
+            {heading}
+          </Text>
+        }
         ListEmptyComponent={
-          <Message
+          <NoMatch
             message={t('plate.noMatch')}
             action={t('browse.clearFilters')}
-            onPress={() => router.setParams({ occ: undefined })}
+            onClear={() => router.setParams({ occ: undefined })}
             language={language}
           />
         }
@@ -68,13 +75,12 @@ export function PlateRoute(): React.JSX.Element {
   );
 }
 
-// Not-found links back to Browse; the filtered-empty state offers a "Clear filters" button.
-function Message(props: MessageProps): React.JSX.Element {
-  const { message, action, language } = props;
+function NotFound({
+  message,
+  action,
+  language,
+}: MessageProps & { action: string }): React.JSX.Element {
   const { colors } = useTheme();
-  const label = (
-    <Text style={[typeStyle('label', language), { color: colors.primary }]}>{action}</Text>
-  );
   return (
     <View style={styles.message}>
       <Text
@@ -83,26 +89,39 @@ function Message(props: MessageProps): React.JSX.Element {
       >
         {message}
       </Text>
-      {'href' in props ? (
-        <Link href={props.href} accessibilityRole="link" style={styles.action}>
-          {label}
-        </Link>
-      ) : (
-        <Pressable
-          accessibilityRole="button"
-          onPress={props.onPress}
-          style={[styles.action, styles.outlined, { borderColor: colors.primary }]}
-        >
-          {label}
+      <Link href="/browse" asChild>
+        <Pressable accessibilityRole="link" style={styles.action}>
+          <Text style={[typeStyle('label', language), { color: colors.primary }]}>{action}</Text>
         </Pressable>
-      )}
+      </Link>
+    </View>
+  );
+}
+
+function NoMatch({
+  message,
+  action,
+  onClear,
+  language,
+}: MessageProps & { action: string; onClear: () => void }): React.JSX.Element {
+  const { colors } = useTheme();
+  return (
+    <View style={styles.message}>
+      <Text style={[typeStyle('body', language), { color: colors.text }]}>{message}</Text>
+      <Pressable
+        accessibilityRole="button"
+        onPress={onClear}
+        style={[styles.action, styles.outlined, { borderColor: colors.primary }]}
+      >
+        <Text style={[typeStyle('label', language), { color: colors.primary }]}>{action}</Text>
+      </Pressable>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   list: { padding: SCREEN_PADDING },
-  message: { alignItems: 'flex-start', gap: space[3], padding: SCREEN_PADDING },
+  message: { alignItems: 'flex-start', gap: space[3], paddingVertical: space[4] },
   action: { minHeight: size.touchMin, justifyContent: 'center' },
   outlined: { paddingHorizontal: space[3], borderWidth: 1, borderRadius: radius.pill },
 });
