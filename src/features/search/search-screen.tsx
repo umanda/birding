@@ -57,15 +57,15 @@ export function SearchScreen(): React.JSX.Element {
           </Pressable>
         ) : null}
       </View>
-      {isTyping ? (
+      {isTyping && results.length > 0 ? (
         <Text accessibilityLiveRegion="polite" style={muted}>
-          {results.length === 0
-            ? t('search.noMatch', { query: query.trim() })
-            : t('search.results', { count: results.length })}
+          {t('search.results', { count: results.length })}
         </Text>
-      ) : (
-        <Text style={muted}>{t('search.hint')}</Text>
-      )}
+      ) : null}
+      {isTyping && results.length === 0 ? (
+        <Text style={muted}>{t('search.noMatch', { query: query.trim() })}</Text>
+      ) : null}
+      {isTyping ? null : <Text style={muted}>{t('search.hint')}</Text>}
       {!isTyping || results.length === 0 ? (
         <Pressable accessibilityRole="link" onPress={openBrowse} style={styles.link}>
           <Text style={[typeStyle('label', language), { color: colors.primary }]}>
@@ -74,11 +74,13 @@ export function SearchScreen(): React.JSX.Element {
         </Pressable>
       ) : null}
       <FlatList
+        testID="search-results"
         data={results}
         keyExtractor={(item) => item.species_id}
         keyboardShouldPersistTaps="handled"
+        keyboardDismissMode="on-drag"
         renderItem={({ item }) => (
-          <Pressable accessibilityRole="button" onPress={() => openSpecies(item.species_id)}>
+          <Pressable accessibilityRole="link" onPress={() => openSpecies(item.species_id)}>
             <SpeciesRow species={item} language={language} t={t} />
           </Pressable>
         )}
