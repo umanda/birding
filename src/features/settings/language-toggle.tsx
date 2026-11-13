@@ -2,8 +2,9 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { LANGUAGES } from '@/shared/i18n/language';
 import type { Language } from '@/shared/i18n/language';
-import { fontStyle } from '@/shared/theme/fonts';
+
 import { radius, size, space } from '@/shared/theme/tokens';
+import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
 
 import { useSettings } from './settings-context';
@@ -14,7 +15,7 @@ const SEGMENTS: Record<Language, { text: string; name: string }> = {
   en: { text: 'EN', name: 'English' },
 };
 
-export function LanguageToggle() {
+export function LanguageToggle(): React.JSX.Element {
   const { colors } = useTheme();
   const { language, setLanguage, t } = useSettings();
 
@@ -26,7 +27,7 @@ export function LanguageToggle() {
           <Pressable
             key={option}
             accessibilityRole="radio"
-            accessibilityState={{ selected }}
+            accessibilityState={{ checked: selected }}
             accessibilityLabel={`${t('language.label')}: ${SEGMENTS[option].name}`}
             onPress={() => setLanguage(option)}
             style={[
@@ -38,7 +39,7 @@ export function LanguageToggle() {
             ]}
           >
             <Text
-              style={[fontStyle(option, 600), { color: selected ? colors.bg : colors.primary }]}
+              style={[typeStyle('label', option), { color: selected ? colors.bg : colors.primary }]}
             >
               {SEGMENTS[option].text}
             </Text>

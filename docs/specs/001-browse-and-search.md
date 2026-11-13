@@ -50,7 +50,7 @@ Cross-cutting
 
 ## UX
 Screens and states: `docs/design/01-ux-flows.md` §1 (tabs), §2.4 (Search), §4 (states), §5 (typography), §6 (a11y), §8 (tokens);
-wireframes: `docs/design/wireframes.html`. Routes per ADR 0002: `(tabs)/identify|search|browse|life-list|me`, `plate/[id]`, `species/[id]`.
+wireframes: `docs/design/wireframes.html`. Routes per ADR 0002: `(tabs)/index` (Identify, at `/`), `(tabs)/search|browse|life-list|me`, `plate/[id]`, `species/[id]`.
 
 ```mermaid
 flowchart LR

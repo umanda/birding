@@ -26,10 +26,10 @@ describe('LanguageToggle', () => {
       </SettingsProvider>,
     );
     const english = await screen.findByLabelText('Language: English');
-    expect(english.props.accessibilityState.selected).toBe(true);
+    expect(english.props.accessibilityState.checked).toBe(true);
 
     fireEvent.press(screen.getByLabelText('Language: සිංහල'));
     expect(await screen.findByText('current:si')).toBeTruthy();
-    expect(screen.getByLabelText('භාෂාව: සිංහල').props.accessibilityState.selected).toBe(true);
+    expect(screen.getByLabelText('භාෂාව: සිංහල').props.accessibilityState.checked).toBe(true);
   });
 });

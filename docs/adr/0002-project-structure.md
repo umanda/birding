@@ -24,7 +24,7 @@ fewest libraries possible. We need si/en now with Tamil-ready strings, plus the 
 ```
 src/
   app/                    Expo Router routes only: thin screens that compose features
-    (tabs)/identify|search|browse|life-list|me ; species/[id].tsx ; plate/[id].tsx ; +html.tsx
+    (tabs)/index (Identify, "/") | search|browse|life-list|me ; species/[id].tsx ; plate/[id].tsx ; +html.tsx
   features/
     identify/             step-by-step questions + ranking (pure: rank.ts)
     search/               search UI; index/query per ADR 0006
