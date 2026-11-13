@@ -25,11 +25,12 @@ describe('LanguageToggle', () => {
         <Harness />
       </SettingsProvider>,
     );
-    const english = await screen.findByLabelText('Language: English');
-    expect(english.props.accessibilityState.checked).toBe(true);
+    expect(
+      await screen.findByRole('radio', { name: 'Language: English', checked: true }),
+    ).toBeTruthy();
 
     fireEvent.press(screen.getByLabelText('Language: සිංහල'));
     expect(await screen.findByText('current:si')).toBeTruthy();
-    expect(screen.getByLabelText('භාෂාව: සිංහල').props.accessibilityState.checked).toBe(true);
+    expect(screen.getByRole('radio', { name: 'භාෂාව: සිංහල', checked: true })).toBeTruthy();
   });
 });

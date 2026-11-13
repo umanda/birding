@@ -38,7 +38,7 @@ export function BrowseScreen(): React.JSX.Element {
           <Pressable
             key={filter}
             accessibilityRole="checkbox"
-            accessibilityState={{ checked: selected }}
+            aria-checked={selected}
             accessibilityLabel={`${t(wordKey)}, ${FILTER_COUNTS[filter]}`}
             onPress={() => setFilters(toggleFilter(filters, filter))}
             style={[

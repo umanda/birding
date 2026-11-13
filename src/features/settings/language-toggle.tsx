@@ -27,7 +27,7 @@ export function LanguageToggle(): React.JSX.Element {
           <Pressable
             key={option}
             accessibilityRole="radio"
-            accessibilityState={{ checked: selected }}
+            aria-checked={selected}
             accessibilityLabel={`${t('language.label')}: ${SEGMENTS[option].name}`}
             onPress={() => setLanguage(option)}
             style={[
