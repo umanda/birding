@@ -14,8 +14,8 @@ Workbook: `data/source/Sri_Lanka_Birds_Mobile_App_Database_v1.xlsx` (export v1.0
 | Species | 295 | `species_id` (e.g. `slb-gallus-lafayettii`) | FK `plate_id`, `plate_order`, English/Sinhala/scientific names |
 | Taxonomy | 295 | `species_id` | AviList 2026, Clements 2026, BirdLife v10 names, Avibase id |
 | Conservation | 295 | `species_id` | Sri Lanka occurrence code, IUCN category, BirdLife URL |
-| Identification | 295 | `species_id` | Description, male/female, juvenile, field tips — **prose, mostly Sinhala** |
-| Distribution | 295 | `species_id` | Distribution & hotspots, seasonality — **prose, mostly Sinhala** |
+| Identification | 295 | `species_id` | Description, male/female, juvenile, field tips — **prose, one language per species: ~267 English, ~28 Sinhala** |
+| Distribution | 295 | `species_id` | Distribution & hotspots, seasonality — **prose, ~278 English, ~17 Sinhala** |
 | Media | 1770 | `media_id` | 6 slots/species (photo/illustration × male/female/juvenile). **All `asset_url` blank**; only search links |
 | Species Sources | 347 | `source_id` | Per-species reference URLs |
 | Reference Sources | 11 | `reference_id` | General references and caveats |
