@@ -7,13 +7,13 @@ import { radius, space } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
 
-type Appearance = {
+export type Appearance = {
   shape: string;
   wordKey: MessageKey;
   color: 'endemic' | 'resident' | 'migrant' | 'textMuted';
 };
 
-export const SINGLE_APPEARANCE: Record<'E' | 'R' | 'M', Appearance> = {
+const SINGLE_APPEARANCE: Record<'E' | 'R' | 'M', Appearance> = {
   E: { shape: '●', wordKey: 'occurrence.endemic', color: 'endemic' },
   R: { shape: '▲', wordKey: 'occurrence.resident', color: 'resident' },
   M: { shape: '◆', wordKey: 'occurrence.migrant', color: 'migrant' },
@@ -21,7 +21,7 @@ export const SINGLE_APPEARANCE: Record<'E' | 'R' | 'M', Appearance> = {
 // Compound codes (R/M, R+M, R+(M)) fall back to a neutral square so we never imply one status.
 const COMPOUND: Appearance = { shape: '■', wordKey: 'occurrence.mixed', color: 'textMuted' };
 
-function appearanceOf(code: OccurrenceCode): Appearance {
+export function appearanceOf(code: OccurrenceCode): Appearance {
   return code === 'E' || code === 'R' || code === 'M' ? SINGLE_APPEARANCE[code] : COMPOUND;
 }
 

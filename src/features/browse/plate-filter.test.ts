@@ -19,6 +19,10 @@ describe('filter param', () => {
     [undefined, []],
     ['', []],
     ['M,E', ['E', 'M']],
+    [
+      ['M', 'E'],
+      ['E', 'M'],
+    ],
     ['E,X,R', ['E', 'R']],
   ] as const)('parses %p', (param, expected) => {
     expect(parseFilters(param)).toEqual(expected);
@@ -79,5 +83,13 @@ describe('with the bundled content', () => {
     expect(endemic.every((row) => row.count > 0)).toBe(true);
     expect(total(['E'])).toBe(35);
     expect(total(['R'])).toBe(countByFilter(species).R);
+  });
+});
+
+describe('buildPlateRows with no matches', () => {
+  it('returns no rows when a filter matches nothing', () => {
+    const plates = getPlates().slice(0, 2);
+    const onlyResident = (): Species[] => [withCode('R')];
+    expect(buildPlateRows(plates, onlyResident, ['E'])).toEqual([]);
   });
 });

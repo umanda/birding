@@ -7,7 +7,7 @@ import type { OccurrenceFilter } from '@/shared/data/content';
 import { SCREEN_PADDING, radius, size, space } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
-import { SINGLE_APPEARANCE } from '@/shared/ui/occurrence-badge';
+import { appearanceOf } from '@/shared/ui/occurrence-badge';
 
 import {
   OCCURRENCE_FILTERS,
@@ -25,7 +25,7 @@ export function BrowseScreen(): React.JSX.Element {
   const { language, t } = useSettings();
   const { colors } = useTheme();
   const router = useRouter();
-  const { occ } = useLocalSearchParams<{ occ?: string }>();
+  const { occ } = useLocalSearchParams<{ occ?: string | string[] }>();
   const filters = parseFilters(occ);
   const rows = buildPlateRows(getPlates(), getSpeciesByPlate, filters);
   const setFilters = (next: OccurrenceFilter[]): void =>
@@ -34,7 +34,7 @@ export function BrowseScreen(): React.JSX.Element {
   const header = (
     <View accessibilityRole="toolbar" accessibilityLabel={t('browse.filters')} style={styles.chips}>
       {OCCURRENCE_FILTERS.map((filter) => {
-        const { shape, wordKey } = SINGLE_APPEARANCE[filter];
+        const { shape, wordKey } = appearanceOf(filter);
         const selected = filters.includes(filter);
         const label = `${shape} ${filter} ${t(wordKey)} ${FILTER_COUNTS[filter]}`;
         return (
@@ -42,7 +42,7 @@ export function BrowseScreen(): React.JSX.Element {
             key={filter}
             accessibilityRole="checkbox"
             accessibilityState={{ checked: selected }}
-            accessibilityLabel={label}
+            accessibilityLabel={`${t(wordKey)}, ${FILTER_COUNTS[filter]}`}
             onPress={() => setFilters(toggleFilter(filters, filter))}
             style={[
               styles.chip,

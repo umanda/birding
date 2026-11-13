@@ -8,8 +8,8 @@ const FILTER_PARAM_SEPARATOR = ',';
 export type PlateRow = { plate: Plate; count: number };
 
 /** Reads the route param; unknown tokens are dropped and order is normalised. */
-export function parseFilters(param: string | undefined): OccurrenceFilter[] {
-  const tokens = (param ?? '').split(FILTER_PARAM_SEPARATOR);
+export function parseFilters(param: string | readonly string[] | undefined): OccurrenceFilter[] {
+  const tokens = [param ?? ''].flat().join(FILTER_PARAM_SEPARATOR).split(FILTER_PARAM_SEPARATOR);
   return OCCURRENCE_FILTERS.filter((filter) => tokens.includes(filter));
 }
 
@@ -21,8 +21,9 @@ export function toggleFilter(
   filters: readonly OccurrenceFilter[],
   filter: OccurrenceFilter,
 ): OccurrenceFilter[] {
-  const without = filters.filter((f) => f !== filter);
-  const next = without.length === filters.length ? [...filters, filter] : without;
+  const next = filters.includes(filter)
+    ? filters.filter((f) => f !== filter)
+    : [...filters, filter];
   return OCCURRENCE_FILTERS.filter((f) => next.includes(f));
 }
 
