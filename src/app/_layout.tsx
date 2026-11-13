@@ -6,7 +6,7 @@ import { SettingsProvider } from '@/features/settings';
 import { keyValueStore } from '@/shared/platform/key-value-store';
 import { fontAssets } from '@/shared/theme/fonts';
 
-// Anchor lets a direct load of /species/<id> go back to the tabs.
+// Anchor lets a direct load of /species/<id> or /plate/<id> go back to the tabs.
 export const unstable_settings = { anchor: '(tabs)' };
 
 export default function RootLayout() {
@@ -21,6 +21,7 @@ export default function RootLayout() {
   return (
     <SettingsProvider store={keyValueStore}>
       <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="plate/[id]" options={{ headerShown: true }} />
         <Stack.Screen name="species/[id]" options={{ headerShown: true }} />
       </Stack>
     </SettingsProvider>
