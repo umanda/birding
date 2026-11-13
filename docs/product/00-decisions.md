@@ -16,3 +16,18 @@ Date: 2026-11-13
 - Photo ID (next stage): on-device vs online model, training data and licences — plan the data now (M/F/juvenile images) so it can feed training later.
 - Public-source images are fine for a private MVP, but each image's source and licence must be recorded so they can be replaced or cleared before public launch.
 - User uploads imply a backend (auth, storage, moderation) — plan for it, likely after MVP.
+
+## Planning answers (2026-11-13)
+
+| # | Topic | Decision |
+|---|---|---|
+| 8 | Sign-in providers | Google only for the web prototype; add Sign in with Apple before iOS release. |
+| 9 | Reviewers | Owner reviews; Ceylon Bird Club contact if available. Agents draft, humans approve translations and traits. |
+| 10 | MVP image sources | Wikimedia Commons and iNaturalist (CC licences); every image recorded in a licence register. |
+| 11 | Plumage slots | Extend beyond male/female/juvenile with breeding/non-breeding and morph where relevant. |
+| 12 | Location | Store rounded location only; never show nest/roost sites; sensitive species ≤ ~10 km precision. |
+| 13 | Checklist authority | Latest Ceylon Bird Club checklist edition (year to be confirmed by owner). |
+| 14 | eBird data | Not used for now; seasonality from the workbook. Revisit eBird terms later. |
+| 15 | Analytics | None in the prototype. |
+| 16 | Photo ID entry point | Hidden until the feature ships. |
+| 17 | Sign-in merge | Local sightings merge into the account automatically. |
