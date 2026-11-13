@@ -3,7 +3,7 @@ const expoFlat = require('eslint-config-expo/flat');
 const prettier = require('eslint-config-prettier/flat');
 
 module.exports = defineConfig([
-  globalIgnores(['dist/', '.expo/', 'coverage/']),
+  globalIgnores(['dist/', '.expo/', 'coverage/', 'playwright-report/', 'test-results/']),
   expoFlat,
   {
     files: ['**/*.{ts,tsx}'],
@@ -16,8 +16,8 @@ module.exports = defineConfig([
     },
   },
   {
-    // Expo Router requires default exports for routes.
-    files: ['src/app/**'],
+    // Expo Router routes and the Playwright config require default exports.
+    files: ['src/app/**', 'playwright.config.ts'],
     rules: { 'import/no-default-export': 'off' },
   },
   {
