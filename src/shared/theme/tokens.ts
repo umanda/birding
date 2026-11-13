@@ -56,4 +56,11 @@ export const SCREEN_PADDING = 16;
 
 export const radius = { sm: 6, md: 12, lg: 20, pill: 999 } as const;
 
-export const size = { touchMin: 44, tabBar: 56, appBar: 56, fab: 56, buttonLg: 56 } as const;
+export const size = {
+  touchMin: 44,
+  tabBar: 56,
+  appBar: 56,
+  fab: 56,
+  buttonLg: 56,
+  rowMin: 56,
+} as const;

@@ -9,25 +9,32 @@ const t = createT('en');
 
 describe('OccurrenceBadge', () => {
   it.each([
-    ['E', '● E Endemic'],
-    ['R', '▲ R Resident'],
-    ['M', '◆ M Migrant'],
-  ] as const)('shows shape, letter and word for %s', async (code, text) => {
-    await render(<OccurrenceBadge code={code} t={t} />);
+    ['E', '● E Endemic', 'E Endemic'],
+    ['R', '▲ R Resident', 'R Resident'],
+    ['M', '◆ M Migrant', 'M Migrant'],
+  ] as const)('shows shape, letter and word for %s', async (code, text, label) => {
+    await render(<OccurrenceBadge code={code} language="en" t={t} />);
     expect(screen.getByText(text)).toBeTruthy();
-    expect(screen.getByLabelText(text.slice(2))).toBeTruthy();
+    expect(screen.getByLabelText(label)).toBeTruthy();
   });
 
   it('shows the exact compound code', async () => {
-    await render(<OccurrenceBadge code="R+(M)" t={t} />);
+    await render(<OccurrenceBadge code="R+(M)" language="en" t={t} />);
     expect(screen.getByText('■ R+(M) Resident + Migrant')).toBeTruthy();
+  });
+
+  it('uses the Sinhala font and its own line height, letting the long label wrap', async () => {
+    await render(<OccurrenceBadge code="R" language="si" t={createT('si')} />);
+    const text = screen.getByText('▲ R ශ්‍රී ලංකාවේ නිතිපතා වාසය කරන');
+    expect(text.props.numberOfLines).toBeUndefined();
+    expect(text).toHaveStyle({ fontFamily: 'NotoSansSinhala_700Bold', lineHeight: 14 * 1.6 });
   });
 });
 
 describe('IucnBadge', () => {
-  it('shows the code with an accessible label', async () => {
-    await render(<IucnBadge category="LC" label="Global status (working value)" />);
+  it('shows the code and labels it with the full name', async () => {
+    await render(<IucnBadge category="LC" language="en" t={t} />);
     expect(screen.getByText('LC')).toBeTruthy();
-    expect(screen.getByLabelText('Global status (working value): LC')).toBeTruthy();
+    expect(screen.getByLabelText('Global status (working value): Least Concern')).toBeTruthy();
   });
 });

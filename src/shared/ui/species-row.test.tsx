@@ -19,7 +19,7 @@ describe('SpeciesRow', () => {
     await render(<SpeciesRow species={species} language="en" t={createT('en')} />);
     expect(screen.getByText('Sri Lanka Junglefowl')).toBeTruthy();
     expect(screen.getByText('වල් කුකුළා')).toBeTruthy();
-    expect(screen.getByText('Gallus lafayettii')).toBeTruthy();
+    expect(screen.getByText('Gallus lafayettii')).toHaveStyle({ fontStyle: 'italic' });
     expect(screen.getByText('● E Endemic')).toBeTruthy();
   });
 
@@ -27,5 +27,11 @@ describe('SpeciesRow', () => {
     const blank = { ...species, names: { ...species.names, si: null } };
     await render(<SpeciesRow species={blank} language="si" t={createT('si')} />);
     expect(screen.getByText('Sri Lanka Junglefowl')).toBeTruthy();
+  });
+
+  it('hides the other-language name when it repeats the primary', async () => {
+    const same = { ...species, names: { ...species.names, si: species.names.en } };
+    await render(<SpeciesRow species={same} language="en" t={createT('en')} />);
+    expect(screen.getAllByText('Sri Lanka Junglefowl')).toHaveLength(1);
   });
 });
