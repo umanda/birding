@@ -6,6 +6,8 @@
   "tabs.lifeList": "මගේ ලැයිස්තුව",
   "tabs.me": "මම",
   "common.notRecorded": "වාර්තා වී නැත",
+  "species.notFound": "විශේෂය හමු නොවීය",
+  "species.goToSearch": "සොයන්න වෙත යන්න",
   "search.results.one": "ප්‍රතිඵල {count}",
   "search.results.other": "ප්‍රතිඵල {count}",
   "occurrence.endemic": "ලංකාවට ආවේණික",

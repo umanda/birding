@@ -39,7 +39,7 @@ Search
 - Given no match, then I see "No match for '<query>'" and a link to Browse plates (no link to step-by-step ID until it exists).
 
 Species detail stub
-- Given I tap a species row, then `/species/<species_id>` shows names (si, en, scientific italic), the occurrence badge (icon + letter + word) and the IUCN badge labelled "Global status (working value)"; nothing else.
+- Given I tap a species row, then `/species/<species_id>` shows names (si, en, scientific italic), the plate title in the UI language (English fallback), the occurrence badge (icon + letter + word) and the IUCN badge labelled "Global status (working value)"; nothing else.
 - Given `names.si` or `iucn_category` is null, then that field reads "Not recorded"; nothing is inferred.
 - Given an unknown species id in the URL, then I see "Species not found" and a link to Search.
 

@@ -6,6 +6,8 @@
   "tabs.lifeList": "Life list",
   "tabs.me": "Me",
   "common.notRecorded": "Not recorded",
+  "species.notFound": "Species not found",
+  "species.goToSearch": "Go to Search",
   "search.results.one": "{count} result",
   "search.results.other": "{count} results",
   "occurrence.endemic": "Endemic",

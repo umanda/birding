@@ -6,6 +6,9 @@ import { SettingsProvider } from '@/features/settings';
 import { keyValueStore } from '@/shared/platform/key-value-store';
 import { fontAssets } from '@/shared/theme/fonts';
 
+// Anchor lets a direct load of /species/<id> go back to the tabs.
+export const unstable_settings = { anchor: '(tabs)' };
+
 export default function RootLayout() {
   const [, error] = useFonts(fontAssets);
 
@@ -17,7 +20,9 @@ export default function RootLayout() {
   // Render immediately: fallback fonts swap in, so static HTML hydrates and nothing blocks.
   return (
     <SettingsProvider store={keyValueStore}>
-      <Stack screenOptions={{ headerShown: false }} />
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="species/[id]" options={{ headerShown: true }} />
+      </Stack>
     </SettingsProvider>
   );
 }
