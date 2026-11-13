@@ -31,5 +31,23 @@ The goal is code a new contributor understands in one read.
 - Validate data at boundaries, trust types inside.
 - No `any`, no swallowed errors, no `console.log` left behind.
 
+## Project conventions (checked in every review)
+- **Files** are kebab-case: `search-index.ts`, `use-theme.ts`.
+- **Types**: `type` aliases, not `interface`; no enums; explicit return types on every export
+  (`React.JSX.Element` for components).
+- **Exports** are named, except the default export each `src/app/**` route needs. Routes stay
+  thin: they re-export a screen from `src/features/<feature>/`.
+- **Boundaries**: `shared/*` never imports `features/*`. Shared UI takes `language` and `t` as props.
+- **Tests** sit next to the code. Never put tests or helpers under `src/app/` (every file there
+  becomes a route).
+- **Text styling**: every `Text` uses `typeStyle(name, language)` from `shared/theme` so Sinhala
+  gets Noto Sans Sinhala and its taller line-height. Never truncate Sinhala (`numberOfLines`).
+- **No raw values**: colours, sizes and spacing come from `tokens.ts` / `useTheme()`.
+- **Accessibility**: roles, labels and state on every interactive element (e.g. radios use
+  `checked`, not `selected`); 44pt minimum targets; colour is never the only signal.
+- **Bundle**: no zod (or other build-time libraries) in client code; use small type guards.
+- **Bird text** (names, status words) comes from the workbook or `content.json` verbatim — never
+  invent Sinhala. New Sinhala UI strings are listed in the PR for native-speaker review.
+
 ## Formatting
 Let the formatter and linter decide. Don't argue style in reviews.
