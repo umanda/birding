@@ -1,6 +1,6 @@
 # 0002 — Project structure, state, i18n and styling
 
-- Status: Proposed
+- Status: Accepted
 - Date: 2026-11-13
 
 ## Context

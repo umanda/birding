@@ -1,6 +1,6 @@
 # 0004 — Media storage, formats, licence register and offline packaging
 
-- Status: Proposed
+- Status: Accepted
 - Date: 2026-11-13
 
 ## Context

@@ -1,6 +1,6 @@
 # 0005 — CI, quality gates and preview deploys
 
-- Status: Proposed
+- Status: Accepted
 - Date: 2026-11-13
 
 ## Context

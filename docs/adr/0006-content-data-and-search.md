@@ -1,6 +1,6 @@
 # 0006 — Content data pipeline, content model, search and user data
 
-- Status: Proposed
+- Status: Accepted
 - Date: 2026-11-13
 
 ## Context

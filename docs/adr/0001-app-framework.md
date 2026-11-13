@@ -1,6 +1,6 @@
 # 0001 — App framework: Expo + React Native (web via react-native-web), Expo Router
 
-- Status: Proposed
+- Status: Accepted
 - Date: 2026-11-13
 
 ## Context
