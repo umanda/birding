@@ -6,3 +6,5 @@ data/
 *.md
 *.html
 content/
+playwright-report/
+test-results/
