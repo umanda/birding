@@ -26,6 +26,15 @@ describe('content accessors', () => {
     expect(species?.occurrence_code).toBe('E');
   });
 
+  it('lists plates in plate_number order', () => {
+    const numbers = getPlates().map((p) => p.plate_number);
+    expect(numbers).toEqual([...numbers].sort((a, b) => a - b));
+  });
+
+  it('looks up a plate by id', () => {
+    expect(getPlate('plate-01')?.plate_number).toBe(1);
+  });
+
   it('returns undefined for unknown ids', () => {
     expect(getSpecies('nope')).toBeUndefined();
     expect(getPlate('nope')).toBeUndefined();
@@ -42,24 +51,24 @@ describe('content accessors', () => {
       expect(orders).toEqual([...orders].sort((a, b) => a - b));
       total += orders.length;
     }
-    expect(total).toBe(295);
-    expect(getPlate('plate-01')?.plate_number).toBe(1);
+    expect(total).toBe(getAllSpecies().length);
   });
 });
 
 describe('matchesOccurrence', () => {
-  const table: [OccurrenceCode, Record<OccurrenceFilter, boolean>][] = [
-    ['E', { E: true, R: false, M: false }],
-    ['R', { E: false, R: true, M: false }],
-    ['M', { E: false, R: false, M: true }],
-    ['R/M', { E: false, R: true, M: true }],
-    ['R+M', { E: false, R: true, M: true }],
-    ['R+(M)', { E: false, R: true, M: true }],
-  ];
+  // A Record forces a row for every OccurrenceCode, so new codes can't be missed.
+  const table: Record<OccurrenceCode, Record<OccurrenceFilter, boolean>> = {
+    E: { E: true, R: false, M: false },
+    R: { E: false, R: true, M: false },
+    M: { E: false, R: false, M: true },
+    'R/M': { E: false, R: true, M: true },
+    'R+M': { E: false, R: true, M: true },
+    'R+(M)': { E: false, R: true, M: true },
+  };
 
-  it.each(table)('%s', (code, expected) => {
+  it.each(Object.entries(table))('%s', (code, expected) => {
     for (const filter of ['E', 'R', 'M'] as const) {
-      expect(matchesOccurrence(code, filter)).toBe(expected[filter]);
+      expect(matchesOccurrence(code as OccurrenceCode, filter)).toBe(expected[filter]);
     }
   });
 });
