@@ -1,4 +1,4 @@
-import { useLocalSearchParams, useRouter } from 'expo-router';
+import { Link, useLocalSearchParams, useRouter } from 'expo-router';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { useSettings } from '@/features/settings';
@@ -18,7 +18,6 @@ import { buildPlateRows, countByFilter, toggleFilter } from './plate-filter';
 
 const FILTER_COUNTS = countByFilter(getAllSpecies());
 
-// Rows do not navigate yet: plate/[id] arrives in slice 8, which will wrap them in a link.
 export function BrowseScreen(): React.JSX.Element {
   const { language, t } = useSettings();
   const { colors } = useTheme();
@@ -90,14 +89,22 @@ export function BrowseScreen(): React.JSX.Element {
       ListHeaderComponent={header}
       ListEmptyComponent={empty}
       renderItem={({ item: { plate, count } }) => (
-        <View style={styles.row}>
-          <Text style={[typeStyle('title', language), { color: colors.text }]}>
-            {`${t('browse.plate', { number: plate.plate_number })} · ${plate.title[language] ?? plate.title.en}`}
-          </Text>
-          <Text style={[typeStyle('body', language), { color: colors.textMuted }]}>
-            {t('browse.species', { count })}
-          </Text>
-        </View>
+        <Link
+          href={{
+            pathname: '/plate/[id]',
+            params: { id: plate.plate_id, occ: serializeFilters(filters) },
+          }}
+          asChild
+        >
+          <Pressable accessibilityRole="link" style={styles.row}>
+            <Text style={[typeStyle('title', language), { color: colors.text }]}>
+              {`${t('browse.plate', { number: plate.plate_number })} · ${plate.title[language] ?? plate.title.en}`}
+            </Text>
+            <Text style={[typeStyle('body', language), { color: colors.textMuted }]}>
+              {t('browse.species', { count })}
+            </Text>
+          </Pressable>
+        </Link>
       )}
     />
   );
