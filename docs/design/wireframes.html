@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sri Lanka Birds — low-fidelity wireframes (Phase 1)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600;700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fff; --surface:#F4F4F2; --box:#D9D9D6; --line:#9A9A96; --text:#1A1A1A; --muted:#555;
+    --primary:#1F5E3B; --endemic:#1B7A3E; --resident:#B45309; --migrant:#1D4ED8;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:24px;background:#E9E9E6;color:var(--text);
+       font-family:"Noto Sans","Noto Sans Sinhala",system-ui,sans-serif;font-size:16px;line-height:1.4}
+  h1{font-size:22px;margin:0 0 4px} .intro{color:var(--muted);margin:0 0 20px;max-width:900px}
+  .row{display:flex;gap:28px;overflow-x:auto;padding-bottom:16px;align-items:flex-start}
+  figure{margin:0;flex:0 0 auto} figcaption{font-weight:700;margin:0 0 8px}
+  .phone{width:360px;height:780px;background:var(--bg);border:2px solid #333;border-radius:28px;
+         overflow:hidden;display:flex;flex-direction:column;position:relative}
+  .appbar{height:56px;display:flex;align-items:center;gap:8px;padding:0 12px;border-bottom:1px solid var(--box)}
+  .appbar .title{flex:1;font-weight:700;font-size:18px}
+  .lang{border:1.5px solid var(--text);border-radius:999px;padding:4px 10px;font-size:14px;min-height:44px;
+        display:flex;align-items:center;font-weight:600}
+  .icon-btn{width:44px;height:44px;border:1px dashed var(--line);border-radius:8px;display:flex;
+            align-items:center;justify-content:center;font-size:12px;color:var(--muted)}
+  .content{flex:1;overflow:hidden;padding:16px;display:flex;flex-direction:column;gap:12px}
+  .tabbar{height:56px;border-top:1px solid var(--box);display:flex}
+  .tabbar div{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;color:var(--muted)}
+  .tabbar div::before{content:"";width:22px;height:22px;border:1.5px solid var(--line);border-radius:6px;margin-bottom:2px}
+  .tabbar .on{color:var(--text);font-weight:700} .tabbar .on::before{background:var(--text);border-color:var(--text)}
+  .ph{background:var(--box);border:1px dashed var(--line);display:flex;align-items:center;justify-content:center;
+      color:#444;font-size:13px;text-align:center;border-radius:8px}
+  .card{border:1.5px solid var(--line);border-radius:12px;padding:12px;background:var(--bg)}
+  .big{min-height:96px;display:flex;align-items:center;gap:12px;font-size:18px;font-weight:700;background:var(--surface)}
+  .big small{display:block;font-weight:400;font-size:14px;color:var(--muted)}
+  .btn{min-height:56px;border-radius:12px;background:var(--primary);color:#fff;font-weight:700;
+       display:flex;align-items:center;justify-content:center;font-size:17px}
+  .btn.sec{background:var(--bg);color:var(--text);border:1.5px solid var(--text)}
+  .field{min-height:48px;border:1.5px solid var(--text);border-radius:12px;display:flex;align-items:center;padding:0 12px;gap:8px}
+  .si{font-family:"Noto Sans Sinhala",sans-serif;line-height:1.7}
+  .sci{font-style:italic;color:var(--muted);font-size:14px}
+  .muted{color:var(--muted);font-size:14px}
+  .badge{display:inline-flex;align-items:center;gap:4px;border-radius:999px;padding:2px 8px;font-size:13px;
+         font-weight:600;color:#fff;line-height:1.5;white-space:nowrap}
+  .E{background:var(--endemic)} .R{background:var(--resident)} .M{background:var(--migrant)}
+  .iucn{background:var(--bg);color:var(--text);border:1.5px solid var(--text)}
+  .srow{display:flex;gap:12px;align-items:flex-start;min-height:72px;padding:8px 0;border-bottom:1px solid var(--box)}
+  .srow .ph{width:56px;height:56px;flex:0 0 56px}
+  .srow .name{font-weight:700}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{min-height:36px;border:1.5px solid var(--line);border-radius:999px;padding:4px 12px;font-size:14px;display:flex;align-items:center}
+  .chip.on{border-color:var(--text);background:var(--surface);font-weight:600}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .ans{min-height:88px;border:1.5px solid var(--line);border-radius:12px;display:flex;flex-direction:column;
+       align-items:center;justify-content:center;gap:4px;font-size:14px;text-align:center;padding:6px}
+  .ans .ph{width:44px;height:30px;font-size:10px}
+  .ans.on{border:3px solid var(--text);background:var(--surface);font-weight:700}
+  .progress{display:flex;gap:4px} .progress i{flex:1;height:6px;border-radius:3px;background:var(--box)}
+  .progress i.on{background:var(--text)}
+  .footer{padding:12px 16px;border-top:1px solid var(--box);background:var(--bg)}
+  .conf{height:8px;background:var(--box);border-radius:4px;overflow:hidden;margin-top:6px}
+  .conf b{display:block;height:100%;background:var(--text)}
+  .tabs{display:flex;border-bottom:1px solid var(--box)}
+  .tabs div{flex:1;min-height:44px;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--muted)}
+  .tabs .on{color:var(--text);font-weight:700;border-bottom:3px solid var(--text)}
+  .fab{position:absolute;right:16px;bottom:72px;min-height:56px;padding:0 20px;border-radius:28px;background:var(--primary);
+       color:#fff;font-weight:700;display:flex;align-items:center;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+  .months{display:grid;grid-template-columns:repeat(12,1fr);gap:2px;font-size:10px;text-align:center}
+  .months span{padding:2px 0;border-radius:3px;background:var(--box)} .months span.y{background:#555;color:#fff}
+  .banner{background:#333;color:#fff;font-size:13px;padding:6px 12px}
+  h3{margin:4px 0 0;font-size:15px}
+  .note{max-width:900px;color:var(--muted);font-size:14px;margin-top:16px}
+</style>
+</head>
+<body>
+<h1>Sri Lanka Birds — low-fidelity wireframes</h1>
+<p class="intro">Phase 1 (Discover). These are grey boxes only and are not a visual design. Each frame is 360×780. The flows, states and tokens are in <code>01-ux-flows.md</code>.
+Occurrence badges always pair colour with a symbol, a letter and a word. Every frame shows the language toggle (<span class="si">සිං</span> | EN). The sample content is in English UI mode. Photo ID is not in the MVP and appears only as a disabled "coming soon" card. There is no sign-in wall, and sign-in is offered only to back up the life list. Status values not supplied for this mock-up are shown as "[from data]" and are never invented.</p>
+
+<div class="row">
+
+<!-- 1. HOME / IDENTIFY -->
+<figure><figcaption>1. Home (Identify tab)</figcaption>
+<div class="phone">
+  <div class="banner">Offline — everything works; backup will sync later</div>
+  <div class="appbar"><div class="title">Identify a bird</div><div class="lang"><span class="si">සිං</span>&nbsp;|&nbsp;EN</div></div>
+  <div class="content">
+    <div class="field"><span class="icon-btn" style="width:24px;height:24px;border:0">⌕</span><span class="muted">Search 295 birds — <span class="si">සිංහල</span> / English / Latin</span></div>
+    <div class="card big"><div class="ph" style="width:56px;height:56px">icon</div><div>Step-by-step ID<small>Answer up to 5 quick questions</small></div></div>
+    <div class="card" style="display:flex;align-items:center;gap:12px;border-style:dashed;color:var(--muted);min-height:56px" aria-disabled="true">
+      <div class="ph" style="width:32px;height:32px;font-size:10px">icon</div><div><b>Photo ID</b> · Coming soon<br><span style="font-size:13px">Coming in a later version</span></div></div>
+    <h3>Recent</h3>
+    <div class="srow"><div class="ph">Thumb</div><div><div class="name">Sri Lanka Junglefowl</div>
+      <div class="si">වලි කුකුළා</div><div class="sci">Gallus lafayettii</div>
+      <span class="badge E">● E Endemic</span></div></div>
+    <div class="srow"><div class="ph">Thumb</div><div><div class="name">Painted Francolin</div>
+      <div class="si">පනන්කුකුළා</div><div class="sci">Francolinus pictus</div>
+      <span class="badge R">▲ R Resident</span></div></div>
+  </div>
+  <div class="tabbar"><div class="on">Identify</div><div>Search</div><div>Browse</div><div>Life list</div><div>Me</div></div>
+</div></figure>
+
+<!-- 2. SEARCH RESULTS -->
+<figure><figcaption>2. Search results (offline, instant)</figcaption>
+<div class="phone">
+  <div class="appbar"><div class="title">Search</div><div class="lang"><span class="si">සිං</span>&nbsp;|&nbsp;EN</div></div>
+  <div class="content">
+    <div class="field"><b>kukul</b><span style="flex:1"></span><span class="icon-btn" style="width:32px;height:32px">✕</span></div>
+    <div class="chips"><div class="chip on">All</div><div class="chip">● E Endemic</div><div class="chip">▲ R Resident</div><div class="chip">◆ M Migrant</div></div>
+    <div class="muted">3 results · matched Sinhala name</div>
+    <div class="srow"><div class="ph">Thumb</div><div><div class="name">Sri Lanka Junglefowl</div>
+      <div class="si">වලි කුකුළා</div><div class="sci">Gallus lafayettii</div>
+      <span class="badge E">● E Endemic</span> <span class="badge iucn">LC</span></div></div>
+    <div class="srow"><div class="ph">Thumb</div><div><div class="name">Sri Lanka Spurfowl</div>
+      <div class="si">වනකුකුළා</div><div class="sci">Galloperdix bicalcarata</div>
+      <span class="badge E">● E Endemic</span> <span class="badge iucn">IUCN [from data]</span></div></div>
+    <div class="srow"><div class="ph">Thumb</div><div><div class="name">Painted Francolin</div>
+      <div class="si">පනන්කුකුළා</div><div class="sci">Francolinus pictus</div>
+      <span class="badge R">▲ R Resident</span> <span class="badge iucn">IUCN [from data]</span></div></div>
+    <div class="card" style="border-style:dashed"><b>No-results state:</b> "No match for 'xyz'". Check the spelling, or <u>Browse plates</u>.</div>
+  </div>
+  <div class="tabbar"><div>Identify</div><div class="on">Search</div><div>Browse</div><div>Life list</div><div>Me</div></div>
+</div></figure>
+
+<!-- 3. SPECIES PAGE -->
+<figure><figcaption>3. Species page</figcaption>
+<div class="phone">
+  <div class="appbar"><div class="icon-btn">Back</div><div class="title"></div><div class="lang"><span class="si">සිං</span>&nbsp;|&nbsp;EN</div></div>
+  <div class="tabs"><div class="on">Male</div><div>Female</div><div>Juvenile</div></div>
+  <div class="ph" style="height:200px;border-radius:0">Male photo</div>
+  <div class="muted" style="padding:2px 16px;font-size:13px">© Photographer name · CC BY-SA 4.0 · source</div>
+  <div class="content" style="padding-top:8px">
+    <div>
+      <div style="font-size:24px;font-weight:700;line-height:1.3">Sri Lanka Junglefowl</div>
+      <div class="si" style="font-size:20px;font-weight:600">වලි කුකුළා</div>
+      <div class="sci">Gallus lafayettii</div>
+    </div>
+    <div class="chips"><span class="badge E">● E Endemic</span><span class="badge iucn">LC · Least Concern</span><span class="badge iucn">Plate [from data]</span></div>
+    <h3>ID tips</h3>
+    <div class="ph" style="height:52px">ID tips text from workbook</div>
+    <h3>Distribution</h3>
+    <div class="ph" style="height:64px">Zone map placeholder</div>
+    <h3>Seasonality</h3>
+    <div class="months"><span class="y">J</span><span class="y">F</span><span class="y">M</span><span class="y">A</span><span class="y">M</span><span class="y">J</span><span class="y">J</span><span class="y">A</span><span class="y">S</span><span class="y">O</span><span class="y">N</span><span class="y">D</span></div>
+    <h3>Similar species</h3>
+    <div style="display:flex;gap:8px"><div class="ph" style="width:96px;height:44px">Spurfowl</div><div class="ph" style="width:96px;height:44px">Francolin</div></div>
+  </div>
+  <div class="fab">+ I saw this</div>
+  <div class="tabbar"><div>Identify</div><div class="on">Search</div><div>Browse</div><div>Life list</div><div>Me</div></div>
+</div></figure>
+
+<!-- 4a. STEP-BY-STEP QUESTION -->
+<figure><figcaption>4a. Step-by-step ID: question 3 of 5</figcaption>
+<div class="phone">
+  <div class="appbar"><div class="icon-btn">Back</div><div class="title">Size</div><div class="lang"><span class="si">සිං</span>&nbsp;|&nbsp;EN</div></div>
+  <div class="content">
+    <div class="progress"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+    <div class="chips"><div class="chip">November ✕</div><div class="chip">Wet zone ✕</div><div class="chip">Forest ✕</div></div>
+    <div style="font-size:20px;font-weight:700">How big was it?</div>
+    <div class="muted">Compare with a bird you know</div>
+    <div class="grid2">
+      <div class="ans"><div class="ph">icon</div>Sparrow-sized</div>
+      <div class="ans"><div class="ph">icon</div>Myna-sized</div>
+      <div class="ans"><div class="ph">icon</div>Crow-sized</div>
+      <div class="ans on"><div class="ph">icon</div>Junglefowl-sized ✓</div>
+      <div class="ans"><div class="ph">icon</div>Egret or bigger</div>
+      <div class="ans"><div class="ph">?</div>Not sure (skip)</div>
+    </div>
+  </div>
+  <div class="footer"><div class="btn">See 4 matches ▸</div></div>
+  <div class="tabbar"><div class="on">Identify</div><div>Search</div><div>Browse</div><div>Life list</div><div>Me</div></div>
+</div></figure>
+
+<!-- 4b. STEP-BY-STEP RESULTS -->
+<figure><figcaption>4b. Step-by-step ID: results</figcaption>
+<div class="phone">
+  <div class="appbar"><div class="icon-btn">Back</div><div class="title">4 matches</div><div class="lang"><span class="si">සිං</span>&nbsp;|&nbsp;EN</div></div>
+  <div class="content">
+    <div class="chips"><div class="chip">November ✕</div><div class="chip">Wet zone ✕</div><div class="chip">Forest ✕</div><div class="chip">Junglefowl-sized ✕</div></div>
+    <div class="muted">Best matches first. Tap ✕ to widen.</div>
+    <div class="srow"><div class="ph">Thumb</div><div><div class="name">Sri Lanka Junglefowl</div>
+      <div class="si">වලි කුකුළා</div><div class="sci">Gallus lafayettii</div><span class="badge E">● E Endemic</span></div></div>
+    <div class="srow"><div class="ph">Thumb</div><div><div class="name">Sri Lanka Spurfowl</div>
+      <div class="si">වනකුකුළා</div><div class="sci">Galloperdix bicalcarata</div><span class="badge E">● E Endemic</span></div></div>
+    <div class="srow"><div class="ph">Thumb</div><div><div class="name">Painted Francolin</div>
+      <div class="si">පනන්කුකුළා</div><div class="sci">Francolinus pictus</div><span class="badge R">▲ R Resident</span></div></div>
+    <div class="srow"><div class="ph">Thumb</div><div><div class="name">(4th match)</div><div class="muted">…</div></div></div>
+  </div>
+  <div class="footer"><div class="btn sec">Answer more questions (2 left)</div></div>
+  <div class="tabbar"><div class="on">Identify</div><div>Search</div><div>Browse</div><div>Life list</div><div>Me</div></div>
+</div></figure>
+
+<!-- 5. ADD SIGHTING (signed out, after first save) -->
+<figure><figcaption>5. Add sighting, saved signed-out (Photo ID moved to next stage)</figcaption>
+<div class="phone">
+  <div class="appbar"><div class="icon-btn">Back</div><div class="title"></div><div class="lang"><span class="si">සිං</span>&nbsp;|&nbsp;EN</div></div>
+  <div class="ph" style="height:150px;border-radius:0">Species page (dimmed behind sheet)</div>
+  <div style="flex:1;border-top:2px solid #333;border-radius:20px 20px 0 0;padding:16px;display:flex;flex-direction:column;gap:12px">
+    <div style="width:40px;height:4px;background:var(--line);border-radius:2px;align-self:center"></div>
+    <div><b style="font-size:18px">Sri Lanka Junglefowl</b> <span class="badge E">● E Endemic</span><div class="si">වලි කුකුළා</div></div>
+    <div class="field"><span class="muted" style="width:56px">Date</span>13 Nov 2026 (today)</div>
+    <div class="field"><span class="muted" style="width:56px">Place</span>Sinharaja · from GPS</div>
+    <div class="field"><span class="muted" style="width:56px">Count</span><span style="flex:1">2</span><span class="icon-btn">−</span><span class="icon-btn">+</span></div>
+    <div class="field" style="min-height:64px;align-items:flex-start;padding-top:10px"><span class="muted">Notes (optional)</span></div>
+    <div class="card" style="background:var(--surface)">✓ <b>Saved on this device.</b>
+      <div class="muted" style="margin:4px 0 8px">Back up your list so you don't lose it if you change phones?</div>
+      <div style="display:flex;gap:8px"><div class="btn sec" style="flex:1;min-height:44px;font-size:15px">Sign in with Google</div>
+      <div style="flex:0 0 96px;min-height:44px;display:flex;align-items:center;justify-content:center;text-decoration:underline">Not now</div></div></div>
+  </div>
+  <div class="tabbar"><div>Identify</div><div class="on">Search</div><div>Browse</div><div>Life list</div><div>Me</div></div>
+</div></figure>
+
+<!-- 6. LIFE LIST -->
+<figure><figcaption>6. Life list</figcaption>
+<div class="phone">
+  <div class="appbar"><div class="title">My life list</div><div class="lang"><span class="si">සිං</span>&nbsp;|&nbsp;EN</div></div>
+  <div class="content">
+    <div class="card" style="display:flex;justify-content:space-around;text-align:center">
+      <div><div style="font-size:24px;font-weight:700">3</div><div class="muted">species</div></div>
+      <div><div style="font-size:24px;font-weight:700">2</div><div class="muted">endemics</div></div>
+      <div><div style="font-size:24px;font-weight:700">5</div><div class="muted">sightings</div></div></div>
+    <div class="chips"><div class="chip on">Recent</div><div class="chip">A–Z</div><div class="chip">By plate</div><div class="chip">Filter ▾</div></div>
+    <div class="muted" style="min-height:44px;display:flex;align-items:center">Saved on this device only ·&nbsp;<u style="color:var(--text)">Back up</u></div>
+    <div class="srow"><div class="ph">Thumb</div><div style="flex:1"><div class="name">Sri Lanka Junglefowl</div>
+      <div class="si">වලි කුකුළා</div><div class="muted">13 Nov 2026 · Sinharaja · 2 birds</div><span class="badge E">● E Endemic</span></div></div>
+    <div class="srow"><div class="ph">Thumb</div><div style="flex:1"><div class="name">Sri Lanka Spurfowl</div>
+      <div class="si">වනකුකුළා</div><div class="muted">12 Nov 2026 · Sinharaja · heard first</div><span class="badge E">● E Endemic</span></div></div>
+    <div class="srow"><div class="ph">Thumb</div><div style="flex:1"><div class="name">Painted Francolin</div>
+      <div class="si">පනන්කුකුළා</div><div class="muted">2 Oct 2026 · Uda Walawe</div><span class="badge R">▲ R Resident</span></div></div>
+  </div>
+  <div class="fab">+ Add sighting</div>
+  <div class="tabbar"><div>Identify</div><div>Search</div><div>Browse</div><div class="on">Life list</div><div>Me</div></div>
+</div></figure>
+
+<!-- 7. SIGN-IN -->
+<figure><figcaption>7. Back up &amp; sync sign-in (optional, from Life list / Me)</figcaption>
+<div class="phone">
+  <div class="appbar"><div class="icon-btn">Close</div><div class="title"></div><div class="lang"><span class="si">සිං</span>&nbsp;|&nbsp;EN</div></div>
+  <div class="content" style="justify-content:center;text-align:center;gap:16px">
+    <div class="ph" style="width:96px;height:96px;margin:0 auto;border-radius:48px">App logo</div>
+    <div style="font-size:22px;font-weight:700">Keep your life list safe</div>
+    <div class="si" style="font-size:18px">ඔබේ ලැයිස්තුව සුරකින්න</div>
+    <div class="muted">Optional. Sign in to back up your sightings and sync them across devices. Your 3 sightings saved on this device will be added to your account. Everything else works without signing in.</div>
+  </div>
+  <div class="footer" style="display:flex;flex-direction:column;gap:10px;border:0">
+    <div class="btn sec"><span class="ph" style="width:24px;height:24px;margin-right:10px;font-size:9px">G</span>Continue with Google</div>
+    <div class="btn sec" style="color:var(--muted);border-style:dashed">More providers later (Apple for iOS)</div>
+    <div style="min-height:44px;display:flex;align-items:center;justify-content:center;text-decoration:underline">Not now: keep on this device</div>
+    <div class="muted" style="text-align:center;font-size:13px">Offline? "Sign-in needs internet. Your list is safe on this device."</div>
+  </div>
+</div></figure>
+
+</div>
+<p class="note">Notes: the frames show no colour other than the badges and the primary button. The Sinhala UI string on the sign-in frame is a placeholder and needs review by a native speaker before use. Species names are taken from the brief and must be checked against the workbook. Photo credit lines are format placeholders only.</p>
+</body>
+</html>
