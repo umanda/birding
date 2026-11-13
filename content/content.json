@@ -1,0 +1,3893 @@
+{
+  "schema_version": 1,
+  "source_file": "Sri_Lanka_Birds_Mobile_App_Database_v1.xlsx",
+  "source_sha256": "452542bba54ab16dfb8e93c286912a50765b82d320a8f417952f0607b9195567",
+  "plates": [
+    {
+      "plate_id": "plate-01",
+      "plate_number": 1,
+      "title": {
+        "en": "Indian Peafowl",
+        "si": "මොනරා"
+      }
+    },
+    {
+      "plate_id": "plate-02",
+      "plate_number": 2,
+      "title": {
+        "en": "Little Grebe",
+        "si": "පුංචි ගෙඹිතිරුවා"
+      }
+    },
+    {
+      "plate_id": "plate-03",
+      "plate_number": 3,
+      "title": {
+        "en": "Common Emerald Dove",
+        "si": "පච්ච කොබෙයියා"
+      }
+    },
+    {
+      "plate_id": "plate-04",
+      "plate_number": 4,
+      "title": {
+        "en": "Green Imperial-pigeon",
+        "si": "නීල මහගොයා"
+      }
+    },
+    {
+      "plate_id": "plate-05",
+      "plate_number": 5,
+      "title": {
+        "en": "Greater Coucal",
+        "si": "ඇටි-කුකුළා"
+      }
+    },
+    {
+      "plate_id": "plate-06",
+      "plate_number": 6,
+      "title": {
+        "en": "Fork-tailed Drongo-cuckoo",
+        "si": "කවුඩු කොහා"
+      }
+    },
+    {
+      "plate_id": "plate-07",
+      "plate_number": 7,
+      "title": {
+        "en": "Hill Swallow",
+        "si": "කඳු වැහිලිහිණියා"
+      }
+    },
+    {
+      "plate_id": "plate-08",
+      "plate_number": 8,
+      "title": {
+        "en": "Eurasian Stone-curlew",
+        "si": "යුරේසියානු ගල්කිරළා"
+      }
+    },
+    {
+      "plate_id": "plate-09",
+      "plate_number": 9,
+      "title": {
+        "en": "Eurasian Oystercatcher",
+        "si": "මට්ටිකාවා"
+      }
+    },
+    {
+      "plate_id": "plate-10",
+      "plate_number": 10,
+      "title": {
+        "en": "Siberian Sand-Plover",
+        "si": "සයිබීරියානු වැලි ඔලෙවියා"
+      }
+    },
+    {
+      "plate_id": "plate-11",
+      "plate_number": 11,
+      "title": {
+        "en": "Eurasian Whimbrel",
+        "si": "යුරේසියා විම්බ්‍රල්"
+      }
+    },
+    {
+      "plate_id": "plate-12",
+      "plate_number": 12,
+      "title": {
+        "en": "Ruddy Turnstone",
+        "si": "රත් ගල්පෙරලියා"
+      }
+    },
+    {
+      "plate_id": "plate-13",
+      "plate_number": 13,
+      "title": {
+        "en": "Red-necked Phalarope",
+        "si": "රතුගෙල පිහිනුම් සිලිබිල්ලා"
+      }
+    },
+    {
+      "plate_id": "plate-14",
+      "plate_number": 14,
+      "title": {
+        "en": "Lesser Crested Tern",
+        "si": "ලෙසර් ක්‍රෙස්ටඩ් මුහුදු වැහිලිහිණියා"
+      }
+    },
+    {
+      "plate_id": "plate-15",
+      "plate_number": 15,
+      "title": {
+        "en": "White-winged Tern",
+        "si": "සුදුපියා කන්ගුල්-ලිහිණියා"
+      }
+    },
+    {
+      "plate_id": "plate-16",
+      "plate_number": 16,
+      "title": {
+        "en": "Eurasian Spoonbill",
+        "si": "යුරේසියා හැඳිආලාවා"
+      }
+    },
+    {
+      "plate_id": "plate-17",
+      "plate_number": 17,
+      "title": {
+        "en": "Oriental Darter",
+        "si": "පෙරදිගු අහිකාවා"
+      }
+    },
+    {
+      "plate_id": "plate-18",
+      "plate_number": 18,
+      "title": {
+        "en": "Indian Pond-heron",
+        "si": "කණ-කොකා"
+      }
+    },
+    {
+      "plate_id": "plate-19",
+      "plate_number": 19,
+      "title": {
+        "en": "Great Egret",
+        "si": "මහ සුදු කොකා"
+      }
+    },
+    {
+      "plate_id": "plate-20",
+      "plate_number": 20,
+      "title": {
+        "en": "Montagu’s Harrier",
+        "si": "මොන්ටගු හරිකුස්සා"
+      }
+    },
+    {
+      "plate_id": "plate-21",
+      "plate_number": 21,
+      "title": {
+        "en": "Black Kite",
+        "si": "කළු පියාකුස්සා"
+      }
+    },
+    {
+      "plate_id": "plate-22",
+      "plate_number": 22,
+      "title": {
+        "en": "Legge’s Hawk-eagle",
+        "si": "මහ කොණ්ඩ රාජාලියා"
+      }
+    },
+    {
+      "plate_id": "plate-23",
+      "plate_number": 23,
+      "title": {
+        "en": "Sri Lanka Frogmouth",
+        "si": "ශ්‍රී ලංකා මැඩිමුහුණා"
+      }
+    },
+    {
+      "plate_id": "plate-24",
+      "plate_number": 24,
+      "title": {
+        "en": "Jungle Nightjar",
+        "si": "කඳුකර බිම්බස්සා"
+      }
+    },
+    {
+      "plate_id": "plate-25",
+      "plate_number": 25,
+      "title": {
+        "en": "Eurasian Hoopoe",
+        "si": "යුරේසියානු කොණ්ඩලාත්තා"
+      }
+    },
+    {
+      "plate_id": "plate-26",
+      "plate_number": 26,
+      "title": {
+        "en": "Blue-eared Kingfisher",
+        "si": "නිල්කන් පිළිහුඩුවා"
+      }
+    },
+    {
+      "plate_id": "plate-27",
+      "plate_number": 27,
+      "title": {
+        "en": "Sri Lanka Crimson-fronted Barbet",
+        "si": "රත්මුහුණත් කොට්ටෝරුවා"
+      }
+    },
+    {
+      "plate_id": "plate-28",
+      "plate_number": 28,
+      "title": {
+        "en": "Streak-throated Woodpecker",
+        "si": "පුංචි කවුරු කෑරලා"
+      }
+    },
+    {
+      "plate_id": "plate-29",
+      "plate_number": 29,
+      "title": {
+        "en": "Jerdon’s Leafbird",
+        "si": "ජර්ඩන්ගේ කොළ කුරුල්ලා"
+      }
+    },
+    {
+      "plate_id": "plate-30",
+      "plate_number": 30,
+      "title": {
+        "en": "Small Minivet",
+        "si": "කුඩා මිනිවිටියා"
+      }
+    },
+    {
+      "plate_id": "plate-31",
+      "plate_number": 31,
+      "title": {
+        "en": "Ashy Drongo",
+        "si": "තහවුරු කළ යුතුයි"
+      }
+    },
+    {
+      "plate_id": "plate-32",
+      "plate_number": 32,
+      "title": {
+        "en": "Cinereous Tit",
+        "si": "මහ ටිකිරිත්තා"
+      }
+    },
+    {
+      "plate_id": "plate-33",
+      "plate_number": 33,
+      "title": {
+        "en": "Jungle Prinia",
+        "si": "වන ප්‍රිනියා"
+      }
+    },
+    {
+      "plate_id": "plate-34",
+      "plate_number": 34,
+      "title": {
+        "en": "Velvet-fronted Nuthatch",
+        "si": "විල්ලුද යටිතුඩුවා"
+      }
+    },
+    {
+      "plate_id": "plate-35",
+      "plate_number": 35,
+      "title": {
+        "en": "Yellow-browed Bulbul",
+        "si": "කහබැම-කොණ්ඩයා"
+      }
+    },
+    {
+      "plate_id": "plate-36",
+      "plate_number": 36,
+      "title": {
+        "en": "Sri Lanka Brown-capped Babbler",
+        "si": "තහවුරු කළ යුතුයි"
+      }
+    },
+    {
+      "plate_id": "plate-37",
+      "plate_number": 37,
+      "title": {
+        "en": "Sri Lanka White-faced Starling",
+        "si": "ශ්‍රී ලංකා වතසුදු ශරිකාවා"
+      }
+    },
+    {
+      "plate_id": "plate-38",
+      "plate_number": 38,
+      "title": {
+        "en": "Indian Blackbird",
+        "si": "තහවුරු කළ යුතුයි"
+      }
+    },
+    {
+      "plate_id": "plate-39",
+      "plate_number": 39,
+      "title": {
+        "en": "Indian Blue Robin",
+        "si": "තහවුරු කළ යුතුයි"
+      }
+    },
+    {
+      "plate_id": "plate-40",
+      "plate_number": 40,
+      "title": {
+        "en": "White-browed Fantail",
+        "si": "සුදුබැම පවන්පෙන්දා"
+      }
+    },
+    {
+      "plate_id": "plate-41",
+      "plate_number": 41,
+      "title": {
+        "en": "Purple Sunbird",
+        "si": "දම් කුඩුකොන්"
+      }
+    },
+    {
+      "plate_id": "plate-42",
+      "plate_number": 42,
+      "title": {
+        "en": "White-rumped Munia",
+        "si": "සුදුපිට වීරිය"
+      }
+    },
+    {
+      "plate_id": "plate-43",
+      "plate_number": 43,
+      "title": {
+        "en": "Western Yellow Wagtail",
+        "si": "කහ-හැලපෙන්දා"
+      }
+    }
+  ],
+  "species": [
+    {
+      "species_id": "slb-francolinus-pictus",
+      "plate_id": "plate-01",
+      "plate_order": 1,
+      "names": {
+        "en": "Painted Francolin",
+        "si": "පනන්කුකුළා",
+        "scientific": "Francolinus pictus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-galloperdix-bicalcarata",
+      "plate_id": "plate-01",
+      "plate_order": 2,
+      "names": {
+        "en": "Sri Lanka Spurfowl",
+        "si": "වනකුකුළා",
+        "scientific": "Galloperdix bicalcarata"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-ortygornis-pondicerianus",
+      "plate_id": "plate-01",
+      "plate_order": 3,
+      "names": {
+        "en": "Gray Francolin",
+        "si": "උස්වටුවා",
+        "scientific": "Ortygornis pondicerianus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-gallus-lafayettii",
+      "plate_id": "plate-01",
+      "plate_order": 4,
+      "names": {
+        "en": "Sri Lanka Junglefowl",
+        "si": "වලි කුකුළා",
+        "scientific": "Gallus lafayettii"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-turnix-suscitator",
+      "plate_id": "plate-01",
+      "plate_order": 5,
+      "names": {
+        "en": "Barred Buttonquail",
+        "si": "බෝලවටුවා",
+        "scientific": "Turnix suscitator"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-synoicus-chinensis",
+      "plate_id": "plate-01",
+      "plate_order": 6,
+      "names": {
+        "en": "Blue-breasted Quail",
+        "si": "නිල් වටුවා",
+        "scientific": "Synoicus chinensis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-pavo-cristatus",
+      "plate_id": "plate-01",
+      "plate_order": 7,
+      "names": {
+        "en": "Indian Peafowl",
+        "si": "මොනරා",
+        "scientific": "Pavo cristatus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-nettapus-coromandelianus",
+      "plate_id": "plate-02",
+      "plate_order": 1,
+      "names": {
+        "en": "Cotton Pygmy-goose",
+        "si": "මල්සේරුවා",
+        "scientific": "Nettapus coromandelianus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-dendrocygna-bicolor",
+      "plate_id": "plate-02",
+      "plate_order": 2,
+      "names": {
+        "en": "Fulvous Whistling-duck",
+        "si": "මහ තඹසේරුවා",
+        "scientific": "Dendrocygna bicolor"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-dendrocygna-javanica",
+      "plate_id": "plate-02",
+      "plate_order": 3,
+      "names": {
+        "en": "Lesser Whistling-duck",
+        "si": "තඹසේරුවා",
+        "scientific": "Dendrocygna javanica"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-anas-poecilorhyncha",
+      "plate_id": "plate-02",
+      "plate_order": 4,
+      "names": {
+        "en": "Indian Spot-billed Duck",
+        "si": "දෙතිත් තාරාවා",
+        "scientific": "Anas poecilorhyncha"
+      },
+      "occurrence_code": "R/M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-mareca-penelope",
+      "plate_id": "plate-02",
+      "plate_order": 5,
+      "names": {
+        "en": "Eurasian Wigeon",
+        "si": "රන්පට තාරාවා",
+        "scientific": "Mareca penelope"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-anas-acuta",
+      "plate_id": "plate-02",
+      "plate_order": 6,
+      "names": {
+        "en": "Northern Pintail",
+        "si": "උල්පෙඳ තාරාවා",
+        "scientific": "Anas acuta"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-spatula-clypeata",
+      "plate_id": "plate-02",
+      "plate_order": 7,
+      "names": {
+        "en": "Northern Shoveler",
+        "si": "පත්තුඩු තාරාවා",
+        "scientific": "Spatula clypeata"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-spatula-querquedula",
+      "plate_id": "plate-02",
+      "plate_order": 8,
+      "names": {
+        "en": "Garganey",
+        "si": "බැමසුදු සේරුවා",
+        "scientific": "Spatula querquedula"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-tachybaptus-ruficollis",
+      "plate_id": "plate-02",
+      "plate_order": 9,
+      "names": {
+        "en": "Little Grebe",
+        "si": "ගෙඹිසේරුවා",
+        "scientific": "Tachybaptus ruficollis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-columba-livia",
+      "plate_id": "plate-03",
+      "plate_order": 1,
+      "names": {
+        "en": "Rock Pigeon",
+        "si": "ගෙල් පරෙවියා",
+        "scientific": "Columba livia"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-columba-torringtoniae",
+      "plate_id": "plate-03",
+      "plate_order": 2,
+      "names": {
+        "en": "Sri Lanka Wood-pigeon",
+        "si": "මයිලගොයා",
+        "scientific": "Columba torringtoniae"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "VU"
+    },
+    {
+      "species_id": "slb-streptopelia-decaocto",
+      "plate_id": "plate-03",
+      "plate_order": 3,
+      "names": {
+        "en": "Eurasian Collared-dove",
+        "si": "මාල කොබෙයියා",
+        "scientific": "Streptopelia decaocto"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-spilopelia-chinensis",
+      "plate_id": "plate-03",
+      "plate_order": 4,
+      "names": {
+        "en": "Spotted Dove",
+        "si": "අළු කොබෙයියා",
+        "scientific": "Spilopelia chinensis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-chalcophaps-indica",
+      "plate_id": "plate-03",
+      "plate_order": 5,
+      "names": {
+        "en": "Common Emerald Dove",
+        "si": "නිල් කොබෙයියා",
+        "scientific": "Chalcophaps indica"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-treron-bicinctus",
+      "plate_id": "plate-04",
+      "plate_order": 1,
+      "names": {
+        "en": "Orange-breasted Green-pigeon",
+        "si": "ලැවන් බටගොයා",
+        "scientific": "Treron bicinctus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-treron-phoenicopterus",
+      "plate_id": "plate-04",
+      "plate_order": 2,
+      "names": {
+        "en": "Yellow-footed Green-pigeon",
+        "si": "පාදක බටගොයා",
+        "scientific": "Treron phoenicopterus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-treron-pompadora",
+      "plate_id": "plate-04",
+      "plate_order": 3,
+      "names": {
+        "en": "Sri Lanka Green-pigeon",
+        "si": "පිතරතු බටගොයා",
+        "scientific": "Treron pompadora"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-ducula-aenea",
+      "plate_id": "plate-04",
+      "plate_order": 4,
+      "names": {
+        "en": "Green Imperial-pigeon",
+        "si": "මහ නිල්ගොයා",
+        "scientific": "Ducula aenea"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-eudynamys-scolopaceus",
+      "plate_id": "plate-05",
+      "plate_order": 1,
+      "names": {
+        "en": "Asian Koel",
+        "si": "කොහා / කොවුලා",
+        "scientific": "Eudynamys scolopaceus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-phaenicophaeus-viridirostris",
+      "plate_id": "plate-05",
+      "plate_order": 2,
+      "names": {
+        "en": "Blue-faced Malkoha",
+        "si": "වතනිල් මල්කොහා",
+        "scientific": "Phaenicophaeus viridirostris"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-phaenicophaeus-pyrrhocephalus",
+      "plate_id": "plate-05",
+      "plate_order": 3,
+      "names": {
+        "en": "Sri Lanka Red-faced Malkoha",
+        "si": "වතරතු මල්කොහා",
+        "scientific": "Phaenicophaeus pyrrhocephalus"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "VU"
+    },
+    {
+      "species_id": "slb-taccocua-leschenaultii",
+      "plate_id": "plate-05",
+      "plate_order": 4,
+      "names": {
+        "en": "Sirkeer Malkoha",
+        "si": "පතන් ඇටි කුකුළා",
+        "scientific": "Taccocua leschenaultii"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-centropus-chlororhynchos",
+      "plate_id": "plate-05",
+      "plate_order": 5,
+      "names": {
+        "en": "Sri Lanka Green-billed Coucal",
+        "si": "බට ඇටි කුකුළා",
+        "scientific": "Centropus chlororhynchos"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "VU"
+    },
+    {
+      "species_id": "slb-centropus-sinensis",
+      "plate_id": "plate-05",
+      "plate_order": 6,
+      "names": {
+        "en": "Greater Coucal",
+        "si": "ඇටි කුකුළා",
+        "scientific": "Centropus sinensis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-clamator-coromandus",
+      "plate_id": "plate-06",
+      "plate_order": 1,
+      "names": {
+        "en": "Chestnut-winged Cuckoo",
+        "si": "රතු කොණ්ඩකොහා",
+        "scientific": "Clamator coromandus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-clamator-jacobinus",
+      "plate_id": "plate-06",
+      "plate_order": 2,
+      "names": {
+        "en": "Jacobin Cuckoo",
+        "si": "කොණ්ඩකොහා",
+        "scientific": "Clamator jacobinus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-hierococcyx-varius",
+      "plate_id": "plate-06",
+      "plate_order": 3,
+      "names": {
+        "en": "Common Hawk-cuckoo",
+        "si": "උකුසු කොහා",
+        "scientific": "Hierococcyx varius"
+      },
+      "occurrence_code": "R/M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-cuculus-micropterus",
+      "plate_id": "plate-06",
+      "plate_order": 4,
+      "names": {
+        "en": "Indian Cuckoo",
+        "si": "කෝකිලයා",
+        "scientific": "Cuculus micropterus"
+      },
+      "occurrence_code": "R/M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-cacomantis-passerinus",
+      "plate_id": "plate-06",
+      "plate_order": 5,
+      "names": {
+        "en": "Grey-bellied Cuckoo",
+        "si": "හීන් කොහා",
+        "scientific": "Cacomantis passerinus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-cacomantis-sonneratii",
+      "plate_id": "plate-06",
+      "plate_order": 6,
+      "names": {
+        "en": "Banded Bay Cuckoo",
+        "si": "වයිරම් කොහා",
+        "scientific": "Cacomantis sonneratii"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-surniculus-dicruroides",
+      "plate_id": "plate-06",
+      "plate_order": 7,
+      "names": {
+        "en": "Fork-tailed Drongo-cuckoo",
+        "si": "කවුඩු කොහා",
+        "scientific": "Surniculus dicruroides"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-aerodramus-unicolor",
+      "plate_id": "plate-07",
+      "plate_order": 1,
+      "names": {
+        "en": "Indian Swiftlet",
+        "si": "කැදලි වැලිහිණියා",
+        "scientific": "Aerodramus unicolor"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-tachymarptis-melba",
+      "plate_id": "plate-07",
+      "plate_order": 2,
+      "names": {
+        "en": "Alpine Swift",
+        "si": "මහ වැලිහිණියා",
+        "scientific": "Tachymarptis melba"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-hirundapus-giganteus",
+      "plate_id": "plate-07",
+      "plate_order": 3,
+      "names": {
+        "en": "Brown-backed Needletail",
+        "si": "කටුපෙඳ වැලිහිණියා",
+        "scientific": "Hirundapus giganteus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-apus-affinis",
+      "plate_id": "plate-07",
+      "plate_order": 4,
+      "names": {
+        "en": "Little Swift",
+        "si": "සුදුපිට වැලිහිණියා",
+        "scientific": "Apus affinis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-cypsiurus-balasiensis",
+      "plate_id": "plate-07",
+      "plate_order": 5,
+      "names": {
+        "en": "Asian Palm-swift",
+        "si": "තල් වැලිහිණියා",
+        "scientific": "Cypsiurus balasiensis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-hemiprocne-coronata",
+      "plate_id": "plate-07",
+      "plate_order": 6,
+      "names": {
+        "en": "Crested Treeswift",
+        "si": "රැක්වැලිහිණියා",
+        "scientific": "Hemiprocne coronata"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-hirundo-rustica",
+      "plate_id": "plate-07",
+      "plate_order": 7,
+      "names": {
+        "en": "Barn Swallow",
+        "si": "වැහිලිහිණියා",
+        "scientific": "Hirundo rustica"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-cecropis-hyperythra",
+      "plate_id": "plate-07",
+      "plate_order": 8,
+      "names": {
+        "en": "Sri Lanka Swallow",
+        "si": "බොරරතු වැහිලිහිණියා",
+        "scientific": "Cecropis hyperythra"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-hirundo-domicola",
+      "plate_id": "plate-07",
+      "plate_order": 9,
+      "names": {
+        "en": "Hill Swallow",
+        "si": "කළු වැහිලිහිණියා",
+        "scientific": "Hirundo domicola"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-amaurornis-phoenicurus",
+      "plate_id": "plate-08",
+      "plate_order": 1,
+      "names": {
+        "en": "White-breasted Waterhen",
+        "si": "කොරවක්කා",
+        "scientific": "Amaurornis phoenicurus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-gallicrex-cinerea",
+      "plate_id": "plate-08",
+      "plate_order": 2,
+      "names": {
+        "en": "Watercock",
+        "si": "මහ විල්කුකුළා",
+        "scientific": "Gallicrex cinerea"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-gallinula-chloropus",
+      "plate_id": "plate-08",
+      "plate_order": 3,
+      "names": {
+        "en": "Common Moorhen",
+        "si": "විල්කුකුළා",
+        "scientific": "Gallinula chloropus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-rallina-eurizonoides",
+      "plate_id": "plate-08",
+      "plate_order": 4,
+      "names": {
+        "en": "Slaty-legged Crake",
+        "si": "දාර කොරවක්කා",
+        "scientific": "Rallina eurizonoides"
+      },
+      "occurrence_code": "R/M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-porphyrio-porphyrio",
+      "plate_id": "plate-08",
+      "plate_order": 5,
+      "names": {
+        "en": "Purple Swamphen",
+        "si": "කිතුලා",
+        "scientific": "Porphyrio porphyrio"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-fulica-atra",
+      "plate_id": "plate-08",
+      "plate_order": 6,
+      "names": {
+        "en": "Eurasian Coot",
+        "si": "ඇළ කිමිදුමා",
+        "scientific": "Fulica atra"
+      },
+      "occurrence_code": "R/M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-esacus-recurvirostris",
+      "plate_id": "plate-08",
+      "plate_order": 7,
+      "names": {
+        "en": "Great Stone-curlew",
+        "si": "මහ ගල්කිරලා",
+        "scientific": "Esacus recurvirostris"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-burhinus-indicus",
+      "plate_id": "plate-08",
+      "plate_order": 8,
+      "names": {
+        "en": "Indian Stone-curlew",
+        "si": "ගල්කිරලා",
+        "scientific": "Burhinus indicus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-dromas-ardeola",
+      "plate_id": "plate-09",
+      "plate_order": 1,
+      "names": {
+        "en": "Crab Plover",
+        "si": "කකුළුඔලෙවියා",
+        "scientific": "Dromas ardeola"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-himantopus-himantopus",
+      "plate_id": "plate-09",
+      "plate_order": 2,
+      "names": {
+        "en": "Black-winged Stilt",
+        "si": "කළු කිරලා",
+        "scientific": "Himantopus himantopus"
+      },
+      "occurrence_code": "R/M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-recurvirostra-avosetta",
+      "plate_id": "plate-09",
+      "plate_order": 3,
+      "names": {
+        "en": "Pied Avocet",
+        "si": "අවසැත්තා",
+        "scientific": "Recurvirostra avosetta"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-vanellus-indicus",
+      "plate_id": "plate-09",
+      "plate_order": 4,
+      "names": {
+        "en": "Red-wattled Lapwing",
+        "si": "කිරලා",
+        "scientific": "Vanellus indicus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-vanellus-malabaricus",
+      "plate_id": "plate-09",
+      "plate_order": 5,
+      "names": {
+        "en": "Yellow-wattled Lapwing",
+        "si": "කහතෙලි කිරලා",
+        "scientific": "Vanellus malabaricus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-haematopus-ostralegus",
+      "plate_id": "plate-09",
+      "plate_order": 6,
+      "names": {
+        "en": "Eurasian Oystercatcher",
+        "si": "මට්ටිකාවා",
+        "scientific": "Haematopus ostralegus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-pluvialis-fulva",
+      "plate_id": "plate-10",
+      "plate_order": 1,
+      "names": {
+        "en": "Pacific Golden Plover",
+        "si": "රන්ඔලෙවියා / රන්වටුවා",
+        "scientific": "Pluvialis fulva"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-pluvialis-squatarola",
+      "plate_id": "plate-10",
+      "plate_order": 2,
+      "names": {
+        "en": "Grey Plover",
+        "si": "අළු මහඔලෙවියා",
+        "scientific": "Pluvialis squatarola"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "VU"
+    },
+    {
+      "species_id": "slb-charadrius-hiaticula",
+      "plate_id": "plate-10",
+      "plate_order": 3,
+      "names": {
+        "en": "Common Ringed Plover",
+        "si": "මහ වළලුඔලෙවියා",
+        "scientific": "Charadrius hiaticula"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-anarhynchus-alexandrinus",
+      "plate_id": "plate-10",
+      "plate_order": 4,
+      "names": {
+        "en": "Kentish Plover",
+        "si": "බෝල ඔලෙවියා",
+        "scientific": "Anarhynchus alexandrinus"
+      },
+      "occurrence_code": "R/M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-thinornis-dubius",
+      "plate_id": "plate-10",
+      "plate_order": 5,
+      "names": {
+        "en": "Little Ringed Plover",
+        "si": "මාඔලෙවියා",
+        "scientific": "Thinornis dubius"
+      },
+      "occurrence_code": "R/M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-anarhynchus-leschenaultii",
+      "plate_id": "plate-10",
+      "plate_order": 6,
+      "names": {
+        "en": "Greater Sand-Plover",
+        "si": "මහ වැලිඔලෙවියා",
+        "scientific": "Anarhynchus leschenaultii"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-anarhynchus-mongolus",
+      "plate_id": "plate-10",
+      "plate_order": 7,
+      "names": {
+        "en": "Siberian Sand-Plover",
+        "si": "තහවුරු කළ යුතුයි",
+        "scientific": "Anarhynchus mongolus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-rostratula-benghalensis",
+      "plate_id": "plate-11",
+      "plate_order": 1,
+      "names": {
+        "en": "Greater Painted-snipe",
+        "si": "මල්කැස්වටුවා",
+        "scientific": "Rostratula benghalensis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-hydrophasianus-chirurgus",
+      "plate_id": "plate-11",
+      "plate_order": 2,
+      "names": {
+        "en": "Pheasant-tailed Jacana",
+        "si": "බළල්සේරුවා",
+        "scientific": "Hydrophasianus chirurgus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-gallinago-stenura",
+      "plate_id": "plate-11",
+      "plate_order": 3,
+      "names": {
+        "en": "Pin-tailed Snipe",
+        "si": "උල්පෙඳ කැස්වටුවා",
+        "scientific": "Gallinago stenura"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-limosa-limosa",
+      "plate_id": "plate-11",
+      "plate_order": 4,
+      "names": {
+        "en": "Black-tailed Godwit",
+        "si": "පෙඳකළු මහවටුවා",
+        "scientific": "Limosa limosa"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-limosa-lapponica",
+      "plate_id": "plate-11",
+      "plate_order": 5,
+      "names": {
+        "en": "Bar-tailed Godwit",
+        "si": "රතු මහවටුවා",
+        "scientific": "Limosa lapponica"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-numenius-arquata",
+      "plate_id": "plate-11",
+      "plate_order": 6,
+      "names": {
+        "en": "Eurasian Curlew",
+        "si": "මහ දැවැටුවා",
+        "scientific": "Numenius arquata"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-numenius-phaeopus",
+      "plate_id": "plate-11",
+      "plate_order": 7,
+      "names": {
+        "en": "Eurasian Whimbrel",
+        "si": "දැවැටුවා",
+        "scientific": "Numenius phaeopus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-tringa-totanus",
+      "plate_id": "plate-12",
+      "plate_order": 1,
+      "names": {
+        "en": "Common Redshank",
+        "si": "පාදරතු සිලිබිල්ලා",
+        "scientific": "Tringa totanus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-tringa-stagnatilis",
+      "plate_id": "plate-12",
+      "plate_order": 2,
+      "names": {
+        "en": "Marsh Sandpiper",
+        "si": "වගුරු සිලිබිල්ලා",
+        "scientific": "Tringa stagnatilis"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-tringa-nebularia",
+      "plate_id": "plate-12",
+      "plate_order": 3,
+      "names": {
+        "en": "Common Greenshank",
+        "si": "මහකොළ සිලිබිල්ලා",
+        "scientific": "Tringa nebularia"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-tringa-ochropus",
+      "plate_id": "plate-12",
+      "plate_order": 4,
+      "names": {
+        "en": "Green Sandpiper",
+        "si": "කොළ සිලිබිල්ලා",
+        "scientific": "Tringa ochropus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-xenus-cinereus",
+      "plate_id": "plate-12",
+      "plate_order": 5,
+      "names": {
+        "en": "Terek Sandpiper",
+        "si": "අවසැත සිලිබිල්ලා",
+        "scientific": "Xenus cinereus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-tringa-glareola",
+      "plate_id": "plate-12",
+      "plate_order": 6,
+      "names": {
+        "en": "Wood Sandpiper",
+        "si": "වන සිලිබිල්ලා",
+        "scientific": "Tringa glareola"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-actitis-hypoleucos",
+      "plate_id": "plate-12",
+      "plate_order": 7,
+      "names": {
+        "en": "Common Sandpiper",
+        "si": "මිටි සිලිබිල්ලා",
+        "scientific": "Actitis hypoleucos"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-arenaria-interpres",
+      "plate_id": "plate-12",
+      "plate_order": 8,
+      "names": {
+        "en": "Ruddy Turnstone",
+        "si": "කැටපෙරලන්නා",
+        "scientific": "Arenaria interpres"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-calidris-alba",
+      "plate_id": "plate-13",
+      "plate_order": 1,
+      "names": {
+        "en": "Sanderling",
+        "si": "තහවුරු කළ යුතුයි",
+        "scientific": "Calidris alba"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-calidris-ferruginea",
+      "plate_id": "plate-13",
+      "plate_order": 2,
+      "names": {
+        "en": "Curlew Sandpiper",
+        "si": "දැවැකෑ සිලිබිල්ලා",
+        "scientific": "Calidris ferruginea"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "VU"
+    },
+    {
+      "species_id": "slb-calidris-minuta",
+      "plate_id": "plate-13",
+      "plate_order": 3,
+      "names": {
+        "en": "Little Stint",
+        "si": "පුංචි සිලිබිල්ලා",
+        "scientific": "Calidris minuta"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-cursorius-coromandelicus",
+      "plate_id": "plate-13",
+      "plate_order": 4,
+      "names": {
+        "en": "Indian Courser",
+        "si": "වැලි කිරලා",
+        "scientific": "Cursorius coromandelicus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-glareola-lactea",
+      "plate_id": "plate-13",
+      "plate_order": 5,
+      "names": {
+        "en": "Small Pratincole",
+        "si": "පුංචි ලිහිණිඔලෙවියා",
+        "scientific": "Glareola lactea"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-glareola-maldivarum",
+      "plate_id": "plate-13",
+      "plate_order": 6,
+      "names": {
+        "en": "Oriental Pratincole",
+        "si": "මහ ලිහිණිඔලෙවියා",
+        "scientific": "Glareola maldivarum"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-phalaropus-lobatus",
+      "plate_id": "plate-13",
+      "plate_order": 7,
+      "names": {
+        "en": "Red-necked Phalarope",
+        "si": "ගෙලරතු දියවටුවා",
+        "scientific": "Phalaropus lobatus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-larus-fuscus",
+      "plate_id": "plate-14",
+      "plate_order": 1,
+      "names": {
+        "en": "Lesser Black-backed Gull",
+        "si": "පිටකළු මුහුදුකපුටා",
+        "scientific": "Larus fuscus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-ichthyaetus-ichthyaetus",
+      "plate_id": "plate-14",
+      "plate_order": 2,
+      "names": {
+        "en": "Pallas’s Gull",
+        "si": "හිසකළු මහමුහුදුකපුටා",
+        "scientific": "Ichthyaetus ichthyaetus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-chroicocephalus-brunnicephalus",
+      "plate_id": "plate-14",
+      "plate_order": 3,
+      "names": {
+        "en": "Brown-headed Gull",
+        "si": "හිසදුඹුරු මුහුදුකපුටා",
+        "scientific": "Chroicocephalus brunnicephalus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-gelochelidon-nilotica",
+      "plate_id": "plate-14",
+      "plate_order": 4,
+      "names": {
+        "en": "Gull-billed Tern",
+        "si": "හිසකළු මුහුදුලිහිණියා",
+        "scientific": "Gelochelidon nilotica"
+      },
+      "occurrence_code": "R/M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-hydroprogne-caspia",
+      "plate_id": "plate-14",
+      "plate_order": 5,
+      "names": {
+        "en": "Caspian Tern",
+        "si": "රත්තුඩු මුහුදුලිහිණියා",
+        "scientific": "Hydroprogne caspia"
+      },
+      "occurrence_code": "R/M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-thalasseus-bengalensis",
+      "plate_id": "plate-14",
+      "plate_order": 6,
+      "names": {
+        "en": "Lesser Crested Tern",
+        "si": "කුඩා කොණ්ඩමුහුදුලිහිණියා",
+        "scientific": "Thalasseus bengalensis"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-thalasseus-bergii",
+      "plate_id": "plate-15",
+      "plate_order": 1,
+      "names": {
+        "en": "Great Crested Tern",
+        "si": "මහ කොණ්ඩමුහුදුලිහිණියා",
+        "scientific": "Thalasseus bergii"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-sterna-dougallii",
+      "plate_id": "plate-15",
+      "plate_order": 2,
+      "names": {
+        "en": "Roseate Tern",
+        "si": "රෝස මුහුදුලිහිණියා",
+        "scientific": "Sterna dougallii"
+      },
+      "occurrence_code": "R/M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-sternula-albifrons",
+      "plate_id": "plate-15",
+      "plate_order": 3,
+      "names": {
+        "en": "Little Tern",
+        "si": "පුංචි මුහුදුලිහිණියා",
+        "scientific": "Sternula albifrons"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-sternula-saundersi",
+      "plate_id": "plate-15",
+      "plate_order": 4,
+      "names": {
+        "en": "Saunders’s Tern",
+        "si": "දුඹුරුපා මුහුදුලිහිණියා",
+        "scientific": "Sternula saundersi"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-onychoprion-anaethetus",
+      "plate_id": "plate-15",
+      "plate_order": 5,
+      "names": {
+        "en": "Bridled Tern",
+        "si": "බැමිදු මුහුදුලිහිණියා",
+        "scientific": "Onychoprion anaethetus"
+      },
+      "occurrence_code": "R/M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-onychoprion-fuscatus",
+      "plate_id": "plate-15",
+      "plate_order": 6,
+      "names": {
+        "en": "Sooty Tern",
+        "si": "දැලි මුහුදුලිහිණියා",
+        "scientific": "Onychoprion fuscatus"
+      },
+      "occurrence_code": "R/M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-chlidonias-hybrida",
+      "plate_id": "plate-15",
+      "plate_order": 7,
+      "names": {
+        "en": "Whiskered Tern",
+        "si": "රැවුල් මුහුදුලිහිණියා",
+        "scientific": "Chlidonias hybrida"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-chlidonias-leucopterus",
+      "plate_id": "plate-15",
+      "plate_order": 8,
+      "names": {
+        "en": "White-winged Tern",
+        "si": "තටුසුදු මුහුදුලිහිණියා",
+        "scientific": "Chlidonias leucopterus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-phoenicopterus-roseus",
+      "plate_id": "plate-16",
+      "plate_order": 1,
+      "names": {
+        "en": "Greater Flamingo",
+        "si": "සියක්කාරයා",
+        "scientific": "Phoenicopterus roseus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-mycteria-leucocephala",
+      "plate_id": "plate-16",
+      "plate_order": 2,
+      "names": {
+        "en": "Painted Stork",
+        "si": "ඇලි මානාවා",
+        "scientific": "Mycteria leucocephala"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-anastomus-oscitans",
+      "plate_id": "plate-16",
+      "plate_order": 3,
+      "names": {
+        "en": "Asian Openbill",
+        "si": "වෙල්ලිහිණි කොකා",
+        "scientific": "Anastomus oscitans"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-ciconia-episcopus",
+      "plate_id": "plate-16",
+      "plate_order": 4,
+      "names": {
+        "en": "Asian Woolly-necked Stork",
+        "si": "පාදිලි මානාවා",
+        "scientific": "Ciconia episcopus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-threskiornis-melanocephalus",
+      "plate_id": "plate-16",
+      "plate_order": 5,
+      "names": {
+        "en": "Black-headed Ibis",
+        "si": "සුදු දෑතුඩුවා",
+        "scientific": "Threskiornis melanocephalus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-plegadis-falcinellus",
+      "plate_id": "plate-16",
+      "plate_order": 6,
+      "names": {
+        "en": "Glossy Ibis",
+        "si": "සිළුටු දෑතුඩුවා",
+        "scientific": "Plegadis falcinellus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-ephippiorhynchus-asiaticus",
+      "plate_id": "plate-16",
+      "plate_order": 7,
+      "names": {
+        "en": "Black-necked Stork",
+        "si": "අලි මානාවා",
+        "scientific": "Ephippiorhynchus asiaticus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-leptoptilos-javanicus",
+      "plate_id": "plate-16",
+      "plate_order": 8,
+      "names": {
+        "en": "Lesser Adjutant",
+        "si": "නටු මානාවා",
+        "scientific": "Leptoptilos javanicus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-platalea-leucorodia",
+      "plate_id": "plate-16",
+      "plate_order": 9,
+      "names": {
+        "en": "Eurasian Spoonbill",
+        "si": "හැඳිආලාවා",
+        "scientific": "Platalea leucorodia"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-pelecanus-philippensis",
+      "plate_id": "plate-17",
+      "plate_order": 1,
+      "names": {
+        "en": "Spot-billed Pelican",
+        "si": "අළු පැස්තුඩුවා",
+        "scientific": "Pelecanus philippensis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-microcarbo-niger",
+      "plate_id": "plate-17",
+      "plate_order": 2,
+      "names": {
+        "en": "Little Cormorant",
+        "si": "පුංචි දියකාවා",
+        "scientific": "Microcarbo niger"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-phalacrocorax-carbo",
+      "plate_id": "plate-17",
+      "plate_order": 3,
+      "names": {
+        "en": "Great Cormorant",
+        "si": "මහ දියකාවා",
+        "scientific": "Phalacrocorax carbo"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-phalacrocorax-fuscicollis",
+      "plate_id": "plate-17",
+      "plate_order": 4,
+      "names": {
+        "en": "Indian Cormorant",
+        "si": "දාර දියකාවා",
+        "scientific": "Phalacrocorax fuscicollis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-anhinga-melanogaster",
+      "plate_id": "plate-17",
+      "plate_order": 5,
+      "names": {
+        "en": "Oriental Darter",
+        "si": "හංකාවා",
+        "scientific": "Anhinga melanogaster"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-botaurus-cinnamomeus",
+      "plate_id": "plate-18",
+      "plate_order": 1,
+      "names": {
+        "en": "Cinnamon Bittern",
+        "si": "තඹල මැටි කොකා",
+        "scientific": "Botaurus cinnamomeus"
+      },
+      "occurrence_code": "R+(M)",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-botaurus-sinensis",
+      "plate_id": "plate-18",
+      "plate_order": 2,
+      "names": {
+        "en": "Yellow Bittern",
+        "si": "කහ මැටි කොකා",
+        "scientific": "Botaurus sinensis"
+      },
+      "occurrence_code": "R+M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-nycticorax-nycticorax",
+      "plate_id": "plate-18",
+      "plate_order": 3,
+      "names": {
+        "en": "Black-crowned Night-heron",
+        "si": "රෑ කොකා",
+        "scientific": "Nycticorax nycticorax"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-botaurus-flavicollis",
+      "plate_id": "plate-18",
+      "plate_order": 4,
+      "names": {
+        "en": "Black Bittern",
+        "si": "කළු මැටි කොකා",
+        "scientific": "Botaurus flavicollis"
+      },
+      "occurrence_code": "R+M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-butorides-atricapilla",
+      "plate_id": "plate-18",
+      "plate_order": 5,
+      "names": {
+        "en": "Little Heron",
+        "si": "කඩොල් කොකා",
+        "scientific": "Butorides atricapilla"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-ardeola-grayii",
+      "plate_id": "plate-18",
+      "plate_order": 6,
+      "names": {
+        "en": "Indian Pond-heron",
+        "si": "කණ කොකා",
+        "scientific": "Ardeola grayii"
+      },
+      "occurrence_code": "R+M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-ardea-cinerea",
+      "plate_id": "plate-19",
+      "plate_order": 1,
+      "names": {
+        "en": "Grey Heron",
+        "si": "කළු කොකා",
+        "scientific": "Ardea cinerea"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-ardea-purpurea",
+      "plate_id": "plate-19",
+      "plate_order": 2,
+      "names": {
+        "en": "Purple Heron",
+        "si": "කරවල් කොකා",
+        "scientific": "Ardea purpurea"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-egretta-gularis",
+      "plate_id": "plate-19",
+      "plate_order": 3,
+      "names": {
+        "en": "Western Reef-Heron",
+        "si": "කඩොල් කොකා",
+        "scientific": "Egretta gularis"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-ardea-coromanda",
+      "plate_id": "plate-19",
+      "plate_order": 4,
+      "names": {
+        "en": "Eastern Cattle Egret",
+        "si": "එළ ගව කොකා",
+        "scientific": "Ardea coromanda"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-egretta-garzetta",
+      "plate_id": "plate-19",
+      "plate_order": 5,
+      "names": {
+        "en": "Little Egret",
+        "si": "පුංචි සුදු කොකා",
+        "scientific": "Egretta garzetta"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-ardea-intermedia",
+      "plate_id": "plate-19",
+      "plate_order": 6,
+      "names": {
+        "en": "Medium Egret",
+        "si": "මැදි සුදු කොකා",
+        "scientific": "Ardea intermedia"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-ardea-alba",
+      "plate_id": "plate-19",
+      "plate_order": 7,
+      "names": {
+        "en": "Great Egret",
+        "si": "මහ සුදු කොකා",
+        "scientific": "Ardea alba"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-icthyophaga-leucogaster",
+      "plate_id": "plate-20",
+      "plate_order": 1,
+      "names": {
+        "en": "White-bellied Sea-eagle",
+        "si": "මුහුදු රාජාලියා",
+        "scientific": "Icthyophaga leucogaster"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-icthyophaga-ichthyaetus",
+      "plate_id": "plate-20",
+      "plate_order": 2,
+      "names": {
+        "en": "Grey-headed Fish-eagle",
+        "si": "වැව් රාජාලියා",
+        "scientific": "Icthyophaga ichthyaetus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-spilornis-cheela",
+      "plate_id": "plate-20",
+      "plate_order": 3,
+      "names": {
+        "en": "Crested Serpent-eagle",
+        "si": "සර්ප රාජාලියා",
+        "scientific": "Spilornis cheela"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-lophotriorchis-kienerii",
+      "plate_id": "plate-20",
+      "plate_order": 4,
+      "names": {
+        "en": "Rufous-bellied Eagle",
+        "si": "බඩරතු රාජාලියා",
+        "scientific": "Lophotriorchis kienerii"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-circus-aeruginosus",
+      "plate_id": "plate-20",
+      "plate_order": 5,
+      "names": {
+        "en": "Western Marsh-harrier",
+        "si": "වගුරු උකුස්සා",
+        "scientific": "Circus aeruginosus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-circus-pygargus",
+      "plate_id": "plate-20",
+      "plate_order": 6,
+      "names": {
+        "en": "Montagu’s Harrier",
+        "si": "අළු වගුරු උකුස්සා",
+        "scientific": "Circus pygargus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-falco-tinnunculus",
+      "plate_id": "plate-21",
+      "plate_order": 1,
+      "names": {
+        "en": "Common Kestrel",
+        "si": "තහවුරු කළ යුතුයි",
+        "scientific": "Falco tinnunculus"
+      },
+      "occurrence_code": "R/M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-elanus-caeruleus",
+      "plate_id": "plate-21",
+      "plate_order": 2,
+      "names": {
+        "en": "Black-winged Kite",
+        "si": "පහන් උකුස්සා",
+        "scientific": "Elanus caeruleus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-falco-peregrinus",
+      "plate_id": "plate-21",
+      "plate_order": 3,
+      "names": {
+        "en": "Peregrine Falcon",
+        "si": "මහ කොණ්ඩ උකුස්සා",
+        "scientific": "Falco peregrinus"
+      },
+      "occurrence_code": "R/M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-haliastur-indus",
+      "plate_id": "plate-21",
+      "plate_order": 4,
+      "names": {
+        "en": "Brahminy Kite",
+        "si": "බමුණු උකුස්සා",
+        "scientific": "Haliastur indus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-pandion-haliaetus",
+      "plate_id": "plate-21",
+      "plate_order": 5,
+      "names": {
+        "en": "Osprey",
+        "si": "මහ උකුස්සා",
+        "scientific": "Pandion haliaetus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-milvus-migrans",
+      "plate_id": "plate-21",
+      "plate_order": 6,
+      "names": {
+        "en": "Black Kite",
+        "si": "කළු උකුස්සා",
+        "scientific": "Milvus migrans"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-tachyspiza-badia",
+      "plate_id": "plate-22",
+      "plate_order": 1,
+      "names": {
+        "en": "Shikra",
+        "si": "කුරුළුගොයා",
+        "scientific": "Tachyspiza badia"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-tachyspiza-virgata",
+      "plate_id": "plate-22",
+      "plate_order": 2,
+      "names": {
+        "en": "Besra",
+        "si": "පුංචි කුරුළුගොයා",
+        "scientific": "Tachyspiza virgata"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-lophospiza-trivirgata",
+      "plate_id": "plate-22",
+      "plate_order": 3,
+      "names": {
+        "en": "Crested Goshawk",
+        "si": "කොණ්ඩ උකුස්සා",
+        "scientific": "Lophospiza trivirgata"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-ictinaetus-malaiensis",
+      "plate_id": "plate-22",
+      "plate_order": 4,
+      "names": {
+        "en": "Black Eagle",
+        "si": "කළු රාජාලියා",
+        "scientific": "Ictinaetus malaiensis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-nisaetus-cirrhatus",
+      "plate_id": "plate-22",
+      "plate_order": 5,
+      "names": {
+        "en": "Changeable Hawk-eagle",
+        "si": "මහ රාජාලියා",
+        "scientific": "Nisaetus cirrhatus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-nisaetus-kelaarti",
+      "plate_id": "plate-22",
+      "plate_order": 6,
+      "names": {
+        "en": "Legge’s Hawk-eagle",
+        "si": "මහ කොණ්ඩ රාජාලියා",
+        "scientific": "Nisaetus kelaarti"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-glaucidium-radiatum",
+      "plate_id": "plate-23",
+      "plate_order": 1,
+      "names": {
+        "en": "Jungle Owlet",
+        "si": "වන බස්සා",
+        "scientific": "Glaucidium radiatum"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-otus-bakkamoena",
+      "plate_id": "plate-23",
+      "plate_order": 2,
+      "names": {
+        "en": "Indian Scops-owl",
+        "si": "බස්සා",
+        "scientific": "Otus bakkamoena"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-otus-sunia",
+      "plate_id": "plate-23",
+      "plate_order": 3,
+      "names": {
+        "en": "Oriental Scops-owl",
+        "si": "පුංචි බස්සා",
+        "scientific": "Otus sunia"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-glaucidium-castanotum",
+      "plate_id": "plate-23",
+      "plate_order": 4,
+      "names": {
+        "en": "Sri Lanka Chestnut-backed Owlet",
+        "si": "මුකලන් බස්සා",
+        "scientific": "Glaucidium castanotum"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-otus-thilohoffmanni",
+      "plate_id": "plate-23",
+      "plate_order": 5,
+      "names": {
+        "en": "Sri Lanka Serendib Scops-owl",
+        "si": "පඩුවන් බස්සා",
+        "scientific": "Otus thilohoffmanni"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "EN"
+    },
+    {
+      "species_id": "slb-ninox-scutulata",
+      "plate_id": "plate-23",
+      "plate_order": 6,
+      "names": {
+        "en": "Brown Boobook",
+        "si": "උකුසු බකමූණා",
+        "scientific": "Ninox scutulata"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-batrachostomus-moniliger",
+      "plate_id": "plate-23",
+      "plate_order": 7,
+      "names": {
+        "en": "Sri Lanka Frogmouth",
+        "si": "ගෙඹිතුඩියා",
+        "scientific": "Batrachostomus moniliger"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-tyto-javanica",
+      "plate_id": "plate-24",
+      "plate_order": 1,
+      "names": {
+        "en": "Eastern Barn Owl",
+        "si": "අළු බකමූණා",
+        "scientific": "Tyto javanica"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-strix-leptogrammica",
+      "plate_id": "plate-24",
+      "plate_order": 2,
+      "names": {
+        "en": "Brown Wood-owl",
+        "si": "වන බකමූණා",
+        "scientific": "Strix leptogrammica"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-ketupa-nipalensis",
+      "plate_id": "plate-24",
+      "plate_order": 3,
+      "names": {
+        "en": "Spot-bellied Eagle-owl",
+        "si": "මහ බකමූණා / උලමා",
+        "scientific": "Ketupa nipalensis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-ketupa-zeylonensis",
+      "plate_id": "plate-24",
+      "plate_order": 4,
+      "names": {
+        "en": "Brown Fish-owl",
+        "si": "මහ බකමූණා",
+        "scientific": "Ketupa zeylonensis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-caprimulgus-asiaticus",
+      "plate_id": "plate-24",
+      "plate_order": 5,
+      "names": {
+        "en": "Indian Nightjar",
+        "si": "පුංචි බිම්බස්සා",
+        "scientific": "Caprimulgus asiaticus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-caprimulgus-atripennis",
+      "plate_id": "plate-24",
+      "plate_order": 6,
+      "names": {
+        "en": "Jerdon's Nightjar",
+        "si": "පෙඳදිග බිම්බස්සා",
+        "scientific": "Caprimulgus atripennis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-caprimulgus-indicus",
+      "plate_id": "plate-24",
+      "plate_order": 7,
+      "names": {
+        "en": "Jungle Nightjar",
+        "si": "කදුර බිම්බස්සා",
+        "scientific": "Caprimulgus indicus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-harpactes-fasciatus",
+      "plate_id": "plate-25",
+      "plate_order": 1,
+      "names": {
+        "en": "Malabar Trogon",
+        "si": "මහගිරි කුරුල්ලා",
+        "scientific": "Harpactes fasciatus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-coracias-benghalensis",
+      "plate_id": "plate-25",
+      "plate_order": 2,
+      "names": {
+        "en": "Indian Roller",
+        "si": "ලීලවර්ණ",
+        "scientific": "Coracias benghalensis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-merops-philippinus",
+      "plate_id": "plate-25",
+      "plate_order": 3,
+      "names": {
+        "en": "Blue-tailed Bee-eater",
+        "si": "මහ කුරුමිනි කුරුල්ලා",
+        "scientific": "Merops philippinus"
+      },
+      "occurrence_code": "R/M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-merops-orientalis",
+      "plate_id": "plate-25",
+      "plate_order": 4,
+      "names": {
+        "en": "Asian Green Bee-eater",
+        "si": "හීන් කුරුමිනි කුරුල්ලා",
+        "scientific": "Merops orientalis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-merops-leschenaulti",
+      "plate_id": "plate-25",
+      "plate_order": 5,
+      "names": {
+        "en": "Chestnut-headed Bee-eater",
+        "si": "කෙතපෙඳ කුරුමිනි කුරුල්ලා",
+        "scientific": "Merops leschenaulti"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-upupa-epops",
+      "plate_id": "plate-25",
+      "plate_order": 6,
+      "names": {
+        "en": "Eurasian Hoopoe",
+        "si": "පොරෝකුරුල්ලා",
+        "scientific": "Upupa epops"
+      },
+      "occurrence_code": "R/M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-pelargopsis-capensis",
+      "plate_id": "plate-26",
+      "plate_order": 1,
+      "names": {
+        "en": "Stork-billed Kingfisher",
+        "si": "මානාතුඩු පිළිහුඩුවා",
+        "scientific": "Pelargopsis capensis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-halcyon-pileata",
+      "plate_id": "plate-26",
+      "plate_order": 2,
+      "names": {
+        "en": "Black-capped Kingfisher",
+        "si": "දම් පිළිහුඩුවා",
+        "scientific": "Halcyon pileata"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "VU"
+    },
+    {
+      "species_id": "slb-halcyon-smyrnensis",
+      "plate_id": "plate-26",
+      "plate_order": 3,
+      "names": {
+        "en": "White-throated Kingfisher",
+        "si": "පිළිහුඩුවා",
+        "scientific": "Halcyon smyrnensis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-ceyx-erithaca",
+      "plate_id": "plate-26",
+      "plate_order": 4,
+      "names": {
+        "en": "Black-backed Dwarf-kingfisher",
+        "si": "රන් පිළිහුඩුවා",
+        "scientific": "Ceyx erithaca"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-alcedo-atthis",
+      "plate_id": "plate-26",
+      "plate_order": 5,
+      "names": {
+        "en": "Common Kingfisher",
+        "si": "මල් පිළිහුඩුවා",
+        "scientific": "Alcedo atthis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-ceryle-rudis",
+      "plate_id": "plate-26",
+      "plate_order": 6,
+      "names": {
+        "en": "Pied Kingfisher",
+        "si": "ගෝමර පිළිහුඩුවා",
+        "scientific": "Ceryle rudis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-alcedo-meninting",
+      "plate_id": "plate-26",
+      "plate_order": 7,
+      "names": {
+        "en": "Blue-eared Kingfisher",
+        "si": "නිල්කන් පිළිහුඩුවා",
+        "scientific": "Alcedo meninting"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-ocyceros-gingalensis",
+      "plate_id": "plate-27",
+      "plate_order": 1,
+      "names": {
+        "en": "Sri Lanka Grey Hornbill",
+        "si": "අළු කෑදැත්තා",
+        "scientific": "Ocyceros gingalensis"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-anthracoceros-coronatus",
+      "plate_id": "plate-27",
+      "plate_order": 2,
+      "names": {
+        "en": "Malabar Pied-Hornbill",
+        "si": "මලබාර් කෑදැත්තා",
+        "scientific": "Anthracoceros coronatus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-psilopogon-zeylanicus",
+      "plate_id": "plate-27",
+      "plate_order": 3,
+      "names": {
+        "en": "Brown-headed Barbet",
+        "si": "පොලොස් කොට්ටෝරුවා / පැනි කොට්ටෝරුවා",
+        "scientific": "Psilopogon zeylanicus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-psilopogon-flavifrons",
+      "plate_id": "plate-27",
+      "plate_order": 4,
+      "names": {
+        "en": "Sri Lanka Yellow-fronted Barbet",
+        "si": "මුකලන් කොට්ටෝරුවා",
+        "scientific": "Psilopogon flavifrons"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-psilopogon-haemacephalus",
+      "plate_id": "plate-27",
+      "plate_order": 5,
+      "names": {
+        "en": "Coppersmith Barbet",
+        "si": "මල් කොට්ටෝරුවා",
+        "scientific": "Psilopogon haemacephalus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-psilopogon-rubricapillus",
+      "plate_id": "plate-27",
+      "plate_order": 6,
+      "names": {
+        "en": "Sri Lanka Crimson-fronted Barbet",
+        "si": "සිනි කොට්ටෝරුවා",
+        "scientific": "Psilopogon rubricapillus"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-yungipicus-nanus",
+      "plate_id": "plate-28",
+      "plate_order": 1,
+      "names": {
+        "en": "Brown-capped Pygmy Woodpecker",
+        "si": "හීන් කෑරලා",
+        "scientific": "Yungipicus nanus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-leiopicus-mahrattensis",
+      "plate_id": "plate-28",
+      "plate_order": 2,
+      "names": {
+        "en": "Yellow-crowned Woodpecker",
+        "si": "ගෝමර කෑරලා",
+        "scientific": "Leiopicus mahrattensis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-micropternus-brachyurus",
+      "plate_id": "plate-28",
+      "plate_order": 3,
+      "names": {
+        "en": "Rufous Woodpecker",
+        "si": "බොර කෑරලා",
+        "scientific": "Micropternus brachyurus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-picus-chlorolophus",
+      "plate_id": "plate-28",
+      "plate_order": 4,
+      "names": {
+        "en": "Lesser Yellownape",
+        "si": "කොළ කෑරලා",
+        "scientific": "Picus chlorolophus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-chrysocolaptes-stricklandi",
+      "plate_id": "plate-28",
+      "plate_order": 5,
+      "names": {
+        "en": "Sri Lanka Crimson-backed Flameback",
+        "si": "මහ රතු කෑරලා",
+        "scientific": "Chrysocolaptes stricklandi"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-dinopium-benghalense",
+      "plate_id": "plate-28",
+      "plate_order": 6,
+      "names": {
+        "en": "Black-rumped Flameback",
+        "si": "රන් කෑරලා",
+        "scientific": "Dinopium benghalense"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-dinopium-psarodes",
+      "plate_id": "plate-28",
+      "plate_order": 7,
+      "names": {
+        "en": "Sri Lanka Red-backed Flameback",
+        "si": "රතු කෑරලා",
+        "scientific": "Dinopium psarodes"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-chrysocolaptes-festivus",
+      "plate_id": "plate-28",
+      "plate_order": 8,
+      "names": {
+        "en": "White-naped Woodpecker",
+        "si": "මහ රතු කෑරලා",
+        "scientific": "Chrysocolaptes festivus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-picus-xanthopygaeus",
+      "plate_id": "plate-28",
+      "plate_order": 9,
+      "names": {
+        "en": "Streak-throated Woodpecker",
+        "si": "ලප කෑරලා",
+        "scientific": "Picus xanthopygaeus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-loriculus-beryllinus",
+      "plate_id": "plate-29",
+      "plate_order": 1,
+      "names": {
+        "en": "Sri Lanka Hanging-parrot",
+        "si": "ගිරා මලිත්තා",
+        "scientific": "Loriculus beryllinus"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-psittacula-eupatria",
+      "plate_id": "plate-29",
+      "plate_order": 2,
+      "names": {
+        "en": "Alexandrine Parakeet",
+        "si": "ලොකු ගිරවා",
+        "scientific": "Psittacula eupatria"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-psittacula-krameri",
+      "plate_id": "plate-29",
+      "plate_order": 3,
+      "names": {
+        "en": "Rose-ringed Parakeet",
+        "si": "මාල ගිරවා / රෑන ගිරවා",
+        "scientific": "Psittacula krameri"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-psittacula-calthrapae",
+      "plate_id": "plate-29",
+      "plate_order": 4,
+      "names": {
+        "en": "Sri Lanka Layard’s Parakeet",
+        "si": "අළු ගිරවා",
+        "scientific": "Psittacula calthrapae"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-psittacula-cyanocephala",
+      "plate_id": "plate-29",
+      "plate_order": 5,
+      "names": {
+        "en": "Plum-headed Parakeet",
+        "si": "රතු ගිරවා",
+        "scientific": "Psittacula cyanocephala"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-chloropsis-aurifrons",
+      "plate_id": "plate-29",
+      "plate_order": 6,
+      "names": {
+        "en": "Golden-fronted Leafbird",
+        "si": "රන් නළල් ගිරාමලිත්තා",
+        "scientific": "Chloropsis aurifrons"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-chloropsis-jerdoni",
+      "plate_id": "plate-29",
+      "plate_order": 7,
+      "names": {
+        "en": "Jerdon’s Leafbird",
+        "si": "ගෙලනිල් ගිරාමලිත්තා",
+        "scientific": "Chloropsis jerdoni"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-artamus-fuscus",
+      "plate_id": "plate-30",
+      "plate_order": 1,
+      "names": {
+        "en": "Ashy Woodswallow",
+        "si": "කල්පිහිල්ලා",
+        "scientific": "Artamus fuscus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-coracina-macei",
+      "plate_id": "plate-30",
+      "plate_order": 2,
+      "names": {
+        "en": "Indian Cuckooshrike",
+        "si": "මහ කොවුල්කැරලියා",
+        "scientific": "Coracina macei"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-lalage-melanoptera",
+      "plate_id": "plate-30",
+      "plate_order": 3,
+      "names": {
+        "en": "Black-headed Cuckooshrike",
+        "si": "සිහිනළු කොවුල්කැරලියා",
+        "scientific": "Lalage melanoptera"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-hemipus-picatus",
+      "plate_id": "plate-30",
+      "plate_order": 4,
+      "names": {
+        "en": "Bar-winged Flycatcher-shrike",
+        "si": "පුංචි කොවුල්කැරලියා",
+        "scientific": "Hemipus picatus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-aegithina-tiphia",
+      "plate_id": "plate-30",
+      "plate_order": 5,
+      "names": {
+        "en": "Common Iora",
+        "si": "කහකුරුල්ලා",
+        "scientific": "Aegithina tiphia"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-pericrocotus-flammeus",
+      "plate_id": "plate-30",
+      "plate_order": 6,
+      "names": {
+        "en": "Scarlet Minivet",
+        "si": "ගිනිකුරුල්ලා",
+        "scientific": "Pericrocotus flammeus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-pericrocotus-cinnamomeus",
+      "plate_id": "plate-30",
+      "plate_order": 7,
+      "names": {
+        "en": "Small Minivet",
+        "si": "හීන් ගිනිකුරුල්ලා",
+        "scientific": "Pericrocotus cinnamomeus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-lanius-cristatus",
+      "plate_id": "plate-31",
+      "plate_order": 1,
+      "names": {
+        "en": "Brown Shrike",
+        "si": "දුඹුරු ඇස්පිච්චා",
+        "scientific": "Lanius cristatus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-lanius-schach",
+      "plate_id": "plate-31",
+      "plate_order": 2,
+      "names": {
+        "en": "Long-tailed Shrike",
+        "si": "රතු ඇස්පිච්චා",
+        "scientific": "Lanius schach"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-tephrodornis-affinis",
+      "plate_id": "plate-31",
+      "plate_order": 3,
+      "names": {
+        "en": "Sri Lanka Wood-shrike",
+        "si": "වන කොවුල්කැරලියා",
+        "scientific": "Tephrodornis affinis"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-dicrurus-paradiseus",
+      "plate_id": "plate-31",
+      "plate_order": 4,
+      "names": {
+        "en": "Greater Racket-tailed Drongo",
+        "si": "මහ කවුඩා",
+        "scientific": "Dicrurus paradiseus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-dicrurus-lophorinus",
+      "plate_id": "plate-31",
+      "plate_order": 5,
+      "names": {
+        "en": "Sri Lanka Drongo",
+        "si": "කොණ්ඩා කවුඩා",
+        "scientific": "Dicrurus lophorinus"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-dicrurus-macrocercus",
+      "plate_id": "plate-31",
+      "plate_order": 6,
+      "names": {
+        "en": "Black Drongo",
+        "si": "කළු කවුඩා",
+        "scientific": "Dicrurus macrocercus"
+      },
+      "occurrence_code": "R/M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-dicrurus-caerulescens",
+      "plate_id": "plate-31",
+      "plate_order": 7,
+      "names": {
+        "en": "White-bellied Drongo",
+        "si": "කවුඩා",
+        "scientific": "Dicrurus caerulescens"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-dicrurus-leucophaeus",
+      "plate_id": "plate-31",
+      "plate_order": 8,
+      "names": {
+        "en": "Ashy Drongo",
+        "si": "අළු කවුඩා",
+        "scientific": "Dicrurus leucophaeus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-oriolus-xanthornus",
+      "plate_id": "plate-32",
+      "plate_order": 1,
+      "names": {
+        "en": "Black-hooded Oriole",
+        "si": "කහකුරුල්ලා",
+        "scientific": "Oriolus xanthornus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-urocissa-ornata",
+      "plate_id": "plate-32",
+      "plate_order": 2,
+      "names": {
+        "en": "Sri Lanka Blue Magpie",
+        "si": "කැහිබෙල්ලා",
+        "scientific": "Urocissa ornata"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "VU"
+    },
+    {
+      "species_id": "slb-corvus-splendens",
+      "plate_id": "plate-32",
+      "plate_order": 3,
+      "names": {
+        "en": "House Crow",
+        "si": "කොළඹ කපුටා",
+        "scientific": "Corvus splendens"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-corvus-macrorhynchos",
+      "plate_id": "plate-32",
+      "plate_order": 4,
+      "names": {
+        "en": "Large-billed Crow",
+        "si": "කළු කපුටා",
+        "scientific": "Corvus macrorhynchos"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-pitta-brachyura",
+      "plate_id": "plate-32",
+      "plate_order": 5,
+      "names": {
+        "en": "Indian Pitta",
+        "si": "අවිච්චියා",
+        "scientific": "Pitta brachyura"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-parus-cinereus",
+      "plate_id": "plate-32",
+      "plate_order": 6,
+      "names": {
+        "en": "Cinereous Tit",
+        "si": "අළු පිටිතුඩුවා",
+        "scientific": "Parus cinereus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-orthotomus-sutorius",
+      "plate_id": "plate-33",
+      "plate_order": 1,
+      "names": {
+        "en": "Common Tailorbird",
+        "si": "බට්ටිච්චා",
+        "scientific": "Orthotomus sutorius"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-prinia-inornata",
+      "plate_id": "plate-33",
+      "plate_order": 2,
+      "names": {
+        "en": "Plain Prinia",
+        "si": "බැමසුදු හම්බුකුරුල්ලා",
+        "scientific": "Prinia inornata"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-cisticola-juncidis",
+      "plate_id": "plate-33",
+      "plate_order": 3,
+      "names": {
+        "en": "Zitting Cisticola",
+        "si": "දාර හම්බුකුරුල්ලා",
+        "scientific": "Cisticola juncidis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-prinia-hodgsonii",
+      "plate_id": "plate-33",
+      "plate_order": 4,
+      "names": {
+        "en": "Grey-breasted Prinia",
+        "si": "උසපෙඳ හම්බුකුරුල්ලා",
+        "scientific": "Prinia hodgsonii"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-prinia-socialis",
+      "plate_id": "plate-33",
+      "plate_order": 5,
+      "names": {
+        "en": "Ashy Prinia",
+        "si": "හීන් හම්බුකුරුල්ලා",
+        "scientific": "Prinia socialis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-prinia-sylvatica",
+      "plate_id": "plate-33",
+      "plate_order": 6,
+      "names": {
+        "en": "Jungle Prinia",
+        "si": "කුඩා හම්බුකුරුල්ලා",
+        "scientific": "Prinia sylvatica"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-acrocephalus-dumetorum",
+      "plate_id": "plate-34",
+      "plate_order": 1,
+      "names": {
+        "en": "Blyth’s Reed-warbler",
+        "si": "පඳුරු හම්බුකුරුල්ලා",
+        "scientific": "Acrocephalus dumetorum"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-acrocephalus-stentoreus",
+      "plate_id": "plate-34",
+      "plate_order": 2,
+      "names": {
+        "en": "Clamorous Reed-warbler",
+        "si": "මහ හම්බුකුරුල්ලා",
+        "scientific": "Acrocephalus stentoreus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-phylloscopus-magnirostris",
+      "plate_id": "plate-34",
+      "plate_order": 3,
+      "names": {
+        "en": "Large-billed Leaf-warbler",
+        "si": "මහතුඩු හම්බුකුරුල්ලා",
+        "scientific": "Phylloscopus magnirostris"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-phylloscopus-trochiloides",
+      "plate_id": "plate-34",
+      "plate_order": 4,
+      "names": {
+        "en": "Greenish Warbler",
+        "si": "පලාත් හම්බුකුරුල්ලා",
+        "scientific": "Phylloscopus trochiloides"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-elaphrornis-palliseri",
+      "plate_id": "plate-34",
+      "plate_order": 5,
+      "names": {
+        "en": "Sri Lanka Bush Warbler",
+        "si": "කළු හම්බුකුරුල්ලා",
+        "scientific": "Elaphrornis palliseri"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-sitta-frontalis",
+      "plate_id": "plate-34",
+      "plate_order": 6,
+      "names": {
+        "en": "Velvet-fronted Nuthatch",
+        "si": "නිල් පෑකුඹුරැල්ලා",
+        "scientific": "Sitta frontalis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-rubigula-melanictera",
+      "plate_id": "plate-35",
+      "plate_order": 1,
+      "names": {
+        "en": "Sri Lanka Black-capped Bulbul",
+        "si": "සිහිනළු කොණ්ඩයා",
+        "scientific": "Rubigula melanictera"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-pycnonotus-penicillatus",
+      "plate_id": "plate-35",
+      "plate_order": 2,
+      "names": {
+        "en": "Sri Lanka Yellow-eared Bulbul",
+        "si": "රන් කොණ්ඩයා",
+        "scientific": "Pycnonotus penicillatus"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-pycnonotus-cafer",
+      "plate_id": "plate-35",
+      "plate_order": 3,
+      "names": {
+        "en": "Red-vented Bulbul",
+        "si": "කොණ්ඩයා",
+        "scientific": "Pycnonotus cafer"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-hypsipetes-ganeesa",
+      "plate_id": "plate-35",
+      "plate_order": 4,
+      "names": {
+        "en": "Square-tailed Bulbul",
+        "si": "කළු කොණ්ඩයා",
+        "scientific": "Hypsipetes ganeesa"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-pycnonotus-luteolus",
+      "plate_id": "plate-35",
+      "plate_order": 5,
+      "names": {
+        "en": "White-browed Bulbul",
+        "si": "හෙළසුදු කොණ්ඩයා",
+        "scientific": "Pycnonotus luteolus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-acritillas-indica",
+      "plate_id": "plate-35",
+      "plate_order": 6,
+      "names": {
+        "en": "Yellow-browed Bulbul",
+        "si": "කහ කොණ්ඩයා",
+        "scientific": "Acritillas indica"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-pomatorhinus-melanurus",
+      "plate_id": "plate-36",
+      "plate_order": 1,
+      "names": {
+        "en": "Sri Lanka Scimitar-babbler",
+        "si": "දැවැටි දෙමලිච්චා",
+        "scientific": "Pomatorhinus melanurus"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-chrysomma-sinense",
+      "plate_id": "plate-36",
+      "plate_order": 2,
+      "names": {
+        "en": "Yellow-eyed Babbler",
+        "si": "ඇස්කණ දෙමලිච්චා",
+        "scientific": "Chrysomma sinense"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-dumetia-hyperythra",
+      "plate_id": "plate-36",
+      "plate_order": 3,
+      "names": {
+        "en": "Tawny-bellied Babbler",
+        "si": "ගොළු දෙමලිච්චා",
+        "scientific": "Dumetia hyperythra"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-dumetia-atriceps",
+      "plate_id": "plate-36",
+      "plate_order": 4,
+      "names": {
+        "en": "Dark-fronted Babbler",
+        "si": "සිහිනළු දෙමලිච්චා",
+        "scientific": "Dumetia atriceps"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-argya-rufescens",
+      "plate_id": "plate-36",
+      "plate_order": 5,
+      "names": {
+        "en": "Sri Lanka Orange-billed Babbler",
+        "si": "රතු දෙමලිච්චා",
+        "scientific": "Argya rufescens"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-argya-cinereifrons",
+      "plate_id": "plate-36",
+      "plate_order": 6,
+      "names": {
+        "en": "Sri Lanka Ashy-headed Laughing-thrush",
+        "si": "සිහිනළු දෙමලිච්චා",
+        "scientific": "Argya cinereifrons"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "VU"
+    },
+    {
+      "species_id": "slb-argya-affinis",
+      "plate_id": "plate-36",
+      "plate_order": 7,
+      "names": {
+        "en": "Yellow-billed Babbler",
+        "si": "කහතුඩු දෙමලිච්චා",
+        "scientific": "Argya affinis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-pellorneum-fuscocapillus",
+      "plate_id": "plate-36",
+      "plate_order": 8,
+      "names": {
+        "en": "Sri Lanka Brown-capped Babbler",
+        "si": "පිටිසුදු දෙමලිච්චා",
+        "scientific": "Pellorneum fuscocapillus"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-gracula-indica",
+      "plate_id": "plate-37",
+      "plate_order": 1,
+      "names": {
+        "en": "Common Hill Myna",
+        "si": "කන්ටමියා",
+        "scientific": "Gracula indica"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-gracula-ptilogenys",
+      "plate_id": "plate-37",
+      "plate_order": 2,
+      "names": {
+        "en": "Sri Lanka Myna",
+        "si": "මුකලන් සැළලිහිණියා",
+        "scientific": "Gracula ptilogenys"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-acridotheres-tristis",
+      "plate_id": "plate-37",
+      "plate_order": 3,
+      "names": {
+        "en": "Common Myna",
+        "si": "මයිනා",
+        "scientific": "Acridotheres tristis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-pastor-roseus",
+      "plate_id": "plate-37",
+      "plate_order": 4,
+      "names": {
+        "en": "Rosy Starling",
+        "si": "රෝස මයිනා",
+        "scientific": "Pastor roseus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-sturnia-pagodarum",
+      "plate_id": "plate-37",
+      "plate_order": 5,
+      "names": {
+        "en": "Brahminy Starling",
+        "si": "බමුණු මයිනා",
+        "scientific": "Sturnia pagodarum"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-sturnornis-albofrontatus",
+      "plate_id": "plate-37",
+      "plate_order": 6,
+      "names": {
+        "en": "Sri Lanka White-faced Starling",
+        "si": "පිහිඹු මයිනා",
+        "scientific": "Sturnornis albofrontatus"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "VU"
+    },
+    {
+      "species_id": "slb-geokichla-citrina",
+      "plate_id": "plate-38",
+      "plate_order": 1,
+      "names": {
+        "en": "Orange-headed Thrush",
+        "si": "තැඹිලි වල්අවිච්චියා",
+        "scientific": "Geokichla citrina"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-geokichla-wardii",
+      "plate_id": "plate-38",
+      "plate_order": 2,
+      "names": {
+        "en": "Pied Thrush",
+        "si": "ගොමර වල්අවිච්චියා",
+        "scientific": "Geokichla wardii"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-zoothera-imbricata",
+      "plate_id": "plate-38",
+      "plate_order": 3,
+      "names": {
+        "en": "Sri Lanka Thrush",
+        "si": "පෙතිගොමර වල්අවිච්චියා",
+        "scientific": "Zoothera imbricata"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-myophonus-blighi",
+      "plate_id": "plate-38",
+      "plate_order": 4,
+      "names": {
+        "en": "Sri Lanka Whistling-thrush",
+        "si": "අරංගයා",
+        "scientific": "Myophonus blighi"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "EN"
+    },
+    {
+      "species_id": "slb-geokichla-spiloptera",
+      "plate_id": "plate-38",
+      "plate_order": 5,
+      "names": {
+        "en": "Sri Lanka Spot-winged Thrush",
+        "si": "පුල්ලි වල්අවිච්චියා",
+        "scientific": "Geokichla spiloptera"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-turdus-simillimus",
+      "plate_id": "plate-38",
+      "plate_order": 6,
+      "names": {
+        "en": "Indian Blackbird",
+        "si": "කළු කුරුල්ලා",
+        "scientific": "Turdus simillimus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-saxicola-caprata",
+      "plate_id": "plate-39",
+      "plate_order": 1,
+      "names": {
+        "en": "Pied Bushchat",
+        "si": "කළු සිටිබිච්චා",
+        "scientific": "Saxicola caprata"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-copsychus-leggei",
+      "plate_id": "plate-39",
+      "plate_order": 2,
+      "names": {
+        "en": "Sri Lanka Shama",
+        "si": "කළු පොල්කිච්චා",
+        "scientific": "Copsychus leggei"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-copsychus-saularis",
+      "plate_id": "plate-39",
+      "plate_order": 3,
+      "names": {
+        "en": "Oriental Magpie-robin",
+        "si": "පොල්කිච්චා",
+        "scientific": "Copsychus saularis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-copsychus-fulicatus",
+      "plate_id": "plate-39",
+      "plate_order": 4,
+      "names": {
+        "en": "Indian Robin",
+        "si": "කළු පොල්කිච්චා",
+        "scientific": "Copsychus fulicatus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-larvivora-brunnea",
+      "plate_id": "plate-39",
+      "plate_order": 5,
+      "names": {
+        "en": "Indian Blue Robin",
+        "si": "නිල් පොල්කිච්චා",
+        "scientific": "Larvivora brunnea"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-hypothymis-azurea",
+      "plate_id": "plate-40",
+      "plate_order": 1,
+      "names": {
+        "en": "Black-naped Monarch",
+        "si": "නිල් මැසිමාරා",
+        "scientific": "Hypothymis azurea"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-terpsiphone-paradisi",
+      "plate_id": "plate-40",
+      "plate_order": 2,
+      "names": {
+        "en": "Indian Paradise-flycatcher",
+        "si": "සිවුරුහොරා / සුදුරෙදිහොරා",
+        "scientific": "Terpsiphone paradisi"
+      },
+      "occurrence_code": "R/M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-muscicapa-muttui",
+      "plate_id": "plate-40",
+      "plate_order": 3,
+      "names": {
+        "en": "Brown-breasted Flycatcher",
+        "si": "ලාදුඹුරු මැසිමාරා",
+        "scientific": "Muscicapa muttui"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-muscicapa-dauurica",
+      "plate_id": "plate-40",
+      "plate_order": 4,
+      "names": {
+        "en": "Asian Brown Flycatcher",
+        "si": "දුඹුරු මැසිමාරා",
+        "scientific": "Muscicapa dauurica"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-culicicapa-ceylonensis",
+      "plate_id": "plate-40",
+      "plate_order": 5,
+      "names": {
+        "en": "Grey-headed Canary-flycatcher",
+        "si": "පිහිඹියා මැසිමාරා",
+        "scientific": "Culicicapa ceylonensis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-ficedula-subrubra",
+      "plate_id": "plate-40",
+      "plate_order": 6,
+      "names": {
+        "en": "Kashmir Flycatcher",
+        "si": "කාශ්මීර මැසිමාරා",
+        "scientific": "Ficedula subrubra"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "VU"
+    },
+    {
+      "species_id": "slb-eumyias-sordidus",
+      "plate_id": "plate-40",
+      "plate_order": 7,
+      "names": {
+        "en": "Sri Lanka Dull-blue Flycatcher",
+        "si": "අළුනිල් මැසිමාරා",
+        "scientific": "Eumyias sordidus"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-cyornis-tickelliae",
+      "plate_id": "plate-40",
+      "plate_order": 8,
+      "names": {
+        "en": "Tickell’s Blue-flycatcher",
+        "si": "ලපනිල් මැසිමාරා",
+        "scientific": "Cyornis tickelliae"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-rhipidura-aureola",
+      "plate_id": "plate-40",
+      "plate_order": 9,
+      "names": {
+        "en": "White-browed Fantail",
+        "si": "අළුපැහැ මැසිමාරා",
+        "scientific": "Rhipidura aureola"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-zosterops-ceylonensis",
+      "plate_id": "plate-41",
+      "plate_order": 1,
+      "names": {
+        "en": "Sri Lanka White-eye",
+        "si": "කළු මල්කැරැල්ල",
+        "scientific": "Zosterops ceylonensis"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-zosterops-palpebrosus",
+      "plate_id": "plate-41",
+      "plate_order": 2,
+      "names": {
+        "en": "Indian White-eye",
+        "si": "හීන් මල්කැරැල්ල",
+        "scientific": "Zosterops palpebrosus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-pachyglossa-vincens",
+      "plate_id": "plate-41",
+      "plate_order": 3,
+      "names": {
+        "en": "Sri Lanka Legge’s Flowerpecker",
+        "si": "නිල් පිළිඹිඹුවා",
+        "scientific": "Pachyglossa vincens"
+      },
+      "occurrence_code": "E",
+      "iucn_category": "NT"
+    },
+    {
+      "species_id": "slb-pachyglossa-agilis",
+      "plate_id": "plate-41",
+      "plate_order": 4,
+      "names": {
+        "en": "Thick-billed Flowerpecker",
+        "si": "ලොකු පිළිඹිඹුවා",
+        "scientific": "Pachyglossa agilis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-dicaeum-erythrorhynchos",
+      "plate_id": "plate-41",
+      "plate_order": 5,
+      "names": {
+        "en": "Pale-billed Flowerpecker",
+        "si": "හීන් පිළිඹිඹුවා",
+        "scientific": "Dicaeum erythrorhynchos"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-leptocoma-zeylonica",
+      "plate_id": "plate-41",
+      "plate_order": 6,
+      "names": {
+        "en": "Purple-rumped Sunbird",
+        "si": "මහ දම් කුඩුකොන්",
+        "scientific": "Leptocoma zeylonica"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-cinnyris-lotenius",
+      "plate_id": "plate-41",
+      "plate_order": 7,
+      "names": {
+        "en": "Loten’s Sunbird",
+        "si": "රන් කුඩුකොන්",
+        "scientific": "Cinnyris lotenius"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-cinnyris-asiaticus",
+      "plate_id": "plate-41",
+      "plate_order": 8,
+      "names": {
+        "en": "Purple Sunbird",
+        "si": "දම් කුඩුකොන්",
+        "scientific": "Cinnyris asiaticus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-passer-domesticus",
+      "plate_id": "plate-42",
+      "plate_order": 1,
+      "names": {
+        "en": "House Sparrow",
+        "si": "ගේකුරුල්ලා",
+        "scientific": "Passer domesticus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-ploceus-manyar",
+      "plate_id": "plate-42",
+      "plate_order": 2,
+      "names": {
+        "en": "Streaked Weaver",
+        "si": "පන් වඩුකුරුල්ලා",
+        "scientific": "Ploceus manyar"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-ploceus-philippinus",
+      "plate_id": "plate-42",
+      "plate_order": 3,
+      "names": {
+        "en": "Baya Weaver",
+        "si": "රැස් වඩුකුරුල්ලා",
+        "scientific": "Ploceus philippinus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-lonchura-malacca",
+      "plate_id": "plate-42",
+      "plate_order": 4,
+      "names": {
+        "en": "Tricoloured Munia",
+        "si": "සිහින වීරුවා",
+        "scientific": "Lonchura malacca"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-euodice-malabarica",
+      "plate_id": "plate-42",
+      "plate_order": 5,
+      "names": {
+        "en": "Indian Silverbill",
+        "si": "ගෙලසුදු වීරුවා",
+        "scientific": "Euodice malabarica"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-lonchura-kelaarti",
+      "plate_id": "plate-42",
+      "plate_order": 6,
+      "names": {
+        "en": "Black-throated Munia",
+        "si": "කළු වීරුවා",
+        "scientific": "Lonchura kelaarti"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-lonchura-punctulata",
+      "plate_id": "plate-42",
+      "plate_order": 7,
+      "names": {
+        "en": "Scaly-breasted Munia",
+        "si": "පුල්ලි වීරුවා",
+        "scientific": "Lonchura punctulata"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-lonchura-striata",
+      "plate_id": "plate-42",
+      "plate_order": 8,
+      "names": {
+        "en": "White-rumped Munia",
+        "si": "පිටසුදු වීරුවා",
+        "scientific": "Lonchura striata"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-eremopterix-griseus",
+      "plate_id": "plate-43",
+      "plate_order": 1,
+      "names": {
+        "en": "Ashy-crowned Sparrow-lark",
+        "si": "රන් හිගොමෙට්ටුවා",
+        "scientific": "Eremopterix griseus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-plocealauda-affinis",
+      "plate_id": "plate-43",
+      "plate_order": 2,
+      "names": {
+        "en": "Jerdon’s Bushlark",
+        "si": "පඳුරු හිගොමෙට්ටුවා",
+        "scientific": "Plocealauda affinis"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-alauda-gulgula",
+      "plate_id": "plate-43",
+      "plate_order": 3,
+      "names": {
+        "en": "Oriental Skylark",
+        "si": "කොවුල් හිගොමෙට්ටුවා",
+        "scientific": "Alauda gulgula"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-anthus-rufulus",
+      "plate_id": "plate-43",
+      "plate_order": 4,
+      "names": {
+        "en": "Paddyfield Pipit",
+        "si": "කෙත් ගොයම්පිට්ටා",
+        "scientific": "Anthus rufulus"
+      },
+      "occurrence_code": "R",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-anthus-richardi",
+      "plate_id": "plate-43",
+      "plate_order": 5,
+      "names": {
+        "en": "Richard’s Pipit",
+        "si": "උස් ගොයම්පිට්ටා",
+        "scientific": "Anthus richardi"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-dendronanthus-indicus",
+      "plate_id": "plate-43",
+      "plate_order": 6,
+      "names": {
+        "en": "Forest Wagtail",
+        "si": "ඉකලන් හැලපෙන්දා",
+        "scientific": "Dendronanthus indicus"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-motacilla-cinerea",
+      "plate_id": "plate-43",
+      "plate_order": 7,
+      "names": {
+        "en": "Grey Wagtail",
+        "si": "අළු හැලපෙන්දා",
+        "scientific": "Motacilla cinerea"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    },
+    {
+      "species_id": "slb-motacilla-flava",
+      "plate_id": "plate-43",
+      "plate_order": 8,
+      "names": {
+        "en": "Western Yellow Wagtail",
+        "si": "කහ හැලපෙන්දා",
+        "scientific": "Motacilla flava"
+      },
+      "occurrence_code": "M",
+      "iucn_category": "LC"
+    }
+  ]
+}
