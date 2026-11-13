@@ -1,10 +1,5 @@
 import rawContent from '../../../content/content.json';
-import {
-  ContentSchema,
-  type OccurrenceCode,
-  type Plate,
-  type Species,
-} from './content-schema';
+import type { Content, OccurrenceCode, Plate, Species } from './content-schema';
 
 export type OccurrenceFilter = 'E' | 'R' | 'M';
 
@@ -19,9 +14,9 @@ export function matchesOccurrence(code: OccurrenceCode, filter: OccurrenceFilter
   return CODES_BY_FILTER[filter].includes(code);
 }
 
-// Parsed once at module load. A throw here is deliberate: bundled content that
-// fails its schema is a build defect, not a runtime condition to recover from.
-const content = ContentSchema.parse(rawContent);
+// Not parsed at runtime so zod stays out of the app bundle; the file is validated
+// at build time by validate:content (CI), and the test suite re-parses it.
+const content = rawContent as Content;
 
 const plates: readonly Plate[] = content.plates;
 const allSpecies: readonly Species[] = content.species;

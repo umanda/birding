@@ -1,4 +1,5 @@
-import type { OccurrenceCode } from './content-schema';
+import rawContent from '../../../content/content.json';
+import { ContentSchema, type OccurrenceCode } from './content-schema';
 import {
   getAllSpecies,
   getPlate,
@@ -10,6 +11,10 @@ import {
 } from './content';
 
 describe('content accessors', () => {
+  it('bundled content.json satisfies the schema', () => {
+    expect(ContentSchema.safeParse(rawContent).success).toBe(true);
+  });
+
   it('exposes all plates and species', () => {
     expect(getPlates()).toHaveLength(43);
     expect(getAllSpecies()).toHaveLength(295);
