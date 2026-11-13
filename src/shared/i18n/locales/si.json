@@ -7,5 +7,18 @@
   "tabs.me": "මම",
   "common.notRecorded": "වාර්තා වී නැත",
   "search.results.one": "ප්‍රතිඵල {count}",
-  "search.results.other": "ප්‍රතිඵල {count}"
+  "search.results.other": "ප්‍රතිඵල {count}",
+  "occurrence.endemic": "ලංකාවට ආවේණික",
+  "occurrence.resident": "ශ්‍රී ලංකාවේ නිතිපතා වාසය කරන",
+  "occurrence.migrant": "සංචාරක",
+  "occurrence.mixed": "දෙවර්ගයෙන්ම වාර්තා වන",
+  "iucn.label": "ගෝලීය තත්ත්වය (තාවකාලික අගය)",
+  "iucn.LC": "අවම සැලකිල්ල",
+  "iucn.NT": "තර්ජනයට ආසන්න",
+  "iucn.VU": "අවදානමට ලක්විය හැකි",
+  "iucn.EN": "වඳවීමේ තර්ජනයට ලක්වූ",
+  "iucn.CR": "දැඩි වඳවීමේ තර්ජනයට ලක්වූ",
+  "iucn.DD": "දත්ත ප්‍රමාණවත් නැත",
+  "iucn.NE": "තක්සේරු කර නැත",
+  "iucn.EX": "වඳවී ගිය"
 }
