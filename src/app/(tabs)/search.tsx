@@ -1,1 +1,1 @@
-export { ComingSoonScreen as default } from '@/features/shell';
+export { SearchScreen as default } from '@/features/search';

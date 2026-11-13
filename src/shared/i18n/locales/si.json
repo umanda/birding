@@ -31,5 +31,10 @@
   "iucn.EX": "වඳවී ගිය",
   "comingSoon.title": "ඉක්මනින් එනු ඇත",
   "comingSoon.body": "යෙදුමේ මෙම කොටස තවම සූදානම් නැත.",
-  "language.label": "භාෂාව"
+  "language.label": "භාෂාව",
+  "search.label": "පක්ෂීන් සොයන්න",
+  "search.hint": "සිංහල, ඉංග්‍රීසි හෝ ලතින් නමක් ටයිප් කරන්න",
+  "search.noMatch": "‘{query}’ සඳහා ගැළපීමක් නැත",
+  "search.browseLink": "පුවරු පිරික්සන්න",
+  "search.clear": "සෙවුම මකන්න"
 }

@@ -31,5 +31,10 @@
   "iucn.EX": "Extinct",
   "comingSoon.title": "Coming soon",
   "comingSoon.body": "This part of the app is not ready yet.",
-  "language.label": "Language"
+  "language.label": "Language",
+  "search.label": "Search birds",
+  "search.hint": "Type a name in Sinhala, English or Latin",
+  "search.noMatch": "No match for ‘{query}’",
+  "search.browseLink": "Browse plates",
+  "search.clear": "Clear search"
 }
