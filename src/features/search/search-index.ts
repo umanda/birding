@@ -1,19 +1,19 @@
 import type { Species } from '../../shared/data/content-schema';
 import { maxEdits, wordDistance } from './fuzzy';
-import { detectScript, searchKey, type Script } from './searchKey';
+import { detectScript, searchKey, type Script } from './search-key';
 
 export const DEFAULT_LIMIT = 50;
 
-interface Entry {
+type Entry = {
   id: string;
   key: string;
   words: string[];
-}
+};
 
-export interface SearchIndex {
+export type SearchIndex = {
   latin: Entry[];
   sinhala: Entry[];
-}
+};
 
 // Lower rank first. Fuzzy ranks follow the exact-ish tiers, ordered by edit count.
 const TIER = { exact: 0, prefix: 1, wordPrefix: 2, substring: 3, fuzzy: 4 } as const;

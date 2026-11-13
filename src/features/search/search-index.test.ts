@@ -1,33 +1,14 @@
 import { getAllSpecies } from '../../shared/data/content';
 import { buildIndex, search } from './index';
-import { searchKey } from './searchKey';
 
 const species = getAllSpecies();
 const index = buildIndex(species);
 const JUNGLEFOWL = 'slb-gallus-lafayettii';
 const ZWJ = '‍';
 const ZWNJ = '‌';
-
-function sinhalaName(id: string): string {
-  const name = species.find((s) => s.species_id === id)?.names.si;
-  if (!name) throw new Error(`missing Sinhala name for ${id}`);
-  return name;
-}
-
-describe('searchKey', () => {
-  it.each([
-    ['  Sri   Lanka  Junglefowl ', 'sri lanka junglefowl'],
-    ['Blue-breasted Quail', 'blue breasted quail'],
-    ['Café Ñandú', 'cafe nandu'],
-    ['Galluś laf', 'gallus laf'],
-  ])('latin %j -> %j', (input, expected) => {
-    expect(searchKey(input)).toBe(expected);
-  });
-
-  it('strips ZWJ/ZWNJ and keeps Sinhala otherwise untouched', () => {
-    expect(searchKey(`ශ්${ZWJ}රී${ZWNJ} ලංකා`)).toBe('ශ්රී ලංකා');
-  });
-});
+const VIRAMA = '්';
+const SRI = 'ශ්රී';
+const SRI_JOINED = 'ශ්‍රී';
 
 describe('search', () => {
   it.each([
@@ -62,9 +43,10 @@ describe('search', () => {
 
 describe('search (Sinhala)', () => {
   const id = 'slb-francolinus-pictus';
-  const name = sinhalaName(id);
+  const name = species.find((s) => s.species_id === id)?.names.si ?? '';
 
   it('finds a name by itself, prefix and substring', () => {
+    expect(name).not.toBe('');
     expect(search(index, name)[0]).toBe(id);
     expect(search(index, name.slice(0, 3))).toContain(id);
     expect(search(index, name.slice(3, 7))).toContain(id);
@@ -72,15 +54,15 @@ describe('search (Sinhala)', () => {
 
   // content.json holds no names with joiners today; insert them after the virama.
   it('matches with ZWJ/ZWNJ typed or not', () => {
-    const withZwj = name.replace('්', `්${ZWJ}`);
-    const withZwnj = name.replace('්', `්${ZWNJ}`);
+    const withZwj = name.replace(VIRAMA, `${VIRAMA}${ZWJ}`);
+    const withZwnj = name.replace(VIRAMA, `${VIRAMA}${ZWNJ}`);
     expect(withZwj).not.toBe(name);
     expect(search(index, withZwj)[0]).toBe(id);
     expect(search(index, withZwnj)[0]).toBe(id);
   });
 
   it('matches a stored name that contains a ZWJ', () => {
-    const stored = `ශ්${ZWJ}රී ලංකා`;
+    const stored = `${SRI_JOINED} ලංකා`;
     const joinerIndex = buildIndex([
       {
         species_id: 'x',
@@ -91,7 +73,7 @@ describe('search (Sinhala)', () => {
         iucn_category: null,
       },
     ]);
-    expect(search(joinerIndex, 'ශ්රී')).toEqual(['x']);
+    expect(search(joinerIndex, SRI)).toEqual(['x']);
     expect(search(joinerIndex, stored)).toEqual(['x']);
   });
 
@@ -110,18 +92,17 @@ describe('search (Sinhala)', () => {
 });
 
 describe('search performance', () => {
-  it('averages well under 5 ms per query over the real species', () => {
+  it('averages under 20 ms per query over the real species', () => {
     const queries = species.flatMap((s) => [
       s.names.en.slice(0, 5),
       s.names.scientific.replace('a', ''),
       s.names.si ?? s.names.en,
     ]);
     const runs = Array.from({ length: 1000 }, (_, i) => queries[i % queries.length] ?? '');
+    for (const q of runs) search(index, q); // untimed warm-up
     const start = performance.now();
     for (const q of runs) search(index, q);
     const average = (performance.now() - start) / runs.length;
-    // eslint-disable-next-line no-console
-    console.info(`search: ${average.toFixed(3)} ms/query over ${runs.length} queries`);
     expect(average).toBeLessThan(20);
   });
 });

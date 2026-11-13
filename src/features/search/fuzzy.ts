@@ -1,14 +1,15 @@
-const SHORT_WORD = 3;
-const LONG_WORD = 6;
+const MAX_EXACT_LENGTH = 3;
+const MAX_ONE_EDIT_LENGTH = 6;
 
-// Words under 3 chars must match exactly; 3-5 allow one edit; 6+ allow two.
+// ADR 0006: up to 3 chars exact, 4-6 one edit, 7+ two edits.
 export function maxEdits(length: number): number {
-  if (length < SHORT_WORD) return 0;
-  return length < LONG_WORD ? 1 : 2;
+  if (length <= MAX_EXACT_LENGTH) return 0;
+  return length <= MAX_ONE_EDIT_LENGTH ? 1 : 2;
 }
 
-// Optimal string alignment distance (adjacent transposition counts as one edit).
-export function damerauLevenshtein(a: string, b: string): number {
+// Optimal string alignment table (adjacent transposition counts as one edit).
+// Returns the last row: distances from all of `a` to each prefix of `b`.
+function lastRow(a: string, b: string): number[] {
   const width = b.length + 1;
   const grid: number[] = [];
   const at = (i: number, j: number): number => grid[i * width + j] ?? 0;
@@ -26,16 +27,18 @@ export function damerauLevenshtein(a: string, b: string): number {
       grid[i * width + j] = best;
     }
   }
-  return at(a.length, b.length);
+  return Array.from({ length: width }, (_, j) => at(a.length, j));
 }
 
-// Edits needed for `queryWord` to match `word` or, while typing, the start of it.
-// Returns Infinity without running the DP when the length gap already exceeds `max`.
+export function damerauLevenshtein(a: string, b: string): number {
+  return lastRow(a, b)[b.length] ?? 0;
+}
+
+// Edits to turn `queryWord` into any prefix of `word`, so a half-typed word still matches.
+// Returns Infinity without running the DP when a cheap filter already rules the word out.
 export function wordDistance(queryWord: string, word: string, max: number): number {
   if (word.length < queryWord.length - max) return Infinity;
-  // Cheap candidate filter (ADR 0006): a typo in the first letter is not recovered.
+  // Candidate filter (ADR 0006): a typo in the first letter is not recovered.
   if (queryWord[0] !== word[0]) return Infinity;
-  const head = word.slice(0, queryWord.length);
-  if (word.length - queryWord.length > max) return damerauLevenshtein(queryWord, head);
-  return Math.min(damerauLevenshtein(queryWord, word), damerauLevenshtein(queryWord, head));
+  return Math.min(...lastRow(queryWord, word));
 }

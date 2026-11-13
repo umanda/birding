@@ -72,6 +72,7 @@ expo-sqlite web status: unverified. WebSearch was not available in this session,
 - Match order: exact, then prefix (sorted-array binary search per word), then word-prefix of any token, then fuzzy. English and scientific fuzzy use a hand-rolled Damerau-Levenshtein capped at distance 1 for 4 to 6 characters and 2 above, only over candidates sharing the first character or a trigram, so there is no linear scan cost beyond about 2,000 name rows. Sinhala gets prefix and substring only, with no edit distance, since edit distance over Sinhala syllables is unreliable without review.
 - Library: none for the MVP, about 100 lines of code, tested against the acceptance queries in 01 section 6. Fallback candidate if fuzzy quality disappoints: MiniSearch (about 8 KB, no deps). Not FlexSearch/Fuse, which handle Sinhala segmentation poorly or scan linearly.
 - Target: under 100 ms on a mid-range Android, expected well under 10 ms for about 2,000 keys; add a perf test.
+- MVP uses a linear scan and a first-letter candidate filter (≈590 rows, ~1 ms/query); revisit sorted arrays/trigrams if data grows.
 
 ### User data (life list)
 - Never mixed with content; keyed only by `species_id` (plus `content_version` seen, for diagnostics).
