@@ -20,7 +20,7 @@ describe('OccurrenceBadge', () => {
 
   it('shows the exact compound code', async () => {
     await render(<OccurrenceBadge code="R+(M)" t={t} />);
-    expect(screen.getByText('■ R+(M) Resident and migrant')).toBeTruthy();
+    expect(screen.getByText('■ R+(M) Resident + Migrant')).toBeTruthy();
   });
 });
 

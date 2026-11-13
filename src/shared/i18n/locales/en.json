@@ -11,7 +11,7 @@
   "occurrence.endemic": "Endemic",
   "occurrence.resident": "Resident",
   "occurrence.migrant": "Migrant",
-  "occurrence.mixed": "Resident and migrant",
+  "occurrence.mixed": "Resident + Migrant",
   "iucn.label": "Global status (working value)",
   "comingSoon.title": "Coming soon",
   "comingSoon.body": "This part of the app is not ready yet.",
