@@ -2,6 +2,8 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { useEffect } from 'react';
 
+import { SettingsProvider } from '@/features/settings';
+import { keyValueStore } from '@/shared/platform/key-value-store';
 import { fontAssets } from '@/shared/theme/fonts';
 
 export default function RootLayout() {
@@ -13,5 +15,9 @@ export default function RootLayout() {
   }, [error]);
 
   // Render immediately: fallback fonts swap in, so static HTML hydrates and nothing blocks.
-  return <Stack />;
+  return (
+    <SettingsProvider store={keyValueStore}>
+      <Stack />
+    </SettingsProvider>
+  );
 }
