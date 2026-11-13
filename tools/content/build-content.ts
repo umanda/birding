@@ -9,15 +9,15 @@ const OUTPUT_FILE = 'content/content.json';
 type Cell = string | number | boolean | Date | null;
 type Row = Record<string, Cell>;
 
-// Blank means unknown: empty or whitespace-only cells become null. Anything else is kept as-is.
-function blankToNull(cell: unknown): Cell {
+// Blank means unknown: empty or whitespace-only cells become null. Other cells are kept byte-for-byte.
+export function blankToNull(cell: unknown): Cell {
   if (cell === undefined || cell === null) return null;
   if (typeof cell === 'string' && cell.trim() === '') return null;
   return cell as Cell;
 }
 
 async function readTable(file: string, sheet: string): Promise<Row[]> {
-  const [header, ...rows] = await readSheet(file, sheet);
+  const [header, ...rows] = await readSheet(file, sheet, { trim: false });
   if (!header) throw new Error(`Sheet "${sheet}" is empty`);
   return rows.map((row) =>
     Object.fromEntries(header.map((name, i) => [String(name), blankToNull(row[i])])),
@@ -29,8 +29,16 @@ export function buildContent(
   tables: { plates: Row[]; species: Row[]; conservation: Row[] },
   sha256: string,
 ): unknown {
-  const conservationById = new Map(tables.conservation.map((r) => [r.species_id, r]));
-  const plateNumberById = new Map(tables.plates.map((r) => [r.plate_id, Number(r.plate_number)]));
+  const conservationById = new Map<unknown, Row>();
+  for (const row of tables.conservation) {
+    if (conservationById.has(row.species_id)) {
+      throw new Error(`Duplicate Conservation row for species_id: ${String(row.species_id)}`);
+    }
+    conservationById.set(row.species_id, row);
+  }
+  const plateNumberById = new Map<unknown, number>(
+    tables.plates.map((r) => [r.plate_id, Number(r.plate_number)]),
+  );
   const byPlateThenOrder = (a: Row, b: Row): number =>
     (plateNumberById.get(a.plate_id) ?? 0) - (plateNumberById.get(b.plate_id) ?? 0) ||
     Number(a.plate_order) - Number(b.plate_order);
@@ -64,13 +72,10 @@ export function buildContent(
 
 async function main(): Promise<void> {
   const sha256 = createHash('sha256').update(readFileSync(SOURCE_FILE)).digest('hex');
-  const [plates, species, conservation] = await Promise.all(
-    ['Plates', 'Species', 'Conservation'].map((sheet) => readTable(SOURCE_FILE, sheet)),
-  );
-  const content = buildContent(
-    { plates: plates ?? [], species: species ?? [], conservation: conservation ?? [] },
-    sha256,
-  );
+  const plates = await readTable(SOURCE_FILE, 'Plates');
+  const species = await readTable(SOURCE_FILE, 'Species');
+  const conservation = await readTable(SOURCE_FILE, 'Conservation');
+  const content = buildContent({ plates, species, conservation }, sha256);
   mkdirSync(path.dirname(OUTPUT_FILE), { recursive: true });
   // Pretty-printed: gzip erases the size cost and one-field-per-line diffs keep data reviews readable.
   writeFileSync(OUTPUT_FILE, `${JSON.stringify(content, null, 2)}\n`);

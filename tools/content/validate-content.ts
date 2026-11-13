@@ -41,23 +41,46 @@ function checkCounts(content: Content): string[] {
 }
 
 // Blank Sinhala/IUCN is allowed (stays null) but surfaced; non-NFC Sinhala is reported, never fixed.
+function hasEdgeWhitespace(text: string): boolean {
+  return text !== text.trim();
+}
+
+function checkSinhala(label: string, kind: string, text: string | null): string[] {
+  if (text === null) return [`${label}: blank Sinhala ${kind}`];
+  return text === text.normalize('NFC') ? [] : [`${label}: Sinhala ${kind} is not NFC`];
+}
+
+// Blank Sinhala/IUCN is allowed (stays null) but surfaced. Whitespace and non-NFC text is
+// reported, never fixed, because source values are copied verbatim.
 function collectWarnings(content: Content): string[] {
   const warnings: string[] = [];
+  for (const p of content.plates) {
+    warnings.push(...checkSinhala(p.plate_id, 'title', p.title.si));
+  }
   for (const s of content.species) {
-    if (s.names.si === null) warnings.push(`${s.species_id}: blank Sinhala name`);
-    else if (s.names.si !== s.names.si.normalize('NFC')) {
-      warnings.push(`${s.species_id}: Sinhala name is not NFC`);
-    }
+    warnings.push(...checkSinhala(s.species_id, 'name', s.names.si));
     if (s.iucn_category === null) warnings.push(`${s.species_id}: blank IUCN category`);
+    const names = [s.names.en, s.names.si ?? '', s.names.scientific];
+    if (names.some(hasEdgeWhitespace)) warnings.push(`${s.species_id}: name has edge whitespace`);
   }
   return warnings;
+}
+
+// Zod reports array indexes; show the record id instead so errors are findable in the workbook.
+function describeIssue(input: unknown, issue: { path: PropertyKey[]; message: string }): string {
+  const [table, index, ...rest] = issue.path;
+  const record = (input as Record<string, Record<number, Record<string, unknown>> | undefined>)?.[
+    String(table)
+  ]?.[Number(index)];
+  const id = record?.species_id ?? record?.plate_id;
+  const where = typeof id === 'string' ? `${String(table)}[${id}]` : issue.path.join('.');
+  return `${[where, ...rest].join('.')}: ${issue.message}`;
 }
 
 export function validateContent(input: unknown): ValidationResult {
   const parsed = ContentSchema.safeParse(input);
   if (!parsed.success) {
-    const errors = parsed.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`);
-    return { errors, warnings: [] };
+    return { errors: parsed.error.issues.map((i) => describeIssue(input, i)), warnings: [] };
   }
   const content = parsed.data;
   return {

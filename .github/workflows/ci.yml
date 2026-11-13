@@ -26,5 +26,6 @@ jobs:
       - run: npm run lint
       - run: npm run typecheck
       - run: npm run validate:content
+      - run: npm run content:build && git diff --exit-code content/
       - run: npm test -- --ci
       - run: npm run build:web

@@ -25,10 +25,16 @@ function makeContent() {
 
 type Content = ReturnType<typeof makeContent>;
 
+function at<T>(items: T[], index: number): T {
+  const item = items[index];
+  if (item === undefined) throw new Error(`No item at ${index}`);
+  return item;
+}
+
 // Applies a change to the first species so each test states only what is broken.
 function withFirstSpecies(patch: Partial<Content['species'][number]>): Content {
   const content = makeContent();
-  Object.assign(content.species[0] ?? {}, patch);
+  Object.assign(at(content.species, 0), patch);
   return content;
 }
 
@@ -39,13 +45,13 @@ describe('validateContent', () => {
 
   it('fails on a duplicate species_id', () => {
     const content = makeContent();
-    Object.assign(content.species[1] ?? {}, { species_id: 'slb-0' });
+    Object.assign(at(content.species, 1), { species_id: 'slb-0' });
     expect(validateContent(content).errors).toContain('Duplicate species_id: slb-0');
   });
 
   it('fails on a duplicate plate_id', () => {
     const content = makeContent();
-    Object.assign(content.plates[1] ?? {}, { plate_id: 'plate-1' });
+    Object.assign(at(content.plates, 1), { plate_id: 'plate-1' });
     expect(validateContent(content).errors).toContain('Duplicate plate_id: plate-1');
   });
 
@@ -56,18 +62,18 @@ describe('validateContent', () => {
 
   it('fails on an unknown occurrence code', () => {
     const errors = validateContent(withFirstSpecies({ occurrence_code: 'X' })).errors;
-    expect(errors.join()).toContain('species.0.occurrence_code');
+    expect(errors.join()).toContain('species[slb-0].occurrence_code');
   });
 
   it('fails on an unknown IUCN category', () => {
     const errors = validateContent(withFirstSpecies({ iucn_category: 'ZZ' })).errors;
-    expect(errors.join()).toContain('species.0.iucn_category');
+    expect(errors.join()).toContain('species[slb-0].iucn_category');
   });
 
   it('fails on a missing English name', () => {
     const content = makeContent();
-    Object.assign(content.species[0]?.names ?? {}, { en: '' });
-    expect(validateContent(content).errors.join()).toContain('species.0.names.en');
+    Object.assign(at(content.species, 0).names, { en: '' });
+    expect(validateContent(content).errors.join()).toContain('species[slb-0].names.en');
   });
 
   it('fails on unexpected counts', () => {
@@ -80,9 +86,44 @@ describe('validateContent', () => {
 
   it('warns, without failing, on a blank Sinhala name', () => {
     const content = makeContent();
-    Object.assign(content.species[0]?.names ?? {}, { si: null });
+    Object.assign(at(content.species, 0).names, { si: null });
     const result = validateContent(content);
     expect(result.errors).toEqual([]);
     expect(result.warnings).toContain('slb-0: blank Sinhala name');
+  });
+
+  it('fails on a duplicate (plate_id, plate_order) slot', () => {
+    const content = makeContent();
+    Object.assign(at(content.species, 1), { plate_id: 'plate-1', plate_order: 1 });
+    expect(validateContent(content).errors).toContain('Duplicate plate_order slot: plate-1#1');
+  });
+
+  it('fails on a wrong plate count', () => {
+    const content = makeContent();
+    content.plates.pop();
+    expect(validateContent(content).errors).toContain(
+      `Expected ${EXPECTED_PLATES} plates, found ${EXPECTED_PLATES - 1}`,
+    );
+  });
+
+  it('warns on non-NFC Sinhala without changing it', () => {
+    const decomposed = 'é'; // not NFC
+    const content = withFirstSpecies({});
+    Object.assign(at(content.species, 0).names, { si: decomposed });
+    expect(validateContent(content).warnings).toContain('slb-0: Sinhala name is not NFC');
+  });
+
+  it('warns on a blank IUCN category', () => {
+    const result = validateContent(withFirstSpecies({ iucn_category: null }));
+    expect(result.errors).toEqual([]);
+    expect(result.warnings).toContain('slb-0: blank IUCN category');
+  });
+
+  it('warns on edge whitespace and on a blank plate Sinhala title', () => {
+    const content = withFirstSpecies({});
+    Object.assign(at(content.species, 0).names, { en: ' Bird ' });
+    const { warnings } = validateContent(content);
+    expect(warnings).toContain('slb-0: name has edge whitespace');
+    expect(warnings).toContain('plate-1: blank Sinhala title');
   });
 });
