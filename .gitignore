@@ -1,0 +1,12 @@
+node_modules/
+dist/
+build/
+.expo/
+coverage/
+*.log
+.env
+.env.*
+.DS_Store
+Thumbs.db
+~$*.xlsx
+.claude/settings.local.json
