@@ -1,4 +1,4 @@
-import type { Species } from '../../shared/data/content-schema';
+import type { Species } from '@/shared/data/content-schema';
 import { maxEdits, wordDistance } from './fuzzy';
 import { detectScript, searchKey, type Script } from './search-key';
 
