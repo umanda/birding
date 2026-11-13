@@ -13,7 +13,7 @@ type Appearance = {
   color: 'endemic' | 'resident' | 'migrant' | 'textMuted';
 };
 
-const SINGLE: Record<'E' | 'R' | 'M', Appearance> = {
+export const SINGLE_APPEARANCE: Record<'E' | 'R' | 'M', Appearance> = {
   E: { shape: '●', wordKey: 'occurrence.endemic', color: 'endemic' },
   R: { shape: '▲', wordKey: 'occurrence.resident', color: 'resident' },
   M: { shape: '◆', wordKey: 'occurrence.migrant', color: 'migrant' },
@@ -22,7 +22,7 @@ const SINGLE: Record<'E' | 'R' | 'M', Appearance> = {
 const COMPOUND: Appearance = { shape: '■', wordKey: 'occurrence.mixed', color: 'textMuted' };
 
 function appearanceOf(code: OccurrenceCode): Appearance {
-  return code === 'E' || code === 'R' || code === 'M' ? SINGLE[code] : COMPOUND;
+  return code === 'E' || code === 'R' || code === 'M' ? SINGLE_APPEARANCE[code] : COMPOUND;
 }
 
 type Props = { code: OccurrenceCode; language: Language; t: (key: MessageKey) => string };
