@@ -1,0 +1,7 @@
+dist/
+.expo/
+coverage/
+package-lock.json
+data/
+*.md
+*.html
