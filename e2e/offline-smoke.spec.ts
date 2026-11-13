@@ -60,7 +60,7 @@ test('browsing, searching and reading work offline after first load, without rel
   await page.getByRole('tab', { name: 'Browse' }).click();
   await expect(page.getByText(/^Plate \d+/).first()).toBeVisible();
   await page.getByRole('checkbox', { name: /Endemic/ }).click();
-  // The chip's checked state is not exposed on web (aria-checked is missing), so assert the URL.
+  await expect(page.getByRole('checkbox', { name: /Endemic/ })).toBeChecked();
   await expect(page).toHaveURL(/occ=E/);
   await expect.poll(() => page.getByText(/^Plate \d+/).count()).toBe(ENDEMIC_PLATE_COUNT);
 
