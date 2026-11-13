@@ -7,5 +7,13 @@
   "tabs.me": "මම",
   "common.notRecorded": "වාර්තා වී නැත",
   "search.results.one": "ප්‍රතිඵල {count}",
-  "search.results.other": "ප්‍රතිඵල {count}"
+  "search.results.other": "ප්‍රතිඵල {count}",
+  "occurrence.endemic": "ස්වදේශික",
+  "occurrence.resident": "පදිංචි",
+  "occurrence.migrant": "සංක්‍රමණික",
+  "occurrence.mixed": "පදිංචි සහ සංක්‍රමණික",
+  "iucn.label": "ගෝලීය තත්ත්වය (තාවකාලික අගය)",
+  "comingSoon.title": "ඉක්මනින් එනු ඇත",
+  "comingSoon.body": "යෙදුමේ මෙම කොටස තවම සූදානම් නැත.",
+  "language.label": "භාෂාව"
 }

@@ -7,5 +7,13 @@
   "tabs.me": "Me",
   "common.notRecorded": "Not recorded",
   "search.results.one": "{count} result",
-  "search.results.other": "{count} results"
+  "search.results.other": "{count} results",
+  "occurrence.endemic": "Endemic",
+  "occurrence.resident": "Resident",
+  "occurrence.migrant": "Migrant",
+  "occurrence.mixed": "Resident and migrant",
+  "iucn.label": "Global status (working value)",
+  "comingSoon.title": "Coming soon",
+  "comingSoon.body": "This part of the app is not ready yet.",
+  "language.label": "Language"
 }
