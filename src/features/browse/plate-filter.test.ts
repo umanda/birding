@@ -2,54 +2,15 @@ import { getAllSpecies, getPlates, getSpeciesByPlate } from '@/shared/data/conte
 import type { OccurrenceFilter } from '@/shared/data/content';
 import type { Species } from '@/shared/data/content-schema';
 
-import {
-  buildPlateRows,
-  countByFilter,
-  matchesFilters,
-  parseFilters,
-  serializeFilters,
-  toggleFilter,
-} from './plate-filter';
+import { buildPlateRows, countByFilter, toggleFilter } from './plate-filter';
 
 const withCode = (occurrence_code: Species['occurrence_code']): Species =>
   ({ occurrence_code }) as Species;
 
-describe('filter param', () => {
-  it.each([
-    [undefined, []],
-    ['', []],
-    ['M,E', ['E', 'M']],
-    [
-      ['M', 'E'],
-      ['E', 'M'],
-    ],
-    ['E,X,R', ['E', 'R']],
-  ] as const)('parses %p', (param, expected) => {
-    expect(parseFilters(param)).toEqual(expected);
-  });
-
-  it('round-trips and clears to undefined', () => {
-    expect(parseFilters(serializeFilters(['R', 'M']))).toEqual(['R', 'M']);
-    expect(serializeFilters([])).toBeUndefined();
-  });
-
+describe('toggleFilter', () => {
   it('toggles on and off', () => {
     expect(toggleFilter(['E'], 'M')).toEqual(['E', 'M']);
     expect(toggleFilter(['E', 'M'], 'E')).toEqual(['M']);
-  });
-});
-
-describe('matchesFilters', () => {
-  it.each([
-    ['E', ['E'], true],
-    ['E', ['R'], false],
-    ['R/M', ['R'], true],
-    ['R+M', ['M'], true],
-    ['R+(M)', ['E'], false],
-    ['R+(M)', ['E', 'M'], true],
-    ['M', [], true],
-  ] as const)('%s with %j is %s', (code, filters, expected) => {
-    expect(matchesFilters(withCode(code), filters)).toBe(expected);
   });
 });
 

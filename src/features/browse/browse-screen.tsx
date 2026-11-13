@@ -4,19 +4,17 @@ import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSettings } from '@/features/settings';
 import { getAllSpecies, getPlates, getSpeciesByPlate } from '@/shared/data/content';
 import type { OccurrenceFilter } from '@/shared/data/content';
+import {
+  OCCURRENCE_FILTERS,
+  parseFilters,
+  serializeFilters,
+} from '@/shared/data/occurrence-filter';
 import { SCREEN_PADDING, radius, size, space } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
 import { appearanceOf } from '@/shared/ui/occurrence-badge';
 
-import {
-  OCCURRENCE_FILTERS,
-  buildPlateRows,
-  countByFilter,
-  parseFilters,
-  serializeFilters,
-  toggleFilter,
-} from './plate-filter';
+import { buildPlateRows, countByFilter, toggleFilter } from './plate-filter';
 
 const FILTER_COUNTS = countByFilter(getAllSpecies());
 

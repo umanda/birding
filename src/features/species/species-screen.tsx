@@ -12,7 +12,7 @@ import { useTheme } from '@/shared/theme/use-theme';
 import { IucnBadge } from '@/shared/ui/iucn-badge';
 import { OccurrenceBadge } from '@/shared/ui/occurrence-badge';
 
-import { localized, otherLanguage } from './localized';
+import { localized, otherLanguage } from '@/shared/i18n/localized';
 
 type Translate = (key: MessageKey) => string;
 type DetailProps = { species: Species; language: Language; t: Translate };
