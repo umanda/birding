@@ -63,11 +63,14 @@ test('browsing, searching and reading work offline after first load, without rel
   await expect(page).toHaveURL(/occ=E/);
   await expect.poll(() => page.getByText(/^Plate \d+/).count()).toBe(ENDEMIC_PLATE_COUNT);
 
-  expect(failedRequests).toEqual([]);
-});
+  await page.getByRole('link', { name: /^Plate 1 ·/ }).click();
+  await expect(page.getByRole('heading', { name: /^Plate 1 ·/ })).toBeVisible();
+  await expect(page.getByRole('link', { name: new RegExp(ENGLISH_NAME) })).toBeVisible();
+  await expect(page.getByRole('link', { name: /Indian Peafowl/ })).toHaveCount(0);
+  await page.getByRole('link', { name: new RegExp(ENGLISH_NAME) }).click();
+  await expect(page.getByRole('heading', { name: ENGLISH_NAME })).toBeVisible();
 
-test('opens a plate from Browse offline', () => {
-  test.fixme(true, 'needs /plate/[id] from slice 8; then open a plate offline and see its image');
+  expect(failedRequests).toEqual([]);
 });
 
 test('species heading is not clipped at 200% text size', async ({ page }) => {
