@@ -1,45 +1,42 @@
-import { Stack, useLocalSearchParams } from 'expo-router';
+import { Link, Stack, useLocalSearchParams } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { useSettings } from '@/features/settings';
-import type { Species } from '@/shared/data/content-schema';
 import { getPlate, getSpecies } from '@/shared/data/content';
+import type { Species } from '@/shared/data/content-schema';
 import type { Language } from '@/shared/i18n/language';
 import type { MessageKey } from '@/shared/i18n/translate';
-import { space } from '@/shared/theme/tokens';
+import { size, space } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
 import { IucnBadge } from '@/shared/ui/iucn-badge';
 import { OccurrenceBadge } from '@/shared/ui/occurrence-badge';
 
+import { localized, otherLanguage } from './localized';
+
 type Translate = (key: MessageKey) => string;
 type DetailProps = { species: Species; language: Language; t: Translate };
 
 export function SpeciesRoute(): React.JSX.Element {
-  const { id } = useLocalSearchParams<{ id: string }>();
+  const { id } = useLocalSearchParams<{ id?: string | string[] }>();
   const { language, t } = useSettings();
-  const species = getSpecies(id);
-  const title = species ? (species.names[language] ?? species.names.en) : t('species.notFound');
+  const species = typeof id === 'string' ? getSpecies(id) : undefined;
+  const title = species ? localized(species.names, language).text : t('species.notFound');
 
+  // The on-page heading is the one h1, so the header shows only the back button.
   return (
     <>
-      <Stack.Screen options={{ headerShown: true, title }} />
+      <Stack.Screen options={{ title, headerTitle: '' }} />
       {species ? (
         <SpeciesDetail species={species} language={language} t={t} />
       ) : (
-        <NotFound language={language} message={title} />
+        <NotFound language={language} t={t} />
       )}
     </>
   );
 }
 
-function NotFound({
-  language,
-  message,
-}: {
-  language: Language;
-  message: string;
-}): React.JSX.Element {
+function NotFound({ language, t }: { language: Language; t: Translate }): React.JSX.Element {
   const { colors } = useTheme();
   return (
     <View style={[styles.screen, { backgroundColor: colors.bg }]}>
@@ -47,8 +44,13 @@ function NotFound({
         accessibilityRole="header"
         style={[typeStyle('title', language), { color: colors.text }]}
       >
-        {message}
+        {t('species.notFound')}
       </Text>
+      <Link href="/search" accessibilityRole="link" style={styles.link}>
+        <Text style={[typeStyle('body', language), { color: colors.primary }]}>
+          {t('species.goToSearch')}
+        </Text>
+      </Link>
     </View>
   );
 }
@@ -56,37 +58,37 @@ function NotFound({
 // Blank values stay blank in the data; the screen says "Not recorded" instead of hiding them.
 export function SpeciesDetail({ species, language, t }: DetailProps): React.JSX.Element {
   const { colors } = useTheme();
-  const { en, si, scientific } = species.names;
-  const names = { en, si };
-  const other: Language = language === 'si' ? 'en' : 'si';
-  const primary = names[language] ?? en;
-  const plateTitle = getPlate(species.plate_id)?.title;
-  const plateName = plateTitle ? (plateTitle[language] ?? plateTitle.en) : null;
   const notRecorded = t('common.notRecorded');
+  const primary = localized(species.names, language);
+  const other = otherLanguage(language);
+  const otherName = species.names[other];
+  const plate = getPlate(species.plate_id);
+  const plateName = plate ? localized(plate.title, language) : null;
+  const muted = { color: colors.textMuted };
 
   return (
     <View style={[styles.screen, { backgroundColor: colors.bg }]}>
       <Text
         accessibilityRole="header"
-        style={[typeStyle('display', language), { color: colors.text }]}
+        style={[typeStyle('display', primary.language), { color: colors.text }]}
       >
-        {primary}
+        {primary.text}
       </Text>
-      <Text style={[typeStyle('body', other), { color: colors.textMuted }]}>
-        {names[other] ?? notRecorded}
+      <Text style={[typeStyle('body', otherName ? other : language), muted]}>
+        {otherName ?? notRecorded}
       </Text>
-      <Text style={[typeStyle('body', 'en'), styles.scientific, { color: colors.textMuted }]}>
-        {scientific}
+      <Text style={[typeStyle('body', 'en'), styles.scientific, muted]}>
+        {species.names.scientific}
       </Text>
-      <Text style={[typeStyle('body', language), { color: colors.textMuted }]}>
-        {plateName ?? notRecorded}
+      <Text style={[typeStyle('body', plateName?.language ?? language), muted]}>
+        {plateName?.text ?? notRecorded}
       </Text>
       <View style={styles.badges}>
         <OccurrenceBadge code={species.occurrence_code} language={language} t={t} />
         {species.iucn_category ? (
           <IucnBadge category={species.iucn_category} language={language} t={t} />
         ) : (
-          <Text style={[typeStyle('label', language), { color: colors.textMuted }]}>
+          <Text style={[typeStyle('label', language), muted]}>
             {`${t('iucn.label')}: ${notRecorded}`}
           </Text>
         )}
@@ -99,4 +101,5 @@ const styles = StyleSheet.create({
   screen: { flex: 1, padding: space[4], gap: space[2] },
   scientific: { fontStyle: 'italic' },
   badges: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: space[2] },
+  link: { minHeight: size.touchMin, justifyContent: 'center' },
 });
