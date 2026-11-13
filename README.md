@@ -5,6 +5,16 @@ of Sri Lanka, in Sinhala and English.
 
 Status: planning.
 
+## Getting started
+Requires Node 24 (see `.nvmrc`).
+
+```bash
+npm ci
+npm run web          # dev server in the browser
+npm run typecheck
+npm run build:web    # static export to dist/
+```
+
 ## Repository layout
 - `docs/product/` — product plan, personas, features
 - `docs/design/` — UX flows and wireframes
