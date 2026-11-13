@@ -5,7 +5,7 @@ description: Structure, meaning and integrity rules of the Sri Lanka birds datab
 
 # Sri Lanka birds database
 
-Workbook: `Sri_Lanka_Birds_Mobile_App_Database_v1.xlsx` (export v1.0, 2026-11-13).
+Workbook: `data/source/Sri_Lanka_Birds_Mobile_App_Database_v1.xlsx` (export v1.0, 2026-11-13).
 
 ## Sheets
 | Sheet | Rows | Key | Notes |

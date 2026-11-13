@@ -5,7 +5,7 @@ birds of Sri Lanka (295 species, 43 plates). Bilingual: Sinhala and English.
 
 ## Source of truth
 
-- Species data: `Sri_Lanka_Birds_Mobile_App_Database_v1.xlsx` (see the `bird-data` skill).
+- Species data: `data/source/Sri_Lanka_Birds_Mobile_App_Database_v1.xlsx` (see the `bird-data` skill).
 - Product decisions: `docs/product/`. Architecture decisions: `docs/adr/`.
 - Feature specs: `docs/specs/`. Each spec is sliced into thin PRs before coding.
 
