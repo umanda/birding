@@ -1,4 +1,4 @@
-import { getAllSpecies } from '../../shared/data/content';
+import { getAllSpecies } from '@/shared/data/content';
 import { buildIndex, search } from './index';
 
 const species = getAllSpecies();

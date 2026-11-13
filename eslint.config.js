@@ -20,5 +20,32 @@ module.exports = defineConfig([
     files: ['src/app/**'],
     rules: { 'import/no-default-export': 'off' },
   },
+  {
+    // ADR 0002: a feature is used only through its index.ts.
+    files: ['src/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['@/features/*/*', '../*'],
+              message: "Use '@/…' paths; import another feature only via '@/features/<name>'.",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    // ADR 0002: shared code never depends on features.
+    files: ['src/shared/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        { patterns: [{ group: ['@/features/*'], message: 'shared/ must not import features/.' }] },
+      ],
+    },
+  },
   prettier,
 ]);
