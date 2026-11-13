@@ -1,5 +1,5 @@
 # 001 — Browse and search (M1)
-Status: Approved (2026-11-13)
+Status: Done (2026-11-13, PRs #12–#28)
 
 ## Problem
 Ruwan (guide), Emma (tourist), Nimali (Sinhala-first beginner) and Kasun (student) need to find a Sri Lankan
