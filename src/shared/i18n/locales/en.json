@@ -20,5 +20,8 @@
   "iucn.CR": "Critically Endangered",
   "iucn.DD": "Data Deficient",
   "iucn.NE": "Not Evaluated",
-  "iucn.EX": "Extinct"
+  "iucn.EX": "Extinct",
+  "comingSoon.title": "Coming soon",
+  "comingSoon.body": "This part of the app is not ready yet.",
+  "language.label": "Language"
 }

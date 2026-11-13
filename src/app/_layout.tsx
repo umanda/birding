@@ -17,7 +17,7 @@ export default function RootLayout() {
   // Render immediately: fallback fonts swap in, so static HTML hydrates and nothing blocks.
   return (
     <SettingsProvider store={keyValueStore}>
-      <Stack />
+      <Stack screenOptions={{ headerShown: false }} />
     </SettingsProvider>
   );
 }
