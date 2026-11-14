@@ -39,5 +39,7 @@
   "search.hint": "Type a name in Sinhala, English or Latin",
   "search.noMatch": "No match for ‘{query}’",
   "search.browseLink": "Browse plates",
-  "search.clear": "Clear search"
+  "search.clear": "Clear search",
+  "update.available": "Update available",
+  "update.reload": "Reload"
 }
