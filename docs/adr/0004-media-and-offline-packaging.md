@@ -34,8 +34,9 @@ optional (UX 01 §2.1). Data and index packaging belong to ADR 0006.
   - a `media-manifest.json` (id → path, bytes, sha256, credit line), consumed via ADR 0006 data.
 - **Validation (CI, ADR 0005):** every shipped file has exactly one `reviewed` register row and vice versa,
   the licence is in the allow-list, size limits are met, and the `species_id`/`plumage_key` values exist.
-- **Web/PWA offline:** the Workbox precache holds the app shell, fonts, data files, all species HTML and
-  **thumbnails**. Full images use a runtime **CacheFirst** cache (`photos-v1`). "Download offline pack"
+- **Web/PWA offline:** the Workbox precache holds the app shell, fonts, data files, plate HTML and
+  **thumbnails**; species pages come from one precached `species/[id].html` template via a navigation
+  fallback (295 pages would be 13.9 MB, over ADR 0001's 10 MB budget; the precache is about 4 MB). Full images use a runtime **CacheFirst** cache (`photos-v1`). "Download offline pack"
   (Me tab) fetches all full images from the manifest into that cache with progress, Wi-Fi hint and
   resume, and calls `navigator.storage.persist()`. Use content-hashed file names, so updates only download changed images.
 - **Native offline:** thumbnails are bundled as app assets. Full images download on demand or as the
