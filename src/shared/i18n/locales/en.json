@@ -8,6 +8,15 @@
   "common.notRecorded": "Not recorded",
   "species.notFound": "Species not found",
   "species.goToSearch": "Go to Search",
+  "species.section.description": "Description",
+  "species.section.maleFemale": "Male & female",
+  "species.section.juvenile": "Juvenile",
+  "species.section.fieldTips": "Field tips",
+  "species.section.distribution": "Distribution & hotspots",
+  "species.section.seasonality": "Seasonality",
+  "species.text.notInLanguage": "Not yet available in {language}",
+  "species.text.loading": "Loading…",
+  "species.text.error": "Could not load this text.",
   "search.results.one": "{count} result",
   "search.results.other": "{count} results",
   "occurrence.endemic": "Endemic",
@@ -41,5 +50,7 @@
   "search.browseLink": "Browse plates",
   "search.clear": "Clear search",
   "update.available": "Update available",
-  "update.reload": "Reload"
+  "update.reload": "Reload",
+  "language.name.en": "English",
+  "language.name.si": "Sinhala"
 }

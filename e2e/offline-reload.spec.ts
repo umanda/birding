@@ -43,8 +43,11 @@ const routes: RouteCase[] = [
   {
     name: 'species',
     path: `/species/${JUNGLEFOWL_ID}`,
-    expectRendered: (page) =>
-      expect(page.getByRole('heading', { name: junglefowl.names.en })).toBeVisible(),
+    // The prose is a lazily loaded chunk, so its section proves the chunk came from the precache.
+    expectRendered: async (page) => {
+      await expect(page.getByRole('heading', { name: junglefowl.names.en })).toBeVisible();
+      await expect(page.getByRole('heading', { name: 'Description' })).toBeVisible();
+    },
   },
 ];
 
