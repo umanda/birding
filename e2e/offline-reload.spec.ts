@@ -12,6 +12,12 @@ if (!FIRST_PLATE) throw new Error('content.json has no plates');
 
 type RouteCase = { name: string; path: string; expectRendered: (page: Page) => Promise<void> };
 
+// The species route is served from a precached template; it must not flash its not-found state.
+const NOT_FOUND_TEXT = 'Species not found';
+// React recovers from a hydration mismatch by re-rendering on the client. It is expected when the
+// static HTML differs from the URL's state (species template, /browse?occ=E), so it is not a failure.
+const RECOVERABLE_HYDRATION_ERROR = /Minified React error #(418|423|425)|Hydration failed/;
+
 const routes: RouteCase[] = [
   {
     name: 'home',
@@ -50,10 +56,16 @@ for (const route of routes) {
     await context.setOffline(true);
 
     const failedRequests: string[] = [];
+    const pageErrors: Error[] = [];
+    page.on('pageerror', (error) => {
+      if (!RECOVERABLE_HYDRATION_ERROR.test(error.message)) pageErrors.push(error);
+    });
     page.on('requestfailed', (request) => failedRequests.push(request.url()));
     await page.reload();
 
     await route.expectRendered(page);
+    await expect(page.getByText(NOT_FOUND_TEXT)).toHaveCount(0);
+    expect(pageErrors).toEqual([]);
     expect(failedRequests).toEqual([]);
   });
 }

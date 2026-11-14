@@ -29,8 +29,10 @@ async function main(): Promise<void> {
   // An oversize file would otherwise silently drop out of the precache.
   if (warnings.length > 0) throw new Error(`Workbox warnings:\n${warnings.join('\n')}`);
   process.stdout.write(`Precached ${count} files, ${(size / 1024 / 1024).toFixed(2)} MB\n`);
-  if (size > PRECACHE_BUDGET_BYTES)
-    throw new Error('Precache exceeds the 10 MB budget (ADR 0001).');
+  if (size > PRECACHE_BUDGET_BYTES) {
+    const budgetMb = PRECACHE_BUDGET_BYTES / 1024 / 1024;
+    throw new Error(`Precache is ${size} bytes, over the ${budgetMb} MB budget (ADR 0001).`);
+  }
 }
 
 main().catch((error: unknown) => {
