@@ -35,11 +35,15 @@ describe('SpeciesConservation', () => {
     await renderConservation(DUCULA_ID);
     const c = await conservationOf(DUCULA_ID);
     expect(screen.getByRole('header', { name: 'Conservation' })).toHaveProp('aria-level', 2);
-    expect(screen.getByText(/R\+\(M\)|R\/M|R /)).toBeTruthy();
-    expect(screen.getByText(c.occurrence_verification_status ?? '')).toBeTruthy();
-    expect(screen.getByText('Global status (working value)')).toBeTruthy();
-    expect(screen.getByText(c.iucn_assessment_year ?? '')).toBeTruthy();
-    expect(screen.getByText('Pending individual factsheet verification')).toBeTruthy();
+    expect(screen.getByText('▲ R Resident')).toBeTruthy();
+    expect(
+      screen.getByText(`Occurrence verification: ${c.occurrence_verification_status}`),
+    ).toBeTruthy();
+    expect(screen.getByLabelText('Global status (working value): Least Concern')).toBeTruthy();
+    expect(screen.getByText(`Assessment year: ${c.iucn_assessment_year}`)).toBeTruthy();
+    expect(
+      screen.getByText('IUCN verification: Pending individual factsheet verification'),
+    ).toBeTruthy();
   });
 
   it('shows both IUCN values and a note when AviList differs (LC vs NT)', async () => {
@@ -74,7 +78,9 @@ describe('SpeciesConservation', () => {
       iucn_assessment_year: null,
       iucn_verification_status: null,
     });
-    expect(screen.getAllByText('Not recorded')).toHaveLength(3);
+    expect(screen.getByText('Occurrence verification: Not recorded')).toBeTruthy();
+    expect(screen.getByText('Assessment year: Not recorded')).toBeTruthy();
+    expect(screen.getByText('IUCN verification: Not recorded')).toBeTruthy();
   });
 });
 

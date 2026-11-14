@@ -31,10 +31,12 @@ export function SpeciesConservation(props: Props): React.JSX.Element {
   const { colors } = useTheme();
   const small = [typeStyle('label', language), { color: colors.textMuted }];
   // Status text is workbook text, kept verbatim, "pending" included.
-  const smallPrint = (text: string | null): React.JSX.Element => (
-    <Text style={small}>{text ?? t('common.notRecorded')}</Text>
+  const smallPrint = (label: MessageKey, value: string | null): React.JSX.Element => (
+    <Text style={small}>{t(label, { value: value ?? t('common.notRecorded') })}</Text>
   );
   const { avilist_iucn_category: aviList, birdlife_factsheet_url: factsheet } = conservation;
+  const showAviList = aviList !== null && aviListDiffers(iucnCategory, aviList);
+  const bodyStyle = [typeStyle('body', language), { color: colors.text }];
 
   return (
     <View style={styles.section}>
@@ -46,23 +48,33 @@ export function SpeciesConservation(props: Props): React.JSX.Element {
         {t('species.section.conservation')}
       </Text>
       <OccurrenceBadge code={occurrenceCode} language={language} t={t} />
-      {smallPrint(conservation.occurrence_verification_status)}
-      <Text style={[typeStyle('body', language), { color: colors.text }]}>{t('iucn.label')}</Text>
-      {iucnCategory ? (
-        <IucnBadge category={iucnCategory} language={language} t={t} />
-      ) : (
-        smallPrint(null)
+      {smallPrint(
+        'species.conservation.occurrenceVerification',
+        conservation.occurrence_verification_status,
       )}
-      {aviListDiffers(iucnCategory, aviList) ? (
+      {iucnCategory ? (
         <>
-          <Text style={[typeStyle('body', language), { color: colors.text }]}>
-            {t('species.conservation.aviList', { category: aviList ?? '' })}
+          {/* The badge's own label already reads this, so screen readers skip the visible copy. */}
+          <Text
+            accessibilityElementsHidden
+            importantForAccessibility="no-hide-descendants"
+            style={bodyStyle}
+          >
+            {t('iucn.label')}
           </Text>
+          <IucnBadge category={iucnCategory} language={language} t={t} />
+        </>
+      ) : (
+        <Text style={bodyStyle}>{`${t('iucn.label')}: ${t('common.notRecorded')}`}</Text>
+      )}
+      {showAviList ? (
+        <>
+          <Text style={bodyStyle}>{t('species.conservation.aviList', { category: aviList })}</Text>
           <Text style={small}>{t('species.conservation.aviListDiffers')}</Text>
         </>
       ) : null}
-      {smallPrint(conservation.iucn_assessment_year)}
-      {smallPrint(conservation.iucn_verification_status)}
+      {smallPrint('species.conservation.assessmentYear', conservation.iucn_assessment_year)}
+      {smallPrint('species.conservation.iucnVerification', conservation.iucn_verification_status)}
       {factsheet ? (
         <ExternalLink
           url={factsheet}
