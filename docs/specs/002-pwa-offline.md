@@ -1,5 +1,5 @@
 # 002 — Offline web app (PWA)
-Status: Approved (owner, 2026-11-14)
+Status: Done (2026-11-14, PRs #30, #32, #35–#37)
 
 ## Problem
 M1 works offline only after the first load, and only until the page is reloaded. Birders in
