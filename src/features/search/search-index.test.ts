@@ -91,8 +91,12 @@ describe('search (Sinhala)', () => {
   });
 });
 
+const SEARCH_BUDGET_MS = 100;
+
 describe('search performance', () => {
-  it('averages under 20 ms per query over the real species', () => {
+  // Product budget (ADR 0001): results within 100 ms per keystroke. Measured ~0.3 ms;
+  // asserting the real budget keeps this test stable on a busy machine.
+  it('averages within the 100 ms per-keystroke budget over the real species', () => {
     const queries = species.flatMap((s) => [
       s.names.en.slice(0, 5),
       s.names.scientific.replace('a', ''),
@@ -103,6 +107,6 @@ describe('search performance', () => {
     const start = performance.now();
     for (const q of runs) search(index, q);
     const average = (performance.now() - start) / runs.length;
-    expect(average).toBeLessThan(20);
+    expect(average).toBeLessThan(SEARCH_BUDGET_MS);
   });
 });
