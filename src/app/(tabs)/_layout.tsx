@@ -1,10 +1,13 @@
 import { Tabs } from 'expo-router/js-tabs';
+import { StyleSheet, View } from 'react-native';
 
 import { LanguageToggle, useSettings } from '@/features/settings';
 import type { MessageKey } from '@/shared/i18n/translate';
+import { useServiceWorkerUpdate } from '@/shared/platform/service-worker-update';
 import { size } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
+import { UpdateBannerRegion } from '@/shared/ui/update-banner';
 
 // Array order is the tab order; `index` is Identify, so it opens at "/".
 const TABS: { name: string; labelKey: MessageKey }[] = [
@@ -18,21 +21,27 @@ const TABS: { name: string; labelKey: MessageKey }[] = [
 export default function TabsLayout(): React.JSX.Element {
   const { language, t } = useSettings();
   const { colors } = useTheme();
+  const { updateAvailable, reload } = useServiceWorkerUpdate();
   return (
-    <Tabs
-      screenOptions={{
-        headerRight: () => <LanguageToggle />,
-        headerStyle: { backgroundColor: colors.bg },
-        headerTitleStyle: { ...typeStyle('title', language), color: colors.text },
-        tabBarActiveTintColor: colors.primary,
-        tabBarInactiveTintColor: colors.textMuted,
-        tabBarStyle: { backgroundColor: colors.bg, height: size.tabBar },
-        tabBarLabelStyle: typeStyle('label', language),
-      }}
-    >
-      {TABS.map(({ name, labelKey }) => (
-        <Tabs.Screen key={name} name={name} options={{ title: t(labelKey) }} />
-      ))}
-    </Tabs>
+    <View style={styles.root}>
+      <UpdateBannerRegion visible={updateAvailable} language={language} t={t} onReload={reload} />
+      <Tabs
+        screenOptions={{
+          headerRight: () => <LanguageToggle />,
+          headerStyle: { backgroundColor: colors.bg },
+          headerTitleStyle: { ...typeStyle('title', language), color: colors.text },
+          tabBarActiveTintColor: colors.primary,
+          tabBarInactiveTintColor: colors.textMuted,
+          tabBarStyle: { backgroundColor: colors.bg, height: size.tabBar },
+          tabBarLabelStyle: typeStyle('label', language),
+        }}
+      >
+        {TABS.map(({ name, labelKey }) => (
+          <Tabs.Screen key={name} name={name} options={{ title: t(labelKey) }} />
+        ))}
+      </Tabs>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({ root: { flex: 1 } });

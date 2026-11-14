@@ -39,5 +39,7 @@
   "search.hint": "සිංහල, ඉංග්‍රීසි හෝ ලතින් නමක් ටයිප් කරන්න",
   "search.noMatch": "‘{query}’ සඳහා ගැළපීමක් නැත",
   "search.browseLink": "පුවරු පිරික්සන්න",
-  "search.clear": "සෙවුම මකන්න"
+  "search.clear": "සෙවුම මකන්න",
+  "update.available": "යාවත්කාලීන කිරීමක් ඇත",
+  "update.reload": "නැවත පූරණය කරන්න"
 }
