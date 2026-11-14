@@ -8,7 +8,7 @@ export const REGISTER_FILE = `${MEDIA_DIR}/licences.csv`;
 
 const OPEN_LICENCE = /^(CC0-1\.0|CC-BY-\d\.\d|CC-BY-SA-\d\.\d)$/;
 // Allowed for display but flagged "replace before launch" (ADR 0004).
-const NONCOMMERCIAL_LICENCE = /^CC-BY-NC(-SA)?-\d\.\d$/;
+export const NONCOMMERCIAL_LICENCE = /^CC-BY-NC(-SA)?-\d\.\d$/;
 // A reviewed row is a published image, so provenance may not be blank.
 const REVIEWED_REQUIRED = [
   'source_url',
