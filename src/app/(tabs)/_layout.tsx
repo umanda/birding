@@ -7,7 +7,7 @@ import { useServiceWorkerUpdate } from '@/shared/platform/service-worker-update'
 import { size } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
-import { UpdateBanner } from '@/shared/ui/update-banner';
+import { UpdateBannerRegion } from '@/shared/ui/update-banner';
 
 // Array order is the tab order; `index` is Identify, so it opens at "/".
 const TABS: { name: string; labelKey: MessageKey }[] = [
@@ -24,7 +24,7 @@ export default function TabsLayout(): React.JSX.Element {
   const { updateAvailable, reload } = useServiceWorkerUpdate();
   return (
     <View style={styles.root}>
-      {updateAvailable && <UpdateBanner language={language} t={t} onReload={reload} />}
+      <UpdateBannerRegion visible={updateAvailable} language={language} t={t} onReload={reload} />
       <Tabs
         screenOptions={{
           headerRight: () => <LanguageToggle />,

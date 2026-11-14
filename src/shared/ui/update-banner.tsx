@@ -7,15 +7,25 @@ import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
 
 type Props = { language: Language; t: (key: MessageKey) => string; onReload: () => void };
+type RegionProps = Props & { visible: boolean };
+
+export const UPDATE_REGION_TEST_ID = 'update-region';
+
+// The live region stays mounted so screen readers announce the banner when it appears;
+// a live region that is inserted together with its content is often not announced.
+export function UpdateBannerRegion({ visible, ...props }: RegionProps): React.JSX.Element {
+  return (
+    <View accessibilityLiveRegion="polite" testID={UPDATE_REGION_TEST_ID}>
+      {visible && <UpdateBanner {...props} />}
+    </View>
+  );
+}
 
 // Non-blocking: nothing reloads until the user presses the button.
 export function UpdateBanner({ language, t, onReload }: Props): React.JSX.Element {
   const { colors } = useTheme();
   return (
-    <View
-      accessibilityLiveRegion="polite"
-      style={[styles.banner, { backgroundColor: colors.surface }]}
-    >
+    <View style={[styles.banner, { backgroundColor: colors.surface }]}>
       <Text style={[typeStyle('body', language), styles.message, { color: colors.text }]}>
         {t('update.available')}
       </Text>

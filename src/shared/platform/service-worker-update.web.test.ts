@@ -9,12 +9,12 @@ function fakeWorker(state = 'installing'): ServiceWorker & { fire: () => void } 
   }) as unknown as ServiceWorker & { fire: () => void };
 }
 
-function fakeRegistration(waiting: ServiceWorker | null = null) {
+type FakeRegistration = ServiceWorkerRegistration & { installing: ServiceWorker | null };
+
+function fakeRegistration(waiting: ServiceWorker | null = null): FakeRegistration {
   const target = new EventTarget();
   const registration = Object.assign(target, { waiting, installing: null as ServiceWorker | null });
-  return registration as unknown as ServiceWorkerRegistration & {
-    installing: ServiceWorker | null;
-  };
+  return registration as unknown as FakeRegistration;
 }
 
 const controlled = { controller: {} } as unknown as ServiceWorkerContainer;
@@ -53,9 +53,45 @@ describe('watchForWaitingWorker', () => {
     worker.fire();
     expect(onWaiting).not.toHaveBeenCalled();
   });
+  it('watches a worker that is already installing when subscribing', () => {
+    const registration = fakeRegistration();
+    const worker = fakeWorker();
+    registration.installing = worker;
+    const onWaiting = jest.fn();
+    watchForWaitingWorker(registration, controlled, onWaiting);
+
+    Object.assign(worker, { state: 'installed' });
+    worker.fire();
+    expect(onWaiting).toHaveBeenCalledWith(worker);
+  });
+
+  it('stops reporting after unsubscribe', () => {
+    const registration = fakeRegistration();
+    const installing = fakeWorker();
+    registration.installing = installing;
+    const onWaiting = jest.fn();
+    const unsubscribe = watchForWaitingWorker(registration, controlled, onWaiting);
+    unsubscribe();
+
+    Object.assign(installing, { state: 'installed' });
+    installing.fire();
+    registration.installing = fakeWorker('installed');
+    registration.dispatchEvent(new Event('updatefound'));
+    expect(onWaiting).not.toHaveBeenCalled();
+  });
 });
 
 describe('activateWaitingWorker', () => {
+  it('reloads at once when the worker is already active', () => {
+    const worker = fakeWorker('activated');
+    const container = new EventTarget() as unknown as ServiceWorkerContainer;
+    const reload = jest.fn();
+
+    activateWaitingWorker(worker, container, reload);
+    expect(reload).toHaveBeenCalledTimes(1);
+    expect(worker.postMessage).not.toHaveBeenCalled();
+  });
+
   it('asks the worker to skip waiting and reloads only on controllerchange', () => {
     const worker = fakeWorker('installed');
     const container = new EventTarget() as unknown as ServiceWorkerContainer;
