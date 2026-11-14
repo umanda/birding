@@ -5,6 +5,7 @@ import { useSettings } from '@/features/settings';
 import { getPlate, getSpecies } from '@/shared/data/content';
 import type { Species } from '@/shared/data/content-schema';
 import type { Language } from '@/shared/i18n/language';
+import { localized, otherLanguage } from '@/shared/i18n/localized';
 import type { MessageKey } from '@/shared/i18n/translate';
 import { size, space } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
@@ -13,8 +14,6 @@ import { IucnBadge } from '@/shared/ui/iucn-badge';
 import { OccurrenceBadge } from '@/shared/ui/occurrence-badge';
 
 import { SpeciesProse } from './species-prose';
-
-import { localized, otherLanguage } from '@/shared/i18n/localized';
 
 // The static export's `species/[id].html` template is built with the literal route pattern as id.
 const TEMPLATE_ID = '[id]';

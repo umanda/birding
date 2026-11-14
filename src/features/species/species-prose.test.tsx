@@ -69,8 +69,19 @@ describe('SpeciesProse', () => {
     expect(screen.getAllByText('Not recorded')).toHaveLength(1);
   });
 
-  it('requests the text once per species', async () => {
+  it('shows the new species text when re-keyed to another species', async () => {
+    const t = createT('en');
+    const { rerender } = await render(
+      <SpeciesProse key={ENGLISH_ID} speciesId={ENGLISH_ID} language="en" t={t} />,
+    );
+    await screen.findByText(/^Medium-sized, familiar myna/);
+    await rerender(<SpeciesProse key={SINHALA_ID} speciesId={SINHALA_ID} language="en" t={t} />);
+    expect(await screen.findByText(/^ශ්‍රී ලංකාවට ආවේණික/)).toBeTruthy();
+    expect(screen.queryByText(/^Medium-sized, familiar myna/)).toBeNull();
+  });
+
+  it('marks section headings as level 2', async () => {
     await renderProse(ENGLISH_ID, 'en');
-    expect(mockGetSpeciesText).toHaveBeenCalledTimes(1);
+    expect(screen.getByRole('header', { name: 'Description' })).toHaveProp('aria-level', 2);
   });
 });

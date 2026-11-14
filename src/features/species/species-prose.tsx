@@ -16,6 +16,9 @@ type ProseProps = { speciesId: string; language: Language; t: Translate };
 type LoadState =
   { status: 'loading' } | { status: 'error' } | { status: 'ready'; text: SpeciesText | undefined };
 
+// The page title is the h1.
+const SECTION_HEADING_LEVEL = 2;
+
 const SECTIONS: readonly { field: TextField; title: MessageKey }[] = [
   { field: 'species_description', title: 'species.section.description' },
   { field: 'male_female_identification', title: 'species.section.maleFemale' },
@@ -48,7 +51,12 @@ export function SpeciesProse({ speciesId, language, t }: ProseProps): React.JSX.
   if (state.status !== 'ready') {
     const message = state.status === 'error' ? t('species.text.error') : t('species.text.loading');
     return (
-      <Text style={[typeStyle('body', language), { color: colors.textMuted }]}>{message}</Text>
+      <Text
+        accessibilityLiveRegion="polite"
+        style={[typeStyle('body', language), { color: colors.textMuted }]}
+      >
+        {message}
+      </Text>
     );
   }
   return (
@@ -81,6 +89,7 @@ function Section({ title, value, language, t }: SectionProps): React.JSX.Element
     <View style={styles.section}>
       <Text
         accessibilityRole="header"
+        {...headingProps(SECTION_HEADING_LEVEL)}
         style={[typeStyle('title', language), { color: colors.text }]}
       >
         {title}
@@ -107,3 +116,6 @@ const styles = StyleSheet.create({
 
 // react-native-web renders `lang` as the HTML attribute; the native Text type does not declare it.
 const langProps = (lang: Language): TextProps => ({ lang }) as TextProps;
+
+// react-native-web renders aria-level as the heading level; without it a header role becomes h1.
+const headingProps = (level: number): TextProps => ({ 'aria-level': level }) as TextProps;
