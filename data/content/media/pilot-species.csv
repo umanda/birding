@@ -1,0 +1,21 @@
+species_id,english_name,reason,needed_plumages
+slb-gallus-lafayettii,Sri Lanka Junglefowl,trait pilot; endemic; marked dimorphism,male|female
+slb-urocissa-ornata,Sri Lanka Blue Magpie,trait pilot; endemic (VU); sexes alike,adult
+slb-actitis-hypoleucos,Common Sandpiper,trait pilot; migrant shorebird; sexes alike,adult
+slb-tachyspiza-badia,Shikra,trait pilot; raptor; dimorphic; streaked juvenile,male|female|juvenile
+slb-ardeola-grayii,Indian Pond-heron,trait pilot; seasonal plumage,breeding|non_breeding
+slb-eudynamys-scolopaceus,Asian Koel,trait pilot; marked dimorphism; distinct juvenile,male|female|juvenile
+slb-terpsiphone-paradisi,Indian Paradise-flycatcher,trait pilot; dimorphic; white morph male (male = rufous male),male|female|morph_white
+slb-cinnyris-asiaticus,Purple Sunbird,trait pilot; dimorphic; eclipse male,male|female|eclipse
+slb-corvus-splendens,House Crow,trait pilot; common urban bird,adult
+slb-acridotheres-tristis,Common Myna,trait pilot; common urban bird,adult
+slb-ocyceros-gingalensis,Sri Lanka Grey Hornbill,endemic; sexes differ by bill colour,male|female
+slb-chrysocolaptes-stricklandi,Sri Lanka Crimson-backed Flameback,endemic; sexes differ by crown,male|female
+slb-pavo-cristatus,Indian Peafowl,marked dimorphism; well-known,male|female
+slb-spatula-querquedula,Garganey,migrant duck; eclipse male,male|female|eclipse
+slb-pluvialis-fulva,Pacific Golden Plover,migrant shorebird; breeding vs non-breeding,breeding|non_breeding
+slb-haliastur-indus,Brahminy Kite,raptor; distinct juvenile; common on coasts and towns,adult|juvenile
+slb-copsychus-saularis,Oriental Magpie-robin,common garden bird; dimorphic,male|female
+slb-sternula-albifrons,Little Tern,seabird; breeding vs non-breeding; distinct juvenile,breeding|non_breeding|juvenile
+slb-egretta-gularis,Western Reef-Heron,colour morphs; white egret confusion group,morph_white|morph_dark
+slb-oriolus-xanthornus,Black-hooded Oriole,distinct juvenile/immature,adult|juvenile
