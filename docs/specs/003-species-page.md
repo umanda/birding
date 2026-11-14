@@ -73,7 +73,7 @@ Facts (workbook v1.0):
 Build changes (ADR 0006):
 - `SpeciesText {species_id, field, lang, text}`. `lang` is tagged by script: `si` when at least 20% of the cell's letters are Sinhala, `en` when there are none (and at least one Latin letter). Anything in between, or a cell with no letters, is ambiguous and fails the build unless listed in `data/content/text-lang-overrides.csv`. Latin terms inside Sinhala prose are normal and do not make a cell ambiguous.
 - Placeholder cells are listed in `data/content/text-placeholders.csv` (species_id, field), reviewed by the ornithologist. They import as null and the source is unchanged.
-- [Assumption] Prose, conservation details and sources go in a separate `content/species-text.json`. It is lazy-loaded and precached, because ~0.9 MB raw (~250 KB gz, ADR 0006) inside the bundle would break the 450 KB initial-JS budget. Slice 1 measures and confirms this. `schema_version` 2 applies to `species-text.json` only; `content.json` stays at 1.
+- [Assumption] Prose, conservation details and sources go in a separate `content/species-text.json`. It is lazy-loaded and precached, because ~0.9 MB raw (~250 KB gz, ADR 0006) inside the bundle would break the 450 KB initial-JS budget. Slice 1 measures and confirms this. `schema_version` 3 applies to `species-text.json` only (v2 was prose only; v3 adds conservation and sources); `content.json` stays at 1.
 - Media: `data/content/media/licences.csv` (ADR 0004 columns) → masters → thumb/full + `media-manifest.json` → `MediaAsset`.
   The `plumage_key` comes from 02 §3. CC BY-NC rows are allowed (decision #18), are derived as "replace before launch" from the licence, and are counted in the validation report.
 

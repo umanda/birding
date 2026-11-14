@@ -7,6 +7,9 @@ import { validateMediaRegister } from './media/validate-media';
 
 export const EXPECTED_SPECIES = 295;
 export const EXPECTED_PLATES = 43;
+export const EXPECTED_SOURCES = 347;
+const FACTSHEET_HOST = 'datazone.birdlife.org';
+const SCHEME = /\b([A-Za-z][A-Za-z0-9+.-]*):\/\//g;
 const CONTENT_FILE = 'content/content.json';
 const TEXT_FILE = 'content/species-text.json';
 export const TEXT_MAX_GZIP_BYTES = 250 * 1024; // lazy-loaded, but still precached (spec 003)
@@ -105,6 +108,65 @@ export function validateSpeciesText(input: unknown, speciesIds: string[]): strin
   ];
 }
 
+export type SourceReport = { errors: string[]; httpCount: number; citationCount: number };
+
+type Source = { source_id: string; citation: string; links: string[] };
+
+function isHttpLink(link: string): boolean {
+  try {
+    return ['http:', 'https:'].includes(new URL(link).protocol);
+  } catch {
+    return false;
+  }
+}
+
+// Every extracted link must parse as http(s), and so must any scheme in the citation text, so a
+// link that extraction skipped (ftp://) is not lost silently.
+function checkSource(source: Source): string[] {
+  const where = `species-text: ${source.source_id}`;
+  const errors = source.links.filter((l) => !isHttpLink(l)).map((l) => `${where}: bad link ${l}`);
+  for (const [, scheme = ''] of source.citation.matchAll(SCHEME)) {
+    if (!['http', 'https'].includes(scheme.toLowerCase())) errors.push(`${where}: scheme ${scheme} is not http(s)`);
+  }
+  return errors;
+}
+
+// Citations with no link are counted, not rejected: the workbook has them, and we do not rewrite data.
+export function checkSources(input: unknown): SourceReport {
+  const parsed = SpeciesTextFileSchema.safeParse(input);
+  const report: SourceReport = { errors: [], httpCount: 0, citationCount: 0 };
+  if (!parsed.success) return report; // validateSpeciesText reports schema errors
+  const ids = new Set<string>();
+  let total = 0;
+  for (const [speciesId, record] of Object.entries(parsed.data.species)) {
+    for (const source of record.sources) {
+      total += 1;
+      if (ids.has(source.source_id)) report.errors.push(`species-text: duplicate source_id ${source.source_id}`);
+      ids.add(source.source_id);
+      report.errors.push(...checkSource(source));
+      report.httpCount += source.links.filter((l) => l.startsWith('http:')).length;
+      if (source.links.length === 0) report.citationCount += 1;
+    }
+    const factsheet = record.conservation.birdlife_factsheet_url;
+    if (factsheet !== null && !isFactsheetUrl(factsheet)) {
+      report.errors.push(`species-text: ${speciesId}: factsheet URL is not on ${FACTSHEET_HOST}`);
+    }
+  }
+  if (total !== EXPECTED_SOURCES) {
+    report.errors.push(`species-text: expected ${EXPECTED_SOURCES} sources, found ${total}`);
+  }
+  return report;
+}
+
+function isFactsheetUrl(value: string): boolean {
+  try {
+    const url = new URL(value);
+    return ['http:', 'https:'].includes(url.protocol) && url.host === FACTSHEET_HOST;
+  } catch {
+    return false;
+  }
+}
+
 function readJson(file: string): unknown {
   return JSON.parse(readFileSync(file, 'utf8'));
 }
@@ -123,7 +185,14 @@ function main(): void {
   const parsed = ContentSchema.safeParse(content);
   if (parsed.success) {
     const ids = parsed.data.species.map((x) => x.species_id);
-    errors.push(...validateSpeciesText(readJson(TEXT_FILE), ids));
+    const text = readJson(TEXT_FILE);
+    errors.push(...validateSpeciesText(text, ids));
+    const sources = checkSources(text);
+    errors.push(...sources.errors);
+    process.stdout.write(
+      `sources: ${sources.httpCount} http links, ${sources.citationCount} free-text citations (not bare links)
+`,
+    );
     const media = validateMediaRegister(new Set(ids));
     errors.push(...media.errors);
     process.stdout.write(

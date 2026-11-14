@@ -92,6 +92,8 @@ async function main(): Promise<void> {
     {
       identification: await readTable(SOURCE_FILE, 'Identification'),
       distribution: await readTable(SOURCE_FILE, 'Distribution'),
+      conservation,
+      sources: await readTable(SOURCE_FILE, 'Species Sources'),
     },
     {
       placeholdersCsv: readFileSync(PLACEHOLDERS_FILE, 'utf8'),
