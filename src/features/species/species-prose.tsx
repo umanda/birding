@@ -11,6 +11,7 @@ import { space } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
 
+import { SpeciesConservation } from './species-conservation';
 import { SpeciesSources } from './species-sources';
 import { headingProps, langProps, SECTION_HEADING_LEVEL } from './text-props';
 
@@ -71,7 +72,16 @@ export function SpeciesProse({ species, language, t }: ProseProps): React.JSX.El
         />
       ))}
       {state.text ? (
-        <SpeciesSources sources={state.text.sources} language={language} t={t} />
+        <>
+          <SpeciesConservation
+            occurrenceCode={species.occurrence_code}
+            iucnCategory={species.iucn_category}
+            conservation={state.text.conservation}
+            language={language}
+            t={t}
+          />
+          <SpeciesSources sources={state.text.sources} language={language} t={t} />
+        </>
       ) : null}
     </View>
   );
