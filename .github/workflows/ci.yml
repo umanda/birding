@@ -27,6 +27,7 @@ jobs:
       - run: npm run typecheck
       - run: npm run validate:content
       - run: npm run content:build && git diff --exit-code content/
+      - run: npm run media:check
       - run: npm test -- --ci
       - run: npm run build:web
       - run: npx playwright install --with-deps chromium
