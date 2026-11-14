@@ -100,12 +100,7 @@ export function SpeciesDetail({ species, language, t }: DetailProps): React.JSX.
           </Text>
         )}
       </View>
-      <SpeciesProse
-        key={species.species_id}
-        speciesId={species.species_id}
-        language={language}
-        t={t}
-      />
+      <SpeciesProse key={species.species_id} species={species} language={language} t={t} />
     </ScrollView>
   );
 }

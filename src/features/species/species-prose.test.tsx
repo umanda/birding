@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react-native';
 
+import { getSpecies } from '@/shared/data/content';
 import { getSpeciesText } from '@/shared/data/species-text';
+import type { Species } from '@/shared/data/content-schema';
 import { createT } from '@/shared/i18n/translate';
 import type { Language } from '@/shared/i18n/language';
 
@@ -10,8 +12,16 @@ const mockGetSpeciesText = jest.mocked(getSpeciesText);
 const ENGLISH_ID = 'slb-acridotheres-tristis';
 const SINHALA_ID = 'slb-gallus-lafayettii';
 
+function speciesOf(id: string): Species {
+  const species = getSpecies(id);
+  if (!species) throw new Error(`${id} missing from content.json`);
+  return species;
+}
+
 async function renderProse(speciesId: string, language: Language): Promise<void> {
-  await render(<SpeciesProse speciesId={speciesId} language={language} t={createT(language)} />);
+  await render(
+    <SpeciesProse species={speciesOf(speciesId)} language={language} t={createT(language)} />,
+  );
   await screen.findByText(language === 'en' ? 'Description' : 'විස්තරය');
 }
 
@@ -20,13 +30,13 @@ describe('SpeciesProse', () => {
 
   it('shows a loading placeholder first', async () => {
     mockGetSpeciesText.mockReturnValueOnce(new Promise(() => undefined));
-    await render(<SpeciesProse speciesId={ENGLISH_ID} language="en" t={createT('en')} />);
+    await render(<SpeciesProse species={speciesOf(ENGLISH_ID)} language="en" t={createT('en')} />);
     expect(screen.getByText('Loading…')).toBeTruthy();
   });
 
   it('shows an error message when the text cannot load', async () => {
     mockGetSpeciesText.mockRejectedValueOnce(new Error('offline'));
-    await render(<SpeciesProse speciesId={ENGLISH_ID} language="en" t={createT('en')} />);
+    await render(<SpeciesProse species={speciesOf(ENGLISH_ID)} language="en" t={createT('en')} />);
     expect(await screen.findByText('Could not load this text.')).toBeTruthy();
   });
 
@@ -72,10 +82,12 @@ describe('SpeciesProse', () => {
   it('shows the new species text when re-keyed to another species', async () => {
     const t = createT('en');
     const { rerender } = await render(
-      <SpeciesProse key={ENGLISH_ID} speciesId={ENGLISH_ID} language="en" t={t} />,
+      <SpeciesProse key={ENGLISH_ID} species={speciesOf(ENGLISH_ID)} language="en" t={t} />,
     );
     await screen.findByText(/^Medium-sized, familiar myna/);
-    await rerender(<SpeciesProse key={SINHALA_ID} speciesId={SINHALA_ID} language="en" t={t} />);
+    await rerender(
+      <SpeciesProse key={SINHALA_ID} species={speciesOf(SINHALA_ID)} language="en" t={t} />,
+    );
     expect(await screen.findByText(/^ශ්‍රී ලංකාවට ආවේණික/)).toBeTruthy();
     expect(screen.queryByText(/^Medium-sized, familiar myna/)).toBeNull();
   });
