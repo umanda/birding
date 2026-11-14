@@ -10,6 +10,9 @@ import { useTheme } from '@/shared/theme/use-theme';
 
 type Props = { url: string; label?: string; language: Language; t: (key: MessageKey) => string };
 
+// Only web links are opened; anything else in a citation stays plain text.
+const WEB_URL = /^https?:/; //i;
+
 export function domainOf(url: string): string {
   try {
     return new URL(url).hostname;
@@ -24,6 +27,9 @@ export function ExternalLink({ url, label, language, t }: Props): React.JSX.Elem
   const [offline, setOffline] = useState(false);
   const domain = domainOf(url);
   const text = label ? `${label} (${domain})` : domain;
+  const textStyle = [typeStyle('body', label ? language : 'en'), { color: colors.primary }];
+
+  if (!WEB_URL.test(url)) return <Text style={textStyle}>{url}</Text>;
 
   const open = (): void => {
     const online = isOnline();
@@ -39,9 +45,7 @@ export function ExternalLink({ url, label, language, t }: Props): React.JSX.Elem
         onPress={open}
         style={styles.link}
       >
-        <Text style={[typeStyle('body', 'en'), styles.text, { color: colors.primary }]}>
-          {text}
-        </Text>
+        <Text style={[textStyle, styles.text]}>{text}</Text>
       </Pressable>
       {offline ? (
         <Text

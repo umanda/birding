@@ -59,4 +59,25 @@ describe('SpeciesSources', () => {
     expect(openURL).not.toHaveBeenCalled();
     expect(screen.getByText("You're offline — links open when you're back online.")).toBeTruthy();
   });
+
+  it('shows the notice when opening the link fails', async () => {
+    openURL.mockRejectedValueOnce(new Error('no network'));
+    await render(<SpeciesSources sources={sources} language="en" t={t} />);
+    await fireEvent.press(screen.getByRole('link', { name: 'app.limosa.online' }));
+    expect(await screen.findByText(/You're offline/)).toBeTruthy();
+  });
+
+  it('keeps a non-web link as plain text', async () => {
+    const odd = [source('c', ['javascript:alert(1)'])];
+    await render(<SpeciesSources sources={odd} language="en" t={t} />);
+    expect(screen.getByText('javascript:alert(1)')).toBeTruthy();
+    expect(screen.queryByRole('link')).toBeNull();
+  });
+
+  it('shows the notice in the UI language', async () => {
+    jest.mocked(isOnline).mockReturnValue(false);
+    await render(<SpeciesSources sources={sources} language="si" t={createT('si')} />);
+    await fireEvent.press(screen.getByRole('link', { name: 'app.limosa.online' }));
+    expect(screen.getByText(/ඔබ නොබැඳි ය/)).toBeTruthy();
+  });
 });
