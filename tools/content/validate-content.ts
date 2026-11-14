@@ -110,12 +110,8 @@ export function validateSpeciesText(input: unknown, speciesIds: string[]): strin
 
 export type SourceReport = { errors: string[]; httpCount: number; citationCount: number };
 
-function isBareUrl(cell: string): boolean {
-    return /^[A-Za-z][A-Za-z0-9+.-]*:\/\/\S+$/.test(cell);
-}
-
-// source_url cells are a bare link or a free-text citation. Any scheme in either must be http(s).
-// Citation cells are counted, not rejected: the workbook has them, and we do not rewrite data.
+// Extracted links and any scheme in the citation text must be http(s). Citations with no link are
+// counted, not rejected: the workbook has them, and we do not rewrite data.
 export function checkSources(input: unknown): SourceReport {
   const parsed = SpeciesTextFileSchema.safeParse(input);
   const report: SourceReport = { errors: [], httpCount: 0, citationCount: 0 };
@@ -127,11 +123,11 @@ export function checkSources(input: unknown): SourceReport {
       total += 1;
       if (ids.has(source.source_id)) report.errors.push(`species-text: duplicate source_id ${source.source_id}`);
       ids.add(source.source_id);
-      for (const [, scheme = ''] of source.url.matchAll(SCHEME)) {
+      for (const [, scheme = ''] of source.citation.matchAll(SCHEME)) {
         if (!['http', 'https'].includes(scheme.toLowerCase())) report.errors.push(`species-text: ${source.source_id}: scheme ${scheme} is not http(s)`);
       }
-      if (source.url.startsWith('http:')) report.httpCount += 1;
-      if (!isBareUrl(source.url)) report.citationCount += 1;
+      report.httpCount += source.links.filter((l) => l.startsWith('http:')).length;
+      if (source.links.length === 0) report.citationCount += 1;
     }
     const factsheet = record.conservation.birdlife_factsheet_url;
     if (factsheet !== null && !isFactsheetUrl(factsheet)) report.errors.push(`species-text: ${speciesId}: factsheet URL is not on ${FACTSHEET_HOST}`);

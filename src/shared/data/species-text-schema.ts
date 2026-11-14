@@ -51,11 +51,12 @@ const ConservationSchema = z.strictObject({
   previous_iucn_category: NullableText,
 });
 
-// The workbook has no title column. `url` is the Species Sources cell verbatim: a bare link in
-// some rows, a free-text citation (with or without links) in others.
+// The workbook has no title column. `citation` is the Species Sources cell verbatim (a bare link or
+// free text). `links` are the http(s) URLs found in it, in order; empty when the cell has none.
 const SourceSchema = z.strictObject({
   source_id: z.string().min(1),
-  url: z.string().min(1),
+  citation: z.string().min(1),
+  links: z.array(z.string().min(1)),
   type: z.string().min(1).nullable(),
 });
 

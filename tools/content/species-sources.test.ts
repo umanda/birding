@@ -1,12 +1,12 @@
 import { CONSERVATION_FIELDS, SpeciesTextFileSchema } from '../../src/shared/data/species-text-schema';
-import { buildSpeciesText } from './species-text';
+import { buildSpeciesText, extractLinks } from './species-text';
 import { EXPECTED_SOURCES, checkSources } from './validate-content';
 
 const NONE = { placeholdersCsv: 'species_id,field,reason\n', overridesCsv: 'species_id,field,lang\n' };
 const cons = (extra: Record<string, unknown> = {}) => ({ species_id: 'a', ...extra });
-const src = (id: string, url: string) => ({ source_id: id, species_id: 'a', source_url: url, source_type: 'ref' });
+const src = (id: string, citation: string) => ({ source_id: id, species_id: 'a', source_url: citation, source_type: 'ref' });
 
-type Built = { conservation: Record<string, string | null>; sources: { source_id: string; url: string }[] };
+type Built = { conservation: Record<string, string | null>; sources: { source_id: string; citation: string; links: string[] }[] };
 const build = (conservation: Record<string, unknown>[], sources: Record<string, unknown>[]): { species: Record<string, Built> } =>
   buildSpeciesText(
     { identification: [{ species_id: 'a', species_description: 'x' }], distribution: [], conservation, sources },
@@ -35,7 +35,7 @@ describe('sources in species-text', () => {
   it('sorts by source_id and keeps the cell verbatim', () => {
     const cell = 'Field guide; list: https://example.org/x ; more';
     const built = build([cons()], [src('a-src-02', 'https://b.org'), src('a-src-01', cell)]);
-    expect(built.species.a?.sources.map((s) => [s.source_id, s.url])).toEqual([
+    expect(built.species.a?.sources.map((s) => [s.source_id, s.citation])).toEqual([
       ['a-src-01', cell],
       ['a-src-02', 'https://b.org'],
     ]);
@@ -59,18 +59,19 @@ const file = (conservation: Record<string, unknown>, sources: unknown[]): unknow
     },
   },
 });
-const many = (n: number, url = 'https://a.org'): unknown[] =>
-  Array.from({ length: n }, (_, i) => ({ source_id: `s${i}`, url, type: null }));
+const entry = (source_id: string, citation: string, links: string[]): unknown => ({ source_id, citation, links, type: null });
+const many = (n: number): unknown[] =>
+  Array.from({ length: n }, (_, i) => entry(`s${i}`, 'https://a.org', ['https://a.org']));
 
 describe('checkSources', () => {
   it('accepts the expected count and counts http links and citations', () => {
-    const sources = [...many(EXPECTED_SOURCES - 2), { source_id: 'h', url: 'http://a.org', type: null }, { source_id: 'c', url: 'Guide: https://a.org ; Book', type: null }];
+    const sources = [...many(EXPECTED_SOURCES - 2), entry('h', 'http://a.org', ['http://a.org']), entry('c', 'Guide only', [])];
     const report = checkSources(file({ birdlife_factsheet_url: 'https://datazone.birdlife.org/species/factsheet/1' }, sources));
     expect(report).toEqual({ errors: [], httpCount: 1, citationCount: 1 });
   });
 
   it('rejects other schemes, duplicates, a wrong count and a foreign factsheet host', () => {
-    const sources = [...many(EXPECTED_SOURCES - 1), { source_id: 's0', url: 'javascript://x', type: null }];
+    const sources = [...many(EXPECTED_SOURCES - 1), entry('s0', 'see javascript://x', [])];
     const errors = checkSources(file({ birdlife_factsheet_url: 'https://example.org/f' }, sources)).errors.join('\n');
     expect(errors).toContain('duplicate source_id s0');
     expect(errors).toContain('scheme javascript is not http(s)');
@@ -80,5 +81,26 @@ describe('checkSources', () => {
 
   it('rejects an unknown conservation field in the schema', () => {
     expect(SpeciesTextFileSchema.safeParse(file({ extra: 'x' }, [])).success).toBe(false);
+  });
+});
+
+describe('extractLinks', () => {
+  it.each([
+    ['a bare URL', 'https://a.org/x?y=1', ['https://a.org/x?y=1']],
+    ['one URL in a citation', 'Field guide: https://a.org/list', ['https://a.org/list']],
+    ['two URLs in order', 'A: https://a.org/1 ; B: http://b.org/2', ['https://a.org/1', 'http://b.org/2']],
+    ['trailing punctuation', 'see (https://a.org/x). Also https://b.org/y;', ['https://a.org/x', 'https://b.org/y']],
+    ['encoded parentheses are kept', 'https://a.org/List%28Country%29.pdf', ['https://a.org/List%28Country%29.pdf']],
+    ['no URL', 'CBC Country List 2022; Avibase checklist', []],
+    ['Sinhala text around a URL', 'ශ්‍රී ලංකා පක්ෂි ලැයිස්තුව: https://a.org/si ; ඉහත', ['https://a.org/si']],
+  ])('%s', (_name, cell, links) => {
+    expect(extractLinks(cell)).toEqual(links);
+  });
+
+  it('keeps the citation unchanged next to its links', () => {
+    const cell = 'Guide (https://a.org/x). ';
+    const source = build([cons()], [src('s1', cell)]).species.a?.sources[0];
+    expect(source?.citation).toBe(cell);
+    expect(source?.links).toEqual(['https://a.org/x']);
   });
 });

@@ -52,6 +52,14 @@ function overrideLangs(csv: string): Map<Key, TextLang> {
   );
 }
 
+const URL_IN_TEXT = /https?:\/\/\S+/g;
+const TRAILING_PUNCTUATION = /[.,;:)\]]+$/;
+
+// Only the extracted link is trimmed; the citation keeps every character.
+export function extractLinks(citation: string): string[] {
+  return (citation.match(URL_IN_TEXT) ?? []).map((l) => l.replace(TRAILING_PUNCTUATION, ''));
+}
+
 const blankToNull = (cell: unknown): string | null =>
   typeof cell === 'string' && cell.trim() !== '' ? cell : null;
 
@@ -84,11 +92,11 @@ function groupSources(rows: Row[]): Map<string, SpeciesSource[]> {
   for (const row of rows) {
     const speciesId = idOf(row, 'Species Sources');
     const sourceId = blankToNull(row.source_id);
-    const url = blankToNull(row.source_url);
-    if (sourceId === null || url === null) throw new Error(`Blank source_id or source_url for ${speciesId}`);
+    const citation = blankToNull(row.source_url);
+    if (sourceId === null || citation === null) throw new Error(`Blank source_id or source_url for ${speciesId}`);
     if (seen.has(sourceId)) throw new Error(`Duplicate source_id ${sourceId}`);
     seen.add(sourceId);
-    byId.set(speciesId, [...(byId.get(speciesId) ?? []), { source_id: sourceId, url, type: blankToNull(row.source_type) }]);
+    byId.set(speciesId, [...(byId.get(speciesId) ?? []), { source_id: sourceId, citation, links: extractLinks(citation), type: blankToNull(row.source_type) }]);
   }
   for (const list of byId.values()) list.sort((a, b) => (a.source_id < b.source_id ? -1 : 1));
   return byId;
