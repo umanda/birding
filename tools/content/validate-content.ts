@@ -1,10 +1,12 @@
 import { readFileSync } from 'node:fs';
 import { ContentSchema } from '../../src/shared/data/content-schema';
+import { SpeciesTextSchema } from './species-text';
 import type { Content } from '../../src/shared/data/content-schema';
 
 export const EXPECTED_SPECIES = 295;
 export const EXPECTED_PLATES = 43;
 const CONTENT_FILE = 'content/content.json';
+const TEXT_FILE = 'content/species-text.json';
 
 export type ValidationResult = { errors: string[]; warnings: string[] };
 
@@ -89,12 +91,31 @@ export function validateContent(input: unknown): ValidationResult {
   };
 }
 
+// Every species has a text record, and no record belongs to an unknown species.
+export function validateSpeciesText(input: unknown, speciesIds: string[]): string[] {
+  const parsed = SpeciesTextSchema.safeParse(input);
+  if (!parsed.success) return parsed.error.issues.map((i) => `species-text: ${i.path.join('.')}: ${i.message}`);
+  const textIds = Object.keys(parsed.data.species);
+  return [
+    ...speciesIds.filter((id) => !textIds.includes(id)).map((id) => `species-text: missing ${id}`),
+    ...textIds.filter((id) => !speciesIds.includes(id)).map((id) => `species-text: unknown ${id}`),
+  ];
+}
+
+function readJson(file: string): unknown {
+  return JSON.parse(readFileSync(file, 'utf8'));
+}
+
 function main(): void {
-  const { errors, warnings } = validateContent(JSON.parse(readFileSync(CONTENT_FILE, 'utf8')));
+  const content = readJson(CONTENT_FILE);
+  const result = validateContent(content);
+  const { warnings } = result;
+  const speciesIds = (content as Content).species.map((x) => x.species_id);
+  const errors = [...result.errors, ...validateSpeciesText(readJson(TEXT_FILE), speciesIds)];
   for (const w of warnings) process.stdout.write(`warning: ${w}\n`);
   for (const e of errors) process.stderr.write(`error: ${e}\n`);
   if (errors.length > 0) process.exit(1);
-  process.stdout.write(`${CONTENT_FILE} is valid (${warnings.length} warnings)\n`);
+  process.stdout.write(`${CONTENT_FILE} and ${TEXT_FILE} are valid (${warnings.length} warnings)\n`);
 }
 
 if (require.main === module) main();
