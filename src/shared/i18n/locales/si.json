@@ -8,6 +8,15 @@
   "common.notRecorded": "වාර්තා වී නැත",
   "species.notFound": "විශේෂය හමු නොවීය",
   "species.goToSearch": "සොයන්න වෙත යන්න",
+  "species.section.description": "විස්තරය",
+  "species.section.maleFemale": "පිරිමි සහ ගැහැනු",
+  "species.section.juvenile": "පැටවුන්",
+  "species.section.fieldTips": "නිරීක්ෂණ උපදෙස්",
+  "species.section.distribution": "ව්‍යාප්තිය සහ නිරීක්ෂණ ස්ථාන",
+  "species.section.seasonality": "දක්නට ලැබෙන කාලය",
+  "species.text.notInLanguage": "{language} භාෂාවෙන් තවම නැත",
+  "species.text.loading": "පූරණය වෙමින්…",
+  "species.text.error": "මෙම පෙළ පූරණය කළ නොහැකි විය.",
   "search.results.one": "ප්‍රතිඵල {count}",
   "search.results.other": "ප්‍රතිඵල {count}",
   "occurrence.endemic": "ලංකාවට ආවේණික",
@@ -41,5 +50,7 @@
   "search.browseLink": "පුවරු පිරික්සන්න",
   "search.clear": "සෙවුම මකන්න",
   "update.available": "යාවත්කාලීන කිරීමක් ඇත",
-  "update.reload": "නැවත පූරණය කරන්න"
+  "update.reload": "නැවත පූරණය කරන්න",
+  "language.name.en": "ඉංග්‍රීසි",
+  "language.name.si": "සිංහල"
 }

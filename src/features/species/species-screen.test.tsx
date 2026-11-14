@@ -99,7 +99,9 @@ describe('SpeciesDetail', () => {
     });
     expect(await screen.findByText('Test Bird')).toBeTruthy();
     expect(screen.getByText('Global status (working value): Not recorded')).toBeTruthy();
-    expect(screen.getAllByText('Not recorded')).toHaveLength(2);
+    // Two blank header values, then six prose sections: this species has no text record.
+    await screen.findByText('Description');
+    expect(screen.getAllByText('Not recorded')).toHaveLength(8);
   });
 
   it('uses the English heading in the Sinhala UI when the Sinhala name is blank', async () => {

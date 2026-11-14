@@ -58,6 +58,7 @@
       "<rootDir>/e2e/"
     ],
     "moduleNameMapper": {
+      "^@/shared/data/species-text$": "<rootDir>/src/shared/data/species-text.test-double.ts",
       "^@/(.*)$": "<rootDir>/src/$1"
     }
   }
