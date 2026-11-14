@@ -35,6 +35,13 @@ const blankSinhala: Species = {
 };
 
 describe('species screen', () => {
+  it('shows neither not-found text nor a heading on the build-time template', async () => {
+    mockLanguage = 'en';
+    await renderRouter(routes, { initialUrl: '/species/[id]' });
+    expect(screen.queryByText('Species not found')).toBeNull();
+    expect(screen.queryByRole('header')).toBeNull();
+  });
+
   it('shows names, plate and badges in English', async () => {
     mockLanguage = 'en';
     await renderRouter(routes, { initialUrl: `/species/${JUNGLEFOWL_ID}` });

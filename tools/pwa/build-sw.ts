@@ -21,11 +21,12 @@ async function main(): Promise<void> {
     ignoreURLParametersMatching: [/.*/],
     navigateFallback: SPECIES_TEMPLATE,
     navigateFallbackAllowlist: [/^\/species\//],
-    // A waiting worker is activated by the user (update banner), never automatically.
+    // A waiting worker is activated by the user via the update banner (spec 002 slice 4), never automatically.
     skipWaiting: false,
     clientsClaim: true,
   });
-  warnings.forEach((warning) => process.stderr.write(`${warning}\n`));
+  // An oversize file would otherwise silently drop out of the precache.
+  if (warnings.length > 0) throw new Error(`Workbox warnings:\n${warnings.join('\n')}`);
   process.stdout.write(`Precached ${count} files, ${(size / 1024 / 1024).toFixed(2)} MB\n`);
 }
 
