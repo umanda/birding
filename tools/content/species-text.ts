@@ -1,48 +1,42 @@
-import { z } from 'zod';
+import { TEXT_FIELDS } from '../../src/shared/data/species-text-schema';
+import type { TextLang } from '../../src/shared/data/species-text-schema';
 
-export const TEXT_FIELDS = [
-  'species_description',
-  'male_female_identification',
-  'juvenile_immature_plumage',
-  'field_spotting_tips',
-  'sri_lanka_distribution_and_hotspots',
-  'seasonality_months_seen',
-] as const;
-
-export type TextField = (typeof TEXT_FIELDS)[number];
-export type TextLang = 'si' | 'en';
 type Row = Record<string, unknown>;
 type Key = `${string}|${string}`;
 
 // Language rule: count letters only (digits, punctuation, spaces, ZWJ and combining marks are
 // ignored). Sinhala prose often embeds Latin terms and names, so any real Sinhala text decides:
-// 'si' if at least SI_MIN of the letters are in the Sinhala block, 'en' if there are none.
+// 'si' if at least SI_MIN of the letters are in the Sinhala block, 'en' if there are none and
+// at least one Latin letter exists (a cell with no letters at all is ambiguous).
 // A trace (0 < share < SI_MIN) is ambiguous and needs a manual override. In workbook v1.0 every
 // Sinhala cell is >= 33% and every English cell is exactly 0%, so nothing is ambiguous.
 const SINHALA_LETTER = /[඀-෿]/u;
 const ANY_LETTER = /\p{L}/gu;
+const LATIN_LETTER = /[A-Za-z]/;
 const SI_MIN = 0.2;
 
 export function detectLang(text: string): TextLang | 'ambiguous' {
   const letters = text.match(ANY_LETTER) ?? [];
   const sinhala = letters.filter((c) => SINHALA_LETTER.test(c)).length;
-  if (sinhala === 0) return 'en';
+  if (sinhala === 0) return LATIN_LETTER.test(text) ? 'en' : 'ambiguous';
   return sinhala / letters.length >= SI_MIN ? 'si' : 'ambiguous';
 }
 
-// Minimal CSV for our own lists: a header line, no quoted commas, no multi-line cells.
+// Minimal CSV for our own lists: a header line, exactly one cell per column. Quotes and commas
+// inside cells are not supported (use plain words in the reason column) and are rejected.
 export function parseList(csv: string, columns: string[]): string[][] {
   const [header, ...lines] = csv.split(/\r?\n/).filter((l) => l.trim() !== '');
   if (header?.trim() !== columns.join(',')) throw new Error(`List header must be ${columns.join(',')}`);
   return lines.map((line) => {
     const cells = line.split(',').map((c) => c.trim());
-    if (cells.length < columns.length) throw new Error(`Bad list line: ${line}`);
+    if (line.includes('"') || cells.length !== columns.length) throw new Error(`Bad list line: ${line}`);
     return cells;
   });
 }
 
 const keyOf = (id: string, field: string): Key => `${id}|${field}`;
 
+// Tied to workbook v1.0: re-review the placeholder list whenever source_sha256 changes.
 // reason (3rd column) is for reviewers only.
 function placeholderKeys(csv: string): Set<Key> {
   return new Set(parseList(csv, ['species_id', 'field', 'reason']).map(([id = '', f = '']) => keyOf(id, f)));
@@ -78,14 +72,19 @@ export function buildSpeciesText(
     }
     if (typeof cell !== 'string' || cell.trim() === '') return null; // blank stays null
     const detected = detectLang(cell);
-    const lang = overrides.get(key) ?? detected;
-    if (overrides.has(key)) used.add(key);
+    const override = overrides.get(key);
+    if (override !== undefined) {
+      if (detected !== 'ambiguous') throw new Error(`Unneeded override: ${key} is not ambiguous`);
+      used.add(key);
+    }
+    const lang = override ?? detected;
     if (lang === 'ambiguous') throw new Error(`Ambiguous-language cell ${id}|${field}: add a lang override`);
     return { text: cell, lang };
   };
 
   for (const row of [...tables.identification, ...tables.distribution]) {
-    const id = String(row.species_id);
+    const id = typeof row.species_id === 'string' ? row.species_id.trim() : '';
+    if (id === '') throw new Error('Text row has a blank species_id');
     const fields = TEXT_FIELDS.filter((f) => f in row);
     species[id] ??= {};
     for (const field of fields) {
@@ -99,9 +98,3 @@ export function buildSpeciesText(
   const sorted = Object.fromEntries(Object.entries(species).sort(([a], [b]) => (a < b ? -1 : 1)));
   return { schema_version: 2, species: sorted };
 }
-
-const TextValueSchema = z.object({ text: z.string().min(1), lang: z.enum(['si', 'en']) }).nullable();
-export const SpeciesTextSchema = z.object({
-  schema_version: z.literal(2),
-  species: z.record(z.string(), z.object(Object.fromEntries(TEXT_FIELDS.map((f) => [f, TextValueSchema])))),
-});

@@ -71,9 +71,9 @@ Facts (workbook v1.0):
 - Media: 1,770 slots, all `asset_url` blank, search links only. There are no images.
 
 Build changes (ADR 0006):
-- `SpeciesText {species_id, field, lang, text}`. `lang` is tagged by script, and mixed cells fail the build.
+- `SpeciesText {species_id, field, lang, text}`. `lang` is tagged by script: `si` when at least 20% of the cell's letters are Sinhala, `en` when there are none (and at least one Latin letter). Anything in between, or a cell with no letters, is ambiguous and fails the build unless listed in `data/content/text-lang-overrides.csv`. Latin terms inside Sinhala prose are normal and do not make a cell ambiguous.
 - Placeholder cells are listed in `data/content/text-placeholders.csv` (species_id, field), reviewed by the ornithologist. They import as null and the source is unchanged.
-- [Assumption] Prose, conservation details and sources go in a separate `content/species-text.json`. It is lazy-loaded and precached, because ~0.9 MB raw (~250 KB gz, ADR 0006) inside the bundle would break the 450 KB initial-JS budget. Slice 1 measures and confirms this. `schema_version` goes to 2.
+- [Assumption] Prose, conservation details and sources go in a separate `content/species-text.json`. It is lazy-loaded and precached, because ~0.9 MB raw (~250 KB gz, ADR 0006) inside the bundle would break the 450 KB initial-JS budget. Slice 1 measures and confirms this. `schema_version` 2 applies to `species-text.json` only; `content.json` stays at 1.
 - Media: `data/content/media/licences.csv` (ADR 0004 columns) → masters → thumb/full + `media-manifest.json` → `MediaAsset`.
   The `plumage_key` comes from 02 §3. CC BY-NC rows are allowed (decision #18), are derived as "replace before launch" from the licence, and are counted in the validation report.
 
@@ -94,7 +94,7 @@ Missing data and who supplies it:
 ## PR slices
 Each slice leaves `main` green. Code (C) lands before UI. Data PRs (D) carry only register rows, lists or image files.
 `[Orn]` = ornithologist drafts or reviews. `[Owner]` = owner review needed before merge.
-1. C feat(content): import prose as `SpeciesText` with script `lang` tag into lazy `species-text.json`, schema v2, mixed-language check, empty placeholder list, bundle-size check (~180)
+1. C feat(content): import prose as `SpeciesText` with script `lang` tag into lazy `species-text.json`, schema v2 (species-text.json), ambiguous-language check, empty placeholder list, bundle-size check (~180)
 2. D data(content): placeholder cell list (~20 juvenile + any others) [Orn] (~25)
 3. C feat(content): add conservation details (verification statuses, factsheet URL) and Species Sources to `species-text.json`, with validation (~140)
 4. C feat(media): licence register schema and CI validator (allow-list, status, FK to species/plumage_key, file↔row parity, NC count). Empty register (~180)

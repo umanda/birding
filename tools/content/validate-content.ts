@@ -1,12 +1,14 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, statSync } from 'node:fs';
+import { gzipSync } from 'node:zlib';
 import { ContentSchema } from '../../src/shared/data/content-schema';
-import { SpeciesTextSchema } from './species-text';
+import { SpeciesTextFileSchema } from '../../src/shared/data/species-text-schema';
 import type { Content } from '../../src/shared/data/content-schema';
 
 export const EXPECTED_SPECIES = 295;
 export const EXPECTED_PLATES = 43;
 const CONTENT_FILE = 'content/content.json';
 const TEXT_FILE = 'content/species-text.json';
+export const TEXT_MAX_GZIP_BYTES = 250 * 1024; // lazy-loaded, but still precached (spec 003)
 
 export type ValidationResult = { errors: string[]; warnings: string[] };
 
@@ -93,7 +95,7 @@ export function validateContent(input: unknown): ValidationResult {
 
 // Every species has a text record, and no record belongs to an unknown species.
 export function validateSpeciesText(input: unknown, speciesIds: string[]): string[] {
-  const parsed = SpeciesTextSchema.safeParse(input);
+  const parsed = SpeciesTextFileSchema.safeParse(input);
   if (!parsed.success) return parsed.error.issues.map((i) => `species-text: ${i.path.join('.')}: ${i.message}`);
   const textIds = Object.keys(parsed.data.species);
   return [
@@ -106,16 +108,32 @@ function readJson(file: string): unknown {
   return JSON.parse(readFileSync(file, 'utf8'));
 }
 
+export function checkTextSize(gzipBytes: number): string[] {
+  return gzipBytes > TEXT_MAX_GZIP_BYTES
+    ? [`species-text: ${gzipBytes} bytes gzip exceeds budget ${TEXT_MAX_GZIP_BYTES}`]
+    : [];
+}
+
 function main(): void {
-  const content = readJson(CONTENT_FILE);
+  const content: unknown = readJson(CONTENT_FILE);
   const result = validateContent(content);
-  const { warnings } = result;
-  const speciesIds = (content as Content).species.map((x) => x.species_id);
-  const errors = [...result.errors, ...validateSpeciesText(readJson(TEXT_FILE), speciesIds)];
-  for (const w of warnings) process.stdout.write(`warning: ${w}\n`);
-  for (const e of errors) process.stderr.write(`error: ${e}\n`);
+  const errors = [...result.errors];
+  // Species ids come from content.json only when it is valid; otherwise its errors are enough.
+  const parsed = ContentSchema.safeParse(content);
+  if (parsed.success) {
+    const ids = parsed.data.species.map((x) => x.species_id);
+    errors.push(...validateSpeciesText(readJson(TEXT_FILE), ids));
+  }
+  const gzipBytes = gzipSync(readFileSync(TEXT_FILE)).length;
+  errors.push(...checkTextSize(gzipBytes));
+  for (const w of result.warnings) process.stdout.write(`warning: ${w}
+`);
+  for (const e of errors) process.stderr.write(`error: ${e}
+`);
   if (errors.length > 0) process.exit(1);
-  process.stdout.write(`${CONTENT_FILE} and ${TEXT_FILE} are valid (${warnings.length} warnings)\n`);
+  const rawBytes = statSync(TEXT_FILE).size;
+  process.stdout.write(`${CONTENT_FILE} and ${TEXT_FILE} are valid (${rawBytes} raw, ${gzipBytes} gzip, ${result.warnings.length} warnings)
+`);
 }
 
 if (require.main === module) main();
