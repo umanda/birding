@@ -8,6 +8,7 @@ const DIST_DIR = 'dist';
 const NOT_PRECACHED = ['sw.js', '_sitemap.html', '**/*.map', 'species/slb-*.html'];
 const SPECIES_TEMPLATE = '/species/[id].html';
 const MAX_FILE_BYTES = 5 * 1024 * 1024; // the single JS bundle exceeds Workbox's 2 MB default
+const PRECACHE_BUDGET_BYTES = 10 * 1024 * 1024; // ADR 0001 shell budget
 
 // Run after `expo export`. Precaches the static export so every route opens offline.
 async function main(): Promise<void> {
@@ -28,6 +29,8 @@ async function main(): Promise<void> {
   // An oversize file would otherwise silently drop out of the precache.
   if (warnings.length > 0) throw new Error(`Workbox warnings:\n${warnings.join('\n')}`);
   process.stdout.write(`Precached ${count} files, ${(size / 1024 / 1024).toFixed(2)} MB\n`);
+  if (size > PRECACHE_BUDGET_BYTES)
+    throw new Error('Precache exceeds the 10 MB budget (ADR 0001).');
 }
 
 main().catch((error: unknown) => {

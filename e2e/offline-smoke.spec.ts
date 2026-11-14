@@ -2,6 +2,7 @@ import { expect, test } from '@playwright/test';
 import type { Locator, Page } from '@playwright/test';
 
 import content from '../content/content.json';
+import { waitForServiceWorkerControl } from './service-worker';
 
 const JUNGLEFOWL_ID = 'slb-gallus-lafayettii';
 const junglefowl = content.species.find((s) => s.species_id === JUNGLEFOWL_ID);
@@ -12,9 +13,6 @@ const SCIENTIFIC_NAME = junglefowl.names.scientific;
 const ENDEMIC_PLATE_COUNT = new Set(
   content.species.filter((s) => s.occurrence_code === 'E').map((s) => s.plate_id),
 ).size;
-// KNOWN BUG: the species header back icon is fetched lazily, so it is missing when the first
-// species page is opened offline. Remove this entry once the icon is bundled or precached.
-const KNOWN_LAZY_ASSET = /back-icon/;
 // Half the width of a 640px phone: the closest browser stand-in for 200% text with px font sizes.
 const ZOOMED_VIEWPORT = { width: 320, height: 640 };
 
@@ -34,9 +32,10 @@ test('browsing, searching and reading work offline after first load, without rel
 }) => {
   const failedRequests: string[] = [];
   await openApp(page);
+  await waitForServiceWorkerControl(page);
   await context.setOffline(true);
   page.on('requestfailed', (request) => {
-    if (!KNOWN_LAZY_ASSET.test(request.url())) failedRequests.push(request.url());
+    failedRequests.push(request.url());
   });
 
   await page.getByRole('radio', { name: /සිංහල/ }).click();
