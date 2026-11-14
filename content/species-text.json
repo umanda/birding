@@ -374,10 +374,7 @@
         "text": "පිරිමිගේ දිගු pointed tail සහ සුදු ගෙල ඉරි ප්‍රධාන ලක්ෂණ. ගැහැනු දුඹුරු mottled, දිගු neck සහ සිහින් bill ඇතත් tail දිග අඩු. Juvenile ගැහැනුට සමාන.",
         "lang": "si"
       },
-      "juvenile_immature_plumage": {
-        "text": "juvenile පිහාටු සඳහා විශේෂිත වයස්-අදියර තොරතුරු මෙම pass එකේ සම්පූර්ණයෙන් තහවුරු නොවීය; species account එකෙන් වෙනම තහවුරු කළ යුතුයි.",
-        "lang": "si"
-      },
+      "juvenile_immature_plumage": null,
       "field_spotting_tips": {
         "text": "පිරිමිගේ දිගු pointed tail ඉතා පහසු ලක්ෂණය. දුරින් පෙනෙන විට සිහින් ගෙල සහ ඉහළට නැමුණු body posture බලන්න. ගැහැනු හඳුනාගැනීමේදී bill shape සහ දිගු neck/body profile බලන්න.",
         "lang": "si"
@@ -400,10 +397,7 @@
         "text": "පිරිමි සාමාන්‍යයෙන් විශාල; හොටේ කහ පැල්ලම වඩා පැහැදිලි විය හැක. ගැහැනු කුඩා සහ තරමක් අඳුරු, නමුත් ලිංග දෙකම සමාන නිසා field එකේ sexing අපහසුයි. Juvenile අඳුරු-දුඹුරු සහ හොටේ පැල්ලම අඩු පැහැදිලි.",
         "lang": "si"
       },
-      "juvenile_immature_plumage": {
-        "text": "juvenile පිහාටු සඳහා විශේෂිත වයස්-අදියර තොරතුරු මෙම pass එකේ සම්පූර්ණයෙන් තහවුරු නොවීය; species account එකෙන් වෙනම තහවුරු කළ යුතුයි.",
-        "lang": "si"
-      },
+      "juvenile_immature_plumage": null,
       "field_spotting_tips": {
         "text": "හොටේ කහ අග පැල්ලම සහ පියාපතේ කොළ speculum බලන්න. වැව් මත තාරාවන් අතරින් වෙන්කරගැනීමට හොටේ පැල්ලම හොඳම ලක්ෂණය. Mallard/other ducks සමඟ සසඳන විට හිසෙහි ඉරි සහ අළු පැහැය බලන්න.",
         "lang": "si"
@@ -2194,10 +2188,7 @@
         "text": "ලිංග දෙකම බොහෝ දුරට සමාන; පිරිමි සාමාන්‍යයෙන් තරමක් විශාල විය හැකි නමුත් field identification සඳහා විශ්වාසදායක වෙනසක් නැත. Juvenile වඩා අඳුරු/අඩු පැහැදිලි, flank barring අඩු විය හැක.",
         "lang": "si"
       },
-      "juvenile_immature_plumage": {
-        "text": "juvenile පිහාටු සඳහා විශේෂිත වයස්-අදියර තොරතුරු මෙම pass එකේ සම්පූර්ණයෙන් තහවුරු නොවීය; species account එකෙන් වෙනම තහවුරු කළ යුතුයි.",
-        "lang": "si"
-      },
+      "juvenile_immature_plumage": null,
       "field_spotting_tips": {
         "text": "විශාල රංචු ලෙස පෙනෙන අතර පියාඹන විට බොහෝවිට ගෙල දිගු කරයි. whistling හඬ සහ රන්-දුඹුරු ශරීරය බලන්න. Lesser Whistling-duck සමඟ වෙන්කරන විට විශාල ප්‍රමාණය සහ පැතිවල පැහැදිලි සුදු-කළු barring බලන්න.",
         "lang": "si"
@@ -2220,10 +2211,7 @@
         "text": "ලිංග දෙකම පෙනුමෙන් බොහෝ සමානයි. පිරිමි සාමාන්‍යයෙන් තරමක් විශාල; ඇස්/හිස පැහැයේ සුළු වෙනස්කම් field එකේ විශ්වාසදායක නොවේ. Juvenile වඩා dull brown සහ flank pattern අඩු පැහැදිලි.",
         "lang": "si"
       },
-      "juvenile_immature_plumage": {
-        "text": "juvenile පිහාටු සඳහා විශේෂිත වයස්-අදියර තොරතුරු මෙම pass එකේ සම්පූර්ණයෙන් තහවුරු නොවීය; species account එකෙන් වෙනම තහවුරු කළ යුතුයි.",
-        "lang": "si"
-      },
+      "juvenile_immature_plumage": null,
       "field_spotting_tips": {
         "text": "විශාල රංචු ලෙස ජලය මත පාවෙමින් හෝ වැව් අද්දර විවේක ගනී. පියාඹන විට සුදු wing-bar සහ දිගු ගෙල බලන්න. Fulvous Whistling-duck ට වඩා කුඩා සහ chestnut හිසක් ඇත.",
         "lang": "si"
@@ -2922,10 +2910,7 @@
         "text": "ලිංග දෙකේම වර්ණ බොහෝ දුරට සමානයි. පිරිමි පක්ෂියාගේ උගුර සාමාන්‍යයෙන් වඩා තද chestnut; ගැහැනුගේ උගුර සුදු පැහැයට හැරිය හැක. ගැහැනුගේ ඉහළ පිහාටු තිත් අඩු හෝ buff edging නිසා අඩු පැහැදිලි විය හැක.",
         "lang": "si"
       },
-      "juvenile_immature_plumage": {
-        "text": "Juvenile පිහාටු පිළිබඳ විශේෂිත, තහවුරු කළ විස්තර මෙම pass එකේ ප්‍රමාණවත් ලෙස නොලැබුණි; පසුව පරීක්ෂා කළ යුතුයි.",
-        "lang": "si"
-      },
+      "juvenile_immature_plumage": null,
       "field_spotting_tips": {
         "text": "පඳුරු/තෘණ ආවරණයේදී බොහෝවිට නොපෙනී සිටී. හඬට සවන් දෙන්න; පාර අයිනේ හෝ තණබිම් අසල උදෑසන/සවස සෙමින් නිරීක්ෂණය කරන්න. Grey Francolin සමඟ වෙන්කරන විට සුදු තිත් සහ රතු-තැඹිලි මුහුණ බලන්න.",
         "lang": "si"
@@ -3052,10 +3037,7 @@
         "text": "පිරිමි: maroon-දුඹුරු ශරීරය, කළු-සුදු කොරපොතු/තිත් රටා, හිස හා යටපස වඩා පැහැදිලි; කකුල්වල spurs දෙකක්. ගැහැනු: සරල reddish-brown යටපස සහ අඩු රටා. දෙපාර්ශ්වයේම හොට සහ පාද රතු.",
         "lang": "si"
       },
-      "juvenile_immature_plumage": {
-        "text": "Juvenile පිහාටු පිළිබඳ විශේෂිත, තහවුරු කළ විස්තර මෙම pass එකේ ප්‍රමාණවත් ලෙස නොලැබුණි; පසුව පරීක්ෂා කළ යුතුයි.",
-        "lang": "si"
-      },
+      "juvenile_immature_plumage": null,
       "field_spotting_tips": {
         "text": "ඉතා ලජ්ජාශීලී සහ බොහෝවිට හඬින් පළමුව හඳුනාගත හැක. උදෑසන වනාන්තර මාර්ග, පත්‍ර තට්ටුව සහ ගස් මුල් අසල සෙමින් බලන්න. පලා යන විට කෙටි දුරක් වේගයෙන් දුවන නිසා චලනය ගැන අවධානය යොමු කරන්න.",
         "lang": "si"
@@ -3078,10 +3060,7 @@
         "text": "ඉතා පැහැදිලි sexual dimorphism. පිරිමි: තැඹිලි-රතු ශරීරය, රන්වන්-කහ ගෙල පිහාටු, දිගු නිල්-කළු වලිගය, රතු comb මැද කහ පැල්ලම. ගැහැනු: කුඩා, අළු-දුඹුරු, සුදු/කළු ඉරි සහිත camouflage පිහාටු.",
         "lang": "si"
       },
-      "juvenile_immature_plumage": {
-        "text": "Juvenile පිහාටු පිළිබඳ විශේෂිත, තහවුරු කළ විස්තර මෙම pass එකේ ප්‍රමාණවත් ලෙස නොලැබුණි; පසුව පරීක්ෂා කළ යුතුයි.",
-        "lang": "si"
-      },
+      "juvenile_immature_plumage": null,
       "field_spotting_tips": {
         "text": "උදෑසන/සවස වනාන්තර මාර්ග සහ විවෘත තැන් අසල සොයන්න. පිරිමිගේ කහ මැදක් ඇති comb සහ metallic tail හොඳ ලක්ෂණ. ගැහැනුගේ wing barring සහ domestic chicken හි නොපෙනෙන ලක්ෂණ සසඳන්න. හඬ ඉතා හඳුනාගත හැක.",
         "lang": "si"
@@ -4378,10 +4357,7 @@
         "text": "පිරිමි: රතු-දුඹුරු හිස සහ කහ forehead, අළු පැහැති ශරීරය. ගැහැනු: රතු-දුඹුරු/දුඹුරු mottled ශරීරය, අළු පැහැය අඩු. Eclipse male ගැහැනුට සමාන විය හැක; wing pattern සහ bill colour බලන්න. Juvenile ගැහැනුට සමාන.",
         "lang": "si"
       },
-      "juvenile_immature_plumage": {
-        "text": "juvenile පිහාටු සඳහා විශේෂිත වයස්-අදියර තොරතුරු මෙම pass එකේ සම්පූර්ණයෙන් තහවුරු නොවීය; species account එකෙන් වෙනම තහවුරු කළ යුතුයි.",
-        "lang": "si"
-      },
+      "juvenile_immature_plumage": null,
       "field_spotting_tips": {
         "text": "පිරිමිගේ රතු හිස සහ කහ forehead ඉතා හඳුනාගත හැක. බොහෝවිට තණකොළ කන ලෙස ජල අද්දර හෝ shallow water හි පෙනේ. ගැහැනු හඳුනාගැනීමට bill shape සහ wing speculum/underwing pattern බලන්න.",
         "lang": "si"
@@ -4716,10 +4692,7 @@
         "text": "පිරිමිගේ සුදු හිස සහ කළු crown/පිට කැපී පෙනේ. ගැහැනුගේ හිස දුඹුරු-අළු, ඇස් හරහා අඳුරු ඉරක් සහ අඩු contrast. Juvenile ගැහැනුට සමාන නමුත් වඩා අඳුරු/අපැහැදිලි.",
         "lang": "si"
       },
-      "juvenile_immature_plumage": {
-        "text": "juvenile පිහාටු සඳහා විශේෂිත වයස්-අදියර තොරතුරු මෙම pass එකේ සම්පූර්ණයෙන් තහවුරු නොවීය; species account එකෙන් වෙනම තහවුරු කළ යුතුයි.",
-        "lang": "si"
-      },
+      "juvenile_immature_plumage": null,
       "field_spotting_tips": {
         "text": "කුඩා ප්‍රමාණය සහ සුදු-කළු පිරිමි හිස හොඳම ලක්ෂණ. වැවක මැද ජලජ ශාක අතර සහ ජලයට ඉහළ අතු මත බලන්න. පියාඹන විට වේගවත් කළු-සුදු පියාපත් රටාව පෙනේ.",
         "lang": "si"
@@ -5028,10 +5001,7 @@
         "text": "පිරිමි සහ ගැහැනු බොහෝ දුරට සමාන පෙනුමක්. පාදයේ spur තිබීම පිරිමියාට උපකාරී ලක්ෂණයක් විය හැකි නමුත් දුර සිට එය විශ්වාසදායක නොවේ.",
         "lang": "si"
       },
-      "juvenile_immature_plumage": {
-        "text": "Juvenile පිහාටු පිළිබඳ විශේෂිත, තහවුරු කළ විස්තර මෙම pass එකේ ප්‍රමාණවත් ලෙස නොලැබුණි; පසුව පරීක්ෂා කළ යුතුයි.",
-        "lang": "si"
-      },
+      "juvenile_immature_plumage": null,
       "field_spotting_tips": {
         "text": "බොහෝවිට යුගල හෝ කුඩා පවුල් කණ්ඩායම් ලෙස බිම පෙනේ. තැඹිලි මුහුණ, කළු necklace සහ සම්පූර්ණ ශරීරයේ සිහින් barring බලන්න. Painted Francolin සමඟ වෙන්කරන විට එහි සුදු තිත් වෙනුවට Grey Francolin හි සිහින් ඉරි රටාව වැදගත්.",
         "lang": "si"
@@ -5106,10 +5076,7 @@
         "text": "Male typically has a more orange iris, while female's iris is more yellowish; plumage is otherwise similar. Iris tone can vary with light and should not be used alone for sexing.",
         "lang": "en"
       },
-      "juvenile_immature_plumage": {
-        "text": "Reliable published descriptions of juvenile plumage are limited. Young birds are expected to be softer and downier, but detailed field-age criteria should be marked as insufficiently documented rather than inferred.",
-        "lang": "en"
-      },
+      "juvenile_immature_plumage": null,
       "field_spotting_tips": {
         "text": "Listen for the distinctive frog-like 'poo-ooo' call in dense rainforest. Search low branches and thick undergrowth during daylight roosting periods; avoid playback or close approach that could disturb this threatened species.",
         "lang": "en"
@@ -5288,10 +5255,7 @@
         "text": "ඉතා පැහැදිලි වෙනසක්. පිරිමි (peacock): දිගු වර්ණවත් train, නිල්-කොළ බෙල්ල/පපුව, හිස මත crest. ගැහැනු (peahen): train නැත; දුඹුරු/අළු පැහැති ශරීරය, කොළ පැහැති බෙල්ලේ කොටස, කෙටි වලිගය. Juvenile පිරිමි ගැහැනුට සමාන විය හැකි අතර train පසුව වර්ධනය වේ.",
         "lang": "si"
       },
-      "juvenile_immature_plumage": {
-        "text": "Juvenile පිහාටු පිළිබඳ විශේෂිත, තහවුරු කළ විස්තර මෙම pass එකේ ප්‍රමාණවත් ලෙස නොලැබුණි; පසුව පරීක්ෂා කළ යුතුයි.",
-        "lang": "si"
-      },
+      "juvenile_immature_plumage": null,
       "field_spotting_tips": {
         "text": "විවෘත බිම්වල උදෑසන/සවස බලන්න; බොහෝවිට හඬින් හෝ විශාල ශරීරයෙන් හඳුනාගත හැක. පිරිමි train එක නොපෙන්වන විටත් දිගු train feathers සහ නිල් බෙල්ල බලන්න. ගැහැනු සහ juvenile අතර වෙන්කිරීමේදී ප්‍රමාණය, හිස/ගෙල පැහැය සහ වලිග වර්ධනය සලකන්න.",
         "lang": "si"
@@ -6536,10 +6500,7 @@
         "text": "පිරිමි breeding plumage හි කොළ හිස, සුදු පපුව, chestnut flank සහ පළල් කළු හොට. ගැහැනු mottled brown, තැඹිලි පැල්ලම් සහිත පළල් හොට. Eclipse male ගැහැනුට සමාන නමුත් පියාපත් රටා/ඇස් පැහැය උපකාරී.",
         "lang": "si"
       },
-      "juvenile_immature_plumage": {
-        "text": "juvenile පිහාටු සඳහා විශේෂිත වයස්-අදියර තොරතුරු මෙම pass එකේ සම්පූර්ණයෙන් තහවුරු නොවීය; species account එකෙන් වෙනම තහවුරු කළ යුතුයි.",
-        "lang": "si"
-      },
+      "juvenile_immature_plumage": null,
       "field_spotting_tips": {
         "text": "හොටේ පළල් spatula හැඩය දුරින්ම හඳුනාගැනීමට උපකාරී. shallow water හි හිස ජලයට දමා පැත්තකට හැරෙමින් filter-feed කරන හැසිරීම බලන්න. පිරිමිගේ කොළ හිස සහ chestnut පැති බලන්න.",
         "lang": "si"
@@ -6562,10 +6523,7 @@
         "text": "පිරිමිගේ සුදු crescent facial stripe ඉතා පැහැදිලියි. ගැහැනු mottled brown, ඇස හරහා dark stripe සහ bill base අසල pale patch තිබිය හැක. Juvenile ගැහැනුට සමාන, වඩා අඩු contrast.",
         "lang": "si"
       },
-      "juvenile_immature_plumage": {
-        "text": "juvenile පිහාටු සඳහා විශේෂිත වයස්-අදියර තොරතුරු මෙම pass එකේ සම්පූර්ණයෙන් තහවුරු නොවීය; species account එකෙන් වෙනම තහවුරු කළ යුතුයි.",
-        "lang": "si"
-      },
+      "juvenile_immature_plumage": null,
       "field_spotting_tips": {
         "text": "කුඩා ප්‍රමාණය සහ පිරිමිගේ සුදු ඇස්-ඉර ලක්ෂණය. රංචු ලෙස shallow marshes හි feeding. ගැහැනු හඳුනාගැනීමට bill shape සහ face pattern එක Northern Shoveler/teal සමඟ සසඳන්න.",
         "lang": "si"
@@ -6848,10 +6806,7 @@
         "text": "පිරිමිගේ මුහුණ/උගුර/පපුවේ නිල්-අළු පැහැය වඩා පැහැදිලි විය හැක; ගැහැනු සාමාන්‍යයෙන් දුඹුරු-බෆ් සහ ඉරි/තිත් සහිත camouflage පිහාටු. Juvenile ගැහැනුට සමාන නමුත් වඩා අඳුරු/අඩු පැහැදිලි විය හැක.",
         "lang": "si"
       },
-      "juvenile_immature_plumage": {
-        "text": "Juvenile පිහාටු පිළිබඳ විශේෂිත, තහවුරු කළ විස්තර මෙම pass එකේ ප්‍රමාණවත් ලෙස නොලැබුණි; පසුව පරීක්ෂා කළ යුතුයි.",
-        "lang": "si"
-      },
+      "juvenile_immature_plumage": null,
       "field_spotting_tips": {
         "text": "බොහෝවිට තණ අතරින් හදිසියේ පියාඹා යන විට පමණක් පෙනේ. විවෘත තණබිම්වල උදෑසන සහ සවස සෙමින් සොයන්න; පියාඹන විට කෙටි, පහත් flight එක සහ පියාපත් රටාව බලන්න.",
         "lang": "si"
@@ -6900,10 +6855,7 @@
         "text": "පිරිමි/ගැහැනු බොහෝ දුරට සමාන; පිරිමි තරමක් විශාල විය හැක. breeding plumage දෙපාර්ශ්වයේම chestnut cheek/throat; non-breeding සහ juvenile දුඹුරු-අළු, juvenile හි මුහුණේ ඉරි/striping පෙනේ.",
         "lang": "si"
       },
-      "juvenile_immature_plumage": {
-        "text": "juvenile පිහාටු සඳහා විශේෂිත වයස්-අදියර තොරතුරු මෙම pass එකේ සම්පූර්ණයෙන් තහවුරු නොවීය; species account එකෙන් වෙනම තහවුරු කළ යුතුයි.",
-        "lang": "si"
-      },
+      "juvenile_immature_plumage": null,
       "field_spotting_tips": {
         "text": "ජලයේ පාවෙමින් හදිසියේ කිමිදීමෙන් හඳුනාගත හැක. කුඩා ප්‍රමාණය, කෙටි හොට සහ පසුපසට දිගු පාද බලන්න. කිමිදුණු ස්ථානයෙන් ටික දුරකින් නැවත මතු විය හැකි නිසා දිගටම scan කරන්න.",
         "lang": "si"
@@ -7394,10 +7346,7 @@
         "text": "ගැහැනු විශාල සහ වඩා තද/වර්ණවත්; කළු bib හෝ උගුරේ කළු පැල්ලම කැපී පෙනේ. පිරිමි කුඩා සහ සාමාන්‍යයෙන් අඩු වර්ණවත්. සාමාන්‍ය buttonquail වර්ගවල පිරිමි බිත්තර රකින අතර ගැහැනු courtship කරයි.",
         "lang": "si"
       },
-      "juvenile_immature_plumage": {
-        "text": "Juvenile පිහාටු පිළිබඳ විශේෂිත, තහවුරු කළ විස්තර මෙම pass එකේ ප්‍රමාණවත් ලෙස නොලැබුණි; පසුව පරීක්ෂා කළ යුතුයි.",
-        "lang": "si"
-      },
+      "juvenile_immature_plumage": null,
       "field_spotting_tips": {
         "text": "පියාඹනවාට වඩා තණ අතරින් දුවමින් පලා යයි. උදෑසන පාර අයිනේ හෝ තණබිම්වල සෙමින් නිරීක්ෂණය කරන්න. ගැහැනුගේ කළු bib සහ විශාල ශරීරය විශේෂයෙන් බලන්න.",
         "lang": "si"
