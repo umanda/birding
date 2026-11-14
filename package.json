@@ -32,7 +32,8 @@
     "react-test-renderer": "19.3.0",
     "read-excel-file": "^9.3.15",
     "tsx": "^4.23.15",
-    "typescript": "~6.0.3"
+    "typescript": "~6.0.3",
+    "workbox-build": "^7.4.1"
   },
   "scripts": {
     "start": "expo start",
@@ -41,7 +42,7 @@
     "web": "expo start --web",
     "test:e2e": "playwright test",
     "typecheck": "tsc --noEmit",
-    "build:web": "expo export --platform web",
+    "build:web": "expo export --platform web && tsx tools/pwa/build-sw.ts",
     "lint": "eslint . && prettier --check .",
     "format": "prettier --write .",
     "test": "jest",
