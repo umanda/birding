@@ -49,8 +49,11 @@ describe('species screen', () => {
     expect(screen.getByText('වලි කුකුළා')).toBeTruthy();
     expect(screen.getByText('Gallus lafayettii')).toHaveStyle({ fontStyle: 'italic' });
     expect(screen.getByText('Indian Peafowl')).toBeTruthy();
-    expect(screen.getByText('● E Endemic')).toBeTruthy();
-    expect(screen.getByLabelText('Global status (working value): Least Concern')).toBeTruthy();
+    // Badges sit in the header and again in the Conservation section.
+    expect(screen.getAllByText('● E Endemic')).toHaveLength(2);
+    expect(screen.getAllByLabelText('Global status (working value): Least Concern')).toHaveLength(
+      2,
+    );
   });
 
   it('shows the Sinhala primary name and plate title', async () => {
