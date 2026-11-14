@@ -3,6 +3,7 @@ import { gzipSync } from 'node:zlib';
 import { ContentSchema } from '../../src/shared/data/content-schema';
 import { SpeciesTextFileSchema } from '../../src/shared/data/species-text-schema';
 import type { Content } from '../../src/shared/data/content-schema';
+import { validateMediaRegister } from './media/validate-media';
 
 export const EXPECTED_SPECIES = 295;
 export const EXPECTED_PLATES = 43;
@@ -123,17 +124,21 @@ function main(): void {
   if (parsed.success) {
     const ids = parsed.data.species.map((x) => x.species_id);
     errors.push(...validateSpeciesText(readJson(TEXT_FILE), ids));
+    const media = validateMediaRegister(new Set(ids));
+    errors.push(...media.errors);
+    process.stdout.write(
+      `media register: ${media.noncommercialCount} CC-BY-NC rows (replace before launch)\n`,
+    );
   }
   const gzipBytes = gzipSync(readFileSync(TEXT_FILE)).length;
   errors.push(...checkTextSize(gzipBytes));
-  for (const w of result.warnings) process.stdout.write(`warning: ${w}
-`);
-  for (const e of errors) process.stderr.write(`error: ${e}
-`);
+  for (const w of result.warnings) process.stdout.write(`warning: ${w}\n`);
+  for (const e of errors) process.stderr.write(`error: ${e}\n`);
   if (errors.length > 0) process.exit(1);
   const rawBytes = statSync(TEXT_FILE).size;
-  process.stdout.write(`${CONTENT_FILE} and ${TEXT_FILE} are valid (${rawBytes} raw, ${gzipBytes} gzip, ${result.warnings.length} warnings)
-`);
+  process.stdout.write(
+    `${CONTENT_FILE} and ${TEXT_FILE} are valid (${rawBytes} raw, ${gzipBytes} gzip, ${result.warnings.length} warnings)\n`,
+  );
 }
 
 if (require.main === module) main();
