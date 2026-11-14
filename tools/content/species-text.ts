@@ -1,0 +1,185 @@
+import { CONSERVATION_FIELDS, TEXT_FIELDS } from '../../src/shared/data/species-text-schema';
+import type { Conservation, SpeciesSource, TextLang } from '../../src/shared/data/species-text-schema';
+
+type Row = Record<string, unknown>;
+type Key = `${string}|${string}`;
+
+// Language rule: count letters only (digits, punctuation, spaces, ZWJ and combining marks are
+// ignored). Sinhala prose often embeds Latin terms and names, so any real Sinhala text decides:
+// 'si' if at least SI_MIN of the letters are in the Sinhala block, 'en' if there are none and
+// at least one Latin letter exists (a cell with no letters at all is ambiguous).
+// A trace (0 < share < SI_MIN) is ambiguous and needs a manual override. In workbook v1.0 every
+// Sinhala cell is >= 33% and every English cell is exactly 0%, so nothing is ambiguous.
+const SINHALA_LETTER = /[඀-෿]/u;
+const ANY_LETTER = /\p{L}/gu;
+const LATIN_LETTER = /[A-Za-z]/;
+const SI_MIN = 0.2;
+
+export function detectLang(text: string): TextLang | 'ambiguous' {
+  const letters = text.match(ANY_LETTER) ?? [];
+  const sinhala = letters.filter((c) => SINHALA_LETTER.test(c)).length;
+  if (sinhala === 0) return LATIN_LETTER.test(text) ? 'en' : 'ambiguous';
+  return sinhala / letters.length >= SI_MIN ? 'si' : 'ambiguous';
+}
+
+// Minimal CSV for our own lists: a header line, exactly one cell per column. Quotes and commas
+// inside cells are not supported (use plain words in the reason column) and are rejected.
+export function parseList(csv: string, columns: string[]): string[][] {
+  const [header, ...lines] = csv.split(/\r?\n/).filter((l) => l.trim() !== '');
+  if (header?.trim() !== columns.join(',')) throw new Error(`List header must be ${columns.join(',')}`);
+  return lines.map((line) => {
+    const cells = line.split(',').map((c) => c.trim());
+    if (line.includes('"') || cells.length !== columns.length) throw new Error(`Bad list line: ${line}`);
+    return cells;
+  });
+}
+
+const keyOf = (id: string, field: string): Key => `${id}|${field}`;
+
+// Tied to workbook v1.0: re-review the placeholder list whenever source_sha256 changes.
+// reason (3rd column) is for reviewers only.
+function placeholderKeys(csv: string): Set<Key> {
+  return new Set(parseList(csv, ['species_id', 'field', 'reason']).map(([id = '', f = '']) => keyOf(id, f)));
+}
+
+function overrideLangs(csv: string): Map<Key, TextLang> {
+  const rows = parseList(csv, ['species_id', 'field', 'lang']);
+  return new Map(
+    rows.map(([id = '', f = '', lang]) => {
+      if (lang !== 'si' && lang !== 'en') throw new Error(`Bad override lang for ${id}|${f}`);
+      return [keyOf(id, f), lang];
+    }),
+  );
+}
+
+// URL characters only (RFC 3986): quotes, spaces and Sinhala letters end a link.
+const URL_IN_TEXT = /https?:\/\/[A-Za-z0-9\-._~:/?#[\]@!$&'()*+,;=%]+/g;
+const TRAILING_PUNCTUATION = /[.,;:\]'>]$/;
+
+// A ")" belongs to the link only when it closes a "(" inside it, as in Foo_(bird).
+function trimLink(link: string): string {
+  let end = link;
+  for (;;) {
+    const unbalanced = end.endsWith(')') && count(end, ')') > count(end, '(');
+    if (!unbalanced && !TRAILING_PUNCTUATION.test(end)) return end;
+    end = end.slice(0, -1);
+  }
+}
+
+const count = (text: string, char: string): number => text.split(char).length - 1;
+
+// Only the extracted link is trimmed; the citation keeps every character.
+export function extractLinks(citation: string): string[] {
+  return (citation.match(URL_IN_TEXT) ?? []).map(trimLink);
+}
+
+// Text and numbers are copied (numbers as text); blank is null. Dates and booleans are a data
+// surprise, so they fail instead of turning into null.
+function textOrNull(cell: unknown, where: string): string | null {
+  if (cell === undefined || cell === null) return null;
+  if (typeof cell === 'number') return String(cell);
+  if (typeof cell !== 'string') throw new Error(`${where}: unexpected ${typeof cell} cell`);
+  return cell.trim() === '' ? null : cell;
+}
+
+const idOf = (row: Row, sheet: string): string => {
+  const id = typeof row.species_id === 'string' ? row.species_id.trim() : '';
+  if (id === '') throw new Error(`${sheet} row has a blank species_id`);
+  return id;
+};
+
+function toConservation(row: Row, id: string): Conservation {
+  const entries = CONSERVATION_FIELDS.map((f) => [f, textOrNull(row[f], `Conservation ${id}|${f}`)]);
+  return Object.fromEntries(entries) as Conservation;
+}
+
+function groupConservation(rows: Row[]): Map<string, Conservation> {
+  const byId = new Map<string, Conservation>();
+  for (const row of rows) {
+    const id = idOf(row, 'Conservation');
+    if (byId.has(id)) throw new Error(`Duplicate Conservation row for ${id}`);
+    byId.set(id, toConservation(row, id));
+  }
+  return byId;
+}
+
+function toSource(row: Row, speciesId: string): SpeciesSource {
+  const cell = (field: string): string | null => textOrNull(row[field], `Species Sources ${speciesId}|${field}`);
+  const sourceId = cell('source_id');
+  const citation = cell('source_url');
+  if (sourceId === null || citation === null) throw new Error(`Blank source_id or source_url for ${speciesId}`);
+  const links = extractLinks(citation);
+  return { source_id: sourceId, citation, links, type: cell('source_type'), verification_note: cell('verification_note') };
+}
+
+// One entry per source_id, grouped by species and sorted by source_id.
+function groupSources(rows: Row[]): Map<string, SpeciesSource[]> {
+  const seen = new Set<string>();
+  const byId = new Map<string, SpeciesSource[]>();
+  for (const row of rows) {
+    const speciesId = idOf(row, 'Species Sources');
+    const source = toSource(row, speciesId);
+    if (seen.has(source.source_id)) throw new Error(`Duplicate source_id ${source.source_id}`);
+    seen.add(source.source_id);
+    byId.set(speciesId, [...(byId.get(speciesId) ?? []), source]);
+  }
+  for (const list of byId.values()) list.sort((a, b) => (a.source_id < b.source_id ? -1 : 1));
+  return byId;
+}
+
+type Lists = { placeholdersCsv: string; overridesCsv: string };
+type FieldValue = { text: string; lang: TextLang } | null;
+
+export function buildSpeciesText(
+  tables: { identification: Row[]; distribution: Row[]; conservation: Row[]; sources: Row[] },
+  lists: Lists,
+): unknown {
+  const placeholders = placeholderKeys(lists.placeholdersCsv);
+  const overrides = overrideLangs(lists.overridesCsv);
+  const used = new Set<Key>();
+  const species: Record<string, Record<string, FieldValue>> = {};
+
+  const tag = (id: string, field: string, cell: unknown): FieldValue => {
+    const key = keyOf(id, field);
+    if (placeholders.has(key)) {
+      used.add(key);
+      return null;
+    }
+    if (typeof cell !== 'string' || cell.trim() === '') return null; // blank stays null
+    const detected = detectLang(cell);
+    const override = overrides.get(key);
+    if (override !== undefined) {
+      if (detected !== 'ambiguous') throw new Error(`Unneeded override: ${key} is not ambiguous`);
+      used.add(key);
+    }
+    const lang = override ?? detected;
+    if (lang === 'ambiguous') throw new Error(`Ambiguous-language cell ${id}|${field}: add a lang override`);
+    return { text: cell, lang };
+  };
+
+  for (const row of [...tables.identification, ...tables.distribution]) {
+    const id = typeof row.species_id === 'string' ? row.species_id.trim() : '';
+    if (id === '') throw new Error('Text row has a blank species_id');
+    const fields = TEXT_FIELDS.filter((f) => f in row);
+    species[id] ??= {};
+    for (const field of fields) {
+      if (field in species[id]) throw new Error(`Duplicate text row for ${id}|${field}`);
+      species[id][field] = tag(id, field, row[field]);
+    }
+  }
+  for (const key of [...placeholders, ...overrides.keys()]) {
+    if (!used.has(key)) throw new Error(`List entry matches no cell: ${key}`);
+  }
+  const conservation = groupConservation(tables.conservation);
+  const sources = groupSources(tables.sources);
+  for (const id of [...conservation.keys(), ...sources.keys()]) {
+    if (!(id in species)) throw new Error(`Conservation or source row for unknown species ${id}`);
+  }
+  const records = Object.keys(species).map((id) => {
+    const cons = conservation.get(id);
+    if (cons === undefined) throw new Error(`No Conservation row for ${id}`);
+    return [id, { ...species[id], conservation: cons, sources: sources.get(id) ?? [] }] as const;
+  });
+  const sorted = Object.fromEntries(records.sort(([a], [b]) => (a < b ? -1 : 1)));
+  return { schema_version: 3, species: sorted };
+}

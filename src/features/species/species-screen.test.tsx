@@ -35,6 +35,13 @@ const blankSinhala: Species = {
 };
 
 describe('species screen', () => {
+  it('shows neither not-found text nor a heading on the build-time template', async () => {
+    mockLanguage = 'en';
+    await renderRouter(routes, { initialUrl: '/species/[id]' });
+    expect(screen.queryByText('Species not found')).toBeNull();
+    expect(screen.queryByRole('header')).toBeNull();
+  });
+
   it('shows names, plate and badges in English', async () => {
     mockLanguage = 'en';
     await renderRouter(routes, { initialUrl: `/species/${JUNGLEFOWL_ID}` });
@@ -42,8 +49,11 @@ describe('species screen', () => {
     expect(screen.getByText('වලි කුකුළා')).toBeTruthy();
     expect(screen.getByText('Gallus lafayettii')).toHaveStyle({ fontStyle: 'italic' });
     expect(screen.getByText('Indian Peafowl')).toBeTruthy();
-    expect(screen.getByText('● E Endemic')).toBeTruthy();
-    expect(screen.getByLabelText('Global status (working value): Least Concern')).toBeTruthy();
+    // Badges sit in the header and again in the Conservation section.
+    expect(screen.getAllByText('● E Endemic')).toHaveLength(2);
+    expect(screen.getAllByLabelText('Global status (working value): Least Concern')).toHaveLength(
+      2,
+    );
   });
 
   it('shows the Sinhala primary name and plate title', async () => {
@@ -92,7 +102,9 @@ describe('SpeciesDetail', () => {
     });
     expect(await screen.findByText('Test Bird')).toBeTruthy();
     expect(screen.getByText('Global status (working value): Not recorded')).toBeTruthy();
-    expect(screen.getAllByText('Not recorded')).toHaveLength(2);
+    // Two blank header values, then six prose sections: this species has no text record.
+    await screen.findByText('Description');
+    expect(screen.getAllByText('Not recorded')).toHaveLength(8);
   });
 
   it('uses the English heading in the Sinhala UI when the Sinhala name is blank', async () => {

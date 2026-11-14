@@ -2,9 +2,13 @@ import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { readSheet } from 'read-excel-file/node';
+import { buildSpeciesText } from './species-text';
 
 const SOURCE_FILE = 'data/source/Sri_Lanka_Birds_Mobile_App_Database_v1.xlsx';
 const OUTPUT_FILE = 'content/content.json';
+const TEXT_OUTPUT_FILE = 'content/species-text.json';
+const PLACEHOLDERS_FILE = 'data/content/text-placeholders.csv';
+const OVERRIDES_FILE = 'data/content/text-lang-overrides.csv';
 
 type Cell = string | number | boolean | Date | null;
 type Row = Record<string, Cell>;
@@ -70,16 +74,35 @@ export function buildContent(
   };
 }
 
+// Pretty-printed: gzip erases the size cost and one-field-per-line diffs keep data reviews readable.
+function writeJson(file: string, data: unknown): void {
+  writeFileSync(file, `${JSON.stringify(data, null, 2)}
+`);
+  process.stdout.write(`Wrote ${file}
+`);
+}
+
 async function main(): Promise<void> {
   const sha256 = createHash('sha256').update(readFileSync(SOURCE_FILE)).digest('hex');
   const plates = await readTable(SOURCE_FILE, 'Plates');
   const species = await readTable(SOURCE_FILE, 'Species');
   const conservation = await readTable(SOURCE_FILE, 'Conservation');
   const content = buildContent({ plates, species, conservation }, sha256);
+  const text = buildSpeciesText(
+    {
+      identification: await readTable(SOURCE_FILE, 'Identification'),
+      distribution: await readTable(SOURCE_FILE, 'Distribution'),
+      conservation,
+      sources: await readTable(SOURCE_FILE, 'Species Sources'),
+    },
+    {
+      placeholdersCsv: readFileSync(PLACEHOLDERS_FILE, 'utf8'),
+      overridesCsv: readFileSync(OVERRIDES_FILE, 'utf8'),
+    },
+  );
   mkdirSync(path.dirname(OUTPUT_FILE), { recursive: true });
-  // Pretty-printed: gzip erases the size cost and one-field-per-line diffs keep data reviews readable.
-  writeFileSync(OUTPUT_FILE, `${JSON.stringify(content, null, 2)}\n`);
-  process.stdout.write(`Wrote ${OUTPUT_FILE}\n`);
+  writeJson(OUTPUT_FILE, content);
+  writeJson(TEXT_OUTPUT_FILE, text);
 }
 
 if (require.main === module) {
