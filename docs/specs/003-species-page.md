@@ -25,7 +25,7 @@ Text (Identification and Distribution prose)
 Conservation and sources
 - Given any species, then the page shows the occurrence code exactly (e.g. `R+(M)`) and its verification status, plus the IUCN category labelled "Global status (working value)" and its verification status. A blank value reads "Not recorded".
 - Given a BirdLife factsheet URL or Species Sources rows, then they are listed as links with the domain visible. They open in the system browser.
-- Given I am offline, when I tap a source link, then I see "This link needs an internet connection" and stay on the page. Nothing else on the page needs a network.
+- Given I am offline, when I tap a source link, then I see "You're offline — links open when you're back online." and stay on the page. Nothing else on the page needs a network.
 
 Photos (pilot species)
 - Given a species with reviewed images, then a gallery shows one tab per plumage that has an image, in this order: Male, Female, Adult (sexes alike), Juvenile/Immature, Breeding, Non-breeding, Eclipse, Morph. Swiping is optional because the tabs are buttons.

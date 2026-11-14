@@ -1,6 +1,6 @@
-import type { SpeciesTextFile, TextField, TextValue } from './species-text-schema';
+import type { SpeciesTextFile } from './species-text-schema';
 
-export type SpeciesText = Record<TextField, TextValue>;
+export type SpeciesText = SpeciesTextFile['species'][string];
 
 let fileLoad: Promise<SpeciesTextFile> | null = null;
 
