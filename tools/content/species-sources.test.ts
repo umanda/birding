@@ -6,7 +6,7 @@ const NONE = { placeholdersCsv: 'species_id,field,reason\n', overridesCsv: 'spec
 const cons = (extra: Record<string, unknown> = {}) => ({ species_id: 'a', ...extra });
 const src = (id: string, citation: string) => ({ source_id: id, species_id: 'a', source_url: citation, source_type: 'ref' });
 
-type Built = { conservation: Record<string, string | null>; sources: { source_id: string; citation: string; links: string[] }[] };
+type Built = { conservation: Record<string, string | null>; sources: { source_id: string; citation: string; links: string[]; verification_note: string | null }[] };
 const build = (conservation: Record<string, unknown>[], sources: Record<string, unknown>[]): { species: Record<string, Built> } =>
   buildSpeciesText(
     { identification: [{ species_id: 'a', species_description: 'x' }], distribution: [], conservation, sources },
@@ -59,7 +59,7 @@ const file = (conservation: Record<string, unknown>, sources: unknown[]): unknow
     },
   },
 });
-const entry = (source_id: string, citation: string, links: string[]): unknown => ({ source_id, citation, links, type: null });
+const entry = (source_id: string, citation: string, links: string[]): unknown => ({ source_id, citation, links, type: null, verification_note: null });
 const many = (n: number): unknown[] =>
   Array.from({ length: n }, (_, i) => entry(`s${i}`, 'https://a.org', ['https://a.org']));
 
@@ -91,6 +91,10 @@ describe('extractLinks', () => {
     ['two URLs in order', 'A: https://a.org/1 ; B: http://b.org/2', ['https://a.org/1', 'http://b.org/2']],
     ['trailing punctuation', 'see (https://a.org/x). Also https://b.org/y;', ['https://a.org/x', 'https://b.org/y']],
     ['encoded parentheses are kept', 'https://a.org/List%28Country%29.pdf', ['https://a.org/List%28Country%29.pdf']],
+    ['balanced parentheses in the path', 'https://en.wikipedia.org/wiki/Foo_(bird)', ['https://en.wikipedia.org/wiki/Foo_(bird)']],
+    ['balanced parentheses then a period', 'See https://a.org/Foo_(bird).', ['https://a.org/Foo_(bird)']],
+    ['a quoted URL', "See \"https://a.org/x\" and 'https://b.org/y'>", ['https://a.org/x', 'https://b.org/y']],
+    ['Sinhala directly after a URL', 'https://a.org/xශ්‍රී ලංකා', ['https://a.org/x']],
     ['no URL', 'CBC Country List 2022; Avibase checklist', []],
     ['Sinhala text around a URL', 'ශ්‍රී ලංකා පක්ෂි ලැයිස්තුව: https://a.org/si ; ඉහත', ['https://a.org/si']],
   ])('%s', (_name, cell, links) => {
@@ -102,5 +106,15 @@ describe('extractLinks', () => {
     const source = build([cons()], [src('s1', cell)]).species.a?.sources[0];
     expect(source?.citation).toBe(cell);
     expect(source?.links).toEqual(['https://a.org/x']);
+  });
+});
+
+describe('workbook cell types', () => {
+  it('copies avilist_iucn_category and verification_note, and fails on a Date or boolean', () => {
+    const built = build([cons({ avilist_iucn_category: 'LC' })], [{ ...src('s1', 'https://a.org'), verification_note: 'Not revalidated' }]);
+    expect(built.species.a?.conservation.avilist_iucn_category).toBe('LC');
+    expect(built.species.a?.sources[0]?.verification_note).toBe('Not revalidated');
+    expect(() => build([cons({ iucn_assessment_year: new Date() })], [])).toThrow('unexpected object cell');
+    expect(() => build([cons()], [{ ...src('s1', 'https://a.org'), source_type: true }])).toThrow('unexpected boolean cell');
   });
 });

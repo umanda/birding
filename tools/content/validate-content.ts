@@ -110,8 +110,28 @@ export function validateSpeciesText(input: unknown, speciesIds: string[]): strin
 
 export type SourceReport = { errors: string[]; httpCount: number; citationCount: number };
 
-// Extracted links and any scheme in the citation text must be http(s). Citations with no link are
-// counted, not rejected: the workbook has them, and we do not rewrite data.
+type Source = { source_id: string; citation: string; links: string[] };
+
+function isHttpLink(link: string): boolean {
+  try {
+    return ['http:', 'https:'].includes(new URL(link).protocol);
+  } catch {
+    return false;
+  }
+}
+
+// Every extracted link must parse as http(s), and so must any scheme in the citation text, so a
+// link that extraction skipped (ftp://) is not lost silently.
+function checkSource(source: Source): string[] {
+  const where = `species-text: ${source.source_id}`;
+  const errors = source.links.filter((l) => !isHttpLink(l)).map((l) => `${where}: bad link ${l}`);
+  for (const [, scheme = ''] of source.citation.matchAll(SCHEME)) {
+    if (!['http', 'https'].includes(scheme.toLowerCase())) errors.push(`${where}: scheme ${scheme} is not http(s)`);
+  }
+  return errors;
+}
+
+// Citations with no link are counted, not rejected: the workbook has them, and we do not rewrite data.
 export function checkSources(input: unknown): SourceReport {
   const parsed = SpeciesTextFileSchema.safeParse(input);
   const report: SourceReport = { errors: [], httpCount: 0, citationCount: 0 };
@@ -123,16 +143,18 @@ export function checkSources(input: unknown): SourceReport {
       total += 1;
       if (ids.has(source.source_id)) report.errors.push(`species-text: duplicate source_id ${source.source_id}`);
       ids.add(source.source_id);
-      for (const [, scheme = ''] of source.citation.matchAll(SCHEME)) {
-        if (!['http', 'https'].includes(scheme.toLowerCase())) report.errors.push(`species-text: ${source.source_id}: scheme ${scheme} is not http(s)`);
-      }
+      report.errors.push(...checkSource(source));
       report.httpCount += source.links.filter((l) => l.startsWith('http:')).length;
       if (source.links.length === 0) report.citationCount += 1;
     }
     const factsheet = record.conservation.birdlife_factsheet_url;
-    if (factsheet !== null && !isFactsheetUrl(factsheet)) report.errors.push(`species-text: ${speciesId}: factsheet URL is not on ${FACTSHEET_HOST}`);
+    if (factsheet !== null && !isFactsheetUrl(factsheet)) {
+      report.errors.push(`species-text: ${speciesId}: factsheet URL is not on ${FACTSHEET_HOST}`);
+    }
   }
-  if (total !== EXPECTED_SOURCES) report.errors.push(`species-text: expected ${EXPECTED_SOURCES} sources, found ${total}`);
+  if (total !== EXPECTED_SOURCES) {
+    report.errors.push(`species-text: expected ${EXPECTED_SOURCES} sources, found ${total}`);
+  }
   return report;
 }
 

@@ -52,16 +52,35 @@ function overrideLangs(csv: string): Map<Key, TextLang> {
   );
 }
 
-const URL_IN_TEXT = /https?:\/\/\S+/g;
-const TRAILING_PUNCTUATION = /[.,;:)\]]+$/;
+// URL characters only (RFC 3986): quotes, spaces and Sinhala letters end a link.
+const URL_IN_TEXT = /https?:\/\/[A-Za-z0-9\-._~:/?#[\]@!$&'()*+,;=%]+/g;
+const TRAILING_PUNCTUATION = /[.,;:\]'>]$/;
+
+// A ")" belongs to the link only when it closes a "(" inside it, as in Foo_(bird).
+function trimLink(link: string): string {
+  let end = link;
+  for (;;) {
+    const unbalanced = end.endsWith(')') && count(end, ')') > count(end, '(');
+    if (!unbalanced && !TRAILING_PUNCTUATION.test(end)) return end;
+    end = end.slice(0, -1);
+  }
+}
+
+const count = (text: string, char: string): number => text.split(char).length - 1;
 
 // Only the extracted link is trimmed; the citation keeps every character.
 export function extractLinks(citation: string): string[] {
-  return (citation.match(URL_IN_TEXT) ?? []).map((l) => l.replace(TRAILING_PUNCTUATION, ''));
+  return (citation.match(URL_IN_TEXT) ?? []).map(trimLink);
 }
 
-const blankToNull = (cell: unknown): string | null =>
-  typeof cell === 'string' && cell.trim() !== '' ? cell : null;
+// Text and numbers are copied (numbers as text); blank is null. Dates and booleans are a data
+// surprise, so they fail instead of turning into null.
+function textOrNull(cell: unknown, where: string): string | null {
+  if (cell === undefined || cell === null) return null;
+  if (typeof cell === 'number') return String(cell);
+  if (typeof cell !== 'string') throw new Error(`${where}: unexpected ${typeof cell} cell`);
+  return cell.trim() === '' ? null : cell;
+}
 
 const idOf = (row: Row, sheet: string): string => {
   const id = typeof row.species_id === 'string' ? row.species_id.trim() : '';
@@ -69,10 +88,9 @@ const idOf = (row: Row, sheet: string): string => {
   return id;
 };
 
-// Values are copied verbatim (numbers from the workbook become text); blank is null.
-function toConservation(row: Row): Conservation {
-  const text = (v: unknown): string | null => (typeof v === 'number' ? String(v) : blankToNull(v));
-  return Object.fromEntries(CONSERVATION_FIELDS.map((f) => [f, text(row[f])])) as Conservation;
+function toConservation(row: Row, id: string): Conservation {
+  const entries = CONSERVATION_FIELDS.map((f) => [f, textOrNull(row[f], `Conservation ${id}|${f}`)]);
+  return Object.fromEntries(entries) as Conservation;
 }
 
 function groupConservation(rows: Row[]): Map<string, Conservation> {
@@ -80,9 +98,18 @@ function groupConservation(rows: Row[]): Map<string, Conservation> {
   for (const row of rows) {
     const id = idOf(row, 'Conservation');
     if (byId.has(id)) throw new Error(`Duplicate Conservation row for ${id}`);
-    byId.set(id, toConservation(row));
+    byId.set(id, toConservation(row, id));
   }
   return byId;
+}
+
+function toSource(row: Row, speciesId: string): SpeciesSource {
+  const cell = (field: string): string | null => textOrNull(row[field], `Species Sources ${speciesId}|${field}`);
+  const sourceId = cell('source_id');
+  const citation = cell('source_url');
+  if (sourceId === null || citation === null) throw new Error(`Blank source_id or source_url for ${speciesId}`);
+  const links = extractLinks(citation);
+  return { source_id: sourceId, citation, links, type: cell('source_type'), verification_note: cell('verification_note') };
 }
 
 // One entry per source_id, grouped by species and sorted by source_id.
@@ -91,12 +118,10 @@ function groupSources(rows: Row[]): Map<string, SpeciesSource[]> {
   const byId = new Map<string, SpeciesSource[]>();
   for (const row of rows) {
     const speciesId = idOf(row, 'Species Sources');
-    const sourceId = blankToNull(row.source_id);
-    const citation = blankToNull(row.source_url);
-    if (sourceId === null || citation === null) throw new Error(`Blank source_id or source_url for ${speciesId}`);
-    if (seen.has(sourceId)) throw new Error(`Duplicate source_id ${sourceId}`);
-    seen.add(sourceId);
-    byId.set(speciesId, [...(byId.get(speciesId) ?? []), { source_id: sourceId, citation, links: extractLinks(citation), type: blankToNull(row.source_type) }]);
+    const source = toSource(row, speciesId);
+    if (seen.has(source.source_id)) throw new Error(`Duplicate source_id ${source.source_id}`);
+    seen.add(source.source_id);
+    byId.set(speciesId, [...(byId.get(speciesId) ?? []), source]);
   }
   for (const list of byId.values()) list.sort((a, b) => (a.source_id < b.source_id ? -1 : 1));
   return byId;

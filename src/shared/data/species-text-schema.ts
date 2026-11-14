@@ -38,6 +38,7 @@ export const CONSERVATION_FIELDS = [
   'birdlife_factsheet_url',
   'previous_occurrence_code',
   'previous_iucn_category',
+  'avilist_iucn_category',
 ] as const;
 
 const ConservationSchema = z.strictObject({
@@ -49,6 +50,7 @@ const ConservationSchema = z.strictObject({
   birdlife_factsheet_url: NullableText,
   previous_occurrence_code: NullableText,
   previous_iucn_category: NullableText,
+  avilist_iucn_category: NullableText,
 });
 
 // The workbook has no title column. `citation` is the Species Sources cell verbatim (a bare link or
@@ -58,6 +60,7 @@ const SourceSchema = z.strictObject({
   citation: z.string().min(1),
   links: z.array(z.string().min(1)),
   type: z.string().min(1).nullable(),
+  verification_note: z.string().min(1).nullable(),
 });
 
 const SpeciesRecordSchema = SpeciesFieldsSchema.extend({

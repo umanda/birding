@@ -4,7 +4,7 @@ export type SpeciesText = Record<TextField, TextValue>;
 
 let fileLoad: Promise<SpeciesTextFile> | null = null;
 
-// A dynamic import keeps the ~130 KB gz prose out of the entry bundle. The promise is cached so
+// A dynamic import keeps the ~185 KB gz prose out of the entry bundle. The promise is cached so
 // the file loads once; a failed load is dropped so the next call can retry.
 function loadFile(): Promise<SpeciesTextFile> {
   fileLoad ??= import('../../../content/species-text.json').then(
