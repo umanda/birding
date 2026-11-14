@@ -14,12 +14,18 @@ import { OccurrenceBadge } from '@/shared/ui/occurrence-badge';
 
 import { localized, otherLanguage } from '@/shared/i18n/localized';
 
+// The static export's `species/[id].html` template is built with the literal route pattern as id.
+const TEMPLATE_ID = '[id]';
+
 type Translate = (key: MessageKey) => string;
 type DetailProps = { species: Species; language: Language; t: Translate };
 
 export function SpeciesRoute(): React.JSX.Element {
   const { id } = useLocalSearchParams<{ id?: string | string[] }>();
   const { language, t } = useSettings();
+  const { colors } = useTheme();
+  if (id === TEMPLATE_ID) return <View style={[styles.screen, { backgroundColor: colors.bg }]} />;
+
   const species = typeof id === 'string' ? getSpecies(id) : undefined;
   const title = species ? localized(species.names, language).text : t('species.notFound');
 
