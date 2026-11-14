@@ -48,7 +48,8 @@
     "format": "prettier --write .",
     "test": "jest",
     "content:build": "tsx tools/content/build-content.ts",
-    "validate:content": "tsx tools/content/validate-content.ts"
+    "validate:content": "tsx tools/content/validate-content.ts",
+    "media:check": "tsx tools/content/media/check-media.ts"
   },
   "private": true,
   "jest": {
