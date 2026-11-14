@@ -1,7 +1,9 @@
-import { TEXT_FIELDS } from '../../src/shared/data/species-text-schema';
+import { CONSERVATION_FIELDS, TEXT_FIELDS } from '../../src/shared/data/species-text-schema';
 import { buildSpeciesText, detectLang, parseList } from './species-text';
 import { TEXT_MAX_GZIP_BYTES, checkTextSize, validateSpeciesText } from './validate-content';
 
+const NO_ROWS = { conservation: [{ species_id: 'a' }], sources: [] };
+const ALL_NULL_CONSERVATION = Object.fromEntries(CONSERVATION_FIELDS.map((f) => [f, null]));
 const NONE = { placeholdersCsv: 'species_id,field,reason\n', overridesCsv: 'species_id,field,lang\n' };
 const SI = 'ශ්‍රී ලංකාවේ වැව් අසල දකිමු';
 type Built = { species: Record<string, Record<string, { text: string; lang: string } | null>> };
@@ -11,6 +13,7 @@ const build = (cell: unknown, lists = NONE): Built =>
     {
       identification: [{ species_id: 'a', species_description: cell }],
       distribution: [{ species_id: 'a', seasonality_months_seen: 'Oct-Apr' }],
+      ...NO_ROWS,
     },
     lists,
   ) as Built;
@@ -60,7 +63,7 @@ describe('buildSpeciesText', () => {
 describe('validateSpeciesText', () => {
   it('reports missing and unknown species', () => {
     const record = Object.fromEntries(TEXT_FIELDS.map((f) => [f, { text: 'x', lang: 'en' }]));
-    const text = { schema_version: 2, species: { a: record } };
+    const text = { schema_version: 3, species: { a: { ...record, conservation: ALL_NULL_CONSERVATION, sources: [] } } };
     expect(validateSpeciesText(text, ['a'])).toEqual([]);
     expect(validateSpeciesText(text, ['b'])).toEqual([
       'species-text: missing b',
@@ -69,7 +72,7 @@ describe('validateSpeciesText', () => {
   });
 
   it('rejects a record with a missing field', () => {
-    const text = { schema_version: 2, species: { a: { species_description: null } } };
+    const text = { schema_version: 3, species: { a: { species_description: null } } };
     expect(validateSpeciesText(text, ['a']).length).toBeGreaterThan(0);
   });
 });
@@ -93,18 +96,18 @@ describe('lists and guards', () => {
     const overridesCsv = 'species_id,field,lang\na,species_description,xx\n';
     expect(() => build('x', { ...NONE, overridesCsv })).toThrow('Bad override lang');
     const row = { species_id: 'a', species_description: 'x' };
-    expect(() => buildSpeciesText({ identification: [row, row], distribution: [] }, NONE)).toThrow(
+    expect(() => buildSpeciesText({ identification: [row, row], distribution: [], ...NO_ROWS }, NONE)).toThrow(
       'Duplicate text row',
     );
     const blank = { species_id: ' ', species_description: 'x' };
-    expect(() => buildSpeciesText({ identification: [blank], distribution: [] }, NONE)).toThrow(
+    expect(() => buildSpeciesText({ identification: [blank], distribution: [], ...NO_ROWS }, NONE)).toThrow(
       'blank species_id',
     );
   });
 
   it('rejects a misspelled field and an oversized file', () => {
     const record = Object.fromEntries(TEXT_FIELDS.map((f) => [f, null]));
-    const text = { schema_version: 2, species: { a: { ...record, speces_description: null } } };
+    const text = { schema_version: 3, species: { a: { ...record, conservation: ALL_NULL_CONSERVATION, sources: [], speces_description: null } } };
     expect(validateSpeciesText(text, ['a']).length).toBeGreaterThan(0);
     expect(checkTextSize(TEXT_MAX_GZIP_BYTES + 1)).toHaveLength(1);
     expect(checkTextSize(TEXT_MAX_GZIP_BYTES)).toEqual([]);

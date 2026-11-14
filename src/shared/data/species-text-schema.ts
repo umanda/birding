@@ -26,12 +26,52 @@ const SpeciesFieldsSchema = z.strictObject({
   seasonality_months_seen: TextValueSchema,
 });
 
-// schema_version 2 belongs to this file; content.json stays at 1.
+// Workbook Conservation columns, copied verbatim (blank is null). The two codes also live in
+// content.json; the "previous_*" columns are kept as the workbook has them, not interpreted.
+const NullableText = z.string().min(1).nullable();
+export const CONSERVATION_FIELDS = [
+  'occurrence_verification_status',
+  'occurrence_source_note',
+  'iucn_assessment_year',
+  'iucn_verification_status',
+  'iucn_source_note',
+  'birdlife_factsheet_url',
+  'previous_occurrence_code',
+  'previous_iucn_category',
+] as const;
+
+const ConservationSchema = z.strictObject({
+  occurrence_verification_status: NullableText,
+  occurrence_source_note: NullableText,
+  iucn_assessment_year: NullableText,
+  iucn_verification_status: NullableText,
+  iucn_source_note: NullableText,
+  birdlife_factsheet_url: NullableText,
+  previous_occurrence_code: NullableText,
+  previous_iucn_category: NullableText,
+});
+
+// The workbook has no title column. `url` is the Species Sources cell verbatim: a bare link in
+// some rows, a free-text citation (with or without links) in others.
+const SourceSchema = z.strictObject({
+  source_id: z.string().min(1),
+  url: z.string().min(1),
+  type: z.string().min(1).nullable(),
+});
+
+const SpeciesRecordSchema = SpeciesFieldsSchema.extend({
+  conservation: ConservationSchema,
+  sources: z.array(SourceSchema),
+});
+
+// schema_version 3 belongs to this file; content.json stays at 1.
 export const SpeciesTextFileSchema = z.strictObject({
-  schema_version: z.literal(2),
-  species: z.record(z.string().min(1), SpeciesFieldsSchema),
+  schema_version: z.literal(3),
+  species: z.record(z.string().min(1), SpeciesRecordSchema),
 });
 
 export type TextValue = z.infer<typeof TextValueSchema>;
+export type Conservation = z.infer<typeof ConservationSchema>;
+export type SpeciesSource = z.infer<typeof SourceSchema>;
 export type SpeciesTextFile = z.infer<typeof SpeciesTextFileSchema>;
 export type TextLang = NonNullable<TextValue>['lang'];
