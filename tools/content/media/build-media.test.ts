@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import sharp from 'sharp';
 import { buildMedia, validatedRows, writeMedia } from './build-media';
-import { parseManifest } from './media-manifest';
+import { FULL, parseManifest } from './media-manifest';
 import type { MediaRow } from './media-schema';
 
 function row(overrides: Partial<MediaRow> = {}): MediaRow {
@@ -30,7 +30,7 @@ function row(overrides: Partial<MediaRow> = {}): MediaRow {
 }
 
 // Noisy 2000x1000 master, so resizing and encoding are real.
-async function writeMaster(dir: string, file: string): Promise<void> {
+async function writeMaster(dir: string, file: string, sigma = 30): Promise<void> {
   const target = path.join(dir, file);
   mkdirSync(path.dirname(target), { recursive: true });
   const noise = await sharp({
@@ -39,7 +39,7 @@ async function writeMaster(dir: string, file: string): Promise<void> {
       height: 1000,
       channels: 3,
       background: '#808080',
-      noise: { type: 'gaussian', mean: 128, sigma: 30 },
+      noise: { type: 'gaussian', mean: 128, sigma },
     },
   })
     .webp({ quality: 80 })
@@ -128,6 +128,17 @@ describe('buildMedia', () => {
     for (const file of build.files.keys()) expect(existsSync(path.join(out, file))).toBe(true);
     expect(parseManifest(readFileSync(manifestFile, 'utf8'))).toEqual({ manifest: build.manifest, errors: [] });
   });
+
+  it('steps a busy full image down to fit the limit and warns', async () => {
+    const masters = tmp();
+    // Gaussian noise with sigma 100 is about 250 KB at q75 and 130 KB at 900 px q55 (measured).
+    await writeMaster(masters, 'slb-a/img-1.webp', 100);
+    const { manifest, warnings } = await buildMedia([row()], masters);
+    const [image] = manifest.images;
+    expect(image?.full.bytes).toBeLessThanOrEqual(FULL.maxBytes);
+    expect(warnings).toContainEqual(expect.stringMatching(/^img-1: full stepped down to [0-9]+px q[0-9]+$/));
+    expect(manifest).not.toHaveProperty('warnings');
+  }, 120_000);
 
   it('writes an empty manifest for an empty register', async () => {
     const build = await buildMedia([], tmp());

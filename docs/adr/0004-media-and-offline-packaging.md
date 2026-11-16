@@ -30,7 +30,7 @@ optional (UX 01 §2.1). Data and index packaging belong to ADR 0006.
   edge, q80). Full-resolution originals are not committed, because `source_url` lets us re-fetch them. The
   pipeline (`tools/content/media`, using the `sharp` dev-dependency) generates:
   - **thumb**: 1 per species (primary plumage), 240 px long edge, WebP q70, target ≤ 12 KB
-  - **full**: 1080 px long edge, WebP q75, target ≤ 120 KB, EXIF/GPS stripped
+  - **full**: 1080 px long edge, WebP q75, target ≤ 120 KB, EXIF/GPS stripped; falls back to q65 → q55 → 900 px q55 when over the 200 KB hard limit
   - a `media-manifest.json` (id → path, bytes, sha256, credit line), consumed via ADR 0006 data.
 - **Validation (CI, ADR 0005):** every shipped file has exactly one `reviewed` register row and vice versa,
   the licence is in the allow-list, size limits are met, and the `species_id`/`plumage_key` values exist.
