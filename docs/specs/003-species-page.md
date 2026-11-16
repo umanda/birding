@@ -1,5 +1,5 @@
 # 003 — Species page (M2)
-Status: Approved (owner, 2026-11-14)
+Status: Done (2026-11-16, PRs #31, #33, #34, #39, #40, #42–#60)
 
 ## Problem
 Nimali (Sinhala-first beginner), Emma (tourist), Kasun (student) and Ruwan (guide) open a species and get only
