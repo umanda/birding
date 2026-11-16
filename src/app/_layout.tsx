@@ -26,6 +26,7 @@ export default function RootLayout() {
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="plate/[id]" options={{ headerShown: true }} />
         <Stack.Screen name="species/[id]" options={{ headerShown: true }} />
+        <Stack.Screen name="photo-credits" options={{ headerShown: true }} />
       </Stack>
     </SettingsProvider>
   );

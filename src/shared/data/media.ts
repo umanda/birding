@@ -17,3 +17,7 @@ export function getSpeciesImages(speciesId: string): ManifestImage[] {
 export function mediaUrl(path: string): string {
   return `/${path}`;
 }
+
+export function getAllImages(): readonly ManifestImage[] {
+  return images;
+}

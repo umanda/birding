@@ -76,5 +76,7 @@
   "gallery.notDownloaded": "Photo not downloaded",
   "gallery.photoBy": "Photo: {author}",
   "gallery.alt": "{name}, {plumage}. Photo: {author}",
-  "gallery.noncommercial": "Licence: non-commercial"
+  "gallery.noncommercial": "Licence: non-commercial",
+  "me.photoCredits": "Photo credits",
+  "credits.empty": "No photos yet"
 }

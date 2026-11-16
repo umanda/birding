@@ -63,7 +63,7 @@ type Props = {
 };
 type CreditProps = { credit: ManifestImage['credit']; language: Language; t: Translate };
 
-function Credit({ credit, language, t }: CreditProps): React.JSX.Element {
+export function PhotoCredit({ credit, language, t }: CreditProps): React.JSX.Element {
   const { colors } = useTheme();
   const { author, licence, licence_url: licenceUrl, source_url: sourceUrl } = credit;
   const label = typeStyle('caption', language);
@@ -205,7 +205,7 @@ export function SpeciesGallery({
           style={[styles.photo, { aspectRatio: image.width / image.height }]}
         />
       )}
-      <Credit credit={shown.credit} language={language} t={t} />
+      <PhotoCredit credit={shown.credit} language={language} t={t} />
     </View>
   );
 }
