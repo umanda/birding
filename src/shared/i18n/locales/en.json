@@ -74,6 +74,7 @@
   "gallery.plumageTabs": "Plumage",
   "gallery.noPhoto": "No photo yet",
   "gallery.unavailable": "Photo not available offline",
+  "gallery.notDownloaded": "Photo not downloaded",
   "gallery.photoBy": "Photo: {author}",
   "gallery.alt": "{name}, {plumage}. Photo: {author}",
   "gallery.noncommercial": "Licence: non-commercial"

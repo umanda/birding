@@ -91,6 +91,31 @@ function Credit({ credit, language, t }: CreditProps): React.JSX.Element {
   );
 }
 
+type FallbackProps = {
+  thumb: ManifestImage['thumb'];
+  alt: string;
+  language: Language;
+  t: Translate;
+};
+
+function OfflineFallback({ thumb, alt, language, t }: FallbackProps): React.JSX.Element {
+  const { colors } = useTheme();
+  const message = thumb ? t('gallery.notDownloaded') : t('gallery.unavailable');
+  return (
+    <View style={[styles.empty, { backgroundColor: colors.surface }]}>
+      {thumb ? (
+        <Image
+          source={{ uri: mediaUrl(thumb.path) }}
+          accessibilityLabel={alt}
+          resizeMode="contain"
+          style={styles.thumb}
+        />
+      ) : null}
+      <Text style={[typeStyle('body', language), { color: colors.textMuted }]}>{message}</Text>
+    </View>
+  );
+}
+
 function Tab(props: {
   label: string;
   selected: boolean;
@@ -150,6 +175,8 @@ export function SpeciesGallery({
   const author = image.credit.author ?? t('common.notRecorded');
   const alt = t('gallery.alt', { name: speciesName, plumage, author });
   const failed = failedIds.includes(image.image_id);
+  // Only the species' primary image has a thumbnail; the precache keeps it for offline use.
+  const thumbImage = unsorted.find((i) => i.thumb);
 
   return (
     <View style={styles.gallery}>
@@ -169,11 +196,7 @@ export function SpeciesGallery({
         ))}
       </View>
       {failed ? (
-        <View style={[styles.empty, { backgroundColor: colors.surface }]}>
-          <Text style={[typeStyle('body', language), { color: colors.textMuted }]}>
-            {t('gallery.unavailable')}
-          </Text>
-        </View>
+        <OfflineFallback thumb={thumbImage?.thumb ?? null} alt={alt} language={language} t={t} />
       ) : (
         <Image
           source={{ uri: mediaUrl(image.full.path) }}
@@ -183,7 +206,11 @@ export function SpeciesGallery({
           style={[styles.photo, { aspectRatio: image.width / image.height }]}
         />
       )}
-      <Credit credit={image.credit} language={language} t={t} />
+      <Credit
+        credit={(failed && thumbImage ? thumbImage : image).credit}
+        language={language}
+        t={t}
+      />
     </View>
   );
 }
@@ -197,6 +224,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: space[3],
     borderRadius: radius.pill,
   },
+  thumb: { width: '100%', aspectRatio: 1 },
   photo: { width: '100%', borderRadius: radius.md },
   empty: { padding: space[4], borderRadius: radius.md, alignItems: 'center' },
   credit: { gap: space[1] },

@@ -138,6 +138,23 @@ describe('SpeciesGallery', () => {
     expect(screen.getByText('Photo: Jane Doe')).toBeTruthy();
   });
 
+  it('falls back to the thumbnail with its credit when the full image fails', async () => {
+    const thumb = { path: 'media/slb-test/m.hash.thumb.webp', bytes: 10, sha256: 'b'.repeat(64) };
+    const primary = fixtureImage({
+      image_id: 'p',
+      primary: true,
+      thumb,
+      credit: { ...male.credit, author: 'Thumb Author' },
+    });
+    await renderGallery([primary, female]);
+    await fireEvent(screen.getByLabelText('Test Bird, Male. Photo: Thumb Author'), 'error');
+    expect(screen.getByText('Photo not downloaded')).toBeTruthy();
+    expect(screen.getByLabelText('Test Bird, Male. Photo: Thumb Author').props.source).toEqual({
+      uri: '/media/slb-test/m.hash.thumb.webp',
+    });
+    expect(screen.getByText('Photo: Thumb Author')).toBeTruthy();
+  });
+
   it('labels tabs in Sinhala, including morphs', async () => {
     await renderGallery([male, morph], 'si');
     expect(screen.getByRole('tab', { name: 'පිරිමි' })).toBeTruthy();
