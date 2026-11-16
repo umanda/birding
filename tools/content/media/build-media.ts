@@ -1,10 +1,10 @@
 import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
-import sharp from 'sharp';
-import type { OutputInfo } from 'sharp';
+import sharp, { type OutputInfo } from 'sharp';
 import {
   FULL,
+  FULL_FALLBACKS,
   HASH_LENGTH,
   MANIFEST_FILE,
   OUTPUT_SUBDIR,
@@ -25,19 +25,18 @@ const CONTENT_FILE = 'content/content.json';
 
 export type MediaBuild = { manifest: MediaManifest; files: Map<string, Buffer>; warnings: string[] };
 
-type Encoded = { variant: Variant; data: Buffer; width: number; height: number };
+type Setting = { edge: number; quality: number };
+type Encoded = {
+  variant: Variant;
+  data: Buffer;
+  width: number;
+  height: number;
+  steppedDownTo: Setting | null; // the fallback used for a full image, if any
+};
 
 function sha256Of(data: Buffer): string {
   return createHash('sha256').update(data).digest('hex');
 }
-
-// Busy scenes (e.g. dense foliage) can exceed the full-image limit at the default settings, so
-// full images step down through these until they fit; budgetErrors still guards the rest.
-const FULL_FALLBACKS = [
-  { edge: FULL.edge, quality: 65 },
-  { edge: FULL.edge, quality: 55 },
-  { edge: 900, quality: 55 },
-];
 
 // Metadata (EXIF, GPS, ICC) is dropped by sharp's default; a fixed effort keeps output reproducible.
 function encodeAt(
@@ -54,16 +53,18 @@ function encodeAt(
 async function encode(master: Buffer, row: MediaRow, kind: 'thumb' | 'full'): Promise<Encoded> {
   const { edge, quality } = kind === 'thumb' ? THUMB : FULL;
   let { data, info } = await encodeAt(master, edge, quality);
+  let steppedDownTo: Setting | null = null;
   if (kind === 'full') {
     for (const fallback of FULL_FALLBACKS) {
       if (data.length <= FULL.maxBytes) break;
       ({ data, info } = await encodeAt(master, fallback.edge, fallback.quality));
+      steppedDownTo = fallback;
     }
   }
   const sha256 = sha256Of(data);
   const name = `${row.image_id}.${sha256.slice(0, HASH_LENGTH)}.${kind}.webp`;
   const variant = { path: `${OUTPUT_SUBDIR}/${row.species_id}/${name}`, bytes: data.length, sha256 };
-  return { variant, data, width: info.width, height: info.height };
+  return { variant, data, width: info.width, height: info.height, steppedDownTo };
 }
 
 function compareRows(a: MediaRow, b: MediaRow): number {
@@ -77,12 +78,17 @@ function compareRows(a: MediaRow, b: MediaRow): number {
 export async function buildMedia(rows: readonly MediaRow[], masterDir: string): Promise<MediaBuild> {
   const files = new Map<string, Buffer>();
   const images: ManifestImage[] = [];
+  const warnings: string[] = [];
   const primaries = choosePrimaries(rows);
   for (const row of rows.filter((r) => r.status === 'reviewed').sort(compareRows)) {
     const master = readFileSync(path.join(masterDir, row.file));
     const full = await encode(master, row, 'full');
     const thumb = primaries.has(row.image_id) ? await encode(master, row, 'thumb') : null;
     files.set(full.variant.path, full.data);
+    if (full.steppedDownTo) {
+      const { edge, quality } = full.steppedDownTo;
+      warnings.push(`${row.image_id}: full stepped down to ${edge}px q${quality}`);
+    }
     if (thumb) files.set(thumb.variant.path, thumb.data);
     images.push({
       image_id: row.image_id,
@@ -100,7 +106,7 @@ export async function buildMedia(rows: readonly MediaRow[], masterDir: string): 
   }
   const errors = budgetErrors(images);
   if (errors.length > 0) throw new Error(`Media budget exceeded:\n${errors.join('\n')}`);
-  return { manifest: { schema_version: 1, images }, files, warnings: targetWarnings(images) };
+  return { manifest: { schema_version: 1, images }, files, warnings: [...warnings, ...targetWarnings(images)] };
 }
 
 // Rewrites public/media from scratch, which also removes stale files.
