@@ -6,6 +6,8 @@ import { SCREEN_PADDING, size } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
 
+import { PhotoPackSection } from './photo-pack-section';
+
 export function MeScreen(): React.JSX.Element {
   const { language, t } = useSettings();
   const { colors } = useTheme();
@@ -16,6 +18,7 @@ export function MeScreen(): React.JSX.Element {
           {t('credits.title')}
         </Text>
       </Link>
+      <PhotoPackSection />
     </View>
   );
 }

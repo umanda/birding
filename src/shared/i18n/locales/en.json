@@ -78,5 +78,18 @@
   "gallery.alt": "{name}, {plumage}. Photo: {author}",
   "gallery.noncommercial": "Licence: non-commercial",
   "credits.title": "Photo credits",
-  "credits.empty": "No photos yet"
+  "credits.empty": "No photos yet",
+  "photoPack.title": "Offline photo pack",
+  "photoPack.summary.one": "{size}, {count} photo",
+  "photoPack.summary.other": "{size}, {count} photos",
+  "photoPack.wifi": "Best on Wi-Fi",
+  "photoPack.download": "Download",
+  "photoPack.cancel": "Cancel",
+  "photoPack.progress": "{done} of {total}",
+  "photoPack.complete": "All photos saved for offline use",
+  "photoPack.offline": "You are offline. Connect to download.",
+  "photoPack.interrupted": "Download stopped. Press Download to resume.",
+  "photoPack.nativeUnavailable": "Available in the web app for now",
+  "photoPack.started": "Downloading photos",
+  "photoPack.remaining": "{size} left"
 }
