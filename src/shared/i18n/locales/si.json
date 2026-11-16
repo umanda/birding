@@ -76,5 +76,7 @@
   "gallery.notDownloaded": "ඡායාරූපය බාගත කර නැත",
   "gallery.photoBy": "ඡායාරූපය: {author}",
   "gallery.alt": "{name}, {plumage}. ඡායාරූපය: {author}",
-  "gallery.noncommercial": "බලපත්‍රය: වාණිජ නොවන"
+  "gallery.noncommercial": "බලපත්‍රය: වාණිජ නොවන",
+  "credits.title": "ඡායාරූප හිමිකම් දැක්වීම",
+  "credits.empty": "තවම ඡායාරූප නැත"
 }
