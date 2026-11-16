@@ -30,6 +30,7 @@ test('the photo pack downloader saves a photo that then loads offline', async ({
   page,
   context,
 }) => {
+  // The module is run via new Function, so it must stay free of runtime imports (type imports are erased).
   const compiled = ts.transpileModule(readFileSync(DOWNLOADER_SOURCE, 'utf8'), {
     compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
   }).outputText;
@@ -45,12 +46,15 @@ test('the photo pack downloader saves a photo that then loads offline', async ({
         signal: new AbortController().signal,
         onProgress: () => undefined,
       });
-      return { outcome, cached: [...(await pack.listCachedUrls())] };
+      // caches.match does not go through the worker or any page fetch, so this is the pack's own write.
+      const written = (await caches.match(url)) !== undefined;
+      return { outcome, written, cached: [...(await pack.listCachedUrls())] };
     },
     { code: compiled, url: FIXTURE_URL },
   );
-  expect(result).toEqual({ outcome: 'done', cached: [FIXTURE_URL] });
+  expect(result).toEqual({ outcome: 'done', written: true, cached: [FIXTURE_URL] });
 
+  // Smoke check that the saved photo is served with no network.
   await context.setOffline(true);
   const status = await page.evaluate(async (url) => (await fetch(url)).status, FIXTURE_URL);
   expect(status).toBe(200);
