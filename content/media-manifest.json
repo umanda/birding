@@ -1,4 +1,1069 @@
 {
   "schema_version": 1,
-  "images": []
+  "images": [
+    {
+      "image_id": "acridotheres-tristis-adult-1",
+      "species_id": "slb-acridotheres-tristis",
+      "plumage_key": "adult",
+      "view": "perched",
+      "primary": true,
+      "thumb": {
+        "path": "media/slb-acridotheres-tristis/acridotheres-tristis-adult-1.daf1b68d.thumb.webp",
+        "bytes": 14692,
+        "sha256": "daf1b68d8905704438c86b57cc56b44abba2551988f8d3cfda2e6c00eb12014a"
+      },
+      "full": {
+        "path": "media/slb-acridotheres-tristis/acridotheres-tristis-adult-1.6f1e8ba4.full.webp",
+        "bytes": 185052,
+        "sha256": "6f1e8ba4a60b09261276f1306d2a2d42461ff04df8d01d4e1b046eef41ad79d9"
+      },
+      "master_sha256": "c5833738566d2d2adb42d9e445acd790b59cd3df6e9b8a32514d23754070cf7f",
+      "width": 1080,
+      "height": 1080,
+      "credit": {
+        "author": "Charles J. Sharp",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Common_myna_(Acridotheres_tristis_melanosternus).jpg",
+        "attribution": "Photo: Charles J. Sharp, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "actitis-hypoleucos-adult-1",
+      "species_id": "slb-actitis-hypoleucos",
+      "plumage_key": "adult",
+      "view": "perched",
+      "primary": true,
+      "thumb": {
+        "path": "media/slb-actitis-hypoleucos/actitis-hypoleucos-adult-1.f05e7487.thumb.webp",
+        "bytes": 3490,
+        "sha256": "f05e748729d4ebd09f88c5caf2d423a082f8b676a7f821fd2e02f8aaf5436885"
+      },
+      "full": {
+        "path": "media/slb-actitis-hypoleucos/actitis-hypoleucos-adult-1.24742417.full.webp",
+        "bytes": 35008,
+        "sha256": "24742417cd5fa6ba82ee01a855ee05fde18e8e601346d0c0cff4aceea399d184"
+      },
+      "master_sha256": "2206f2dd1b70b3e5032403f2f0a6d064e6920a4e7ccb937a1003b6d902bcc8da",
+      "width": 1080,
+      "height": 720,
+      "credit": {
+        "author": "R.M.S. Ratnayake",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Common_Sandpiper_in_Kumana_National_Park.jpg",
+        "attribution": "Photo: R.M.S. Ratnayake, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "ardeola-grayii-breeding-1",
+      "species_id": "slb-ardeola-grayii",
+      "plumage_key": "breeding",
+      "view": "perched",
+      "primary": true,
+      "thumb": {
+        "path": "media/slb-ardeola-grayii/ardeola-grayii-breeding-1.da5c4bd6.thumb.webp",
+        "bytes": 4760,
+        "sha256": "da5c4bd6b60abbe02240d8959fecda288cf7bc470405720611ca492d9b98c16d"
+      },
+      "full": {
+        "path": "media/slb-ardeola-grayii/ardeola-grayii-breeding-1.217ade07.full.webp",
+        "bytes": 44698,
+        "sha256": "217ade0798502040883283ad90f12a4ddc6da9dba8409ee68f7e70eacdecbfce"
+      },
+      "master_sha256": "5a5e38b83972e0cadb2f2fe3617c819d916d82623a9adaff5a81e7df3928ecee",
+      "width": 1080,
+      "height": 810,
+      "credit": {
+        "author": "Akasmita",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Indian_pond_heron-Breeding_plumage.jpg",
+        "attribution": "Photo: Akasmita, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "ardeola-grayii-non-breeding-1",
+      "species_id": "slb-ardeola-grayii",
+      "plumage_key": "non_breeding",
+      "view": "perched",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-ardeola-grayii/ardeola-grayii-non-breeding-1.e31fb33e.full.webp",
+        "bytes": 56796,
+        "sha256": "e31fb33ea2f2595e734b26c4f94f909a1af2b23d5183c288ff3d777f2fd88056"
+      },
+      "master_sha256": "1fcfa495dd91c23ef437b500669169b5dfcaf28287c175ffe3cd1dbbd99be41a",
+      "width": 1080,
+      "height": 1080,
+      "credit": {
+        "author": "Charles J. Sharp",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Indian_pond_heron_(Ardeola_grayii)_non_breeding.jpg",
+        "attribution": "Photo: Charles J. Sharp, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "chrysocolaptes-stricklandi-female-1",
+      "species_id": "slb-chrysocolaptes-stricklandi",
+      "plumage_key": "female",
+      "view": "perched",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-chrysocolaptes-stricklandi/chrysocolaptes-stricklandi-female-1.7ddae16a.full.webp",
+        "bytes": 95272,
+        "sha256": "7ddae16acc74f27b1026b4aef4150dc979c3890bbfe3f1d3fb1d9a5324d4aa32"
+      },
+      "master_sha256": "3a9c08a3ea745a0073d8e874418db9660925bce96ea41c999fc3fcadf2176836",
+      "width": 1080,
+      "height": 810,
+      "credit": {
+        "author": "hatwise",
+        "licence": "CC-BY-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Chrysocolaptes_stricklandi,_Rakkiththa_Kanda,_Sri_Lanka_1.jpg",
+        "attribution": "Photo: hatwise, CC BY 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "chrysocolaptes-stricklandi-male-1",
+      "species_id": "slb-chrysocolaptes-stricklandi",
+      "plumage_key": "male",
+      "view": "perched",
+      "primary": true,
+      "thumb": {
+        "path": "media/slb-chrysocolaptes-stricklandi/chrysocolaptes-stricklandi-male-1.9e2322e1.thumb.webp",
+        "bytes": 10782,
+        "sha256": "9e2322e1df2a4e948f712460ab943b67b536ec404202669a786adca4d31e5410"
+      },
+      "full": {
+        "path": "media/slb-chrysocolaptes-stricklandi/chrysocolaptes-stricklandi-male-1.fee9ce6b.full.webp",
+        "bytes": 101812,
+        "sha256": "fee9ce6b0bac949a9ed12822bc0f67dde7f8a82a886c446abfb74eb82a4345c8"
+      },
+      "master_sha256": "57e8619357eb1cbf61201c6c2a3d723fcee0828307a2e7fb95d25a53ad0a2fde",
+      "width": 1080,
+      "height": 720,
+      "credit": {
+        "author": "tomheijnen",
+        "licence": "CC-BY-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Chrysocolaptes_stricklandi,_Kitulgala,_Sri_Lanka_1.jpg",
+        "attribution": "Photo: tomheijnen, CC BY 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "cinnyris-asiaticus-eclipse-1",
+      "species_id": "slb-cinnyris-asiaticus",
+      "plumage_key": "eclipse",
+      "view": "perched",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-cinnyris-asiaticus/cinnyris-asiaticus-eclipse-1.10b5e1a3.full.webp",
+        "bytes": 58324,
+        "sha256": "10b5e1a31145ff0440e788efacf2c7ebf2a18fd4274c48566158696b512f81d2"
+      },
+      "master_sha256": "3e84dcb2f435fa4f9324094c96a46682c303ca88d75ec0f870af9b80f03c7a6b",
+      "width": 1080,
+      "height": 720,
+      "credit": {
+        "author": "Charles J. Sharp",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Purple_sunbird_(Cinnyris_asiaticus_asiaticus)_male_non-breeding.jpg",
+        "attribution": "Photo: Charles J. Sharp, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "cinnyris-asiaticus-female-1",
+      "species_id": "slb-cinnyris-asiaticus",
+      "plumage_key": "female",
+      "view": "perched",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-cinnyris-asiaticus/cinnyris-asiaticus-female-1.9efede17.full.webp",
+        "bytes": 72560,
+        "sha256": "9efede179be33b79fd24a5fcf3d977f48562fe4e83d1a7a6a781d76de7ee0af0"
+      },
+      "master_sha256": "b9def7efd19f8b117d4efcdb77a05501be88efca26a601a3406ac539cfa6b34e",
+      "width": 1080,
+      "height": 773,
+      "credit": {
+        "author": "Vedant Raju Kasambe",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Purple_Sunbird_Cinnyris_asiaticus_Female_by_Vedant_Kasambe_DSC_6600_(1).jpg",
+        "attribution": "Photo: Vedant Raju Kasambe, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "cinnyris-asiaticus-male-1",
+      "species_id": "slb-cinnyris-asiaticus",
+      "plumage_key": "male",
+      "view": "perched",
+      "primary": true,
+      "thumb": {
+        "path": "media/slb-cinnyris-asiaticus/cinnyris-asiaticus-male-1.243c8186.thumb.webp",
+        "bytes": 5828,
+        "sha256": "243c818606841e4d85ab2330d44fe094850724b8feba3ef1939f8a76ba9ded03"
+      },
+      "full": {
+        "path": "media/slb-cinnyris-asiaticus/cinnyris-asiaticus-male-1.1b8b184b.full.webp",
+        "bytes": 40766,
+        "sha256": "1b8b184b22e687dd65bc71340f9262c1a80ae5a0fecd9feacd19fdf30ef85319"
+      },
+      "master_sha256": "605ede49bdd7c6856ac2201e958fa11f8030efe6480f1c9265a9f2d9feb49a7a",
+      "width": 1080,
+      "height": 810,
+      "credit": {
+        "author": "Dr. Raju Kasambe",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Purple_Sunbird_Cinnyris_asiaticus_Male_by_Dr_Raju_Kasambe_(2).JPG",
+        "attribution": "Photo: Dr. Raju Kasambe, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "copsychus-saularis-female-1",
+      "species_id": "slb-copsychus-saularis",
+      "plumage_key": "female",
+      "view": "perched",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-copsychus-saularis/copsychus-saularis-female-1.2e956c7e.full.webp",
+        "bytes": 43782,
+        "sha256": "2e956c7e9cbcb18686c1e2c9800d7fbb2f73941a925191690472b371d2da222f"
+      },
+      "master_sha256": "a079f01be2ce3e7b1594216954f57f0bac42519824870223cfa9720f37662399",
+      "width": 1080,
+      "height": 810,
+      "credit": {
+        "author": "William Stephens",
+        "licence": "CC-BY-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source_url": "https://www.inaturalist.org/photos/62516060",
+        "attribution": "Photo: William Stephens, CC BY 4.0, via iNaturalist",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "copsychus-saularis-male-1",
+      "species_id": "slb-copsychus-saularis",
+      "plumage_key": "male",
+      "view": "perched",
+      "primary": true,
+      "thumb": {
+        "path": "media/slb-copsychus-saularis/copsychus-saularis-male-1.f9c323dc.thumb.webp",
+        "bytes": 3070,
+        "sha256": "f9c323dcd6fd9c09e8b07331dc7c3559e7f66ba829ca770ccfa5fb837db8f655"
+      },
+      "full": {
+        "path": "media/slb-copsychus-saularis/copsychus-saularis-male-1.564fa5b2.full.webp",
+        "bytes": 34340,
+        "sha256": "564fa5b2383a9309803c3419bfeac517fb95dba6fd1b03c7e5816398d60de671"
+      },
+      "master_sha256": "c7604996d9be829e1f8fbd4f9da666733b2ad57b29acc7cfb17248dff48dd20e",
+      "width": 1080,
+      "height": 720,
+      "credit": {
+        "author": "Charles J. Sharp",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Oriental_magpie-robin_(Copsychus_saularis_ceylonensis)_male.jpg",
+        "attribution": "Photo: Charles J. Sharp, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "corvus-splendens-adult-1",
+      "species_id": "slb-corvus-splendens",
+      "plumage_key": "adult",
+      "view": "perched",
+      "primary": true,
+      "thumb": {
+        "path": "media/slb-corvus-splendens/corvus-splendens-adult-1.e5b7c890.thumb.webp",
+        "bytes": 6954,
+        "sha256": "e5b7c89030c42717efc92e60af20d7a4b82d9b2a6f4fca89837c9f949f7592e7"
+      },
+      "full": {
+        "path": "media/slb-corvus-splendens/corvus-splendens-adult-1.37415a68.full.webp",
+        "bytes": 80884,
+        "sha256": "37415a683921fdc40cd23dc0dea5413d89eaee3d13572d01453eb1e1f9ca0653"
+      },
+      "master_sha256": "847afad35db67101f17249364d8f99579355b278385a17c156149fc366a369b7",
+      "width": 1080,
+      "height": 720,
+      "credit": {
+        "author": "Alexey Komarov",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:A_house_crow_in_Viharamahadevi_Park,_Colombo.jpg",
+        "attribution": "Photo: Alexey Komarov, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "egretta-gularis-morph-dark-1",
+      "species_id": "slb-egretta-gularis",
+      "plumage_key": "morph_dark",
+      "view": "perched",
+      "primary": true,
+      "thumb": {
+        "path": "media/slb-egretta-gularis/egretta-gularis-morph-dark-1.09c4ef47.thumb.webp",
+        "bytes": 3544,
+        "sha256": "09c4ef47154a167827cedc27c16d24faae039beed5392c567df3de952a4d25a3"
+      },
+      "full": {
+        "path": "media/slb-egretta-gularis/egretta-gularis-morph-dark-1.8402c658.full.webp",
+        "bytes": 58992,
+        "sha256": "8402c658cfa3141d284d94dfef15f9d405744e2b2bc2242e1bd51c4fd6a3dceb"
+      },
+      "master_sha256": "f15c0b19dac4ed177da6c7d298ae9333dd018542104640b6138a5ba1f6232a61",
+      "width": 1080,
+      "height": 1080,
+      "credit": {
+        "author": "Charles J. Sharp",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Western_reef_egret_(Egretta_gularis_schistacea)_dark_morph_2.jpg",
+        "attribution": "Photo: Charles J. Sharp, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "egretta-gularis-morph-white-1",
+      "species_id": "slb-egretta-gularis",
+      "plumage_key": "morph_white",
+      "view": "perched",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-egretta-gularis/egretta-gularis-morph-white-1.6085329e.full.webp",
+        "bytes": 30858,
+        "sha256": "6085329e245c8b761275ddb032c83faf019da0fc77bf6e237fd864fef9772c9d"
+      },
+      "master_sha256": "0929c7089d5d85da2b6e750c9a65a0f4bb71d54a3b2de33e91be8a7026fc8df3",
+      "width": 1080,
+      "height": 1080,
+      "credit": {
+        "author": "Charles J. Sharp",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Western_reef_egret_(Egretta_gularis_schistacea)_white_morph.jpg",
+        "attribution": "Photo: Charles J. Sharp, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "eudynamys-scolopaceus-female-1",
+      "species_id": "slb-eudynamys-scolopaceus",
+      "plumage_key": "female",
+      "view": "perched",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-eudynamys-scolopaceus/eudynamys-scolopaceus-female-1.f8f70d47.full.webp",
+        "bytes": 69104,
+        "sha256": "f8f70d4792ea50e74f5cef1a10f0833efd0d3f282e4f0f89143ab1610c0cecfd"
+      },
+      "master_sha256": "b90a4144e18c680a5cd32bf858cbd6d7bb4cc34253ce4e4ff941fd02b2767c60",
+      "width": 1080,
+      "height": 810,
+      "credit": {
+        "author": "Rehman Abubakr",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Asian_koel_(female)_-_Sri_Lanka_-_01.jpg",
+        "attribution": "Photo: Rehman Abubakr, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "eudynamys-scolopaceus-male-1",
+      "species_id": "slb-eudynamys-scolopaceus",
+      "plumage_key": "male",
+      "view": "perched",
+      "primary": true,
+      "thumb": {
+        "path": "media/slb-eudynamys-scolopaceus/eudynamys-scolopaceus-male-1.76700880.thumb.webp",
+        "bytes": 5888,
+        "sha256": "76700880240f3e30f0fc7c8bac68702e9853fee7c14912b14fd094b67380b59f"
+      },
+      "full": {
+        "path": "media/slb-eudynamys-scolopaceus/eudynamys-scolopaceus-male-1.d84f52bc.full.webp",
+        "bytes": 54714,
+        "sha256": "d84f52bc0aba603122559affee71a1fc3588df3f5072d0de4a4705dbc30651ad"
+      },
+      "master_sha256": "ebe1351872b78c27ef7a3e671dc6c00f6c92dd113671f35901cf032a889b5849",
+      "width": 1080,
+      "height": 608,
+      "credit": {
+        "author": "Rehman Abubakr",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Asian_koel_(male)_-_Sri_Lanka_-_01.jpg",
+        "attribution": "Photo: Rehman Abubakr, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "gallus-lafayettii-female-1",
+      "species_id": "slb-gallus-lafayettii",
+      "plumage_key": "female",
+      "view": "perched",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-gallus-lafayettii/gallus-lafayettii-female-1.32c042c4.full.webp",
+        "bytes": 59422,
+        "sha256": "32c042c4fb5fcc281ccfeca58db977cd7a6f16ea883b70cb4f8e97577957002c"
+      },
+      "master_sha256": "12ecf63156e6103be8e725854550a769522859d1f37bcabdb26163c704212fc3",
+      "width": 1080,
+      "height": 721,
+      "credit": {
+        "author": "Christoph Moning",
+        "licence": "CC-BY-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source_url": "https://www.inaturalist.org/photos/92429505",
+        "attribution": "Photo: Christoph Moning, CC BY 4.0, via iNaturalist",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "gallus-lafayettii-male-1",
+      "species_id": "slb-gallus-lafayettii",
+      "plumage_key": "male",
+      "view": "perched",
+      "primary": true,
+      "thumb": {
+        "path": "media/slb-gallus-lafayettii/gallus-lafayettii-male-1.5fc90d47.thumb.webp",
+        "bytes": 10838,
+        "sha256": "5fc90d47a38528d1ee72b1993493cd835b16f0e93886fdf970e5cc8357c77271"
+      },
+      "full": {
+        "path": "media/slb-gallus-lafayettii/gallus-lafayettii-male-1.76b3d48f.full.webp",
+        "bytes": 105150,
+        "sha256": "76b3d48f4931d09fd400e222171e1a08e504787c3822ea584d8e1577b4f305bc"
+      },
+      "master_sha256": "ae8ca1b4a07eab1b81b1610222e7d1c821a5741703b24827a104b3e1600309cd",
+      "width": 1080,
+      "height": 720,
+      "credit": {
+        "author": "Senaka Silva",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ceylon_Junglefowl_(Gallus_lafayetii).jpg",
+        "attribution": "Photo: Senaka Silva, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "haliastur-indus-adult-1",
+      "species_id": "slb-haliastur-indus",
+      "plumage_key": "adult",
+      "view": "perched",
+      "primary": true,
+      "thumb": {
+        "path": "media/slb-haliastur-indus/haliastur-indus-adult-1.8ca0b26b.thumb.webp",
+        "bytes": 2614,
+        "sha256": "8ca0b26b8bab95da5f422af122865650546db6e32a3e5d8de5787ac8e8e32eac"
+      },
+      "full": {
+        "path": "media/slb-haliastur-indus/haliastur-indus-adult-1.9f2afac4.full.webp",
+        "bytes": 34044,
+        "sha256": "9f2afac407f24983c5abf7a1ebd5f4b434a4d8c970803e07c3826bf598e930e9"
+      },
+      "master_sha256": "45552180a9c526e645ac71607c871240005ab6f7be18ef17f161005c6ec6ced6",
+      "width": 720,
+      "height": 1080,
+      "credit": {
+        "author": "Charles J. Sharp",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Brahminy_kite_(Haliastur_indus_indus).jpg",
+        "attribution": "Photo: Charles J. Sharp, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "haliastur-indus-juvenile-1",
+      "species_id": "slb-haliastur-indus",
+      "plumage_key": "juvenile",
+      "view": "perched",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-haliastur-indus/haliastur-indus-juvenile-1.eb0178f6.full.webp",
+        "bytes": 92828,
+        "sha256": "eb0178f6ee26e92f1a216fd79a4eccd9d8b62d7aa3bd30df63f53439c44ef3ad"
+      },
+      "master_sha256": "5758de68b1cf29d03154cb2fbda6a7ac61dd4ce242ee1dc0a3de70d7f2fa4742",
+      "width": 1080,
+      "height": 722,
+      "credit": {
+        "author": "Chris Oldnall",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://www.inaturalist.org/photos/616057761",
+        "attribution": "Photo: Chris Oldnall, CC BY-SA 4.0, via iNaturalist",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "ocyceros-gingalensis-female-1",
+      "species_id": "slb-ocyceros-gingalensis",
+      "plumage_key": "female",
+      "view": "perched",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-ocyceros-gingalensis/ocyceros-gingalensis-female-1.b5910de3.full.webp",
+        "bytes": 49678,
+        "sha256": "b5910de337687574c7db92a87d471df4281eed17fafa18fc67f20cd322e813b4"
+      },
+      "master_sha256": "dcbfea439abbed27aebd6f1f6e35bd7c0ece932d24a687f36a525b1a68c54632",
+      "width": 1080,
+      "height": 720,
+      "credit": {
+        "author": "Pinkstg",
+        "licence": "CC-BY-3.0",
+        "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Sri_Lanka_Grey_Hornbill.JPG",
+        "attribution": "Photo: Pinkstg, CC BY 3.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "ocyceros-gingalensis-male-1",
+      "species_id": "slb-ocyceros-gingalensis",
+      "plumage_key": "male",
+      "view": "perched",
+      "primary": true,
+      "thumb": {
+        "path": "media/slb-ocyceros-gingalensis/ocyceros-gingalensis-male-1.f93f1f82.thumb.webp",
+        "bytes": 9696,
+        "sha256": "f93f1f82dbec4680ddd4689f2bc43baf3793721ac2769b8ac1d9527267369ce5"
+      },
+      "full": {
+        "path": "media/slb-ocyceros-gingalensis/ocyceros-gingalensis-male-1.78bcc250.full.webp",
+        "bytes": 74124,
+        "sha256": "78bcc2507d22f67c34dac90e75b37fd499ba2a272f3f2db89f6f0bce4ba32c95"
+      },
+      "master_sha256": "2b58db21e14eda89e5dd0710661809be0e762f0c4613e340122629b138ea189e",
+      "width": 1080,
+      "height": 1080,
+      "credit": {
+        "author": "Charles J. Sharp",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Sri_Lanka_grey_hornbill_(Ocyceros_gingalensis).jpg",
+        "attribution": "Photo: Charles J. Sharp, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "oriolus-xanthornus-adult-1",
+      "species_id": "slb-oriolus-xanthornus",
+      "plumage_key": "adult",
+      "view": "perched",
+      "primary": true,
+      "thumb": {
+        "path": "media/slb-oriolus-xanthornus/oriolus-xanthornus-adult-1.d84c4c34.thumb.webp",
+        "bytes": 3950,
+        "sha256": "d84c4c34f2cbed0386933ae4a6ec45faca683a8c601b229187536134beb7290a"
+      },
+      "full": {
+        "path": "media/slb-oriolus-xanthornus/oriolus-xanthornus-adult-1.6496fefd.full.webp",
+        "bytes": 31608,
+        "sha256": "6496fefd761927014594dbbde3c0d7db4b9846885692d793318cac13b3faf044"
+      },
+      "master_sha256": "01ba978ff71f430c9b88ec9214259ef66bd8a8932f00e3b5dd27146427deec27",
+      "width": 959,
+      "height": 1080,
+      "credit": {
+        "author": "Charles J. Sharp",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Black-hooded_oriole_(Oriolus_xanthornus_ceylonensis).jpg",
+        "attribution": "Photo: Charles J. Sharp, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "oriolus-xanthornus-juvenile-1",
+      "species_id": "slb-oriolus-xanthornus",
+      "plumage_key": "juvenile",
+      "view": "perched",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-oriolus-xanthornus/oriolus-xanthornus-juvenile-1.1476ecfd.full.webp",
+        "bytes": 31484,
+        "sha256": "1476ecfd19b4bd2fd86dfcbab7722d182bb4d58cbd589db76578e304149caca3"
+      },
+      "master_sha256": "356754adf79f7d46a3e709befedb16be76b889d7fc0d1cf22155f3ea08e3c390",
+      "width": 1080,
+      "height": 720,
+      "credit": {
+        "author": "Anjan Kumar Kundu",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Black_hooded_Oriole_Juvenile.jpg",
+        "attribution": "Photo: Anjan Kumar Kundu, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "pavo-cristatus-female-1",
+      "species_id": "slb-pavo-cristatus",
+      "plumage_key": "female",
+      "view": "perched",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-pavo-cristatus/pavo-cristatus-female-1.8b43a918.full.webp",
+        "bytes": 186452,
+        "sha256": "8b43a9189b851dcb5685df7e1a7f79601ade5cca9095b21a0443906f9058dcee"
+      },
+      "master_sha256": "3646f1c0999e52c9c519ea783cac932432aa7141d95ac55de62f96907ffaceef",
+      "width": 900,
+      "height": 600,
+      "credit": {
+        "author": "Charles J. Sharp",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Indian_peafowl_(Pavo_cristatus)_female_with_chick.jpg",
+        "attribution": "Photo: Charles J. Sharp, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "pavo-cristatus-male-1",
+      "species_id": "slb-pavo-cristatus",
+      "plumage_key": "male",
+      "view": "perched",
+      "primary": true,
+      "thumb": {
+        "path": "media/slb-pavo-cristatus/pavo-cristatus-male-1.ee82a1cb.thumb.webp",
+        "bytes": 11182,
+        "sha256": "ee82a1cb6b95819f7f123db154ac8d84ded1367f32190460328d42248cd10827"
+      },
+      "full": {
+        "path": "media/slb-pavo-cristatus/pavo-cristatus-male-1.0872f826.full.webp",
+        "bytes": 183004,
+        "sha256": "0872f826fa31c78678794281002afaba6b8efddee7f152189f0c89d44e5da95c"
+      },
+      "master_sha256": "ff41d9971bd3ad83801ea2919a798b007ffca4431b2564f7934a978b31848c66",
+      "width": 1080,
+      "height": 1080,
+      "credit": {
+        "author": "Charles J. Sharp",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Indian_peafowl_(Pavo_cristatus)_male.jpg",
+        "attribution": "Photo: Charles J. Sharp, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "pluvialis-fulva-breeding-1",
+      "species_id": "slb-pluvialis-fulva",
+      "plumage_key": "breeding",
+      "view": "perched",
+      "primary": true,
+      "thumb": {
+        "path": "media/slb-pluvialis-fulva/pluvialis-fulva-breeding-1.2ae32c94.thumb.webp",
+        "bytes": 9648,
+        "sha256": "2ae32c940a003ae8b16c730da42c3ce3585d2484654c85f92a2aa33eb3e0184b"
+      },
+      "full": {
+        "path": "media/slb-pluvialis-fulva/pluvialis-fulva-breeding-1.93fff7bb.full.webp",
+        "bytes": 86942,
+        "sha256": "93fff7bb7315ce984cd9e501cb13d51edecd96df7bd3327556ed04f238491db7"
+      },
+      "master_sha256": "1e93563a2e9cfc330fce396768b36346ef54345b1fd04275c8f2fcb21c3d7827",
+      "width": 1080,
+      "height": 723,
+      "credit": {
+        "author": "Daniel Ramirez",
+        "licence": "CC-BY-2.0",
+        "licence_url": "https://creativecommons.org/licenses/by/2.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Pacific_Golden_Plover_-_breeding_plumage.jpg",
+        "attribution": "Photo: Daniel Ramirez, CC BY 2.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "pluvialis-fulva-non-breeding-1",
+      "species_id": "slb-pluvialis-fulva",
+      "plumage_key": "non_breeding",
+      "view": "perched",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-pluvialis-fulva/pluvialis-fulva-non-breeding-1.06d5df19.full.webp",
+        "bytes": 46188,
+        "sha256": "06d5df195d182e195b19bd89bc4bfd948a50594a3fea555eb50dd103279e245c"
+      },
+      "master_sha256": "487b5d93d748be67424d0ae04643a87c843610d368b78e1210f96a0dfbd6cee9",
+      "width": 1080,
+      "height": 720,
+      "credit": {
+        "author": "Charles J. Sharp",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Pacific_golden_plover_(Pluvialis_fulva)_non_breeding_Pearaing.jpg",
+        "attribution": "Photo: Charles J. Sharp, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "spatula-querquedula-eclipse-1",
+      "species_id": "slb-spatula-querquedula",
+      "plumage_key": "eclipse",
+      "view": "flight",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-spatula-querquedula/spatula-querquedula-eclipse-1.4503775c.full.webp",
+        "bytes": 116722,
+        "sha256": "4503775cc86824d4fd6ee5ba77f463ac44494e806d2c7b6e5344a89702060c74"
+      },
+      "master_sha256": "fda67417f87e7e626ba5be47718ee23ae3984aa1bdf6ee43d98dbdd8582fd306",
+      "width": 1024,
+      "height": 768,
+      "credit": {
+        "author": "Frankie Chu from Hong Kong香港",
+        "licence": "CC-BY-SA-2.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Anas_querquedula,_Hong_Kong_1.jpg",
+        "attribution": "Photo: Frankie Chu, CC BY-SA 2.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "spatula-querquedula-female-1",
+      "species_id": "slb-spatula-querquedula",
+      "plumage_key": "female",
+      "view": "perched",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-spatula-querquedula/spatula-querquedula-female-1.9fdbc7aa.full.webp",
+        "bytes": 70748,
+        "sha256": "9fdbc7aae41c708e7b4b31a61256db82f8501ce2ef0a134fcc488737a40948d1"
+      },
+      "master_sha256": "9ab1770b03299151588194a60db2d9497209a4ad96ac25067ff25872f58e6514",
+      "width": 1080,
+      "height": 710,
+      "credit": {
+        "author": "Ferran Pestaña from Barcelona, España",
+        "licence": "CC-BY-SA-2.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Anas_querquedula,_Llobregat_Delta,_Barcelona_6.jpg",
+        "attribution": "Photo: Ferran Pestaña, CC BY-SA 2.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "spatula-querquedula-male-1",
+      "species_id": "slb-spatula-querquedula",
+      "plumage_key": "male",
+      "view": "perched",
+      "primary": true,
+      "thumb": {
+        "path": "media/slb-spatula-querquedula/spatula-querquedula-male-1.125c8f7e.thumb.webp",
+        "bytes": 5266,
+        "sha256": "125c8f7e09c82b6c45f48366e8e64de586fb09427db837773e075e4384021052"
+      },
+      "full": {
+        "path": "media/slb-spatula-querquedula/spatula-querquedula-male-1.76301cb1.full.webp",
+        "bytes": 45906,
+        "sha256": "76301cb14674efa243cc67446b20016b52661f77e08393954e367cb0bb034c31"
+      },
+      "master_sha256": "ee61325712c21fa4fce4950052b67a7552131287a986743b9777fa92cac72144",
+      "width": 1080,
+      "height": 811,
+      "credit": {
+        "author": "Dr. Raju Kasambe",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Garganey_Spatula_querquedula_01.jpg",
+        "attribution": "Photo: Dr. Raju Kasambe, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "sternula-albifrons-breeding-1",
+      "species_id": "slb-sternula-albifrons",
+      "plumage_key": "breeding",
+      "view": "perched",
+      "primary": true,
+      "thumb": {
+        "path": "media/slb-sternula-albifrons/sternula-albifrons-breeding-1.35ff2ec5.thumb.webp",
+        "bytes": 6900,
+        "sha256": "35ff2ec508e63b3c77f2ee76317926cdba180ebdcc1f9c11236b375879989ab8"
+      },
+      "full": {
+        "path": "media/slb-sternula-albifrons/sternula-albifrons-breeding-1.dece0b73.full.webp",
+        "bytes": 83238,
+        "sha256": "dece0b73037b5bc3a84ad853c437526a17a95307b3087bd35eef63a980c16ed2"
+      },
+      "master_sha256": "bccd235213ea4af6911ee43a329eedc3e3cab89d0cd2f7ac35a1be5d77cfa59b",
+      "width": 1080,
+      "height": 720,
+      "credit": {
+        "author": "JJ Harrison (https://www.jjharrison.com.au/)",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Sternula_albifrons_-_Boat_Harbour.jpg",
+        "attribution": "Photo: JJ Harrison, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "sternula-albifrons-juvenile-1",
+      "species_id": "slb-sternula-albifrons",
+      "plumage_key": "juvenile",
+      "view": "perched",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-sternula-albifrons/sternula-albifrons-juvenile-1.3719d685.full.webp",
+        "bytes": 36376,
+        "sha256": "3719d685b0d29152d08e46fbdf6e8550ef514d86a4265a324cb322952516154d"
+      },
+      "master_sha256": "797c2ac2abe897edacf44158e6df73458562424e8054c8851c581ae2d476935f",
+      "width": 1080,
+      "height": 810,
+      "credit": {
+        "author": "Agustín Povedano from El Puerto de Santa María, Extremadura y Andalucía",
+        "licence": "CC-BY-2.0",
+        "licence_url": "https://creativecommons.org/licenses/by/2.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Charrancito_Sternula_albifrons_2.jpg",
+        "attribution": "Photo: Agustín Povedano, CC BY 2.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "sternula-albifrons-non-breeding-1",
+      "species_id": "slb-sternula-albifrons",
+      "plumage_key": "non_breeding",
+      "view": "perched",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-sternula-albifrons/sternula-albifrons-non-breeding-1.d45231ec.full.webp",
+        "bytes": 10360,
+        "sha256": "d45231ecb641e354d99534e24170eaabc276c398afd40d70bc1528196aee5590"
+      },
+      "master_sha256": "cac977b7aa720fd571ee40c787963ac639cbfe96e87cfb5a8ee22c4977a65387",
+      "width": 1080,
+      "height": 720,
+      "credit": {
+        "author": "Tisha Mukherjee",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Little_Tern_by_Tisha_Mukherjee_01.jpg",
+        "attribution": "Photo: Tisha Mukherjee, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "tachyspiza-badia-female-1",
+      "species_id": "slb-tachyspiza-badia",
+      "plumage_key": "female",
+      "view": "perched",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-tachyspiza-badia/tachyspiza-badia-female-1.878d2be9.full.webp",
+        "bytes": 49144,
+        "sha256": "878d2be9f7ad1a17ed5d523ddbb7067a053cd77d1fa0d3c725c510ba9c94628e"
+      },
+      "master_sha256": "2d1b8002c3adbd2544e99706c7f785742085e39efa469378e00b480b85d98d7a",
+      "width": 1080,
+      "height": 747,
+      "credit": {
+        "author": "Aravinth",
+        "licence": "CC-BY-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source_url": "https://www.inaturalist.org/photos/146116193",
+        "attribution": "Photo: Aravinth, CC BY 4.0, via iNaturalist",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "tachyspiza-badia-juvenile-1",
+      "species_id": "slb-tachyspiza-badia",
+      "plumage_key": "juvenile",
+      "view": "perched",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-tachyspiza-badia/tachyspiza-badia-juvenile-1.6c8213ff.full.webp",
+        "bytes": 67876,
+        "sha256": "6c8213ff2fabe56df2c108de230837487e35507b168527f6d4a0d07b31f1f7b3"
+      },
+      "master_sha256": "3c55fd1cccb45cfb45d45000758991276206f6dbe6d7dc3e67e65ef3ba3cdfa9",
+      "width": 1080,
+      "height": 720,
+      "credit": {
+        "author": "Tom Heijnen",
+        "licence": "CC-BY-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source_url": "https://www.inaturalist.org/photos/410159620",
+        "attribution": "Photo: Tom Heijnen, CC BY 4.0, via iNaturalist",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "tachyspiza-badia-male-1",
+      "species_id": "slb-tachyspiza-badia",
+      "plumage_key": "male",
+      "view": "perched",
+      "primary": true,
+      "thumb": {
+        "path": "media/slb-tachyspiza-badia/tachyspiza-badia-male-1.1656816d.thumb.webp",
+        "bytes": 6230,
+        "sha256": "1656816de71a2c58f552f30a7c0686f762186bd03f0b56334b7e9d9fa3b842c9"
+      },
+      "full": {
+        "path": "media/slb-tachyspiza-badia/tachyspiza-badia-male-1.63284b3e.full.webp",
+        "bytes": 49684,
+        "sha256": "63284b3e6fc1b5d86bec3d442e2294072ffebc2833f95a5ba659caa7de0a94c7"
+      },
+      "master_sha256": "3bfbd1767703a07a1cf5f2819518f7bde3f11393c739306217c3dfd72396eb2b",
+      "width": 927,
+      "height": 1080,
+      "credit": {
+        "author": "Tero Linjama",
+        "licence": "CC0-1.0",
+        "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "source_url": "https://www.inaturalist.org/photos/467601232",
+        "attribution": "Photo: Tero Linjama, CC0 1.0, via iNaturalist",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "terpsiphone-paradisi-female-1",
+      "species_id": "slb-terpsiphone-paradisi",
+      "plumage_key": "female",
+      "view": "perched",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-terpsiphone-paradisi/terpsiphone-paradisi-female-1.d585cde6.full.webp",
+        "bytes": 44442,
+        "sha256": "d585cde6cee5c1bb5ad56d70de8ae0202264287c57edff7392710e37ddda5367"
+      },
+      "master_sha256": "8a80210ded6aab87627ad2cc9e92ffd77a4fb0d15d69c17098ae78406618f91f",
+      "width": 1080,
+      "height": 810,
+      "credit": {
+        "author": "Rehman Abubakr",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ceylon_paradise_flycatcher_(female)_-_Sri_Lanka_-_02.jpg",
+        "attribution": "Photo: Rehman Abubakr, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "terpsiphone-paradisi-male-1",
+      "species_id": "slb-terpsiphone-paradisi",
+      "plumage_key": "male",
+      "view": "perched",
+      "primary": true,
+      "thumb": {
+        "path": "media/slb-terpsiphone-paradisi/terpsiphone-paradisi-male-1.e8840208.thumb.webp",
+        "bytes": 5860,
+        "sha256": "e884020853a6917cbf71032e27e7a86cc2c06bab8b3e0e5b1c263aa12353d15d"
+      },
+      "full": {
+        "path": "media/slb-terpsiphone-paradisi/terpsiphone-paradisi-male-1.e38eda74.full.webp",
+        "bytes": 49668,
+        "sha256": "e38eda742fa38cf075b3fe47ec9ac4f31b8696f88960b886aa239a59cfb5b6b0"
+      },
+      "master_sha256": "60f9f782c9759c5fe9048fbcfd0d689873fa3a3a3ee658c71c89ae7fe447e85d",
+      "width": 810,
+      "height": 1080,
+      "credit": {
+        "author": "Rehman Abubakr",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ceylon_paradise_flycatcher_(male)_-_Sri_Lanka_(1).jpg",
+        "attribution": "Photo: Rehman Abubakr, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "terpsiphone-paradisi-morph-white-1",
+      "species_id": "slb-terpsiphone-paradisi",
+      "plumage_key": "morph_white",
+      "view": "perched",
+      "primary": false,
+      "thumb": null,
+      "full": {
+        "path": "media/slb-terpsiphone-paradisi/terpsiphone-paradisi-morph-white-1.fa2e9a2a.full.webp",
+        "bytes": 86446,
+        "sha256": "fa2e9a2a16b57ba49ffd0583f43079ab67f814e931d6a298735c3a464f3d9567"
+      },
+      "master_sha256": "8d5c792b5f1b0dbae258aa1c5554ab1ba9722b7e00d17f6eeba982346ada09b6",
+      "width": 810,
+      "height": 1080,
+      "credit": {
+        "author": "Rehman Abubakr",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Indian_paradise_flycatcher_(male)_-_Sri_Lanka_-_01.jpg",
+        "attribution": "Photo: Rehman Abubakr, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    },
+    {
+      "image_id": "urocissa-ornata-adult-1",
+      "species_id": "slb-urocissa-ornata",
+      "plumage_key": "adult",
+      "view": "perched",
+      "primary": true,
+      "thumb": {
+        "path": "media/slb-urocissa-ornata/urocissa-ornata-adult-1.a9d73603.thumb.webp",
+        "bytes": 8512,
+        "sha256": "a9d73603ed30cd9b83af49a7bb4c393eef1221695f66ceb505e38de9876e22ab"
+      },
+      "full": {
+        "path": "media/slb-urocissa-ornata/urocissa-ornata-adult-1.e09bca41.full.webp",
+        "bytes": 67268,
+        "sha256": "e09bca415bcd6aeb5912318d92ef5012f0a3484ac7cea82e17f8abdcb58902e4"
+      },
+      "master_sha256": "c4453bb421d9ac04ae3fb0345159190e220b260c61d761ebe4f92974e787ea09",
+      "width": 853,
+      "height": 1080,
+      "credit": {
+        "author": "Charles J. Sharp",
+        "licence": "CC-BY-SA-4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Sri_Lanka_blue_magpie_(Urocissa_ornata).jpg",
+        "attribution": "Photo: Charles J. Sharp, CC BY-SA 4.0, via Wikimedia Commons",
+        "replace_before_launch": false
+      }
+    }
+  ]
 }
