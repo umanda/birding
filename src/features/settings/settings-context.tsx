@@ -14,7 +14,7 @@ import { Platform } from 'react-native';
 import { isLanguage, languageFromLocale } from '@/shared/i18n/language';
 import type { Language } from '@/shared/i18n/language';
 import { createT } from '@/shared/i18n/translate';
-import type { MessageKey, Vars } from '@/shared/i18n/translate';
+import type { Translate } from '@/shared/i18n/translate';
 import type { KeyValueStore } from '@/shared/platform/types';
 
 export const LANGUAGE_STORAGE_KEY = 'settings.language';
@@ -25,7 +25,7 @@ const INITIAL_LANGUAGE: Language = 'en';
 type Settings = {
   language: Language;
   setLanguage: (language: Language) => void;
-  t: (key: MessageKey, vars?: Vars) => string;
+  t: Translate;
 };
 
 const SettingsContext = createContext<Settings | null>(null);

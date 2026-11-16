@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import type { Language } from '@/shared/i18n/language';
-import type { MessageKey, Vars } from '@/shared/i18n/translate';
+import type { MessageKey, Translate } from '@/shared/i18n/translate';
 import { getSpeciesText } from '@/shared/data/species-text';
 import type { SpeciesText } from '@/shared/data/species-text';
 import type { TextField } from '@/shared/data/species-text-schema';
@@ -13,9 +13,8 @@ import { useTheme } from '@/shared/theme/use-theme';
 
 import { SpeciesConservation } from './species-conservation';
 import { SpeciesSources } from './species-sources';
-import { headingProps, langProps, SECTION_HEADING_LEVEL } from './text-props';
+import { headingProps, langProps, SECTION_HEADING_LEVEL } from '@/shared/ui/text-props';
 
-type Translate = (key: MessageKey, vars?: Vars) => string;
 type ProseProps = { species: Species; language: Language; t: Translate };
 type LoadState =
   { status: 'loading' } | { status: 'error' } | { status: 'ready'; text: SpeciesText | undefined };

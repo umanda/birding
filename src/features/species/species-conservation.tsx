@@ -3,22 +3,22 @@ import { StyleSheet, Text, View } from 'react-native';
 import type { IucnCategory, OccurrenceCode } from '@/shared/data/content-schema';
 import type { Conservation } from '@/shared/data/species-text-schema';
 import type { Language } from '@/shared/i18n/language';
-import type { MessageKey, Vars } from '@/shared/i18n/translate';
+import type { MessageKey, Translate } from '@/shared/i18n/translate';
 import { space } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
 import { IucnBadge } from '@/shared/ui/iucn-badge';
 import { OccurrenceBadge } from '@/shared/ui/occurrence-badge';
 
-import { ExternalLink } from './external-link';
-import { headingProps, SECTION_HEADING_LEVEL } from './text-props';
+import { ExternalLink } from '@/shared/ui/external-link';
+import { headingProps, SECTION_HEADING_LEVEL } from '@/shared/ui/text-props';
 
 type Props = {
   occurrenceCode: OccurrenceCode;
   iucnCategory: IucnCategory | null;
   conservation: Conservation;
   language: Language;
-  t: (key: MessageKey, vars?: Vars) => string;
+  t: Translate;
 };
 
 // Both IUCN values are shown when they differ; the app never picks one.

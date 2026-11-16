@@ -2,18 +2,18 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import type { SpeciesSource } from '@/shared/data/species-text-schema';
 import type { Language } from '@/shared/i18n/language';
-import type { MessageKey, Vars } from '@/shared/i18n/translate';
+import type { Translate } from '@/shared/i18n/translate';
 import { space } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
 
-import { ExternalLink } from './external-link';
-import { headingProps, langProps, SECTION_HEADING_LEVEL } from './text-props';
+import { ExternalLink } from '@/shared/ui/external-link';
+import { headingProps, langProps, SECTION_HEADING_LEVEL } from '@/shared/ui/text-props';
 
 type Props = {
   sources: SpeciesSource[];
   language: Language;
-  t: (key: MessageKey, vars?: Vars) => string;
+  t: Translate;
 };
 
 // Every source carries the same note today; shown once, and once per distinct value if that changes.

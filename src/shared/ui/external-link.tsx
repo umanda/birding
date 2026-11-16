@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { Linking, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import type { Language } from '@/shared/i18n/language';
-import type { MessageKey } from '@/shared/i18n/translate';
+import type { Translate } from '@/shared/i18n/translate';
 import { isOnline } from '@/shared/platform/is-online';
 import { size, space } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
 
-type Props = { url: string; label?: string; language: Language; t: (key: MessageKey) => string };
+type Props = { url: string; label?: string; language: Language; t: Translate };
 
 // Only web links are opened; anything else in a citation stays plain text.
 const WEB_URL = /^https?:/; //i;

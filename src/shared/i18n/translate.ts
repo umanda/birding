@@ -16,6 +16,7 @@ type StripForm<K extends string> = K extends `${infer Head}.${infer Tail}`
 export type MessageKey = StripForm<RawKey>;
 export type Messages = Record<string, string>;
 export type Vars = Record<string, string | number>;
+export type Translate = (key: MessageKey, vars?: Vars) => string;
 
 // Typing si as Record<RawKey, string> makes tsc fail when si.json lacks an en.json key.
 const siMessages: Record<RawKey, string> = si;
@@ -51,6 +52,6 @@ function findTemplate(
   return messages[`${key}.${form}`] ?? messages[`${key}.other`] ?? messages[key];
 }
 
-export function createT(language: Language): (key: MessageKey, vars?: Vars) => string {
+export function createT(language: Language): Translate {
   return (key, vars) => translate(MESSAGES[language], language, key, vars);
 }

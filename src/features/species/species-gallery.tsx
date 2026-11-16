@@ -3,43 +3,12 @@ import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { mediaUrl, type ManifestImage } from '@/shared/data/media';
 import type { Language } from '@/shared/i18n/language';
-import type { MessageKey, Vars } from '@/shared/i18n/translate';
+import type { Translate } from '@/shared/i18n/translate';
+import { plumageLabel, sortForGallery } from '@/shared/media/plumage';
 import { radius, size, space } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
-
-import { ExternalLink } from './external-link';
-import { plumageLabel } from './plumage-label';
-
-// Reader order (spec 003), unrelated to the thumbnail rule in the media tooling.
-// Morphs and any unknown key sort after these, alphabetically.
-const GALLERY_PLUMAGE_ORDER = [
-  'male',
-  'female',
-  'adult',
-  'juvenile',
-  'breeding',
-  'non_breeding',
-  'eclipse',
-] as const;
-
-function plumageRank(key: string): number {
-  const index = (GALLERY_PLUMAGE_ORDER as readonly string[]).indexOf(key);
-  return index === -1 ? GALLERY_PLUMAGE_ORDER.length : index;
-}
-
-function compareText(a: string, b: string): number {
-  return a < b ? -1 : Number(a > b);
-}
-
-export function sortForGallery(images: readonly ManifestImage[]): ManifestImage[] {
-  return [...images].sort(
-    (a, b) =>
-      plumageRank(a.plumage_key) - plumageRank(b.plumage_key) ||
-      compareText(a.plumage_key, b.plumage_key) ||
-      compareText(a.image_id, b.image_id),
-  );
-}
+import { PhotoCredit } from '@/shared/ui/photo-credit';
 
 // One tab per plumage; the first image in gallery order represents it.
 function firstPerPlumage(images: readonly ManifestImage[]): ManifestImage[] {
@@ -54,43 +23,12 @@ function firstPerPlumage(images: readonly ManifestImage[]): ManifestImage[] {
 const SELECTED_TAB_BORDER = 3;
 const SELECTED_TAB_WEIGHT = '700';
 
-type Translate = (key: MessageKey, vars?: Vars) => string;
 type Props = {
   images: readonly ManifestImage[];
   speciesName: string;
   language: Language;
   t: Translate;
 };
-type CreditProps = { credit: ManifestImage['credit']; language: Language; t: Translate };
-
-export function PhotoCredit({ credit, language, t }: CreditProps): React.JSX.Element {
-  const { colors } = useTheme();
-  const { author, licence, licence_url: licenceUrl, source_url: sourceUrl } = credit;
-  const label = typeStyle('caption', language);
-  return (
-    <View style={styles.credit}>
-      <Text style={[label, { color: colors.textMuted }]}>
-        {credit.attribution ?? t('gallery.photoBy', { author: author ?? t('common.notRecorded') })}
-      </Text>
-      {licenceUrl ? (
-        <ExternalLink
-          url={licenceUrl}
-          {...(licence ? { label: licence } : {})}
-          language={language}
-          t={t}
-        />
-      ) : null}
-      {licence && !licenceUrl ? (
-        <Text style={[label, { color: colors.textMuted }]}>{licence}</Text>
-      ) : null}
-      {sourceUrl ? <ExternalLink url={sourceUrl} language={language} t={t} /> : null}
-      {credit.replace_before_launch ? (
-        <Text style={[label, { color: colors.error }]}>{t('gallery.noncommercial')}</Text>
-      ) : null}
-    </View>
-  );
-}
-
 function NotDownloaded({ language, t }: { language: Language; t: Translate }): React.JSX.Element {
   const { colors } = useTheme();
   return (
@@ -221,5 +159,4 @@ const styles = StyleSheet.create({
   },
   photo: { width: '100%', borderRadius: radius.md },
   empty: { padding: space[4], borderRadius: radius.md, alignItems: 'center' },
-  credit: { gap: space[1] },
 });
