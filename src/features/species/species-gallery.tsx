@@ -91,27 +91,13 @@ function Credit({ credit, language, t }: CreditProps): React.JSX.Element {
   );
 }
 
-type FallbackProps = {
-  thumb: ManifestImage['thumb'];
-  alt: string;
-  language: Language;
-  t: Translate;
-};
-
-function OfflineFallback({ thumb, alt, language, t }: FallbackProps): React.JSX.Element {
+function NotDownloaded({ language, t }: { language: Language; t: Translate }): React.JSX.Element {
   const { colors } = useTheme();
-  const message = thumb ? t('gallery.notDownloaded') : t('gallery.unavailable');
   return (
     <View style={[styles.empty, { backgroundColor: colors.surface }]}>
-      {thumb ? (
-        <Image
-          source={{ uri: mediaUrl(thumb.path) }}
-          accessibilityLabel={alt}
-          resizeMode="contain"
-          style={styles.thumb}
-        />
-      ) : null}
-      <Text style={[typeStyle('body', language), { color: colors.textMuted }]}>{message}</Text>
+      <Text style={[typeStyle('body', language), { color: colors.textMuted }]}>
+        {t('gallery.notDownloaded')}
+      </Text>
     </View>
   );
 }
@@ -159,6 +145,7 @@ export function SpeciesGallery({
   const images = firstPerPlumage(unsorted);
   const [selectedId, setSelectedId] = useState(images[0]?.image_id);
   const [failedIds, setFailedIds] = useState<string[]>([]);
+  const [failedThumbIds, setFailedThumbIds] = useState<string[]>([]);
 
   const image = images.find((i) => i.image_id === selectedId) ?? images[0];
   if (!image) {
@@ -171,12 +158,14 @@ export function SpeciesGallery({
     );
   }
 
-  const plumage = plumageLabel(image.plumage_key, t);
-  const author = image.credit.author ?? t('common.notRecorded');
-  const alt = t('gallery.alt', { name: speciesName, plumage, author });
   const failed = failedIds.includes(image.image_id);
-  // Only the species' primary image has a thumbnail; the precache keeps it for offline use.
-  const thumbImage = unsorted.find((i) => i.thumb);
+  // The thumbnail is safe offline because it is precached. It must show the selected plumage.
+  const thumbSource = unsorted.find((i) => i.thumb && i.plumage_key === image.plumage_key);
+  const showThumb = failed && thumbSource?.thumb && !failedThumbIds.includes(thumbSource.image_id);
+  const shown = showThumb && thumbSource ? thumbSource : image;
+  const plumage = plumageLabel(shown.plumage_key, t);
+  const author = shown.credit.author ?? t('common.notRecorded');
+  const alt = t('gallery.alt', { name: speciesName, plumage, author });
 
   return (
     <View style={styles.gallery}>
@@ -196,7 +185,17 @@ export function SpeciesGallery({
         ))}
       </View>
       {failed ? (
-        <OfflineFallback thumb={thumbImage?.thumb ?? null} alt={alt} language={language} t={t} />
+        showThumb && thumbSource?.thumb ? (
+          <Image
+            source={{ uri: mediaUrl(thumbSource.thumb.path) }}
+            accessibilityLabel={alt}
+            resizeMode="contain"
+            onError={() => setFailedThumbIds((ids) => [...ids, thumbSource.image_id])}
+            style={[styles.photo, { aspectRatio: shown.width / shown.height }]}
+          />
+        ) : (
+          <NotDownloaded language={language} t={t} />
+        )
       ) : (
         <Image
           source={{ uri: mediaUrl(image.full.path) }}
@@ -206,11 +205,7 @@ export function SpeciesGallery({
           style={[styles.photo, { aspectRatio: image.width / image.height }]}
         />
       )}
-      <Credit
-        credit={(failed && thumbImage ? thumbImage : image).credit}
-        language={language}
-        t={t}
-      />
+      <Credit credit={shown.credit} language={language} t={t} />
     </View>
   );
 }
@@ -224,7 +219,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: space[3],
     borderRadius: radius.pill,
   },
-  thumb: { width: '100%', aspectRatio: 1 },
   photo: { width: '100%', borderRadius: radius.md },
   empty: { padding: space[4], borderRadius: radius.md, alignItems: 'center' },
   credit: { gap: space[1] },
