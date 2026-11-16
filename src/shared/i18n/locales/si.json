@@ -89,5 +89,7 @@
   "photoPack.complete": "සියලු ඡායාරූප නොබැඳිව භාවිතයට සුරැකිණි",
   "photoPack.offline": "ඔබ නොබැඳි ය. බාගැනීමට සම්බන්ධ වන්න.",
   "photoPack.interrupted": "බාගැනීම නැවතුණි. දිගටම කිරීමට බාගන්න ඔබන්න.",
-  "photoPack.nativeUnavailable": "දැනට වෙබ් යෙදුමේ පමණක් ලබාගත හැක"
+  "photoPack.nativeUnavailable": "දැනට වෙබ් යෙදුමේ පමණක් ලබාගත හැක",
+  "photoPack.started": "ඡායාරූප බාගත වෙමින් පවතී",
+  "photoPack.remaining": "{size} ඉතිරිය"
 }

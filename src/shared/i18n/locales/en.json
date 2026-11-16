@@ -89,5 +89,7 @@
   "photoPack.complete": "All photos saved for offline use",
   "photoPack.offline": "You are offline. Connect to download.",
   "photoPack.interrupted": "Download stopped. Press Download to resume.",
-  "photoPack.nativeUnavailable": "Available in the web app for now"
+  "photoPack.nativeUnavailable": "Available in the web app for now",
+  "photoPack.started": "Downloading photos",
+  "photoPack.remaining": "{size} left"
 }
