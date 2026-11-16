@@ -77,6 +77,6 @@
   "gallery.photoBy": "Photo: {author}",
   "gallery.alt": "{name}, {plumage}. Photo: {author}",
   "gallery.noncommercial": "Licence: non-commercial",
-  "me.photoCredits": "Photo credits",
+  "credits.title": "Photo credits",
   "credits.empty": "No photos yet"
 }

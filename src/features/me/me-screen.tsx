@@ -13,7 +13,7 @@ export function MeScreen(): React.JSX.Element {
     <View style={[styles.screen, { backgroundColor: colors.bg }]}>
       <Link href="/photo-credits" accessibilityRole="link" style={styles.link}>
         <Text style={[typeStyle('body', language), { color: colors.primary }]}>
-          {t('me.photoCredits')}
+          {t('credits.title')}
         </Text>
       </Link>
     </View>

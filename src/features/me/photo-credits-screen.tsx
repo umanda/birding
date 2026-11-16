@@ -1,7 +1,14 @@
 import { Stack } from 'expo-router';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import { PhotoCredit, plumageLabel, sortForGallery } from '@/features/species';
+import {
+  headingProps,
+  langProps,
+  PhotoCredit,
+  plumageLabel,
+  SECTION_HEADING_LEVEL,
+  sortForGallery,
+} from '@/features/species';
 import { useSettings } from '@/features/settings';
 import { getAllSpecies } from '@/shared/data/content';
 import { getAllImages, type ManifestImage } from '@/shared/data/media';
@@ -19,7 +26,7 @@ export function PhotoCreditsScreen(): React.JSX.Element {
   const { language, t } = useSettings();
   return (
     <>
-      <Stack.Screen options={{ title: t('me.photoCredits') }} />
+      <Stack.Screen options={{ title: t('credits.title') }} />
       <PhotoCreditsList images={getAllImages()} language={language} t={t} />
     </>
   );
@@ -42,24 +49,29 @@ export function PhotoCreditsList({ images, language, t }: ListProps): React.JSX.
           {t('credits.empty')}
         </Text>
       ) : null}
-      {groups.map(({ species, images: speciesImages }) => (
-        <View key={species.species_id} style={styles.group}>
-          <Text
-            accessibilityRole="header"
-            style={[typeStyle('title', language), { color: colors.text }]}
-          >
-            {localized(species.names, language).text}
-          </Text>
-          {speciesImages.map((image) => (
-            <View key={image.image_id} style={styles.image}>
-              <Text style={[typeStyle('label', language), { color: colors.text }]}>
-                {plumageLabel(image.plumage_key, t)}
-              </Text>
-              <PhotoCredit credit={image.credit} language={language} t={t} />
-            </View>
-          ))}
-        </View>
-      ))}
+      {groups.map(({ species, images: speciesImages }) => {
+        const name = localized(species.names, language);
+        return (
+          <View key={species.species_id} accessibilityLabel={name.text} style={styles.group}>
+            <Text
+              accessibilityRole="header"
+              {...headingProps(SECTION_HEADING_LEVEL)}
+              {...langProps(name.language)}
+              style={[typeStyle('title', name.language), { color: colors.text }]}
+            >
+              {name.text}
+            </Text>
+            {speciesImages.map((image) => (
+              <View key={image.image_id} style={styles.image}>
+                <Text style={[typeStyle('label', language), { color: colors.text }]}>
+                  {plumageLabel(image.plumage_key, t)}
+                </Text>
+                <PhotoCredit credit={image.credit} language={language} t={t} />
+              </View>
+            ))}
+          </View>
+        );
+      })}
     </ScrollView>
   );
 }

@@ -2,6 +2,7 @@ import { Slot } from 'expo-router';
 import { renderRouter, screen } from 'expo-router/testing-library';
 
 import TabsLayout from '@/app/(tabs)/_layout';
+import { MeScreen } from '@/features/me';
 import { ComingSoonScreen } from '@/features/shell';
 import { SettingsProvider } from '@/features/settings';
 import { createMemoryStore } from '@/test-utils/memory-store';
@@ -23,7 +24,7 @@ const routes = {
   '(tabs)/search': ComingSoonScreen,
   '(tabs)/browse': ComingSoonScreen,
   '(tabs)/life-list': ComingSoonScreen,
-  '(tabs)/me': ComingSoonScreen,
+  '(tabs)/me': MeScreen,
 };
 
 const LABELS = ['හඳුනාගන්න', 'සොයන්න', 'පිරික්සන්න', 'මගේ ලැයිස්තුව', 'මම'];

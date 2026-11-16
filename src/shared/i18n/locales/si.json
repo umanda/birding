@@ -77,6 +77,6 @@
   "gallery.photoBy": "ඡායාරූපය: {author}",
   "gallery.alt": "{name}, {plumage}. ඡායාරූපය: {author}",
   "gallery.noncommercial": "බලපත්‍රය: වාණිජ නොවන",
-  "me.photoCredits": "ඡායාරූප හිමිකම් දැක්වීම",
+  "credits.title": "ඡායාරූප හිමිකම් දැක්වීම",
   "credits.empty": "තවම ඡායාරූප නැත"
 }

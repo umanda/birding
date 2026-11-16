@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react-native';
+import { render, screen, within } from '@testing-library/react-native';
 
 import { getAllSpecies } from '@/shared/data/content';
 import type { Species } from '@/shared/data/content-schema';
@@ -26,10 +26,15 @@ describe('PhotoCreditsList', () => {
       fixtureImage({ image_id: 'c', species_id: first.species_id, plumage_key: 'female' }),
       fixtureImage({ image_id: 'a', species_id: first.species_id, plumage_key: 'juvenile' }),
     ]);
-    const texts = screen.getAllByText(/^(Male|Female|Juvenile)$/).map((n) => n.props.children);
-    expect(texts).toEqual(['Female', 'Juvenile', 'Male']);
-    const headings = screen.getAllByRole('header').map((n) => n.props.children);
-    expect(headings).toEqual([first.names.en, second.names.en]);
+    const headings = screen.getAllByRole('header');
+    expect(headings.map((n) => n.props.children)).toEqual([first.names.en, second.names.en]);
+    expect(headings[0]).toHaveProp('aria-level', 2);
+    const plumages = (name: string): unknown[] =>
+      within(screen.getByLabelText(name))
+        .getAllByText(/^(Male|Female|Juvenile)$/)
+        .map((n) => n.props.children);
+    expect(plumages(first.names.en)).toEqual(['Female', 'Juvenile']);
+    expect(plumages(second.names.en)).toEqual(['Male']);
   });
 
   it('shows licence and source links and the non-commercial marker', async () => {
