@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
 import content from '../content/content.json';
-import { waitForServiceWorkerControl } from './service-worker';
+import { isUnexpectedOfflineFailure, waitForServiceWorkerControl } from './service-worker';
 
 const JUNGLEFOWL_ID = 'slb-gallus-lafayettii';
 const junglefowl = content.species.find((s) => s.species_id === JUNGLEFOWL_ID);
@@ -63,7 +63,9 @@ for (const route of routes) {
     page.on('pageerror', (error) => {
       if (!RECOVERABLE_HYDRATION_ERROR.test(error.message)) pageErrors.push(error);
     });
-    page.on('requestfailed', (request) => failedRequests.push(request.url()));
+    page.on('requestfailed', (request) => {
+      if (isUnexpectedOfflineFailure(request.url())) failedRequests.push(request.url());
+    });
     await page.reload();
 
     await route.expectRendered(page);

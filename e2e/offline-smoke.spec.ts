@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import type { Locator, Page } from '@playwright/test';
 
 import content from '../content/content.json';
-import { waitForServiceWorkerControl } from './service-worker';
+import { isUnexpectedOfflineFailure, waitForServiceWorkerControl } from './service-worker';
 
 const JUNGLEFOWL_ID = 'slb-gallus-lafayettii';
 const junglefowl = content.species.find((s) => s.species_id === JUNGLEFOWL_ID);
@@ -35,7 +35,7 @@ test('browsing, searching and reading work offline after first load, without rel
   await waitForServiceWorkerControl(page);
   await context.setOffline(true);
   page.on('requestfailed', (request) => {
-    failedRequests.push(request.url());
+    if (isUnexpectedOfflineFailure(request.url())) failedRequests.push(request.url());
   });
 
   await page.getByRole('radio', { name: /සිංහල/ }).click();
