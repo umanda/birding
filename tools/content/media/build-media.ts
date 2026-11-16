@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import sharp from 'sharp';
+import type { OutputInfo } from 'sharp';
 import {
   FULL,
   HASH_LENGTH,
@@ -30,13 +31,35 @@ function sha256Of(data: Buffer): string {
   return createHash('sha256').update(data).digest('hex');
 }
 
+// Busy scenes (e.g. dense foliage) can exceed the full-image limit at the default settings, so
+// full images step down through these until they fit; budgetErrors still guards the rest.
+const FULL_FALLBACKS = [
+  { edge: FULL.edge, quality: 65 },
+  { edge: FULL.edge, quality: 55 },
+  { edge: 900, quality: 55 },
+];
+
 // Metadata (EXIF, GPS, ICC) is dropped by sharp's default; a fixed effort keeps output reproducible.
-async function encode(master: Buffer, row: MediaRow, kind: 'thumb' | 'full'): Promise<Encoded> {
-  const { edge, quality } = kind === 'thumb' ? THUMB : FULL;
-  const { data, info } = await sharp(master)
+function encodeAt(
+  master: Buffer,
+  edge: number,
+  quality: number,
+): Promise<{ data: Buffer; info: OutputInfo }> {
+  return sharp(master)
     .resize({ width: edge, height: edge, fit: 'inside', withoutEnlargement: true })
     .webp({ quality, effort: 4 })
     .toBuffer({ resolveWithObject: true });
+}
+
+async function encode(master: Buffer, row: MediaRow, kind: 'thumb' | 'full'): Promise<Encoded> {
+  const { edge, quality } = kind === 'thumb' ? THUMB : FULL;
+  let { data, info } = await encodeAt(master, edge, quality);
+  if (kind === 'full') {
+    for (const fallback of FULL_FALLBACKS) {
+      if (data.length <= FULL.maxBytes) break;
+      ({ data, info } = await encodeAt(master, fallback.edge, fallback.quality));
+    }
+  }
   const sha256 = sha256Of(data);
   const name = `${row.image_id}.${sha256.slice(0, HASH_LENGTH)}.${kind}.webp`;
   const variant = { path: `${OUTPUT_SUBDIR}/${row.species_id}/${name}`, bytes: data.length, sha256 };
