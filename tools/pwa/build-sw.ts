@@ -8,13 +8,18 @@ const DIST_DIR = 'dist';
 const NOT_PRECACHED = ['sw.js', '_sitemap.html', '**/*.map', 'species/slb-*.html'];
 const SPECIES_TEMPLATE = '/species/[id].html';
 const MAX_FILE_BYTES = 5 * 1024 * 1024; // the single JS bundle exceeds Workbox's 2 MB default
+// ADR 0004: full photos are cached when first viewed. File names carry a content hash, so an
+// entry is never stale and the cache needs no versioned invalidation beyond its name.
+const PHOTO_CACHE_NAME = 'photos-v1';
+const PHOTO_CACHE_MAX_ENTRIES = 600;
 const PRECACHE_BUDGET_BYTES = 10 * 1024 * 1024; // ADR 0001 shell budget
 
 // Run after `expo export`. Precaches the static export so every route opens offline.
 async function main(): Promise<void> {
   const { count, size, warnings } = await generateSW({
     globDirectory: DIST_DIR,
-    globPatterns: ['**/*.{html,js,css,png,ico,ttf,woff2,json}'],
+    // thumb.webp lives in the one brace pattern: a separate media glob warns while the manifest is empty.
+    globPatterns: ['**/*.{html,js,css,png,ico,ttf,woff2,json,thumb.webp}'],
     globIgnores: NOT_PRECACHED,
     swDest: `${DIST_DIR}/sw.js`,
     maximumFileSizeToCacheInBytes: MAX_FILE_BYTES,
@@ -22,6 +27,18 @@ async function main(): Promise<void> {
     ignoreURLParametersMatching: [/.*/],
     navigateFallback: SPECIES_TEMPLATE,
     navigateFallbackAllowlist: [/^\/species\//],
+    runtimeCaching: [
+      {
+        urlPattern: /\/media\/.*\.full\.webp$/,
+        handler: 'CacheFirst',
+        options: {
+          cacheName: PHOTO_CACHE_NAME,
+          expiration: { maxEntries: PHOTO_CACHE_MAX_ENTRIES, purgeOnQuotaError: true },
+          // Skip partial (206) responses so a truncated image is never cached.
+          cacheableResponse: { statuses: [200] },
+        },
+      },
+    ],
     // A waiting worker is activated by the user via the update banner (spec 002 slice 4), never automatically.
     skipWaiting: false,
     clientsClaim: true,

@@ -73,7 +73,7 @@
   "plumage.morph": "වර්ණ ප්‍රභේදය: {name}",
   "gallery.plumageTabs": "පිහාටු",
   "gallery.noPhoto": "ඡායාරූපයක් තවම නැත",
-  "gallery.unavailable": "ඡායාරූපය නොබැඳිව නොපෙනේ",
+  "gallery.notDownloaded": "ඡායාරූපය බාගත කර නැත",
   "gallery.photoBy": "ඡායාරූපය: {author}",
   "gallery.alt": "{name}, {plumage}. ඡායාරූපය: {author}",
   "gallery.noncommercial": "බලපත්‍රය: වාණිජ නොවන"

@@ -91,6 +91,17 @@ function Credit({ credit, language, t }: CreditProps): React.JSX.Element {
   );
 }
 
+function NotDownloaded({ language, t }: { language: Language; t: Translate }): React.JSX.Element {
+  const { colors } = useTheme();
+  return (
+    <View style={[styles.empty, { backgroundColor: colors.surface }]}>
+      <Text style={[typeStyle('body', language), { color: colors.textMuted }]}>
+        {t('gallery.notDownloaded')}
+      </Text>
+    </View>
+  );
+}
+
 function Tab(props: {
   label: string;
   selected: boolean;
@@ -134,6 +145,7 @@ export function SpeciesGallery({
   const images = firstPerPlumage(unsorted);
   const [selectedId, setSelectedId] = useState(images[0]?.image_id);
   const [failedIds, setFailedIds] = useState<string[]>([]);
+  const [failedThumbIds, setFailedThumbIds] = useState<string[]>([]);
 
   const image = images.find((i) => i.image_id === selectedId) ?? images[0];
   if (!image) {
@@ -146,10 +158,14 @@ export function SpeciesGallery({
     );
   }
 
-  const plumage = plumageLabel(image.plumage_key, t);
-  const author = image.credit.author ?? t('common.notRecorded');
-  const alt = t('gallery.alt', { name: speciesName, plumage, author });
   const failed = failedIds.includes(image.image_id);
+  // The thumbnail is safe offline because it is precached. It must show the selected plumage.
+  const thumbSource = unsorted.find((i) => i.thumb && i.plumage_key === image.plumage_key);
+  const showThumb = failed && thumbSource?.thumb && !failedThumbIds.includes(thumbSource.image_id);
+  const shown = showThumb && thumbSource ? thumbSource : image;
+  const plumage = plumageLabel(shown.plumage_key, t);
+  const author = shown.credit.author ?? t('common.notRecorded');
+  const alt = t('gallery.alt', { name: speciesName, plumage, author });
 
   return (
     <View style={styles.gallery}>
@@ -169,11 +185,17 @@ export function SpeciesGallery({
         ))}
       </View>
       {failed ? (
-        <View style={[styles.empty, { backgroundColor: colors.surface }]}>
-          <Text style={[typeStyle('body', language), { color: colors.textMuted }]}>
-            {t('gallery.unavailable')}
-          </Text>
-        </View>
+        showThumb && thumbSource?.thumb ? (
+          <Image
+            source={{ uri: mediaUrl(thumbSource.thumb.path) }}
+            accessibilityLabel={alt}
+            resizeMode="contain"
+            onError={() => setFailedThumbIds((ids) => [...ids, thumbSource.image_id])}
+            style={[styles.photo, { aspectRatio: shown.width / shown.height }]}
+          />
+        ) : (
+          <NotDownloaded language={language} t={t} />
+        )
       ) : (
         <Image
           source={{ uri: mediaUrl(image.full.path) }}
@@ -183,7 +205,7 @@ export function SpeciesGallery({
           style={[styles.photo, { aspectRatio: image.width / image.height }]}
         />
       )}
-      <Credit credit={image.credit} language={language} t={t} />
+      <Credit credit={shown.credit} language={language} t={t} />
     </View>
   );
 }

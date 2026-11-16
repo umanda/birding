@@ -134,8 +134,44 @@ describe('SpeciesGallery', () => {
   it('keeps the credit when the image fails to load', async () => {
     await renderGallery();
     await fireEvent(screen.getByLabelText('Test Bird, Male. Photo: Jane Doe'), 'error');
-    expect(screen.getByText('Photo not available offline')).toBeTruthy();
+    expect(screen.getByText('Photo not downloaded')).toBeTruthy();
     expect(screen.getByText('Photo: Jane Doe')).toBeTruthy();
+  });
+
+  describe('when the full image fails', () => {
+    const thumb = { path: 'media/slb-test/m.hash.thumb.webp', bytes: 10, sha256: 'b'.repeat(64) };
+    const thumbOwner = fixtureImage({
+      image_id: 'z-thumb',
+      plumage_key: 'male',
+      primary: true,
+      thumb,
+      credit: { ...male.credit, author: 'Thumb Author' },
+    });
+
+    it('shows the same-plumage thumbnail from another image with that image credit', async () => {
+      await renderGallery([male, thumbOwner, female]);
+      await fireEvent(screen.getByLabelText('Test Bird, Male. Photo: Jane Doe'), 'error');
+      const shown = screen.getByLabelText('Test Bird, Male. Photo: Thumb Author');
+      expect(shown.props.source).toEqual({ uri: '/media/slb-test/m.hash.thumb.webp' });
+      expect(screen.getByText('Photo: Thumb Author')).toBeTruthy();
+    });
+
+    it('never shows a thumbnail of another plumage', async () => {
+      await renderGallery([thumbOwner, female]);
+      await fireEvent.press(screen.getByRole('tab', { name: 'Female' }));
+      await fireEvent(screen.getByLabelText('Test Bird, Female. Photo: Sam Roe'), 'error');
+      expect(screen.getByText('Photo not downloaded')).toBeTruthy();
+      expect(screen.queryByLabelText(/Thumb Author/)).toBeNull();
+      expect(screen.getByText('Photo: Sam Roe')).toBeTruthy();
+    });
+
+    it('shows text only when the thumbnail fails too', async () => {
+      await renderGallery([thumbOwner]);
+      await fireEvent(screen.getByLabelText('Test Bird, Male. Photo: Thumb Author'), 'error');
+      await fireEvent(screen.getByLabelText('Test Bird, Male. Photo: Thumb Author'), 'error');
+      expect(screen.getByText('Photo not downloaded')).toBeTruthy();
+      expect(screen.queryByLabelText(/Thumb Author/)).toBeNull();
+    });
   });
 
   it('labels tabs in Sinhala, including morphs', async () => {
