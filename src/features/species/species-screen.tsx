@@ -7,7 +7,7 @@ import { getSpeciesImages } from '@/shared/data/media';
 import type { Species } from '@/shared/data/content-schema';
 import type { Language } from '@/shared/i18n/language';
 import { localized, otherLanguage } from '@/shared/i18n/localized';
-import type { MessageKey } from '@/shared/i18n/translate';
+import type { Translate } from '@/shared/i18n/translate';
 import { size, space } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
@@ -20,7 +20,6 @@ import { SpeciesProse } from './species-prose';
 // The static export's `species/[id].html` template is built with the literal route pattern as id.
 const TEMPLATE_ID = '[id]';
 
-type Translate = (key: MessageKey) => string;
 type DetailProps = { species: Species; language: Language; t: Translate };
 
 export function SpeciesRoute(): React.JSX.Element {

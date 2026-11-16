@@ -1,25 +1,19 @@
 import { Stack } from 'expo-router';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import {
-  headingProps,
-  langProps,
-  PhotoCredit,
-  plumageLabel,
-  SECTION_HEADING_LEVEL,
-  sortForGallery,
-} from '@/features/species';
 import { useSettings } from '@/features/settings';
 import { getAllSpecies } from '@/shared/data/content';
 import { getAllImages, type ManifestImage } from '@/shared/data/media';
 import type { Language } from '@/shared/i18n/language';
 import { localized } from '@/shared/i18n/localized';
-import type { MessageKey, Vars } from '@/shared/i18n/translate';
+import type { Translate } from '@/shared/i18n/translate';
+import { plumageLabel, sortForGallery } from '@/shared/media/plumage';
 import { SCREEN_PADDING, space } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
+import { PhotoCredit } from '@/shared/ui/photo-credit';
+import { headingProps, langProps, SECTION_HEADING_LEVEL } from '@/shared/ui/text-props';
 
-type Translate = (key: MessageKey, vars?: Vars) => string;
 type ListProps = { images: readonly ManifestImage[]; language: Language; t: Translate };
 
 export function PhotoCreditsScreen(): React.JSX.Element {
