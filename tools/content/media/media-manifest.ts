@@ -12,6 +12,13 @@ export const MANIFEST_FILE = 'content/media-manifest.json';
 // ADR 0004. The target is a warning, the limit fails the build.
 export const THUMB = { edge: 240, quality: 70, targetBytes: 12 * 1024 };
 export const FULL = { edge: 1080, quality: 75, targetBytes: 120 * 1024, maxBytes: 200 * 1024 };
+// Busy scenes (e.g. dense foliage) can exceed the full-image limit at the default settings, so
+// full images step down through these until they fit; budgetErrors still guards the rest.
+export const FULL_FALLBACKS = [
+  { edge: FULL.edge, quality: 65 },
+  { edge: FULL.edge, quality: 55 },
+  { edge: 900, quality: 55 },
+];
 export const THUMBS_TOTAL_MAX_BYTES = 4 * 1024 * 1024;
 export const HASH_LENGTH = 8;
 
