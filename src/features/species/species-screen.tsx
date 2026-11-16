@@ -3,6 +3,7 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { useSettings } from '@/features/settings';
 import { getPlate, getSpecies } from '@/shared/data/content';
+import { getSpeciesImages } from '@/shared/data/media';
 import type { Species } from '@/shared/data/content-schema';
 import type { Language } from '@/shared/i18n/language';
 import { localized, otherLanguage } from '@/shared/i18n/localized';
@@ -13,6 +14,7 @@ import { useTheme } from '@/shared/theme/use-theme';
 import { IucnBadge } from '@/shared/ui/iucn-badge';
 import { OccurrenceBadge } from '@/shared/ui/occurrence-badge';
 
+import { SpeciesGallery } from './species-gallery';
 import { SpeciesProse } from './species-prose';
 
 // The static export's `species/[id].html` template is built with the literal route pattern as id.
@@ -100,6 +102,12 @@ export function SpeciesDetail({ species, language, t }: DetailProps): React.JSX.
           </Text>
         )}
       </View>
+      <SpeciesGallery
+        images={getSpeciesImages(species.species_id)}
+        speciesName={primary.text}
+        language={language}
+        t={t}
+      />
       <SpeciesProse key={species.species_id} species={species} language={language} t={t} />
     </ScrollView>
   );

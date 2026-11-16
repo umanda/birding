@@ -62,5 +62,19 @@
   "update.available": "Update available",
   "update.reload": "Reload",
   "language.name.en": "English",
-  "language.name.si": "Sinhala"
+  "language.name.si": "Sinhala",
+  "plumage.male": "Male",
+  "plumage.female": "Female",
+  "plumage.juvenile": "Juvenile",
+  "plumage.adult": "Adult",
+  "plumage.breeding": "Breeding",
+  "plumage.nonBreeding": "Non-breeding",
+  "plumage.eclipse": "Eclipse",
+  "plumage.morph": "Morph: {name}",
+  "gallery.plumageTabs": "Plumage",
+  "gallery.noPhoto": "No photo yet",
+  "gallery.unavailable": "Photo not available offline",
+  "gallery.photoBy": "Photo: {author}",
+  "gallery.alt": "{name}, {plumage}. Photo: {author}",
+  "gallery.noncommercial": "Licence: non-commercial"
 }

@@ -62,5 +62,19 @@
   "update.available": "යාවත්කාලීන කිරීමක් ඇත",
   "update.reload": "නැවත පූරණය කරන්න",
   "language.name.en": "ඉංග්‍රීසි",
-  "language.name.si": "සිංහල"
+  "language.name.si": "සිංහල",
+  "plumage.male": "පිරිමි",
+  "plumage.female": "ගැහැනු",
+  "plumage.juvenile": "තරුණ",
+  "plumage.adult": "වැඩිහිටි",
+  "plumage.breeding": "ප්‍රජනන",
+  "plumage.nonBreeding": "ප්‍රජනනය නොවන",
+  "plumage.eclipse": "එක්ලිප්ස්",
+  "plumage.morph": "වර්ණ ප්‍රභේදය: {name}",
+  "gallery.plumageTabs": "පිහාටු",
+  "gallery.noPhoto": "ඡායාරූපයක් තවම නැත",
+  "gallery.unavailable": "ඡායාරූපය නොබැඳිව නොපෙනේ",
+  "gallery.photoBy": "ඡායාරූපය: {author}",
+  "gallery.alt": "{name}, {plumage}. ඡායාරූපය: {author}",
+  "gallery.noncommercial": "බලපත්‍රය: වාණිජ නොවන"
 }
