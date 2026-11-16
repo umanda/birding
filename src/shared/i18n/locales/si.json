@@ -78,5 +78,16 @@
   "gallery.alt": "{name}, {plumage}. ඡායාරූපය: {author}",
   "gallery.noncommercial": "බලපත්‍රය: වාණිජ නොවන",
   "credits.title": "ඡායාරූප හිමිකම් දැක්වීම",
-  "credits.empty": "තවම ඡායාරූප නැත"
+  "credits.empty": "තවම ඡායාරූප නැත",
+  "photoPack.title": "නොබැඳි ඡායාරූප පැකේජය",
+  "photoPack.summary.one": "{size}, ඡායාරූප {count}",
+  "photoPack.summary.other": "{size}, ඡායාරූප {count}",
+  "photoPack.wifi": "Wi-Fi මත වඩාත් සුදුසුයි",
+  "photoPack.download": "බාගන්න",
+  "photoPack.cancel": "අවලංගු කරන්න",
+  "photoPack.progress": "{total} න් {done}",
+  "photoPack.complete": "සියලු ඡායාරූප නොබැඳිව භාවිතයට සුරැකිණි",
+  "photoPack.offline": "ඔබ නොබැඳි ය. බාගැනීමට සම්බන්ධ වන්න.",
+  "photoPack.interrupted": "බාගැනීම නැවතුණි. දිගටම කිරීමට බාගන්න ඔබන්න.",
+  "photoPack.nativeUnavailable": "දැනට වෙබ් යෙදුමේ පමණක් ලබාගත හැක"
 }
