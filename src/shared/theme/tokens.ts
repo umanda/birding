@@ -15,6 +15,7 @@ const colorPairs = {
   endemic: pair('#1B7A3E', '#6FD08C'),
   resident: pair('#B45309', '#FDBA74'),
   migrant: pair('#1D4ED8', '#93C5FD'),
+  scrim: pair('rgba(0,0,0,0.4)', 'rgba(0,0,0,0.4)'), // dims the screen behind a sheet, same in both modes
   badgeText: pair('#FFFFFF', '#121212'), // text on E/R/M badge fills
 };
 

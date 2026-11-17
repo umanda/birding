@@ -14,7 +14,7 @@ import { headingProps } from '@/shared/ui/text-props';
 import { AnswerList } from './answer-list';
 import { compact, currentMonth, parseAnswers, serializeAnswers } from './answers-params';
 import { MatchFooter } from './match-footer';
-import { MonthPicker } from './month-sheet';
+import { MonthPicker } from './month-picker';
 import { countMatches, isStep, neighbour, STEP_OPTIONS, withAnswer } from './questions';
 import type { Step } from './questions';
 import { TopBar } from './top-bar';

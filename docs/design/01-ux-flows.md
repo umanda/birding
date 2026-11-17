@@ -219,6 +219,7 @@ color:
   endemic:       { light: "#1B7A3E", dark: "#6FD08C" }   # green  + leaf + "E"
   resident:      { light: "#B45309", dark: "#FDBA74" }   # orange + house + "R"
   migrant:       { light: "#1D4ED8", dark: "#93C5FD" }   # blue   + arrow + "M"
+  scrim:         { light: "rgba(0,0,0,0.4)", dark: "rgba(0,0,0,0.4)" }   # behind sheets, same in both modes
   # Badge = white text on light fill (>=4.5:1); dark mode = #121212 text on dark fill.
   # Exact hues: match workbook colours once ornithologist confirms them; re-check contrast.
 type:            # rem @16px; line-height latin / sinhala
@@ -229,6 +230,7 @@ type:            # rem @16px; line-height latin / sinhala
   caption:  { size: 0.8125,weight: 400, lh: [1.35,1.6] }  # photo credit (min 13px)
   scientific: { style: italic, latin only }
 space: [0, 4, 8, 12, 16, 24, 32, 48]   # px; screen padding 16
+border-width: { thin: 1, thick: 3 }   # thick = selected choice
 radius: { sm: 6, md: 12, lg: 20, pill: 999 }
 size:  { touch-min: 44, tab-bar: 56, app-bar: 56, fab: 56, button-lg: 56 }
 ```

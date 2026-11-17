@@ -9,8 +9,6 @@ import { borderWidth, radius, size, space } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
 
-const BACKDROP_OPACITY = 0.4;
-
 type Props = {
   month: Month | undefined; // undefined is "Any month"
   language: Language;
@@ -55,9 +53,7 @@ export function MonthPicker({ month, language, t, onOpen, onPick }: Props): Reac
             onPress={() => setOpen(false)}
             style={StyleSheet.absoluteFill}
           >
-            <View
-              style={[StyleSheet.absoluteFill, styles.backdrop, { backgroundColor: colors.text }]}
-            />
+            <View style={[StyleSheet.absoluteFill, { backgroundColor: colors.scrim }]} />
           </Pressable>
           <View style={[styles.sheet, { backgroundColor: colors.surface }]}>
             <Text
@@ -109,7 +105,6 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
   },
   modal: { flex: 1, justifyContent: 'flex-end' },
-  backdrop: { opacity: BACKDROP_OPACITY },
   sheet: {
     padding: space[4],
     gap: space[3],

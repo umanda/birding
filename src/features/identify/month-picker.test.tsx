@@ -3,7 +3,7 @@ import { render, screen, userEvent } from '@testing-library/react-native';
 import type { Month } from '@/shared/data/traits-vocabulary';
 import { createT } from '@/shared/i18n/translate';
 
-import { MonthPicker } from './month-sheet';
+import { MonthPicker } from './month-picker';
 
 const t = createT('en');
 
