@@ -26,6 +26,7 @@ export type Flag = 'not-usually-here' | 'not-usually-now' | 'data-incomplete';
 export type RankedSpecies = {
   species_id: string;
   score: number;
+  descriptionScore: number; // habitat, size, colour and behaviour points only
   reasons: Reason[];
   flags: Flag[];
 };
