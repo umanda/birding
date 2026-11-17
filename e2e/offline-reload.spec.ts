@@ -31,6 +31,12 @@ const routes: RouteCase[] = [
       expect(page.getByRole('heading', { name: 'Where in Sri Lanka?' })).toBeVisible(),
   },
   {
+    name: 'identify results',
+    path: '/identify/results?month=7&zone=wet_lowland',
+    expectRendered: (page) =>
+      expect(page.getByText(/This guide can identify \d+ of \d+ species so far/)).toBeVisible(),
+  },
+  {
     name: 'search',
     path: '/search',
     expectRendered: (page) => expect(page.getByRole('textbox')).toBeVisible(),
