@@ -1,4 +1,4 @@
-import { HABITATS, SIZE_CLASSES, ZONES } from '@/shared/data/traits-vocabulary';
+import { HABITATS, MONTHS, SIZE_CLASSES, ZONES } from '@/shared/data/traits-vocabulary';
 import type { Month } from '@/shared/data/traits-vocabulary';
 
 import type { Answers } from './types';
@@ -6,7 +6,6 @@ import type { Answers } from './types';
 export type RouteParams = Record<string, string | string[] | undefined>;
 
 const ANY_MONTH = 'any';
-const MONTHS: readonly Month[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 // A repeated param (?zone=a&zone=b) arrives as an array; the first value wins.
 function firstValue(raw: string | string[] | undefined): string | undefined {

@@ -8,10 +8,11 @@ import type { Answers } from './types';
 export const STEPS = ['zone', 'habitat', 'size'] as const;
 export type Step = (typeof STEPS)[number];
 
-export const STEP_OPTIONS: Record<Step, readonly string[]> = {
-  zone: ZONES,
-  habitat: HABITATS,
-  size: SIZE_CLASSES,
+// labelKey is a literal type so a missing en/si key fails the type-check.
+export const STEP_OPTIONS = {
+  zone: ZONES.map((value) => ({ value, labelKey: `identify.zone.${value}` as const })),
+  habitat: HABITATS.map((value) => ({ value, labelKey: `identify.habitat.${value}` as const })),
+  size: SIZE_CLASSES.map((value) => ({ value, labelKey: `identify.size.${value}` as const })),
 };
 
 export function isStep(value: string | undefined): value is Step {

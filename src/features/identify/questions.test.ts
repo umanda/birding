@@ -1,5 +1,14 @@
+import { MESSAGES } from '@/shared/i18n/translate';
+
 import { FIXTURE_TRAITS } from './test-traits';
-import { countMatches, isStep, neighbour, questionStaticParams, withAnswer } from './questions';
+import {
+  countMatches,
+  isStep,
+  neighbour,
+  questionStaticParams,
+  STEP_OPTIONS,
+  withAnswer,
+} from './questions';
 
 describe('steps', () => {
   it('walks zone, habitat, size and stops at both ends', () => {
@@ -40,5 +49,15 @@ describe('questionStaticParams', () => {
       { step: 'habitat' },
       { step: 'size' },
     ]);
+  });
+});
+
+describe('STEP_OPTIONS', () => {
+  it('has an en and si label for every option', () => {
+    const keys = Object.values(STEP_OPTIONS).flatMap((options) => options.map((o) => o.labelKey));
+    for (const key of keys) {
+      expect(MESSAGES.en[key]).toBeTruthy();
+      expect(MESSAGES.si[key]).toBeTruthy();
+    }
   });
 });
