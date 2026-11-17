@@ -1,5 +1,5 @@
 // Vocabularies from docs/product/02-identification-design.md sections 1 and 3.
-// Kept in one file so the content validator can reuse them.
+// Shared by the content tools and the app.
 
 export const ZONES = [
   'wet_lowland',
@@ -34,6 +34,7 @@ export const COLOURS = [
   'pink',
 ] as const;
 export type Colour = (typeof COLOURS)[number];
+export const MAX_COLOURS = 3; // most colours a user can pick
 
 // These are the `where_seen` values.
 export const BEHAVIOURS = [
@@ -46,7 +47,9 @@ export const BEHAVIOURS = [
 ] as const;
 export type Behaviour = (typeof BEHAVIOURS)[number];
 
-export const MONTH_PRESENCE = ['present', 'peak', 'scarce', 'absent', 'unknown'] as const;
+// The build expands a species' 'all' months to 12 x present and fills months the data does
+// not list with absent. A species with no months at all is unknown (SpeciesTraits.months undefined).
+export const MONTH_PRESENCE = ['present', 'absent'] as const;
 export type MonthPresence = (typeof MONTH_PRESENCE)[number];
 
 export const COMMONNESS = ['common', 'uncommon', 'scarce'] as const;

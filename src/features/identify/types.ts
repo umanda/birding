@@ -1,13 +1,11 @@
 import type {
   Behaviour,
   Colour,
-  Commonness,
   Habitat,
   Month,
-  MonthPresence,
   SizeClass,
   Zone,
-} from './vocabulary';
+} from '@/shared/data/traits-vocabulary';
 
 // Every field is optional: a skipped question is simply missing.
 export type Answers = {
@@ -15,20 +13,8 @@ export type Answers = {
   zone?: Zone;
   habitat?: Habitat;
   size?: SizeClass;
-  colours?: Colour[]; // at most 3
+  colours?: Colour[]; // at most MAX_COLOURS
   behaviour?: Behaviour;
-};
-
-// undefined means "no reviewed value". An empty array means "reviewed: none".
-export type SpeciesTraits = {
-  species_id: string;
-  zones?: Zone[];
-  habitats?: Habitat[];
-  size?: SizeClass[]; // can span classes
-  colours?: Colour[][]; // one list per plumage
-  behaviours?: Behaviour[];
-  months?: MonthPresence[]; // 12 entries, January first
-  commonness?: Partial<Record<Zone, Commonness>>;
 };
 
 export type ReasonField = 'zone' | 'month' | 'habitat' | 'size' | 'colours' | 'behaviour';
