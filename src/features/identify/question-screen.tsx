@@ -5,14 +5,16 @@ import type { HostInstance, TextProps } from 'react-native';
 
 import { useSettings } from '@/features/settings';
 import type { SpeciesTraits } from '@/shared/data/traits';
+import type { Month } from '@/shared/data/traits-vocabulary';
 import { SCREEN_PADDING, space } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
 import { headingProps } from '@/shared/ui/text-props';
 
 import { AnswerList } from './answer-list';
-import { currentMonth, parseAnswers, serializeAnswers } from './answers-params';
+import { compact, currentMonth, parseAnswers, serializeAnswers } from './answers-params';
 import { MatchFooter } from './match-footer';
+import { MonthPicker } from './month-picker';
 import { countMatches, isStep, neighbour, STEP_OPTIONS, withAnswer } from './questions';
 import type { Step } from './questions';
 import { TopBar } from './top-bar';
@@ -65,6 +67,8 @@ function Question({ step, params, traits }: QuestionProps): React.JSX.Element {
     else if (router.canGoBack()) router.back();
     else router.dismissTo('/');
   };
+  const pickMonth = (month: Month | undefined): void =>
+    router.setParams(serializeAnswers(compact({ ...answers, month })));
   const select = (value: string | undefined): void => {
     const next = withAnswer(answers, step, value);
     // The explicit undefined removes a cleared answer from the params.
@@ -76,16 +80,16 @@ function Question({ step, params, traits }: QuestionProps): React.JSX.Element {
       ADVANCE_DELAY_MS,
     );
   };
-  const monthLabel = answers.month
-    ? t(`identify.monthName.${answers.month}`)
-    : t('identify.monthAny');
-
   return (
     <View style={[styles.container, { backgroundColor: colors.bg }]}>
       <TopBar backLabel={t('identify.back')} language={language} onBack={goBack}>
-        <Text style={[typeStyle('label', language), { color: colors.text }]}>
-          {t('identify.month', { month: monthLabel })}
-        </Text>
+        <MonthPicker
+          month={answers.month}
+          language={language}
+          t={t}
+          onOpen={cancelAdvance}
+          onPick={pickMonth}
+        />
       </TopBar>
       <ScrollView contentContainerStyle={styles.body}>
         <Text

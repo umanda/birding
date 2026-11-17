@@ -156,4 +156,12 @@ describe('QuestionScreen', () => {
     await open('/identify/bogus');
     expect(screen).toHavePathname('/');
   });
+
+  it('Any month in the sheet sets month=any and keeps the answers', async () => {
+    const user = await open('/identify/habitat?month=5&zone=montane');
+    await user.press(await screen.findByRole('button', { name: 'Month: May' }));
+    await user.press(screen.getByRole('radio', { name: 'Any month' }));
+    expect(screen).toHaveSearchParams({ step: 'habitat', month: 'any', zone: 'montane' });
+    expect(screen.getByRole('button', { name: 'Month: Any month' })).toBeTruthy();
+  });
 });
