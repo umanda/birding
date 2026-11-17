@@ -5,7 +5,7 @@ import type { HostInstance, TextProps } from 'react-native';
 
 import { useSettings } from '@/features/settings';
 import type { SpeciesTraits } from '@/shared/data/traits';
-import type { Month } from '@/shared/data/traits-vocabulary';
+import type { Colour, Month } from '@/shared/data/traits-vocabulary';
 import { SCREEN_PADDING, space } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
@@ -13,17 +13,10 @@ import { headingProps } from '@/shared/ui/text-props';
 
 import { AnswerList } from './answer-list';
 import { compact, currentMonth, parseAnswers, serializeAnswers } from './answers-params';
+import { ColourGrid } from './colour-grid';
 import { MatchFooter } from './match-footer';
 import { MonthPicker } from './month-picker';
-import {
-  ANSWER_KEY,
-  chosenValue,
-  countMatches,
-  isStep,
-  neighbour,
-  STEP_OPTIONS,
-  withAnswer,
-} from './questions';
+import { ANSWER_KEY, countMatches, isStep, neighbour, STEP_OPTIONS, withAnswer } from './questions';
 import type { Step } from './questions';
 import { TopBar } from './top-bar';
 import type { Answers } from './types';
@@ -88,6 +81,14 @@ function Question({ step, params, traits }: QuestionProps): React.JSX.Element {
       ADVANCE_DELAY_MS,
     );
   };
+  const changeColours = (colours: Colour[]): void => {
+    cancelAdvance();
+    router.setParams({ colours: undefined, ...serializeAnswers(compact({ ...answers, colours })) });
+  };
+  const goNext = (): void => {
+    cancelAdvance();
+    toStep('behaviour', answers); // the colour question is never the last
+  };
   return (
     <View style={[styles.container, { backgroundColor: colors.bg }]}>
       <TopBar backLabel={t('identify.back')} language={language} onBack={goBack}>
@@ -108,13 +109,24 @@ function Question({ step, params, traits }: QuestionProps): React.JSX.Element {
         >
           {t(`identify.question.${step}`)}
         </Text>
-        <AnswerList
-          options={STEP_OPTIONS[step]}
-          selected={chosenValue(answers, step)}
-          language={language}
-          t={t}
-          onSelect={select}
-        />
+        {step === 'colour' ? (
+          <ColourGrid
+            selected={answers.colours ?? []}
+            language={language}
+            t={t}
+            onChange={changeColours}
+            onNotSure={() => select(undefined)}
+            onNext={goNext}
+          />
+        ) : (
+          <AnswerList
+            options={STEP_OPTIONS[step]}
+            selected={answers[step]}
+            language={language}
+            t={t}
+            onSelect={select}
+          />
+        )}
       </ScrollView>
       <MatchFooter
         count={countMatches(traits, answers)}

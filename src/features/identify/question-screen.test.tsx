@@ -98,6 +98,49 @@ describe('QuestionScreen', () => {
     expect(screen).toHaveSearchParams({ step: 'size', month: '5', zone: 'montane' });
   });
 
+  it('picks colours as checkboxes and counts them live', async () => {
+    const user = await open('/identify/colour?month=5');
+    expect(await screen.findByText('0 of 3 chosen')).toBeTruthy();
+    await user.press(screen.getByRole('checkbox', { name: /^Red/ }));
+    await user.press(screen.getByRole('checkbox', { name: /^Rufous or chestnut/ }));
+    expect(screen.getByRole('checkbox', { name: /^Red/, checked: true })).toBeTruthy();
+    expect(screen.getByText('2 of 3 chosen')).toBeTruthy();
+    expect(screen).toHaveSearchParams({ step: 'colour', month: '5', colours: 'red,rufous' });
+    await user.press(screen.getByRole('checkbox', { name: /^Red/ }));
+    expect(screen.getByText('1 of 3 chosen')).toBeTruthy();
+  });
+
+  it('ignores a fourth colour and shows the limit note', async () => {
+    const user = await open('/identify/colour?month=5&colours=red,blue,pink');
+    await user.press(await screen.findByRole('checkbox', { name: /^Green/ }));
+    expect(screen.getByText('Up to 3 colours. Untick one to change.')).toBeTruthy();
+    expect(screen.getByRole('checkbox', { name: /^Green/, checked: false })).toBeTruthy();
+    expect(screen).toHaveSearchParams({ step: 'colour', month: '5', colours: 'red,blue,pink' });
+  });
+
+  it('Next keeps the colours and moves on without waiting', async () => {
+    const user = await open('/identify/colour?month=5&colours=red');
+    await user.press(await screen.findByText('Next'));
+    expect(await screen.findByText('What was it doing?')).toBeTruthy();
+    expect(screen).toHaveSearchParams({ step: 'behaviour', month: '5', colours: 'red' });
+  });
+
+  it('Not sure clears the colours and advances', async () => {
+    const user = await open('/identify/colour?month=5&colours=red,blue');
+    await user.press(await screen.findByRole('button', { name: 'Not sure' }));
+    expect(screen).toHaveSearchParams({ step: 'colour', month: '5' });
+    await advance();
+    expect(await screen.findByText('What was it doing?')).toBeTruthy();
+  });
+
+  it('picking a colour right after Not sure cancels the advance', async () => {
+    const user = await open('/identify/colour?month=5&colours=blue');
+    await user.press(await screen.findByRole('button', { name: 'Not sure' }));
+    await user.press(screen.getByRole('checkbox', { name: /^Red/ }));
+    await advance();
+    expect(screen).toHaveSearchParams({ step: 'colour', month: '5', colours: 'red' });
+  });
+
   it('opens the results after the last question', async () => {
     const user = await open('/identify/behaviour?month=5');
     await user.press(await screen.findByRole('radio', { name: 'Swimming' }));

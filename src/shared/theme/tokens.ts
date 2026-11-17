@@ -32,6 +32,23 @@ export const colors: Record<ColorMode, Colors> = {
   dark: pickMode('dark'),
 };
 
+// Fill of each colour swatch in the Identify colour question. Same in light and dark mode so a
+// swatch always looks like the colour it names. Every swatch also shows its name; colour is never the only signal.
+export const swatch = {
+  black: '#111111',
+  white: '#FFFFFF',
+  grey: '#8C8C8C',
+  brown: '#6B4423',
+  rufous: '#A0522D',
+  orange: '#F28C28',
+  yellow: '#F2D024',
+  green: '#3E9B4F',
+  blue: '#2F6FD6',
+  purple: '#7B3FA0',
+  red: '#C62828',
+  pink: '#EE8FB2',
+} as const;
+
 export type TypeStyle = {
   size: number; // rem at 16px
   weight: 400 | 600 | 700;
