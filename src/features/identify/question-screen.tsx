@@ -27,8 +27,9 @@ type Props = { traits: SpeciesTraits[] };
 
 export function QuestionScreen({ traits }: Props): React.JSX.Element {
   const { step, ...params } = useLocalSearchParams<Params>();
-  if (!isStep(String(step))) return <Redirect href="/" />;
-  return <Question step={step as Step} params={params} traits={traits} />;
+  const stepName = Array.isArray(step) ? step[0] : step;
+  if (!isStep(stepName)) return <Redirect href="/" />;
+  return <Question step={stepName} params={params} traits={traits} />;
 }
 
 type QuestionProps = { step: Step; params: Params; traits: SpeciesTraits[] };

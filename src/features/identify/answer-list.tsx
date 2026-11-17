@@ -2,7 +2,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import type { Language } from '@/shared/i18n/language';
 import type { MessageKey, Translate } from '@/shared/i18n/translate';
-import { radius, size, space } from '@/shared/theme/tokens';
+import { borderWidth, radius, size, space } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
 
@@ -22,7 +22,13 @@ export function AnswerOption({
       accessibilityState={{ checked: selected }}
       aria-checked={selected}
       onPress={onPress}
-      style={[styles.card, { borderColor: colors.primary, borderWidth: selected ? 3 : 1 }]}
+      style={[
+        styles.card,
+        {
+          borderColor: colors.primary,
+          borderWidth: selected ? borderWidth.thick : borderWidth.thin,
+        },
+      ]}
     >
       <Text style={[typeStyle('body', language), { color: colors.text }]}>
         {selected ? <Text aria-hidden>{'✓ '}</Text> : null}

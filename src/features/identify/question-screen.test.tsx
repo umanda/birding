@@ -8,7 +8,7 @@ import { createMemoryStore } from '@/test-utils/memory-store';
 import type { SpeciesTraits } from '@/shared/data/traits';
 
 import { QuestionScreen } from './question-screen';
-import { FIXTURE_TRAITS } from './test-traits';
+import { FIXTURE_TRAITS } from './test-traits.fixture';
 
 jest.mock('expo-localization', () => ({ getLocales: () => [{ languageCode: 'en' }] }));
 
@@ -133,6 +133,7 @@ describe('QuestionScreen', () => {
     await user.press(await screen.findByRole('radio', { name: 'Forest' }));
     await user.press(screen.getByRole('button', { name: 'Back' }));
     await advance();
+    expect(mockReplace).toHaveBeenCalledTimes(1); // Back only, never the advance
     expect(screen).toHavePathname('/identify/zone');
   });
 
@@ -141,6 +142,8 @@ describe('QuestionScreen', () => {
     await user.press(await screen.findByRole('radio', { name: /^Montane/ }));
     await user.press(screen.getByText('See 1 match'));
     await advance();
+    expect(mockReplace).not.toHaveBeenCalled();
+    expect(mockPush).toHaveBeenCalledTimes(1);
     expect(screen).toHavePathname('/identify/results');
   });
 
