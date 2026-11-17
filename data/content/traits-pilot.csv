@@ -1,0 +1,34 @@
+species_id,english_name,reason
+slb-gallus-lafayettii,Sri Lanka Junglefowl,photo pilot; endemic; ground bird of forest and scrub; marked dimorphism (XXL/XXXL male vs XL female)
+slb-urocissa-ornata,Sri Lanka Blue Magpie,photo pilot; endemic; wet-zone and montane forest; blue
+slb-actitis-hypoleucos,Common Sandpiper,photo pilot; commonest migrant wader inland and on coasts; month filter test
+slb-tachyspiza-badia,Shikra,photo pilot; commonest garden raptor; dimorphic; distinct juvenile
+slb-ardeola-grayii,Indian Pond-heron,photo pilot; abundant in paddies and urban wetlands; breeding vs non-breeding; XXL size reference
+slb-eudynamys-scolopaceus,Asian Koel,photo pilot; familiar town call; marked dimorphism
+slb-terpsiphone-paradisi,Indian Paradise-flycatcher,photo pilot; R/M; dimorphic with white morph male
+slb-cinnyris-asiaticus,Purple Sunbird,photo pilot; dry-zone garden bird; eclipse male; XS size reference
+slb-corvus-splendens,House Crow,photo pilot; ubiquitous town bird; XL size reference
+slb-acridotheres-tristis,Common Myna,photo pilot; ubiquitous town bird; L size reference
+slb-ocyceros-gingalensis,Sri Lanka Grey Hornbill,photo pilot; endemic; lowland forest and gardens
+slb-chrysocolaptes-stricklandi,Sri Lanka Crimson-backed Flameback,photo pilot; endemic; forest woodpecker lowland to montane
+slb-pavo-cristatus,Indian Peafowl,photo pilot; dry-zone parks; XXXL size reference; marked dimorphism
+slb-spatula-querquedula,Garganey,photo pilot; commonest migrant duck; swimming; eclipse male
+slb-pluvialis-fulva,Pacific Golden Plover,photo pilot; common coastal migrant; breeding vs non-breeding
+slb-haliastur-indus,Brahminy Kite,photo pilot; conspicuous raptor of coasts towns and tanks; aerial
+slb-copsychus-saularis,Oriental Magpie-robin,photo pilot; very common garden bird in all zones; dimorphic
+slb-sternula-albifrons,Little Tern,photo pilot; common coastal tern; seasonal plumage
+slb-egretta-gularis,Western Reef-Heron,photo pilot; coastal migrant; colour morphs; white egret confusion group
+slb-oriolus-xanthornus,Black-hooded Oriole,photo pilot; bright yellow garden bird; distinct juvenile
+slb-pycnonotus-cafer,Red-vented Bulbul,very common garden bird; M size reference in the ID flow
+slb-halcyon-smyrnensis,White-throated Kingfisher,very common; perches on wires; away from water too
+slb-spilopelia-chinensis,Spotted Dove,very common garden and roadside dove; only pink in the pilot
+slb-psittacula-krameri,Rose-ringed Parakeet,very common green bird of towns and paddy edges
+slb-ardea-coromanda,Eastern Cattle Egret,very common white egret of fields and livestock; seasonal plumage
+slb-vanellus-indicus,Red-wattled Lapwing,very common noisy ground bird of open country and tanks
+slb-amaurornis-phoenicurus,White-breasted Waterhen,very common rail of paddies drains and urban marshes
+slb-leptocoma-zeylonica,Purple-rumped Sunbird,commonest sunbird in wet-zone gardens; pairs with Purple Sunbird
+slb-dicrurus-macrocercus,Black Drongo,common perched-open bird of open country; all-black
+slb-hirundo-rustica,Barn Swallow,common migrant; aerial; month filter test
+slb-microcarbo-niger,Little Cormorant,commonest cormorant on tanks and urban ponds; swimming
+slb-argya-affinis,Yellow-billed Babbler,very common noisy ground-feeding garden flock bird
+slb-zosterops-ceylonensis,Sri Lanka White-eye,endemic; commonest small bird in montane gardens (Nuwara Eliya; Horton Plains)
