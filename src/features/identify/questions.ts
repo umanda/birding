@@ -3,9 +3,11 @@ import {
   BEHAVIOURS,
   COLOURS,
   HABITATS,
+  MAX_COLOURS,
   SIZE_CLASSES,
   ZONES,
 } from '@/shared/data/traits-vocabulary';
+import type { Colour } from '@/shared/data/traits-vocabulary';
 
 import { compact } from './answers-params';
 import { isMatch, rank } from './rank';
@@ -44,15 +46,16 @@ export function neighbour(step: Step, offset: -1 | 1): Step | undefined {
   return STEPS[STEPS.indexOf(step) + offset];
 }
 
-// `value` comes from STEP_OPTIONS[step]; undefined is "Not sure" and clears the answer.
+// `value` comes from STEP_OPTIONS[step]; undefined is "Not sure" and clears the answer. The colour
+// question sets its list with toggleColour instead, so only Not sure reaches here for it.
 export function withAnswer(answers: Answers, step: Step, value: string | undefined): Answers {
-  const answer = step === 'colour' && value ? [value] : value;
-  return compact({ ...answers, [ANSWER_KEY[step]]: answer });
+  return compact({ ...answers, [ANSWER_KEY[step]]: value });
 }
 
-/** The one chosen option of a question; for colour, the first colour. */
-export function chosenValue(answers: Answers, step: Step): string | undefined {
-  return step === 'colour' ? answers.colours?.[0] : answers[step];
+/** Adds the colour, or removes it when already chosen; a colour past the limit is ignored. */
+export function toggleColour(colours: readonly Colour[], colour: Colour): Colour[] {
+  if (colours.includes(colour)) return colours.filter((chosen) => chosen !== colour);
+  return colours.length < MAX_COLOURS ? [...colours, colour] : [...colours];
 }
 
 export function countMatches(traits: SpeciesTraits[], answers: Answers): number {

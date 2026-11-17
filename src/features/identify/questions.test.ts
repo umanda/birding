@@ -2,12 +2,12 @@ import { MESSAGES } from '@/shared/i18n/translate';
 
 import { FIXTURE_TRAITS } from './test-traits.fixture';
 import {
-  chosenValue,
   countMatches,
   isStep,
   neighbour,
   questionStaticParams,
   STEP_OPTIONS,
+  toggleColour,
   withAnswer,
 } from './questions';
 
@@ -31,12 +31,18 @@ describe('withAnswer', () => {
   });
 });
 
-describe('single-choice colour and behaviour answers', () => {
-  it('stores a colour as a one-item list and Not sure clears it', () => {
-    const answered = withAnswer({ month: 5 }, 'colour', 'red');
-    expect(answered.colours).toEqual(['red']);
-    expect(chosenValue(answered, 'colour')).toBe('red');
-    expect(withAnswer(answered, 'colour', undefined).colours).toBeUndefined();
+describe('colour and behaviour answers', () => {
+  it('Not sure clears the chosen colours', () => {
+    expect(withAnswer({ colours: ['red'] }, 'colour', undefined).colours).toBeUndefined();
+  });
+
+  it('toggles a colour on and off', () => {
+    expect(toggleColour(['red'], 'blue')).toEqual(['red', 'blue']);
+    expect(toggleColour(['red', 'blue'], 'red')).toEqual(['blue']);
+  });
+
+  it('ignores a fourth colour', () => {
+    expect(toggleColour(['red', 'blue', 'pink'], 'green')).toEqual(['red', 'blue', 'pink']);
   });
 
   it('stores a behaviour', () => {
