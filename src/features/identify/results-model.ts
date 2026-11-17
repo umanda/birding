@@ -1,12 +1,13 @@
 import type { MessageKey, Translate } from '@/shared/i18n/translate';
 
 import { compact } from './answers-params';
-import { STEPS } from './questions';
+import { ANSWER_KEY, STEPS } from './questions';
 import type { Step } from './questions';
 import { isMatch } from './rank';
 import type { Answers, Flag, RankedSpecies, Reason, ReasonField, ReasonFit } from './types';
 
 const CLOSEST_COUNT = 5;
+const COLOUR_SEPARATOR = ', ';
 
 const FIELD_KEY: Record<ReasonField, MessageKey> = {
   zone: 'identify.field.zone',
@@ -45,7 +46,7 @@ export const flagLabels = (flags: Flag[], t: Translate): string[] =>
 
 export type Chip = { field: keyof Answers; label: string };
 
-// In question order, so the last chip is the last answer given.
+// In step order, month first, so the last chip is the one "Remove last answer" drops.
 export function answerChips(answers: Answers, t: Translate): Chip[] {
   const chips: Chip[] = [];
   if (answers.month)
@@ -56,17 +57,27 @@ export function answerChips(answers: Answers, t: Translate): Chip[] {
   }
   if (answers.size)
     chips.push({ field: 'size', label: t('identify.chip.size', { size: answers.size }) });
+  if (answers.colours?.length) {
+    const names = answers.colours.map((colour) => t(`identify.colour.${colour}`));
+    chips.push({ field: 'colours', label: names.join(COLOUR_SEPARATOR) });
+  }
+  if (answers.behaviour) {
+    chips.push({ field: 'behaviour', label: t(`identify.behaviour.${answers.behaviour}`) });
+  }
   return chips;
 }
 
 export const withoutAnswer = (answers: Answers, field: keyof Answers): Answers =>
   compact({ ...answers, [field]: undefined });
 
+const isUnanswered = (answers: Answers, step: Step): boolean =>
+  answers[ANSWER_KEY[step]] === undefined;
+
 export const firstUnanswered = (answers: Answers): Step | undefined =>
-  STEPS.find((step) => answers[step] === undefined);
+  STEPS.find((step) => isUnanswered(answers, step));
 
 export const unansweredCount = (answers: Answers): number =>
-  STEPS.filter((step) => answers[step] === undefined).length;
+  STEPS.filter((step) => isUnanswered(answers, step)).length;
 
 export type ResultsView = { matches: RankedSpecies[]; closest: RankedSpecies[] };
 

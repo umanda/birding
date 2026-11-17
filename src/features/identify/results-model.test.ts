@@ -1,5 +1,6 @@
 import type { Translate } from '@/shared/i18n/translate';
 
+import { serializeAnswers } from './answers-params';
 import {
   answerChips,
   firstUnanswered,
@@ -9,7 +10,7 @@ import {
   whyParts,
   withoutAnswer,
 } from './results-model';
-import type { RankedSpecies } from './types';
+import type { Answers, RankedSpecies } from './types';
 
 const t: Translate = (key, vars) => (vars ? `${key} ${JSON.stringify(vars)}` : key);
 const ranked = (id: string, flags: RankedSpecies['flags'] = []): RankedSpecies => ({
@@ -36,11 +37,13 @@ describe('whyParts', () => {
   });
 });
 
-it('turns flags into their labels', () => {
-  expect(flagLabels(['not-usually-here', 'data-incomplete'], t)).toEqual([
-    'identify.flag.not-usually-here',
-    'identify.flag.data-incomplete',
-  ]);
+describe('flagLabels', () => {
+  it('turns flags into their labels', () => {
+    expect(flagLabels(['not-usually-here', 'data-incomplete'], t)).toEqual([
+      'identify.flag.not-usually-here',
+      'identify.flag.data-incomplete',
+    ]);
+  });
 });
 
 describe('answers', () => {
@@ -55,10 +58,32 @@ describe('answers', () => {
     expect(withoutAnswer(answers, 'zone')).toEqual({ month: 7, size: 'M' });
   });
 
+  it('removing the month leaves the "any month" choice in the params', () => {
+    expect(serializeAnswers(withoutAnswer(answers, 'month')).month).toBe('any');
+  });
+
+  it('adds a chip for colours (one chip, all names) and behaviour', () => {
+    const chips = answerChips({ colours: ['red', 'blue'], behaviour: 'aerial' }, t);
+    expect(chips.map((c) => c.field)).toEqual(['colours', 'behaviour']);
+    expect(chips[0]?.label).toBe('identify.colour.red, identify.colour.blue');
+    expect(chips[1]?.label).toBe('identify.behaviour.aerial');
+  });
+
+  it('removes the whole colours answer with its chip', () => {
+    expect(withoutAnswer({ ...answers, colours: ['red'] }, 'colours')).toEqual(answers);
+  });
+
   it('finds the first unanswered step and how many are left', () => {
     expect(firstUnanswered(answers)).toBe('habitat');
-    expect(unansweredCount(answers)).toBe(1);
-    expect(firstUnanswered({ ...answers, habitat: 'forest' })).toBeUndefined();
+    expect(unansweredCount(answers)).toBe(3);
+    const complete: Answers = {
+      ...answers,
+      habitat: 'forest',
+      colours: ['red'],
+      behaviour: 'aerial',
+    };
+    expect(firstUnanswered(complete)).toBeUndefined();
+    expect(firstUnanswered({ ...answers, habitat: 'forest' })).toBe('colour');
   });
 });
 
