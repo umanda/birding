@@ -12,6 +12,24 @@ import { FIXTURE_TRAITS } from './test-traits';
 
 jest.mock('expo-localization', () => ({ getLocales: () => [{ languageCode: 'en' }] }));
 
+// Wraps the real router so tests can see whether the screen navigated.
+const mockReplace = jest.fn();
+const mockPush = jest.fn();
+jest.mock('expo-router', () => {
+  const actual = jest.requireActual('expo-router');
+  return {
+    ...actual,
+    useRouter: () => {
+      const router = actual.useRouter();
+      return {
+        ...router,
+        replace: (...args: unknown[]) => (mockReplace(...args), router.replace(...args)),
+        push: (...args: unknown[]) => (mockPush(...args), router.push(...args)),
+      };
+    },
+  };
+});
+
 const ADVANCE_MS = 300;
 
 function Root(): React.JSX.Element {
@@ -42,8 +60,15 @@ const advance = (): Promise<void> =>
     jest.advanceTimersByTime(ADVANCE_MS);
   });
 
-beforeEach(() => jest.useFakeTimers());
-afterEach(() => jest.useRealTimers());
+beforeEach(() => {
+  mockReplace.mockClear();
+  mockPush.mockClear();
+  jest.useFakeTimers();
+});
+afterEach(() => {
+  jest.clearAllTimers();
+  jest.useRealTimers();
+});
 
 describe('QuestionScreen', () => {
   it('shows the question, its answers, Not sure and a live match count', async () => {
@@ -79,6 +104,15 @@ describe('QuestionScreen', () => {
     await advance();
     expect(screen).toHavePathname('/identify/results');
     expect(screen).toHaveSearchParams({ month: '5', size: 'S' });
+  });
+
+  it('does not navigate after the screen is gone', async () => {
+    const user = await open('/identify/zone?month=5');
+    await user.press(await screen.findByRole('radio', { name: /^Montane/ }));
+    await screen.unmount();
+    await advance();
+    expect(mockReplace).not.toHaveBeenCalled();
+    expect(mockPush).not.toHaveBeenCalled();
   });
 
   it('Back shows the previous question with the earlier answer selected', async () => {
@@ -118,15 +152,5 @@ describe('QuestionScreen', () => {
   it('sends an unknown step back home', async () => {
     await open('/identify/bogus');
     expect(screen).toHavePathname('/');
-  });
-
-  it('does not move after the screen is gone', async () => {
-    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
-    const { unmount } = await renderRouter(routesFor(FIXTURE_TRAITS), {
-      initialUrl: '/identify/zone?month=5',
-    });
-    await user.press(await screen.findByRole('radio', { name: /^Montane/ }));
-    unmount();
-    await expect(advance()).resolves.toBeUndefined();
   });
 });
