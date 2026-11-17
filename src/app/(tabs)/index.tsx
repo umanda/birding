@@ -1,1 +1,1 @@
-export { ComingSoonScreen as default } from '@/features/shell';
+export { IdentifyHome as default } from '@/features/identify';

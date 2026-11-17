@@ -53,3 +53,5 @@ export function serializeAnswers(answers: Answers): Record<string, string> {
   if (answers.size) params.size = answers.size;
   return params;
 }
+
+export const currentMonth = (): Month => MONTHS[new Date().getMonth()] ?? 1;
