@@ -29,10 +29,12 @@ function pick<T extends string>(
   return allowed.find((candidate) => candidate === value);
 }
 
+const isColour = (name: string): name is Colour => COLOURS.some((colour) => colour === name);
+
 // "red,blue" becomes ['red', 'blue']. Unknown names and repeats are dropped; the first three chosen are kept.
 function parseColours(raw: string | string[] | undefined): Colour[] | undefined {
   const names = new Set(firstValue(raw)?.split(COLOUR_SEPARATOR));
-  const colours = [...names].flatMap((name) => COLOURS.filter((colour) => colour === name));
+  const colours = [...names].filter(isColour);
   return colours.length > 0 ? colours.slice(0, MAX_COLOURS) : undefined;
 }
 
