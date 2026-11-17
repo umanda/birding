@@ -54,6 +54,7 @@ export type TypeName = keyof typeof typography;
 export const space = [0, 4, 8, 12, 16, 24, 32, 48] as const;
 export const SCREEN_PADDING = 16;
 
+export const borderWidth = { thin: 1, thick: 3 } as const; // thick marks a selected choice
 export const radius = { sm: 6, md: 12, lg: 20, pill: 999 } as const;
 
 export const size = {

@@ -25,6 +25,12 @@ const routes: RouteCase[] = [
     expectRendered: (page) => expect(page.getByRole('tab', { name: 'Search' })).toBeVisible(),
   },
   {
+    name: 'identify question',
+    path: '/identify/zone',
+    expectRendered: (page) =>
+      expect(page.getByRole('heading', { name: 'Where in Sri Lanka?' })).toBeVisible(),
+  },
+  {
     name: 'search',
     path: '/search',
     expectRendered: (page) => expect(page.getByRole('textbox')).toBeVisible(),

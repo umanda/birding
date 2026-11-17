@@ -1,6 +1,6 @@
 import { MESSAGES } from '@/shared/i18n/translate';
 
-import { FIXTURE_TRAITS } from './test-traits';
+import { FIXTURE_TRAITS } from './test-traits.fixture';
 import {
   countMatches,
   isStep,
