@@ -3,10 +3,14 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { readSheet } from 'read-excel-file/node';
 import { buildSpeciesText } from './species-text';
+import { validateTraits } from './traits';
+import { buildTraits } from './traits-build';
 
 const SOURCE_FILE = 'data/source/Sri_Lanka_Birds_Mobile_App_Database_v1.xlsx';
 const OUTPUT_FILE = 'content/content.json';
 const TEXT_OUTPUT_FILE = 'content/species-text.json';
+const TRAITS_OUTPUT_FILE = 'content/traits.json';
+const TRAITS_CSV = 'data/content/traits.csv';
 const PLACEHOLDERS_FILE = 'data/content/text-placeholders.csv';
 const OVERRIDES_FILE = 'data/content/text-lang-overrides.csv';
 
@@ -100,9 +104,13 @@ async function main(): Promise<void> {
       overridesCsv: readFileSync(OVERRIDES_FILE, 'utf8'),
     },
   );
+  const speciesIds = new Set(species.map((r) => String(r.species_id)));
+  const traits = validateTraits(readFileSync(TRAITS_CSV, 'utf8'), speciesIds);
+  if (traits.errors.length > 0) throw new Error(traits.errors.join('\n'));
   mkdirSync(path.dirname(OUTPUT_FILE), { recursive: true });
   writeJson(OUTPUT_FILE, content);
   writeJson(TEXT_OUTPUT_FILE, text);
+  writeJson(TRAITS_OUTPUT_FILE, buildTraits(traits.rows));
 }
 
 if (require.main === module) {

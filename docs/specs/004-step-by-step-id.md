@@ -91,13 +91,19 @@ Facts (workbook v1.0 and repo):
 - 20 species already have reviewed photos (`data/content/media/pilot-species.csv`, spec 003). `SpeciesRow` has no thumbnail today.
 
 Build changes (ADR 0002, 0006):
-- Input `data/content/traits.csv`, one value per row: `species_id, field, value, plumage_key, prominence, status,
-  primary, source, confidence, review_status, reviewed_by, reviewed_at, note`. Fields and vocabularies are as in
-  02 §3, limited in M5 to: `length_cm_min/max`, `colour`, `zone`, `habitat`, `where_seen`, `month_presence`, `dimorphism`.
-- `tools/content` validates the rows and writes `content/traits.json`, which is separate from `content.json` and the
-  workbook. The validator fails on: unknown species_id, a value outside the vocabulary, a `month_presence` count other
-  than 12 for a reviewed species, a missing `source`/`confidence`, or `size_class` entered by hand (it is derived from length).
-  `proposed` rows stay out of the output and are counted in the validation report.
+- Input `data/content/traits.csv`, one value per row: `species_id,trait,value,plumage_key,source,confidence,review_status,note`.
+  `trait` is `zone`, `habitat`, `size`, `colour`, `behaviour`, `month` or `commonness`. Vocabularies are in
+  `src/shared/data/traits-vocabulary.ts`. `size` is one row per class (XS to XXXL) that the length range touches, not
+  centimetres. `behaviour` is the field the design doc calls `where_seen`. `month` is `all` or one row per month 1 to 12.
+  `commonness` is `<zone>:<level>`. `plumage_key` (colour and size only) is blank, a plumage name or `morph_<name>`.
+  `review_status` is `proposed`, `reviewed` or `rejected`.
+- `tools/content` validates the rows and writes `content/traits.json` (`schema_version`, `species` keyed by id, each a
+  `SpeciesTraits`), separate from `content.json` and the workbook. The validator fails on any row, whatever its status:
+  unknown species_id or trait, a value outside the vocabulary, a blank `source`, a bad `confidence`/`review_status`/
+  `plumage_key`, `all` mixed with months 1 to 12, more than 3 colours for one plumage, proposed and reviewed rows mixed in one
+  month list or one plumage's colours or sizes, a blank and a named `plumage_key` mixed, a reviewed commonness without a
+  reviewed zone (proposed commonness needs any non-rejected zone), or a duplicate row (rejected rows are skipped). Months expand to 12 `present`/`absent` entries. A trait with no reviewed rows is
+  left out of the species entry (unknown). Only `reviewed` rows are written. The report counts rows by `review_status`.
 - The ranking engine is `src/features/identify/rank.ts` (pure, no I/O). Traits are read through `src/shared/data`.
 
 Missing data and who supplies it:

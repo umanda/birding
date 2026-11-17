@@ -3,6 +3,7 @@ import { gzipSync } from 'node:zlib';
 import { ContentSchema } from '../../src/shared/data/content-schema';
 import { SpeciesTextFileSchema } from '../../src/shared/data/species-text-schema';
 import type { Content } from '../../src/shared/data/content-schema';
+import { validateTraits } from './traits';
 import { validateMediaRegister } from './media/validate-media';
 
 export const EXPECTED_SPECIES = 295;
@@ -11,6 +12,7 @@ export const EXPECTED_SOURCES = 347;
 const FACTSHEET_HOST = 'datazone.birdlife.org';
 const SCHEME = /\b([A-Za-z][A-Za-z0-9+.-]*):\/\//g;
 const CONTENT_FILE = 'content/content.json';
+const TRAITS_CSV = 'data/content/traits.csv';
 const TEXT_FILE = 'content/species-text.json';
 export const TEXT_MAX_GZIP_BYTES = 250 * 1024; // lazy-loaded, but still precached (spec 003)
 
@@ -198,6 +200,10 @@ function main(): void {
     process.stdout.write(
       `media register: ${media.noncommercialCount} CC-BY-NC rows (replace before launch)\n`,
     );
+    const traits = validateTraits(readFileSync(TRAITS_CSV, 'utf8'), new Set(ids));
+    errors.push(...traits.errors);
+    const byStatus = Object.entries(traits.counts).map(([status, n]) => `${n} ${status}`);
+    process.stdout.write(`traits: ${byStatus.join(', ')} rows\n`);
   }
   const gzipBytes = gzipSync(readFileSync(TEXT_FILE)).length;
   errors.push(...checkTextSize(gzipBytes));
