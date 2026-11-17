@@ -1,5 +1,5 @@
 # 004 — Step-by-step ID (M5)
-Status: Approved (owner, 2026-11-16)
+Status: Done (2026-11-18, PRs #62–#83)
 
 ## Problem
 Nimali (Sinhala-first beginner), Emma (tourist) and Kasun (student) see a bird they cannot name. They do not know
