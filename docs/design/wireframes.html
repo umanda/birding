@@ -71,13 +71,24 @@
   .months span{padding:2px 0;border-radius:3px;background:var(--box)} .months span.y{background:#555;color:#fff}
   .banner{background:#333;color:#fff;font-size:13px;padding:6px 12px}
   h3{margin:4px 0 0;font-size:15px}
+  /* M5 step-by-step ID additions */
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .ans.sz{min-height:84px;gap:2px}
+  .ans small{font-size:12px;color:var(--muted);font-weight:400}
+  .ans.col{min-height:60px;gap:4px;font-size:13px;padding:4px}
+  .sw{width:28px;height:28px;border-radius:6px;border:1.5px solid var(--line)}
+  .why{font-size:13px;color:var(--text);margin-top:2px}
+  .flag{font-size:13px;color:var(--text);font-weight:600}
+  .hint{border:1.5px dashed var(--text);border-radius:8px;padding:6px 10px;font-size:13px}
+  .fig-note{max-width:360px;color:var(--muted);font-size:13px;margin:8px 0 0}
   .note{max-width:900px;color:var(--muted);font-size:14px;margin-top:16px}
 </style>
 </head>
 <body>
 <h1>Sri Lanka Birds — low-fidelity wireframes</h1>
 <p class="intro">Phase 1 (Discover). These are grey boxes only and are not a visual design. Each frame is 360×780. The flows, states and tokens are in <code>01-ux-flows.md</code>.
-Occurrence badges always pair colour with a symbol, a letter and a word. Every frame shows the language toggle (<span class="si">සිං</span> | EN). The sample content is in English UI mode. Photo ID is not in the MVP and appears only as a disabled "coming soon" card. There is no sign-in wall, and sign-in is offered only to back up the life list. Status values not supplied for this mock-up are shown as "[from data]" and are never invented.</p>
+Occurrence badges always pair colour with a symbol, a letter and a word. Every frame shows the language toggle (<span class="si">සිං</span> | EN). The sample content is in English UI mode. Photo ID is not in the MVP and appears only as a disabled "coming soon" card. There is no sign-in wall, and sign-in is offered only to back up the life list. Status values not supplied for this mock-up are shown as "[from data]" and are never invented.
+Frames 4a–4d (Identify) were updated for M5, spec <code>docs/specs/004-step-by-step-id.md</code>. They cover 5 questions with the month automatic, Not sure on every question, a sticky "See N matches", why lines and flags, the no-match state and the coverage footer. On the M5 Identify home (frame 1), only the Step-by-step button is in scope.</p>
 
 <div class="row">
 
@@ -151,46 +162,113 @@ Occurrence badges always pair colour with a symbol, a letter and a word. Every f
   <div class="tabbar"><div>Identify</div><div class="on">Search</div><div>Browse</div><div>Life list</div><div>Me</div></div>
 </div></figure>
 
-<!-- 4a. STEP-BY-STEP QUESTION -->
-<figure><figcaption>4a. Step-by-step ID: question 3 of 5</figcaption>
+<!-- 4a. STEP-BY-STEP QUESTION: SIZE (M5, spec 004) -->
+<figure><figcaption>4a. Step-by-step ID: Q3 of 5, size (single choice)</figcaption>
 <div class="phone">
   <div class="appbar"><div class="icon-btn">Back</div><div class="title">Size</div><div class="lang"><span class="si">සිං</span>&nbsp;|&nbsp;EN</div></div>
   <div class="content">
-    <div class="progress"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
-    <div class="chips"><div class="chip">November ✕</div><div class="chip">Wet zone ✕</div><div class="chip">Forest ✕</div></div>
-    <div style="font-size:20px;font-weight:700">How big was it?</div>
-    <div class="muted">Compare with a bird you know</div>
-    <div class="grid2">
-      <div class="ans"><div class="ph">icon</div>Sparrow-sized</div>
-      <div class="ans"><div class="ph">icon</div>Myna-sized</div>
-      <div class="ans"><div class="ph">icon</div>Crow-sized</div>
-      <div class="ans on"><div class="ph">icon</div>Junglefowl-sized ✓</div>
-      <div class="ans"><div class="ph">icon</div>Egret or bigger</div>
-      <div class="ans"><div class="ph">?</div>Not sure (skip)</div>
+    <div class="progress" aria-label="Question 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+    <div class="chips"><div class="chip">Month: November ▾</div></div>
+    <div><div style="font-size:20px;font-weight:700">How big was it?</div>
+      <div class="muted">Compare with a bird you know</div></div>
+    <div class="grid2" role="radiogroup">
+      <div class="ans sz"><div class="ph">silhouette</div>Smaller than a sparrow<small>Sunbird, white-eye · &lt;12 cm</small></div>
+      <div class="ans sz"><div class="ph">silhouette</div>Sparrow<small>about 12–17 cm</small></div>
+      <div class="ans sz"><div class="ph">silhouette</div>Bulbul<small>about 17–22 cm</small></div>
+      <div class="ans sz"><div class="ph">silhouette</div>Myna<small>about 22–30 cm</small></div>
+      <div class="ans sz"><div class="ph">silhouette</div>Crow<small>about 30–45 cm</small></div>
+      <div class="ans sz on"><div class="ph">silhouette</div>Pond-heron or Kite ✓<small>about 45–70 cm</small></div>
+      <div class="ans sz"><div class="ph">silhouette</div>Egret, Peafowl or bigger<small>over 70 cm</small></div>
+      <div class="ans sz"><div class="ph">?</div>Not sure<small>skip this question</small></div>
     </div>
   </div>
-  <div class="footer"><div class="btn">See 4 matches ▸</div></div>
+  <div class="footer"><div class="btn" aria-live="polite">See 6 matches ▸</div></div>
   <div class="tabbar"><div class="on">Identify</div><div>Search</div><div>Browse</div><div>Life list</div><div>Me</div></div>
-</div></figure>
+</div>
+<p class="fig-note">Shown after Back: the earlier answer is pre-selected (✓). Tapping a card selects it and moves on after about 300 ms. Q1 zone (6 chips with example places), Q2 habitat (5) and Q5 doing (6) use the same card grid, with Not sure in the last cell. Sinhala labels wrap inside the card, and the card grows taller.</p>
+</figure>
 
-<!-- 4b. STEP-BY-STEP RESULTS -->
-<figure><figcaption>4b. Step-by-step ID: results</figcaption>
+<!-- 4b. STEP-BY-STEP QUESTION: COLOURS (M5, spec 004) -->
+<figure><figcaption>4b. Step-by-step ID: Q4 of 5, colours (up to 3)</figcaption>
 <div class="phone">
-  <div class="appbar"><div class="icon-btn">Back</div><div class="title">4 matches</div><div class="lang"><span class="si">සිං</span>&nbsp;|&nbsp;EN</div></div>
+  <div class="appbar"><div class="icon-btn">Back</div><div class="title">Colours</div><div class="lang"><span class="si">සිං</span>&nbsp;|&nbsp;EN</div></div>
   <div class="content">
-    <div class="chips"><div class="chip">November ✕</div><div class="chip">Wet zone ✕</div><div class="chip">Forest ✕</div><div class="chip">Junglefowl-sized ✕</div></div>
-    <div class="muted">Best matches first. Tap ✕ to widen.</div>
-    <div class="srow"><div class="ph">Thumb</div><div><div class="name">Sri Lanka Junglefowl</div>
-      <div class="si">වලි කුකුළා</div><div class="sci">Gallus lafayettii</div><span class="badge E">● E Endemic</span></div></div>
-    <div class="srow"><div class="ph">Thumb</div><div><div class="name">Sri Lanka Spurfowl</div>
-      <div class="si">වනකුකුළා</div><div class="sci">Galloperdix bicalcarata</div><span class="badge E">● E Endemic</span></div></div>
-    <div class="srow"><div class="ph">Thumb</div><div><div class="name">Painted Francolin</div>
-      <div class="si">පනන්කුකුළා</div><div class="sci">Francolinus pictus</div><span class="badge R">▲ R Resident</span></div></div>
-    <div class="srow"><div class="ph">Thumb</div><div><div class="name">(4th match)</div><div class="muted">…</div></div></div>
+    <div class="progress" aria-label="Question 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+    <div class="chips"><div class="chip">Month: November ▾</div></div>
+    <div><div style="font-size:20px;font-weight:700">Main colours?</div>
+      <div class="muted">Pick up to 3 · <b style="color:var(--text)">3 of 3 chosen</b></div></div>
+    <div class="grid3" role="group" aria-label="Main colours, up to 3">
+      <div class="ans col on"><div class="sw" style="background:#1A1A1A"></div>Black ✓</div>
+      <div class="ans col on"><div class="sw" style="background:#FFFFFF"></div>White ✓</div>
+      <div class="ans col"><div class="sw" style="background:#9A9A9A"></div>Grey</div>
+      <div class="ans col"><div class="sw" style="background:#7A5230"></div>Brown</div>
+      <div class="ans col on"><div class="sw" style="background:#A0461E"></div>Rufous / chestnut ✓</div>
+      <div class="ans col"><div class="sw" style="background:#F08C1E"></div>Orange</div>
+      <div class="ans col"><div class="sw" style="background:#F2D21B"></div>Yellow</div>
+      <div class="ans col"><div class="sw" style="background:#3C8D3C"></div>Green</div>
+      <div class="ans col"><div class="sw" style="background:#2F6FD0"></div>Blue</div>
+      <div class="ans col"><div class="sw" style="background:linear-gradient(135deg,#5B2D82,#2E6E7A)"></div>Purple / glossy</div>
+      <div class="ans col"><div class="sw" style="background:#C62828"></div>Red</div>
+      <div class="ans col"><div class="sw" style="background:#F28DB2"></div>Pink</div>
+    </div>
+    <div class="hint" aria-live="polite">Up to 3 colours. Untick one to change.</div>
+    <div class="grid3"><div class="ans col" style="grid-column:span 3;min-height:48px;flex-direction:row">? Not sure (skip)</div></div>
   </div>
-  <div class="footer"><div class="btn sec">Answer more questions (2 left)</div></div>
+  <div class="footer" style="display:flex;gap:8px"><div class="btn sec" style="flex:0 0 104px">Next ▸</div><div class="btn" style="flex:1" aria-live="polite">See 4 matches ▸</div></div>
   <div class="tabbar"><div class="on">Identify</div><div>Search</div><div>Browse</div><div>Life list</div><div>Me</div></div>
-</div></figure>
+</div>
+<p class="fig-note">State shown: the user tapped a 4th colour (Grey). It was not added and the hint appeared. Every swatch has a visible name, and selection is shown by ✓ plus a heavy border, never by colour alone. Cells are checkboxes, at least 48 dp. At 200% text the grid reflows to 1 column with the swatch beside the name.</p>
+</figure>
+
+<!-- 4c. STEP-BY-STEP RESULTS (M5, spec 004) -->
+<figure><figcaption>4c. Step-by-step ID: results</figcaption>
+<div class="phone">
+  <div class="appbar"><div class="icon-btn">Back</div><div class="title">6 matches</div><div class="lang"><span class="si">සිං</span>&nbsp;|&nbsp;EN</div></div>
+  <div class="content">
+    <div class="chips"><div class="chip">Month: Nov ▾</div><div class="chip">Wet lowlands ✕</div><div class="chip">Forest ✕</div><div class="chip">Pond-heron/Kite size ✕</div><div class="chip">Rufous ✕</div><div class="chip">Black ✕</div></div>
+    <div class="srow"><div class="ph">Thumb</div><div><div class="name">Sri Lanka Junglefowl</div>
+      <div class="si">වලි කුකුළා</div><div class="sci">Gallus lafayettii</div><span class="badge E">● E Endemic</span>
+      <div class="why">Zone ✓ · Habitat ✓ · Size ✓ · Colours ✓</div></div></div>
+    <div class="srow"><div class="ph">Thumb</div><div><div class="name">Sri Lanka Spurfowl</div>
+      <div class="si">වනකුකුළා</div><div class="sci">Galloperdix bicalcarata</div><span class="badge E">● E Endemic</span>
+      <div class="why">Zone ✓ · Habitat ✓ · Size ≈ · Colours ✓</div>
+      <div class="flag">ⓘ Data incomplete</div></div></div>
+    <div class="srow"><div class="ph">No photo yet</div><div><div class="name">Painted Francolin</div>
+      <div class="si">පනන්කුකුළා</div><div class="sci">Francolinus pictus</div><span class="badge R">▲ R Resident</span>
+      <div class="why">Habitat ✓ · Size ≈ · Colours ✓</div>
+      <div class="flag">⚑ Not usually in Wet lowlands</div></div></div>
+  </div>
+  <div class="footer"><div class="btn sec">Answer more questions (1 left)</div></div>
+  <div class="tabbar"><div class="on">Identify</div><div>Search</div><div>Browse</div><div>Life list</div><div>Me</div></div>
+</div>
+<p class="fig-note">The why lines and flags are illustrative only, not reviewed data. The list scrolls and ends with: "This guide can identify 30 of 295 species so far. Not here? <u>Browse</u> · <u>Search</u>". ✕ on a chip removes that answer and re-ranks at once. The month chip opens the month sheet. The third row shows the offline "No photo yet" thumbnail. All skipped: the title reads "30 matches" and the chip row shows only the month plus "No answers yet: add some to narrow the list".</p>
+</figure>
+
+<!-- 4d. STEP-BY-STEP NO CLOSE MATCHES (M5, spec 004) -->
+<figure><figcaption>4d. Step-by-step ID: no close matches</figcaption>
+<div class="phone">
+  <div class="appbar"><div class="icon-btn">Back</div><div class="title">No close matches</div><div class="lang"><span class="si">සිං</span>&nbsp;|&nbsp;EN</div></div>
+  <div class="content">
+    <div class="chips"><div class="chip">Month: Nov ▾</div><div class="chip">Coast ✕</div><div class="chip">Sparrow size ✕</div><div class="chip">Pink ✕</div><div class="chip">Swimming ✕</div></div>
+    <div><b>None of the birds in this guide fits all your answers.</b>
+      <div class="muted">Remove an answer, or see the closest birds below.</div></div>
+    <h3>5 closest birds</h3>
+    <div class="srow"><div class="ph">Thumb</div><div><div class="name">[Closest pilot species 1]</div>
+      <div class="muted">[other-language name] · <i>[scientific]</i></div><span class="badge iucn">Badge [from data]</span>
+      <div class="why">Habitat ✓ · Size ✗ · Colours ✓</div></div></div>
+    <div class="srow"><div class="ph">Thumb</div><div><div class="name">[Closest pilot species 2]</div>
+      <div class="muted">[other-language name] · <i>[scientific]</i></div><span class="badge iucn">Badge [from data]</span>
+      <div class="why">Habitat ✓ · Size ≈ · Colours ✗</div></div></div>
+    <div class="ph" style="min-height:28px">Rows 3–5 (scroll)</div>
+    <div class="card" style="background:var(--surface)"><b>Not in this guide yet?</b>
+      <div class="muted" style="margin:2px 0 8px">This guide can identify 30 of 295 species so far.</div>
+      <div style="display:flex;gap:8px"><div class="btn sec" style="flex:1;min-height:48px;font-size:15px">Browse</div><div class="btn sec" style="flex:1;min-height:48px;font-size:15px">Search</div></div></div>
+  </div>
+  <div class="footer"><div class="btn">Remove last answer (Swimming)</div></div>
+  <div class="tabbar"><div class="on">Identify</div><div>Search</div><div>Browse</div><div>Life list</div><div>Me</div></div>
+</div>
+<p class="fig-note">On a question screen in this state, the footer reads "No close matches ▸". Removing the last answer returns to 4c if any species then matches. Error state (trait data failed to load): "Couldn't load the ID questions." with Retry, plus Browse and Search links.</p>
+</figure>
 
 <!-- 5. ADD SIGHTING (signed out, after first save) -->
 <figure><figcaption>5. Add sighting, saved signed-out (Photo ID moved to next stage)</figcaption>
@@ -253,6 +331,6 @@ Occurrence badges always pair colour with a symbol, a letter and a word. Every f
 </div></figure>
 
 </div>
-<p class="note">Notes: the frames show no colour other than the badges and the primary button. The Sinhala UI string on the sign-in frame is a placeholder and needs review by a native speaker before use. Species names are taken from the brief and must be checked against the workbook. Photo credit lines are format placeholders only.</p>
+<p class="note">Notes: the frames show no colour other than the badges, the primary button and the 12 colour swatches in 4b. The swatch hues are placeholders. The final hues come with the reviewed colour glossary, and every swatch always keeps its text name. Sinhala answer labels are not drawn, because they come from the owner-reviewed glossary (spec 004, Data). The Sinhala UI string on the sign-in frame is a placeholder and needs review by a native speaker before use. Species names are taken from the brief and must be checked against the workbook. Photo credit lines are format placeholders only.</p>
 </body>
 </html>

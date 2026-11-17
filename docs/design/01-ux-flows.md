@@ -59,24 +59,69 @@ flowchart TD
 There is no sign-in step at first launch. Sign-in is first offered after the user saves their first sighting (see 2.6), and it is always available under Me > Back up & sync.
 The text, search index and thumbnails ship in the app shell. The full photo pack is optional. The language default comes from the device locale but the user always confirms it.
 
-### 2.2 Step-by-step ID (no more than 5 questions, results update live)
+### 2.2 Step-by-step ID (M5: 5 questions, month automatic, results update live)
+Spec: [`docs/specs/004-step-by-step-id.md`](../specs/004-step-by-step-id.md). Questions and choices: `docs/product/02-identification-design.md` §1.
+M5 covers a pilot of about 30 species. The Identify tab shows one large *Step-by-step ID* button. The search field, recent IDs and the Photo ID card listed in §1 are not part of M5.
+
+**Design decisions (2026-11-17):**
+- "N matches" counts species whose score passes the ranking engine's match threshold (slice 4); 0 → "No close matches".
+- Single-choice questions advance automatically after a tap (~300 ms); Back is always available and focus moves to the next question's heading. The colour question keeps an explicit Next.
+- The month sheet includes "Any month".
+- Size reference birds must be pilot species; the ornithologist confirms or swaps them.
+- Habitat, behaviour and size cards are text-only in M5 (no licensed icons or silhouettes yet).
+
 ```mermaid
 flowchart TD
-  S[Start] --> M[Month: defaults to today, auto-answered]
-  M --> Z[Region/zone: chip grid or 'Use my location' offline GPS]
-  Z --> H[Habitat: icon cards]
-  H --> SZ[Size vs familiar bird: Sparrow / Myna / Crow / Junglefowl / Egret]
-  SZ --> C[Main colours: up to 3 swatches + names]
-  C --> W[Where seen: ground / bush / canopy / water / sky]
-  W --> R[Ranked results]
-  Z & H & SZ & C -. 'See N matches' shortcut any time .-> R
-  R -- tap --> SP[Species page]
-  R -- none --> NR[No results: 'Remove last answer' / 'Skip size' / Browse plates]
+  I[Identify tab: one big 'Step-by-step ID' button] --> M
+  M[Month chip: today's month, tap to change<br/>shown on every question screen] --> Z
+  Z[Q1 Where in Sri Lanka? 6 zone chips] --> H[Q2 Habitat: 5 cards]
+  H --> SZ[Q3 How big? 7 familiar-bird cards]
+  SZ --> C[Q4 Main colours: up to 3 of 12 named swatches + Next]
+  C --> W[Q5 What was it doing? 6 cards]
+  W --> R[Results: answer chips, ranked rows, coverage footer]
+  Z & H & SZ & C & W -. 'Not sure' = skip, no effect .-> next[next question]
+  Z & H & SZ & C & W -. sticky 'See N matches' .-> R
+  R -- remove chip --> R
+  R -- tap row --> SP[Species page] -- Back: same answers and list --> R
+  R -- 'Answer more questions' --> next2[first unanswered question]
+  R -- no species scores as a match --> NR[No close matches: 5 closest,<br/>'Remove last answer', 'Not in this guide yet?' Browse / Search]
+  NR -- Remove last answer --> R
 ```
-- Each question is one screen. Answers are large tappable cards, and the user can choose *Not sure* (it skips the question and does not filter).
-- The sticky footer always shows `See 12 matches ▸`, so the user can stop early (the fastest path).
-- Back keeps earlier answers. Answers show as removable chips above the results.
-- Month and location are pre-filled, so the realistic path is 3–4 taps.
+
+**Question screens**
+- One question per screen, with a progress bar of 5 steps. The month is automatic and is not a step. The month chip (`Month: November ▾`) opens a bottom sheet with 12 month chips. Changing it updates N and keeps every answer.
+- Q1 zone: 6 chips with the zone name and 2–3 example places (02 §1), for example "Wet lowlands · Colombo, Galle". There is no map and no "Use my location" in M5 (spec decision 2).
+- Q2 habitat (5), Q3 size (7), Q5 doing (6): single choice. Each is a large answer card with an icon and a text label. Tapping a card selects it (heavy border plus ✓) and moves to the next question after about 300 ms, so the user does not need a second tap. With `prefers-reduced-motion` there is no slide.
+- Q3 size: each card names the familiar bird, not a letter class: "Smaller than a sparrow (sunbird, white-eye)", "Sparrow", "Bulbul", "Myna", "Crow", "Pond-heron or Kite", "Egret, Peafowl or bigger". The sub-line gives the length ("about 14–15 cm") for experts. Silhouettes are optional placeholders until licensed art exists.
+- Q4 colours: a 3-column grid of 12 swatches. Each swatch is a square with its **visible name below it** (black, white, grey, brown, rufous/chestnut, orange, yellow, green, blue, purple/glossy, red, pink). White and pale swatches get a 1.5 px outline. Selection shows a ✓ and a heavy border, never colour alone. A counter says "2 of 3 chosen". A 4th tap does nothing to the selection and shows an inline note "Up to 3 colours. Untick one to change." (announced politely). Because this is multi-select, the footer adds a **Next ▸** button.
+- Every question has a **Not sure** card in the last grid cell. It clears any choice on that screen and advances. It adds no points and removes none.
+- **Back** (app bar, top left) goes to the previous question with the earlier answer selected. On Q1 it returns to Identify home. Android system back does the same.
+- **Sticky footer:** `See N matches ▸` stays visible on every question (thumb zone). N updates after each answer and is announced with `aria-live="polite"`. When no species scores as a match, the footer reads `No close matches ▸` and opens the no-match state.
+- The fastest path is about 4 taps: zone, habitat, size, then *See N matches*. The full path is 5 answers plus 1 tap, which fits the 30 s target.
+
+**Results**
+- Answer chips sit at the top (month chip first). Each answer chip has ✕ to remove it (it becomes "Not sure"). The list re-ranks at once and focus stays on the chip row.
+- Each row is the shared Species row with a thumbnail. It shows the thumbnail (or "No photo yet"), the primary name in the UI language, the other-language name, the italic scientific name, the occurrence badge, and a **why line** such as "Size ✓ · Colours ✓ · Habitat ✓". A one-size-off answer shows `Size ≈`.
+- Flags are their own line, with an icon plus text and no colour-only cue: `⚑ Not usually here in November` / `⚑ Not usually in Wet lowlands`, and `ⓘ Data incomplete` when a used trait has no reviewed value. Flagged species stay in the list, lower down.
+- The list ends with a coverage footer: "This guide can identify 30 of 295 species so far. Not here? Browse · Search".
+- If questions are still unanswered, a secondary footer button reads "Answer more questions (2 left)" and opens the first unanswered one.
+- Tapping a row opens `/species/[id]`. Back returns with the same answers, list and scroll position.
+
+**States**
+
+| State | What the user sees |
+|---|---|
+| Loading | No spinner. Trait data is local and ranking takes under 10 ms. The results screen renders within 1 s. |
+| Offline / airplane mode | Works fully, with no banner needed for this flow. A thumbnail that was not precached shows the "No photo yet" placeholder, never a broken image. |
+| All questions skipped | `See 30 matches`. All pilot species are listed, ordered by month fit and then by commonness. The chip row shows only the month and the hint "No answers yet: add some to narrow the list". |
+| No close matches | Heading "No close matches". Text: "None of the birds in this guide fits all your answers." Below it: the 5 closest species with why lines (mismatches shown as `✗`), a primary **Remove last answer (name of answer)** button in the footer, and a "Not in this guide yet?" block with the coverage line and **Browse** / **Search** buttons. |
+| Error (trait data failed to load) | "Couldn't load the ID questions." with **Retry**, and links to Browse and Search, which still work. |
+| Language switch mid-flow | Same screen and same answers. All labels switch. Bird names are shown exactly as in the content and wrap rather than truncate. |
+
+**Accessibility and Sinhala**
+- The question heading gets focus when each screen opens. Single-choice cards are radio buttons. Colour swatches are checkboxes labelled with their name ("Rufous or chestnut, selected, 2 of 3").
+- Touch targets are at least 48 dp with 8 px gaps. At 200% text the grids reflow to 1 column and the footer stays sticky.
+- Sinhala labels use line-height 1.7, wrap onto 2–3 lines inside a card, and are never ellipsised. Cards grow taller instead of cutting text. All zone, habitat, size, colour and doing labels come from the reviewed Sinhala glossary (spec Data). The wireframes use `[si label]` placeholders and no invented Sinhala.
 
 ### 2.3 Photo ID (next stage, not MVP)
 The MVP shows only a disabled card on Identify that reads "Photo ID: coming soon" (`aria-disabled`, still focusable, with the text "Coming in a later version"). There is no flow, camera permission or model download in the MVP. The step-by-step results list and the species page are designed so the future Photo ID results ("top 3 with confidence", then Confirm, then Add sighting) can reuse them.
@@ -127,7 +172,7 @@ This follows decision #7:
 | Screen | Loading | Empty | Offline | Error | No results |
 |---|---|---|---|---|---|
 | Identify home | Skeleton recent list | "No IDs yet" + Step-by-step button | Works fully | — | — |
-| Step-by-step Q | None (local) | — | Works fully | Data load failed → Retry | "No birds match": remove last answer / Browse |
+| Step-by-step Q | None (local) | — | Works fully | Data load failed → Retry | "No close matches": 5 closest, remove last answer, "Not in this guide yet?" → Browse / Search |
 | Search | — (instant) | Recents + suggestions | Works fully | Index missing → "Finish offline pack" | "No match for 'x'" + Browse |
 | Browse | Skeleton plate grid | — | Works fully | — | Filters exclude all → "Clear filters" |
 | Species page | Skeleton blocks | Missing field shows "Not recorded", never a guess | Text works; photos show "Photo not downloaded" + download | Image failed → placeholder + credit kept | — |
