@@ -1,6 +1,7 @@
 import { isMatch, rank } from './rank';
-import type { Answers, RankedSpecies, SpeciesTraits } from './types';
-import type { MonthPresence } from './vocabulary';
+import type { SpeciesTraits } from '@/shared/data/traits';
+import type { Answers, RankedSpecies } from './types';
+import type { MonthPresence } from '@/shared/data/traits-vocabulary';
 
 const YEAR_ROUND: MonthPresence[] = Array<MonthPresence>(12).fill('present');
 
@@ -56,6 +57,18 @@ describe('colours', () => {
     expect(topId([one, two], { colours: ['red', 'blue'] })).toBe('two');
   });
 
+  it('scores a single plumage showing both colours above two plumages showing one each', () => {
+    const answers: Answers = { colours: ['red', 'brown'] };
+    const junglefowl = bird('junglefowl', { colours: [['red'], ['brown']] });
+    const together = bird('together', { colours: [['red', 'brown']] });
+    expect(scoreOf(junglefowl, answers)).toBeLessThan(scoreOf(together, answers));
+  });
+
+  it('counts a repeated answer colour once', () => {
+    const answers: Answers = { colours: ['red', 'red'] };
+    expect(scoreOf(bird('a', { colours: [['red']] }), answers)).toBe(2);
+  });
+
   it('does not remove a species with no matching colour', () => {
     const result = rank([bird('a')], { colours: ['pink'] });
     expect(result).toHaveLength(1);
@@ -96,9 +109,9 @@ describe('unknown traits', () => {
     expect(result.reasons.every((r) => r.fit === 'unknown')).toBe(true);
   });
 
-  it('treats an unknown month value as unknown', () => {
-    const months = YEAR_ROUND.map((m, i): MonthPresence => (i === 2 ? 'unknown' : m));
-    expect(at(rank([bird('a', { months })], { month: 3 }), 0).flags).toEqual(['data-incomplete']);
+  it('treats missing months as unknown', () => {
+    const noMonths: SpeciesTraits = { species_id: 'a' };
+    expect(at(rank([noMonths], { month: 3 }), 0).flags).toEqual(['data-incomplete']);
   });
 
   it('does not flag questions that were skipped', () => {
@@ -139,7 +152,7 @@ describe('ordering', () => {
     expect(backward).toEqual(forward);
   });
 
-  it('lists everyone when all questions are skipped', () => {
+  it('lists everyone, in plate order, when all questions are skipped', () => {
     const list = [scarce, common, uncommon];
     const order = { 'a-uncommon': 0, 'b-common': 1, 'c-scarce': 2 };
     const ids = rank(list, {}, { order }).map((r) => r.species_id);
@@ -148,7 +161,7 @@ describe('ordering', () => {
 });
 
 describe('performance', () => {
-  it('ranks 295 species well within a second', () => {
+  it('ranks 295 species in under 50 ms', () => {
     const species = Array.from({ length: 295 }, (_, i) => bird(`sp-${i}`));
     const answers: Answers = {
       month: 7,
@@ -160,7 +173,7 @@ describe('performance', () => {
     };
     const start = performance.now();
     const result = rank(species, answers);
-    expect(performance.now() - start).toBeLessThan(1000);
+    expect(performance.now() - start).toBeLessThan(50);
     expect(result).toHaveLength(295);
   });
 });
@@ -176,12 +189,23 @@ function at(results: RankedSpecies[], index: number): RankedSpecies {
 }
 
 describe('isMatch', () => {
+  const rightPlace: Answers = { zone: 'wet_lowland', month: 5 };
+  const wrongDescription: Answers = {
+    habitat: 'forest',
+    size: 'XXXL',
+    colours: ['pink'],
+    behaviour: 'aerial',
+  };
+
   it.each([
-    ['everything skipped', {}, 'a', true],
-    ['right answers', { size: 'M', zone: 'wet_lowland' }, 'a', true],
-    ['wrong zone', { zone: 'montane' }, 'a', false],
-    ['far size only', { size: 'XXXL' }, 'a', false],
-  ] as const)('%s', (_name, answers, id, expected) => {
-    expect(isMatch(at(rank([bird(id)], answers), 0))).toBe(expected);
+    ['everything skipped', {}, true],
+    ['right description', { size: 'M', habitat: 'town_garden' }, true],
+    ['wrong zone', { zone: 'montane' }, false],
+    ['absent month', { month: 7 }, false],
+    ['right place, every description answer wrong', { ...rightPlace, ...wrongDescription }, false],
+    ['zone points cannot rescue a bad description', { zone: 'wet_lowland', size: 'XXXL' }, false],
+  ] as const)('%s', (_name, answers, expected) => {
+    const traits = bird('a', { months: absentIn(7) });
+    expect(isMatch(at(rank([traits], answers), 0))).toBe(expected);
   });
 });

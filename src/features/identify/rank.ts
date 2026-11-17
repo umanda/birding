@@ -1,27 +1,20 @@
-import type {
-  Answers,
-  Flag,
-  RankedSpecies,
-  Reason,
-  ReasonField,
-  ReasonFit,
-  SpeciesTraits,
-} from './types';
-import { SIZE_CLASSES, type Commonness, type SizeClass } from './vocabulary';
+import type { Answers, Flag, RankedSpecies, Reason, ReasonField, ReasonFit } from './types';
+import type { SpeciesTraits } from '@/shared/data/traits';
+import { SIZE_CLASSES } from '@/shared/data/traits-vocabulary';
+import type { Colour, Commonness, SizeClass } from '@/shared/data/traits-vocabulary';
 
 // Weights. Place and season outweigh the rest (02 section 2.4).
 const ZONE_MATCH = 3; // species lives in the answered zone
 const ZONE_MISS = -6; // species is not usually in the answered zone
-const MONTH_MATCH = 2; // present, peak or scarce in the answered month
+const MONTH_MATCH = 2; // present in the answered month
 const MONTH_MISS = -6; // absent in the answered month
 const HABITAT_MATCH = 2; // answered habitat is one of the species' habitats
 const HABITAT_MISS = -1; // it is not
 const SIZE_SAME = 3; // same size class
 const SIZE_ADJACENT = 1.5; // one class away
 const SIZE_MISS = -1; // two or more classes away
-const MATCH_MIN_SCORE = 0; // below this a species is a poor fit, not a match
-const COLOUR_MATCH = 2; // per answered colour found in any plumage
-const COLOUR_MISS = -0.5; // per answered colour found in no plumage
+const COLOUR_MATCH = 2; // per answered colour shown by the best-fitting plumage
+const COLOUR_MISS = -0.5; // per answered colour that plumage does not show
 const BEHAVIOUR_MATCH = 1.5; // answered behaviour is one the species shows
 const BEHAVIOUR_MISS = -0.5; // it is not
 
@@ -48,19 +41,22 @@ function sizeRule(answer: SizeClass, known: SizeClass[] | undefined): Rule {
 
 function monthRule(month: number, known: SpeciesTraits['months']): Rule {
   const presence = known?.[month - 1];
-  if (presence === undefined || presence === 'unknown') return UNKNOWN;
+  if (presence === undefined) return UNKNOWN;
   if (presence === 'absent') return { fit: 'mismatch', points: MONTH_MISS };
   return { fit: 'match', points: MONTH_MATCH };
 }
 
-function coloursRule(answer: string[], known: SpeciesTraits['colours']): Rule {
-  if (known === undefined) return UNKNOWN;
-  const found = answer.filter((colour) =>
-    known.some((plumage) => plumage.some((c) => c === colour)),
-  );
-  const points = found.length * COLOUR_MATCH + (answer.length - found.length) * COLOUR_MISS;
-  if (found.length === answer.length) return { fit: 'match', points };
-  return { fit: found.length > 0 ? 'partial' : 'mismatch', points };
+// A single bird shows one plumage at a time, so each plumage is scored alone and the best wins.
+function coloursRule(answer: Colour[], known: SpeciesTraits['colours']): Rule {
+  if (known === undefined || known.length === 0) return UNKNOWN;
+  const wanted = [...new Set(answer)];
+  const scored = known.map((plumage) => {
+    const found = wanted.filter((colour) => plumage.includes(colour)).length;
+    return { found, points: found * COLOUR_MATCH + (wanted.length - found) * COLOUR_MISS };
+  });
+  const best = scored.reduce((a, b) => (b.points > a.points ? b : a));
+  if (best.found === wanted.length) return { fit: 'match', points: best.points };
+  return { fit: best.found > 0 ? 'partial' : 'mismatch', points: best.points };
 }
 
 // Only answered questions produce a rule; skipped ones add nothing.
@@ -92,17 +88,36 @@ function flagsFor(rules: [ReasonField, Rule][]): Flag[] {
   return flags;
 }
 
+const DESCRIPTION_FIELDS: ReasonField[] = ['habitat', 'size', 'colours', 'behaviour'];
+
+function sum(rules: [ReasonField, Rule][]): number {
+  return rules.reduce((total, [, rule]) => total + rule.points, 0);
+}
+
 function scoreSpecies(traits: SpeciesTraits, answers: Answers): RankedSpecies {
   const rules = answeredRules(traits, answers);
   const reasons: Reason[] = rules.map(([field, rule]) => ({ field, fit: rule.fit }));
-  const score = rules.reduce((sum, [, rule]) => sum + rule.points, 0);
-  return { species_id: traits.species_id, score, reasons, flags: flagsFor(rules) };
+  const score = sum(rules);
+  const descriptionScore = sum(rules.filter(([field]) => DESCRIPTION_FIELDS.includes(field)));
+  return {
+    species_id: traits.species_id,
+    score,
+    descriptionScore,
+    reasons,
+    flags: flagsFor(rules),
+  };
 }
 
 // Ties go to the species that is commonest in the answered zone.
 function commonnessRank(traits: SpeciesTraits, answers: Answers): number {
   const level = answers.zone ? traits.commonness?.[answers.zone] : undefined;
   return level ? COMMONNESS_RANK[level] : COMMONNESS_UNKNOWN;
+}
+
+// Plain comparison, not localeCompare, so the order never depends on the device locale.
+function compareIds(a: string, b: string): number {
+  if (a === b) return 0;
+  return a < b ? -1 : 1;
 }
 
 export function rank(
@@ -126,13 +141,11 @@ export function rank(
   return entries.map((entry) => entry.result);
 }
 
-// What the UI counts as "N matches". Zero of them means "No close matches".
-export function isMatch(result: RankedSpecies): boolean {
-  return result.score >= MATCH_MIN_SCORE && !result.flags.some((f) => f.startsWith('not-usually'));
-}
+const MATCH_MIN_DESCRIPTION_SCORE = 0; // below this the description does more harm than good
 
-// Plain comparison, not localeCompare, so the order never depends on the device locale.
-function compareIds(a: string, b: string): number {
-  if (a === b) return 0;
-  return a < b ? -1 : 1;
+// What the UI counts as "N matches"; zero of them means "No close matches". Place and season
+// act through the flags, so only the description answers are added up here.
+export function isMatch(result: RankedSpecies): boolean {
+  const unusual = result.flags.some((f) => f === 'not-usually-here' || f === 'not-usually-now');
+  return !unusual && result.descriptionScore >= MATCH_MIN_DESCRIPTION_SCORE;
 }
