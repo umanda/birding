@@ -15,7 +15,15 @@ import { AnswerList } from './answer-list';
 import { compact, currentMonth, parseAnswers, serializeAnswers } from './answers-params';
 import { MatchFooter } from './match-footer';
 import { MonthPicker } from './month-picker';
-import { countMatches, isStep, neighbour, STEP_OPTIONS, withAnswer } from './questions';
+import {
+  ANSWER_KEY,
+  chosenValue,
+  countMatches,
+  isStep,
+  neighbour,
+  STEP_OPTIONS,
+  withAnswer,
+} from './questions';
 import type { Step } from './questions';
 import { TopBar } from './top-bar';
 import type { Answers } from './types';
@@ -72,7 +80,7 @@ function Question({ step, params, traits }: QuestionProps): React.JSX.Element {
   const select = (value: string | undefined): void => {
     const next = withAnswer(answers, step, value);
     // The explicit undefined removes a cleared answer from the params.
-    router.setParams({ [step]: undefined, ...serializeAnswers(next) });
+    router.setParams({ [ANSWER_KEY[step]]: undefined, ...serializeAnswers(next) });
     const following = neighbour(step, 1);
     cancelAdvance();
     timer.current = setTimeout(
@@ -102,7 +110,7 @@ function Question({ step, params, traits }: QuestionProps): React.JSX.Element {
         </Text>
         <AnswerList
           options={STEP_OPTIONS[step]}
-          selected={answers[step]}
+          selected={chosenValue(answers, step)}
           language={language}
           t={t}
           onSelect={select}

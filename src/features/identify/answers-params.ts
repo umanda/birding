@@ -1,11 +1,20 @@
-import { HABITATS, MONTHS, SIZE_CLASSES, ZONES } from '@/shared/data/traits-vocabulary';
-import type { Month } from '@/shared/data/traits-vocabulary';
+import {
+  BEHAVIOURS,
+  COLOURS,
+  HABITATS,
+  MAX_COLOURS,
+  MONTHS,
+  SIZE_CLASSES,
+  ZONES,
+} from '@/shared/data/traits-vocabulary';
+import type { Colour, Month } from '@/shared/data/traits-vocabulary';
 
 import type { Answers } from './types';
 
 export type RouteParams = Record<string, string | string[] | undefined>;
 
 const ANY_MONTH = 'any';
+const COLOUR_SEPARATOR = ',';
 
 // A repeated param (?zone=a&zone=b) arrives as an array; the first value wins.
 function firstValue(raw: string | string[] | undefined): string | undefined {
@@ -18,6 +27,13 @@ function pick<T extends string>(
 ): T | undefined {
   const value = firstValue(raw);
   return allowed.find((candidate) => candidate === value);
+}
+
+// "red,blue" becomes ['red', 'blue']. Unknown names and repeats are dropped; the first three chosen are kept.
+function parseColours(raw: string | string[] | undefined): Colour[] | undefined {
+  const names = new Set(firstValue(raw)?.split(COLOUR_SEPARATOR));
+  const colours = [...names].flatMap((name) => COLOURS.filter((colour) => colour === name));
+  return colours.length > 0 ? colours.slice(0, MAX_COLOURS) : undefined;
 }
 
 // No month param means "today"; "any" is the explicit choice of no month.
@@ -43,6 +59,8 @@ export function parseAnswers(params: RouteParams, today: Month): Answers {
     zone: pick(ZONES, params.zone),
     habitat: pick(HABITATS, params.habitat),
     size: pick(SIZE_CLASSES, params.size),
+    colours: parseColours(params.colours),
+    behaviour: pick(BEHAVIOURS, params.behaviour),
   });
 }
 
@@ -51,6 +69,8 @@ export function serializeAnswers(answers: Answers): Record<string, string> {
   if (answers.zone) params.zone = answers.zone;
   if (answers.habitat) params.habitat = answers.habitat;
   if (answers.size) params.size = answers.size;
+  if (answers.colours?.length) params.colours = answers.colours.join(COLOUR_SEPARATOR);
+  if (answers.behaviour) params.behaviour = answers.behaviour;
   return params;
 }
 
