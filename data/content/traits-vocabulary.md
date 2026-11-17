@@ -53,21 +53,26 @@ Paddy fields are tagged `open_country`, as in §1. Paddy birds that are also on 
 
 ## size (question 3, "How big?")
 
-| value | Range (cm) | Reference bird | Sinhala (DRAFT) |
-|---|---|---|---|
-| `XS` | < 12 | Purple Sunbird / white-eye | ඉතා කුඩා (සූටික්කා තරම්) |
-| `S` | 12 to < 17 | House Sparrow | කුඩා (ගේ කුරුල්ලා තරම්) |
-| `M` | 17 to < 22 | Red-vented Bulbul | මධ්‍යම (කොණ්ඩකුරුල්ලා තරම්) |
-| `L` | 22 to < 30 | Common Myna | තරමක් විශාල (මයිනා තරම්) |
-| `XL` | 30 to < 45 | House Crow | විශාල (කපුටා තරම්) |
-| `XXL` | 45 to < 70 | Indian Pond-heron / Black Kite | ඉතා විශාල (කොකා / රාජාලියා තරම්) |
-| `XXXL` | ≥ 70 | Great Egret / Indian Peafowl | අති විශාල (මොනරා තරම්) |
+| value | Range (cm) | Reference pilot species (`names.en`) | Reference `names.si` (verbatim from content.json) | Class label, Sinhala (DRAFT) |
+|---|---|---|---|---|
+| `XS` | < 12 | Purple Sunbird · Purple-rumped Sunbird | දම් කුඩුකොන් · මහ දම් කුඩුකොන් | ඉතා කුඩා |
+| `S` | 12 to < 17 | House Sparrow | ගේකුරුල්ලා | කුඩා |
+| `M` | 17 to < 22 | Red-vented Bulbul · Oriental Magpie-robin | කොණ්ඩයා · පොල්කිච්චා | මධ්‍යම |
+| `L` | 22 to < 30 | Common Myna · White-throated Kingfisher | මයිනා · පිළිහුඩුවා | තරමක් විශාල |
+| `XL` | 30 to < 45 | House Crow · Red-wattled Lapwing | කොළඹ කපුටා · කිරලා | විශාල |
+| `XXL` | 45 to < 70 | Indian Pond-heron · Eastern Cattle Egret | කණ කොකා · එළ ගව කොකා | ඉතා විශාල |
+| `XXXL` | ≥ 70 | Indian Peafowl | මොනරා | අති විශාල |
+
+Reference birds must be pilot species whose size rows fall in **only** that class. The UI label
+is the class label plus the reference names, which are taken from content.json at build time.
+The pairs are owner-approved. Indian Pond-heron uses the species entry "කණ කොකා", not the
+plate title "කණ-කොකා". Peafowl's class comes from an external length (flag F2).
 
 **Rule:** each class is lower-bound inclusive, so 45 cm is `XXL`. Size comes from the workbook's
 `length_cm` range in `species_description`. A species gets **one row per class that its min–max
 range touches** (e.g. Shikra 26–36 cm gives `L` and `XL`). Sexes of different size get rows keyed by
-`plumage_key`. Lengths exclude tail streamers where the workbook says so. Sinhala reference-bird
-names in the size labels are drafts and must be checked against CBC Sinhala names.
+`plumage_key`. Lengths exclude tail streamers where the workbook says so. Only the class
+labels (ඉතා කුඩා …) are drafts; the reference names are copied from content.json unchanged.
 
 ## colour (question 4, pick up to 3)
 
