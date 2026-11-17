@@ -4,7 +4,7 @@ import { serializeAnswers } from './answers-params';
 import {
   answerChips,
   firstUnanswered,
-  flagLabels,
+  flagParts,
   resultsView,
   unansweredCount,
   whyParts,
@@ -37,11 +37,11 @@ describe('whyParts', () => {
   });
 });
 
-describe('flagLabels', () => {
-  it('turns flags into their labels', () => {
-    expect(flagLabels(['not-usually-here', 'data-incomplete'], t)).toEqual([
-      'identify.flag.not-usually-here',
-      'identify.flag.data-incomplete',
+describe('flagParts', () => {
+  it('pairs each flag with its glyph and label', () => {
+    expect(flagParts(['not-usually-here', 'data-incomplete'], t)).toEqual([
+      { glyph: '⚑', label: 'identify.flag.not-usually-here' },
+      { glyph: 'ⓘ', label: 'identify.flag.data-incomplete' },
     ]);
   });
 });

@@ -1,4 +1,4 @@
-import { userEvent } from '@testing-library/react-native';
+import { fireEvent, userEvent } from '@testing-library/react-native';
 import { renderRouter, screen } from 'expo-router/testing-library';
 
 import { MESSAGES, translate } from '@/shared/i18n/translate';
@@ -10,6 +10,7 @@ import type { RankedSpecies } from './types';
 jest.mock('expo-localization', () => ({ getLocales: () => [{ languageCode: 'en' }] }));
 
 const t: Translate = (key, vars) => translate(MESSAGES.en, 'en', key, vars);
+const HIDDEN = { includeHiddenElements: true }; // the placeholder is decorative
 const SPARROW = 'slb-passer-domesticus'; // no photo
 const CROW = 'slb-corvus-splendens'; // has a thumbnail
 
@@ -41,18 +42,33 @@ describe('ResultRow', () => {
     await open(result(SPARROW, ['not-usually-now', 'data-incomplete']));
     expect(await screen.findByText('House Sparrow')).toBeTruthy();
     expect(screen.getByLabelText('Place: matched. Size: close')).toBeTruthy();
-    expect(screen.getByText(/Not usually now/)).toBeTruthy();
-    expect(screen.getByText(/Data incomplete/)).toBeTruthy();
+    expect(screen.getByLabelText('Not usually now')).toBeTruthy();
+    expect(screen.getByLabelText('Data incomplete')).toBeTruthy();
+    expect(screen.getByText(/⚑/, HIDDEN)).toBeTruthy();
+    expect(screen.getByText(/ⓘ/, HIDDEN)).toBeTruthy();
   });
 
   it('shows "No photo yet" only when the species has no thumbnail', async () => {
     await open(result(SPARROW));
-    expect(await screen.findByText('No photo yet')).toBeTruthy();
+    expect(await screen.findByText('No photo yet', HIDDEN)).toBeTruthy();
   });
 
   it('shows a thumbnail instead of the placeholder when one exists', async () => {
     await open(result(CROW));
     expect(await screen.findByText('House Crow')).toBeTruthy();
+    expect(screen.queryByText('No photo yet', HIDDEN)).toBeNull();
+  });
+
+  it('falls back to the placeholder when the thumbnail fails to load', async () => {
+    await open(result(CROW));
+    await fireEvent(await screen.findByTestId('result-thumb'), 'error');
+    expect(await screen.findByText('No photo yet', HIDDEN)).toBeTruthy();
+    expect(screen.queryByTestId('result-thumb')).toBeNull();
+  });
+
+  it('hides the placeholder from assistive technology', async () => {
+    await open(result(SPARROW));
+    await screen.findByText('House Sparrow');
     expect(screen.queryByText('No photo yet')).toBeNull();
   });
 

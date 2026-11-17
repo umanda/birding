@@ -23,10 +23,11 @@ const FIT: Record<ShownFit, { glyph: string; key: MessageKey }> = {
   partial: { glyph: '≈', key: 'identify.fit.partial' },
   mismatch: { glyph: '✗', key: 'identify.fit.mismatch' },
 };
-const FLAG_KEY: Record<Flag, MessageKey> = {
-  'not-usually-here': 'identify.flag.not-usually-here',
-  'not-usually-now': 'identify.flag.not-usually-now',
-  'data-incomplete': 'identify.flag.data-incomplete',
+// One shape per kind of flag, so the meaning never rests on colour (UX flows 2.2).
+const FLAG: Record<Flag, { glyph: string; key: MessageKey }> = {
+  'not-usually-here': { glyph: '⚑', key: 'identify.flag.not-usually-here' },
+  'not-usually-now': { glyph: '⚑', key: 'identify.flag.not-usually-now' },
+  'data-incomplete': { glyph: 'ⓘ', key: 'identify.flag.data-incomplete' },
 };
 
 // glyph is decorative; spoken is the text for screen readers.
@@ -41,8 +42,10 @@ export function whyParts(reasons: Reason[], t: Translate): WhyPart[] {
   });
 }
 
-export const flagLabels = (flags: Flag[], t: Translate): string[] =>
-  flags.map((flag) => t(FLAG_KEY[flag]));
+export type FlagPart = { glyph: string; label: string };
+
+export const flagParts = (flags: Flag[], t: Translate): FlagPart[] =>
+  flags.map((flag) => ({ glyph: FLAG[flag].glyph, label: t(FLAG[flag].key) }));
 
 export type Chip = { field: keyof Answers; label: string };
 

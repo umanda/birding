@@ -11,7 +11,7 @@ import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
 import { SpeciesRow } from '@/shared/ui/species-row';
 
-import { flagLabels, whyParts } from './results-model';
+import { flagParts, whyParts } from './results-model';
 import type { RankedSpecies } from './types';
 
 const THUMB_SIZE = 72;
@@ -22,7 +22,12 @@ function Thumb({ speciesId, language, t }: ThumbProps): React.JSX.Element {
   const thumb = getSpeciesImages(speciesId).find((image) => image.primary)?.thumb;
   if (!thumb || failed) {
     return (
-      <View style={[styles.thumb, styles.noPhoto, { backgroundColor: colors.surface }]}>
+      // Decorative: the row text already names the bird.
+      <View
+        accessibilityElementsHidden
+        importantForAccessibility="no-hide-descendants"
+        style={[styles.thumb, styles.noPhoto, { backgroundColor: colors.surface }]}
+      >
         <Text style={[typeStyle('body', language), { color: colors.textMuted }]}>
           {t('gallery.noPhoto')}
         </Text>
@@ -34,6 +39,7 @@ function Thumb({ speciesId, language, t }: ThumbProps): React.JSX.Element {
     <Image
       source={{ uri: mediaUrl(thumb.path) }}
       alt=""
+      testID="result-thumb"
       onError={() => setFailed(true)}
       style={styles.thumb}
     />
@@ -68,9 +74,13 @@ export function ResultRow({ result, language, t }: Props): React.JSX.Element | n
               ))}
             </Text>
           ) : null}
-          {flagLabels(result.flags, t).map((label) => (
-            <Text key={label} style={[typeStyle('body', language), { color: colors.text }]}>
-              <Text aria-hidden>{'⚠ '}</Text>
+          {flagParts(result.flags, t).map(({ glyph, label }) => (
+            <Text
+              key={label}
+              accessibilityLabel={label}
+              style={[typeStyle('body', language), { color: colors.text }]}
+            >
+              <Text aria-hidden>{`${glyph} `}</Text>
               {label}
             </Text>
           ))}
