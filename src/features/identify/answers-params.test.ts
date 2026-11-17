@@ -21,6 +21,37 @@ describe('parseAnswers', () => {
   });
 });
 
+describe('colours and behaviour', () => {
+  it('reads a comma-joined colours param in chosen order', () => {
+    expect(parseAnswers({ colours: 'red,blue' }, 1).colours).toEqual(['red', 'blue']);
+  });
+
+  it('ignores unknown colours, drops repeats and keeps the first three', () => {
+    expect(parseAnswers({ colours: 'red,teal,red,blue,pink,green' }, 1).colours).toEqual([
+      'red',
+      'blue',
+      'pink',
+    ]);
+    expect(parseAnswers({ colours: 'teal' }, 1).colours).toBeUndefined();
+  });
+
+  it('takes the first value of a repeated colours param', () => {
+    expect(parseAnswers({ colours: ['red', 'blue'] }, 1).colours).toEqual(['red']);
+  });
+
+  it('reads a behaviour and ignores an unknown one', () => {
+    expect(parseAnswers({ behaviour: 'aerial' }, 1).behaviour).toBe('aerial');
+    expect(parseAnswers({ behaviour: 'flying' }, 1).behaviour).toBeUndefined();
+  });
+
+  it('round-trips colours and behaviour', () => {
+    const answers = { month: 2, colours: ['black', 'white'], behaviour: 'wading' } as const;
+    const params = serializeAnswers({ ...answers, colours: [...answers.colours] });
+    expect(params.colours).toBe('black,white');
+    expect(parseAnswers(params, 1)).toEqual({ ...answers, colours: ['black', 'white'] });
+  });
+});
+
 describe('serializeAnswers', () => {
   it('round-trips answers, including Any month', () => {
     const answers = { zone: 'dry_lowland', habitat: 'coast', size: 'S' } as const;

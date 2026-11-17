@@ -2,6 +2,7 @@ import { MESSAGES } from '@/shared/i18n/translate';
 
 import { FIXTURE_TRAITS } from './test-traits.fixture';
 import {
+  chosenValue,
   countMatches,
   isStep,
   neighbour,
@@ -11,10 +12,12 @@ import {
 } from './questions';
 
 describe('steps', () => {
-  it('walks zone, habitat, size and stops at both ends', () => {
+  it('walks zone to behaviour and stops at both ends', () => {
     expect(neighbour('zone', -1)).toBeUndefined();
     expect(neighbour('zone', 1)).toBe('habitat');
-    expect(neighbour('size', 1)).toBeUndefined();
+    expect(neighbour('size', 1)).toBe('colour');
+    expect(neighbour('colour', 1)).toBe('behaviour');
+    expect(neighbour('behaviour', 1)).toBeUndefined();
     expect(isStep('size')).toBe(true);
     expect(isStep('results')).toBe(false);
   });
@@ -25,6 +28,19 @@ describe('withAnswer', () => {
     const answered = withAnswer({ month: 5 }, 'zone', 'montane');
     expect(answered).toEqual({ month: 5, zone: 'montane' });
     expect(withAnswer(answered, 'zone', undefined).zone).toBeUndefined();
+  });
+});
+
+describe('single-choice colour and behaviour answers', () => {
+  it('stores a colour as a one-item list and Not sure clears it', () => {
+    const answered = withAnswer({ month: 5 }, 'colour', 'red');
+    expect(answered.colours).toEqual(['red']);
+    expect(chosenValue(answered, 'colour')).toBe('red');
+    expect(withAnswer(answered, 'colour', undefined).colours).toBeUndefined();
+  });
+
+  it('stores a behaviour', () => {
+    expect(withAnswer({}, 'behaviour', 'aerial').behaviour).toBe('aerial');
   });
 });
 
@@ -48,6 +64,8 @@ describe('questionStaticParams', () => {
       { step: 'zone' },
       { step: 'habitat' },
       { step: 'size' },
+      { step: 'colour' },
+      { step: 'behaviour' },
     ]);
   });
 });

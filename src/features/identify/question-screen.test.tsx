@@ -99,11 +99,11 @@ describe('QuestionScreen', () => {
   });
 
   it('opens the results after the last question', async () => {
-    const user = await open('/identify/size?month=5');
-    await user.press(await screen.findByRole('radio', { name: 'House Sparrow' }));
+    const user = await open('/identify/behaviour?month=5');
+    await user.press(await screen.findByRole('radio', { name: 'Swimming' }));
     await advance();
     expect(screen).toHavePathname('/identify/results');
-    expect(screen).toHaveSearchParams({ month: '5', size: 'S' });
+    expect(screen).toHaveSearchParams({ month: '5', behaviour: 'swimming' });
   });
 
   it('does not navigate after the screen is gone', async () => {
