@@ -100,8 +100,9 @@ Build changes (ADR 0002, 0006):
 - `tools/content` validates the rows and writes `content/traits.json` (`schema_version`, `species` keyed by id, each a
   `SpeciesTraits`), separate from `content.json` and the workbook. The validator fails on any row, whatever its status:
   unknown species_id or trait, a value outside the vocabulary, a blank `source`, a bad `confidence`/`review_status`/
-  `plumage_key`, `all` mixed with months 1 to 12, more than 3 colours for one plumage, a commonness zone without a zone row of
-  the same status, or a duplicate row. Months expand to 12 `present`/`absent` entries. A trait with no reviewed rows is
+  `plumage_key`, `all` mixed with months 1 to 12, more than 3 colours for one plumage, proposed and reviewed rows mixed in one
+  month list or one plumage's colours or sizes, a blank and a named `plumage_key` mixed, a reviewed commonness without a
+  reviewed zone (proposed commonness needs any non-rejected zone), or a duplicate row (rejected rows are skipped). Months expand to 12 `present`/`absent` entries. A trait with no reviewed rows is
   left out of the species entry (unknown). Only `reviewed` rows are written. The report counts rows by `review_status`.
 - The ranking engine is `src/features/identify/rank.ts` (pure, no I/O). Traits are read through `src/shared/data`.
 

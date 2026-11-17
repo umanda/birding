@@ -77,7 +77,7 @@ describe('validateTraits', () => {
   });
 
   it('requires a matching zone row for commonness', () => {
-    expect(errorsOf(['commonness', 'montane:common', '', 'proposed'])[0]).toMatch(/no proposed zone/);
+    expect(errorsOf(['commonness', 'montane:common', '', 'proposed'])[0]).toMatch(/no usable zone/);
     expect(
       errorsOf(['zone', 'montane', '', 'proposed'], ['commonness', 'montane:common', '', 'proposed']),
     ).toEqual([]);
@@ -103,6 +103,45 @@ describe('validateTraits', () => {
     );
     expect(report.counts).toEqual({ proposed: 2, reviewed: 0, rejected: 1 });
     expect(report.errors).toHaveLength(1);
+  });
+});
+
+describe('validateTraits status and key rules', () => {
+  it('rejects proposed and reviewed rows mixed in one month list', () => {
+    const e = errorsOf(['month', '1', '', 'proposed'], ['month', '2', '', 'reviewed']);
+    expect(e[0]).toMatch(/month rows .* mix/);
+    expect(errorsOf(['month', '1', '', 'reviewed'], ['month', '2', '', 'rejected'])).toEqual([]);
+  });
+
+  it('rejects mixed statuses within one plumage of colour or size, but not across plumages', () => {
+    expect(errorsOf(['colour', 'red', 'male', 'proposed'], ['colour', 'blue', 'male', 'reviewed'])[0]).toMatch(/mix/);
+    expect(errorsOf(['size', 'S', 'male', 'proposed'], ['size', 'M', 'male', 'reviewed'])[0]).toMatch(/mix/);
+    expect(errorsOf(['colour', 'red', 'male', 'proposed'], ['colour', 'blue', 'female', 'reviewed'])).toEqual([]);
+  });
+
+  it('rejects a blank plumage_key mixed with named keys', () => {
+    expect(errorsOf(['colour', 'red', '', 'proposed'], ['colour', 'blue', 'male', 'proposed'])[0]).toMatch(/blank plumage_key/);
+    expect(errorsOf(['size', 'S', '', 'proposed'], ['size', 'M', 'male', 'proposed'])[0]).toMatch(/blank plumage_key/);
+  });
+
+  it('skips rejected rows in the duplicate check', () => {
+    expect(errorsOf(['zone', 'montane', '', 'rejected'], ['zone', 'montane', '', 'reviewed'])).toEqual([]);
+    expect(
+      errorsOf(
+        ['zone', 'montane', '', 'reviewed'],
+        ['commonness', 'montane:common', '', 'rejected'],
+        ['commonness', 'montane:scarce', '', 'reviewed'],
+      ),
+    ).toEqual([]);
+  });
+
+  it('lets proposed commonness use a reviewed or proposed zone, but reviewed needs a reviewed zone', () => {
+    expect(errorsOf(['zone', 'montane', '', 'reviewed'], ['commonness', 'montane:common', '', 'proposed'])).toEqual([]);
+    expect(errorsOf(['zone', 'montane', '', 'rejected'], ['commonness', 'montane:common', '', 'proposed'])).not.toEqual([]);
+  });
+
+  it('requires commonness to have exactly zone and level', () => {
+    expect(errorsOf(['commonness', 'montane:common:x', '', 'proposed'])[0]).toMatch(/bad commonness/);
   });
 });
 

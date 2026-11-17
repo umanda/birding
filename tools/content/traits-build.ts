@@ -56,9 +56,9 @@ function speciesTraits(species_id: string, rows: TraitRow[]): SpeciesTraits {
     months: monthPresence(rows),
     commonness: commonnessByZone(rows),
   };
-  // Unknown stays missing: no empty arrays and no nulls are written.
-  const known = Object.entries(parts).filter(([, v]) => v !== undefined);
-  return { species_id, ...Object.fromEntries(known) };
+  // Unknown stays missing: no empty arrays or nulls, and no undefined keys.
+  const known = Object.entries(parts).filter(([, value]) => value !== undefined);
+  return { species_id, ...(Object.fromEntries(known) as Omit<SpeciesTraits, 'species_id'>) };
 }
 
 // Only reviewed rows ship. Species are sorted by id so the file is deterministic.

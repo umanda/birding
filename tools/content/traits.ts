@@ -19,7 +19,7 @@ export const TRAITS_COLUMNS = [
   'review_status',
   'note',
 ] as const;
-export const REVIEW_STATUSES = ['proposed', 'reviewed', 'rejected'];
+const REVIEW_STATUSES = ['proposed', 'reviewed', 'rejected'];
 const CONFIDENCES = ['high', 'medium', 'low'];
 const MONTH_VALUES = ['all', ...Array.from({ length: 12 }, (_, i) => String(i + 1))];
 const PLUMAGE_KEYS = ['male', 'female', 'juvenile', 'adult', 'breeding', 'non_breeding', 'eclipse'];
@@ -62,8 +62,9 @@ function parseRows(csv: string): { rows: TraitRow[]; errors: string[] } {
 
 function checkValue(row: TraitRow): string[] {
   if (row.trait === 'commonness') {
-    const [zone = '', level = ''] = row.value.split(':');
-    const ok = ZONES.some((z) => z === zone) && COMMONNESS.some((c) => c === level);
+    const [zone = '', level = '', ...extra] = row.value.split(':');
+    const ok =
+      extra.length === 0 && ZONES.some((z) => z === zone) && COMMONNESS.some((c) => c === level);
     return ok ? [] : [`bad commonness "${row.value}", expected <zone>:<level>`];
   }
   const allowed = VOCABULARY[row.trait];
@@ -89,29 +90,70 @@ function checkRow(row: TraitRow, speciesIds: ReadonlySet<string>): string[] {
   return problems;
 }
 
-function checkSpecies(id: string, rows: TraitRow[]): string[] {
-  const errors: string[] = [];
-  const live = rows.filter((r) => r.review_status !== 'rejected');
+function checkMonths(id: string, live: TraitRow[]): string[] {
   const months = live.filter((r) => r.trait === 'month').map((r) => r.value);
   if (months.includes('all') && months.length > 1) {
-    errors.push(`${id}: month 'all' cannot be mixed with months 1-12`);
+    return [`${id}: month 'all' cannot be mixed with months 1-12`];
   }
-  const colourCounts = new Map<string, number>();
+  return [];
+}
+
+function checkColourCounts(id: string, live: TraitRow[]): string[] {
+  const counts = new Map<string, number>();
   for (const r of live.filter((x) => x.trait === 'colour')) {
-    colourCounts.set(r.plumage_key, (colourCounts.get(r.plumage_key) ?? 0) + 1);
+    counts.set(r.plumage_key, (counts.get(r.plumage_key) ?? 0) + 1);
   }
-  for (const [key, n] of colourCounts) {
-    if (n > MAX_COLOURS) errors.push(`${id}: ${n} colours for plumage "${key}", max ${MAX_COLOURS}`);
+  return [...counts]
+    .filter(([, n]) => n > MAX_COLOURS)
+    .map(([key, n]) => `${id}: ${n} colours for plumage "${key}", max ${MAX_COLOURS}`);
+}
+
+// A half-reviewed month list would ship false "absent" months, and half a colour list a partial one.
+function checkMixedStatus(id: string, live: TraitRow[]): string[] {
+  const errors: string[] = [];
+  for (const trait of ['month', ...KEYED_TRAITS]) {
+    const rows = live.filter((r) => r.trait === trait);
+    for (const key of new Set(rows.map((r) => r.plumage_key))) {
+      const statuses = new Set(rows.filter((r) => r.plumage_key === key).map((r) => r.review_status));
+      if (statuses.size > 1) errors.push(`${id}: ${trait} rows (plumage "${key}") mix proposed and reviewed`);
+    }
   }
-  // A commonness row needs a zone row with the same status, so the built file has no dangling zone.
+  return errors;
+}
+
+function checkPlumageMix(id: string, live: TraitRow[]): string[] {
+  return KEYED_TRAITS.filter((trait) => {
+    const keys = live.filter((r) => r.trait === trait).map((r) => r.plumage_key);
+    return keys.includes('') && keys.some((k) => k !== '');
+  }).map((trait) => `${id}: ${trait} rows mix a blank plumage_key with named keys`);
+}
+
+// Reviewed commonness needs a reviewed zone, so the built file has no dangling zone.
+// Proposed commonness only needs a zone row that is not rejected.
+function checkCommonness(id: string, live: TraitRow[]): string[] {
+  const errors: string[] = [];
   for (const r of live.filter((x) => x.trait === 'commonness')) {
     const zone = r.value.split(':')[0];
     const hasZone = live.some(
-      (z) => z.trait === 'zone' && z.value === zone && z.review_status === r.review_status,
+      (z) =>
+        z.trait === 'zone' &&
+        z.value === zone &&
+        (r.review_status !== 'reviewed' || z.review_status === 'reviewed'),
     );
-    if (!hasZone) errors.push(`${id}: commonness "${r.value}" has no ${r.review_status} zone row`);
+    if (!hasZone) errors.push(`${id}: ${r.review_status} commonness "${r.value}" has no usable zone row`);
   }
   return errors;
+}
+
+function checkSpecies(id: string, rows: TraitRow[]): string[] {
+  const live = rows.filter((r) => r.review_status !== 'rejected');
+  return [
+    ...checkMonths(id, live),
+    ...checkColourCounts(id, live),
+    ...checkMixedStatus(id, live),
+    ...checkPlumageMix(id, live),
+    ...checkCommonness(id, live),
+  ];
 }
 
 function duplicateKey(row: TraitRow): string {
@@ -127,6 +169,7 @@ export function validateTraits(csv: string, speciesIds: ReadonlySet<string>): Tr
   parsed.rows.forEach((row, i) => {
     const line = i + 2;
     for (const p of checkRow(row, speciesIds)) errors.push(`traits.csv line ${line}: ${row.species_id}: ${p}`);
+    if (row.review_status === 'rejected') return; // a rejected row can be replaced by a new one
     const key = duplicateKey(row);
     if (seen.has(key)) errors.push(`traits.csv line ${line}: duplicate row ${key}`);
     seen.add(key);
