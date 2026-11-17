@@ -1,6 +1,6 @@
 # Pilot traits: owner review sheet
 
-Data: `traits.csv` (517 trait rows + 147 commonness rows), `traits-pilot.csv` (33 species),
+Data: `traits.csv` (534 trait rows + 153 commonness rows), `traits-pilot.csv` (34 species; House Sparrow added as the S size reference),
 vocabulary and rules in `traits-vocabulary.md`, test set in `id-test-sightings.csv` (24 sightings,
 5 demo). Everything is `review_status=proposed`. Workbook occurrence and IUCN values are themselves
 *pending verification* (CBC line check), and nothing here upgrades them.
@@ -44,6 +44,7 @@ not from the workbook. Months: "all" = resident/year-round.
 | 31 | Little Cormorant (R) | WL IN DL AR, all C | freshwater, coast, town | XXL | br black; non-br and juv brown, white | swimming, perched_open | all |
 | 32 | Yellow-billed Babbler (R) | WL WM IN DL, all C | town, open | M/L | grey, brown, yellow | ground | all |
 | 33 | Sri Lanka White-eye (E) | MO C, WM u | forest, town | XS/S | green, yellow, white | tree_bush | all |
+| 34 | House Sparrow (R) | WL C, WM C, MO u, IN C, DL C, AR C | town, open | S | ♂ grey, rufous, black; ♀ brown; juv brown | ground, perched_open[X] | all |
 
 Coverage: all 6 zones, all 5 habitats, all 7 size classes, all 12 colours (pink only on Spotted
 Dove; orange only on Junglefowl ♂ and breeding Cattle Egret) and all 6 behaviours. There are 5

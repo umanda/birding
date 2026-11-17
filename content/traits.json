@@ -1068,6 +1068,63 @@
         "dry_lowland": "common"
       }
     },
+    "slb-passer-domesticus": {
+      "species_id": "slb-passer-domesticus",
+      "zones": [
+        "wet_lowland",
+        "wet_midhill",
+        "montane",
+        "intermediate",
+        "dry_lowland",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "town_garden",
+        "open_country"
+      ],
+      "size": [
+        "S"
+      ],
+      "colours": [
+        [
+          "grey",
+          "rufous",
+          "black"
+        ],
+        [
+          "brown"
+        ],
+        [
+          "brown"
+        ]
+      ],
+      "behaviours": [
+        "ground",
+        "perched_open"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "common",
+        "wet_midhill": "common",
+        "montane": "uncommon",
+        "intermediate": "common",
+        "dry_lowland": "common",
+        "arid_coast_north": "common"
+      }
+    },
     "slb-pavo-cristatus": {
       "species_id": "slb-pavo-cristatus",
       "zones": [

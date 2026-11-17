@@ -663,3 +663,26 @@ slb-argya-affinis,commonness,intermediate:common,,expert:ornithologist,medium,re
 slb-argya-affinis,commonness,dry_lowland:common,,expert:ornithologist,medium,reviewed,
 slb-zosterops-ceylonensis,commonness,montane:common,,expert:ornithologist,high,reviewed,
 slb-zosterops-ceylonensis,commonness,wet_midhill:uncommon,,expert:ornithologist,medium,reviewed,
+slb-passer-domesticus,zone,wet_lowland,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,wb: settlements throughout Sri Lanka
+slb-passer-domesticus,zone,wet_midhill,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-passer-domesticus,zone,montane,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,hill towns; check eBird
+slb-passer-domesticus,zone,intermediate,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-passer-domesticus,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-passer-domesticus,zone,arid_coast_north,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-passer-domesticus,habitat,town_garden,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,houses towns villages
+slb-passer-domesticus,habitat,open_country,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,scrub and paddy close to habitation
+slb-passer-domesticus,size,S,,workbook:species_description,high,reviewed,14-15 cm
+slb-passer-domesticus,colour,grey,male,workbook:male_female_identification,high,reviewed,crown and rump
+slb-passer-domesticus,colour,rufous,male,workbook:male_female_identification,high,reviewed,chestnut nape
+slb-passer-domesticus,colour,black,male,workbook:male_female_identification,high,reviewed,bib
+slb-passer-domesticus,colour,brown,female,workbook:male_female_identification,high,reviewed,plain sandy-brown
+slb-passer-domesticus,colour,brown,juvenile,workbook:juvenile_immature_plumage,high,reviewed,dull brown; pale below
+slb-passer-domesticus,behaviour,ground,,workbook:field_spotting_tips,medium,reviewed,flocks gather at grain and scraps
+slb-passer-domesticus,behaviour,perched_open,,expert:ornithologist,medium,reviewed,roofs wires and walls
+slb-passer-domesticus,month,all,,workbook:seasonality_months_seen,high,reviewed,resident year-round
+slb-passer-domesticus,commonness,wet_lowland:common,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,wb: common resident around settlements
+slb-passer-domesticus,commonness,wet_midhill:common,,expert:ornithologist,medium,reviewed,
+slb-passer-domesticus,commonness,montane:uncommon,,expert:ornithologist,low,reviewed,
+slb-passer-domesticus,commonness,intermediate:common,,expert:ornithologist,medium,reviewed,
+slb-passer-domesticus,commonness,dry_lowland:common,,expert:ornithologist,medium,reviewed,towns and villages
+slb-passer-domesticus,commonness,arid_coast_north:common,,expert:ornithologist,medium,reviewed,
