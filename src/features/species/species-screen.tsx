@@ -1,6 +1,7 @@
 import { Link, Stack, useLocalSearchParams } from 'expo-router';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
+import { SpeciesSightings } from '@/features/life-list';
 import { useSettings } from '@/features/settings';
 import { getPlate, getSpecies } from '@/shared/data/content';
 import { getSpeciesImages } from '@/shared/data/media';
@@ -101,6 +102,7 @@ export function SpeciesDetail({ species, language, t }: DetailProps): React.JSX.
           </Text>
         )}
       </View>
+      <SpeciesSightings speciesId={species.species_id} name={primary} language={language} t={t} />
       <SpeciesGallery
         images={getSpeciesImages(species.species_id)}
         speciesName={primary.text}

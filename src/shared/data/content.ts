@@ -30,6 +30,11 @@ for (const species of [...allSpecies].sort((a, b) => a.plate_order - b.plate_ord
   speciesByPlate.set(species.plate_id, list);
 }
 
+/**
+ * Identifies the bundled content, so a sighting records which edition it was made against.
+ * `source_sha256` is a stand-in until the pipeline emits `content_version` (ADR 0006).
+ */
+export const getContentVersion = (): string => content.source_sha256;
 export const getPlates = (): readonly Plate[] => plates;
 export const getPlate = (id: string): Plate | undefined => platesById.get(id);
 export const getAllSpecies = (): readonly Species[] => allSpecies;

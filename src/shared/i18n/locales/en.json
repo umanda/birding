@@ -208,5 +208,11 @@
   "deleteAll.confirm": "Delete",
   "deleteAll.cancel": "Cancel",
   "deleteAll.done": "All sightings deleted",
-  "deleteAll.failed": "Couldn't delete. Your sightings are still saved."
+  "deleteAll.failed": "Couldn't delete. Your sightings are still saved.",
+  "sightings.add": "I saw this",
+  "sightings.addAnother": "Add another sighting",
+  "sightings.seen.one": "Seen {count} time · last {date}",
+  "sightings.seen.other": "Seen {count} times · last {date}",
+  "sightings.date": "{day} {month} {year}",
+  "sightings.saved": "Saved on this device"
 }
