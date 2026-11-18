@@ -15,13 +15,15 @@ export const STORAGE_BANNER_TEST_ID = 'storage-banner-region';
 /** The banner for screens that read the UI language from settings (the tabs). */
 export function StorageBanner(): React.JSX.Element {
   const { language, t } = useSettings();
-  return <StorageBannerView language={language} t={t} />;
+  return <StorageBannerView language={language} t={t} announce />;
 }
 
-type Props = { language: Language; t: Translate };
+// announce: only the tab-level banner speaks on iOS. Another copy (the species page) stays silent
+// so VoiceOver hears the warning once, not again on every page.
+type Props = { language: Language; t: Translate; announce?: boolean };
 
 // The live region stays mounted so screen readers announce the text when it appears.
-export function StorageBannerView({ language, t }: Props): React.JSX.Element {
+export function StorageBannerView({ language, t, announce = false }: Props): React.JSX.Element {
   const { colors } = useTheme();
   const { storage } = useLifeList();
   const blocked = storage === 'memory';
@@ -29,8 +31,10 @@ export function StorageBannerView({ language, t }: Props): React.JSX.Element {
 
   // iOS ignores accessibilityLiveRegion, so it needs an explicit announcement.
   useEffect(() => {
-    if (blocked && Platform.OS === 'ios') AccessibilityInfo.announceForAccessibility(message);
-  }, [blocked, message]);
+    if (announce && blocked && Platform.OS === 'ios') {
+      AccessibilityInfo.announceForAccessibility(message);
+    }
+  }, [announce, blocked, message]);
 
   return (
     <View accessibilityLiveRegion="polite" testID={STORAGE_BANNER_TEST_ID}>
