@@ -46,7 +46,7 @@ const VOCABULARY: Record<string, readonly string[]> = {
   month: MONTH_VALUES,
 };
 
-function parseRows(csv: string): { rows: TraitRow[]; errors: string[] } {
+export function parseRows(csv: string): { rows: TraitRow[]; errors: string[] } {
   let table: string[][];
   try {
     table = parse(csv, { skip_empty_lines: true, bom: true });

@@ -6,6 +6,7 @@ import type { Content } from '../../src/shared/data/content-schema';
 import { validateTraits } from './traits';
 import { parseLedger, validateLedger } from './traits-ledger';
 import { validateDoubts, validateSensitive } from './review-aids';
+import { checkReviewSheets, loadSheetInput } from './review-sheet';
 import { formatTraitsReport } from './traits-report';
 import { validateMediaRegister } from './media/validate-media';
 
@@ -213,6 +214,7 @@ function main(): void {
     errors.push(...validateLedger(ledger, new Set(ids), traits.rows));
     errors.push(...validateDoubts(readFileSync(DOUBTS_CSV, 'utf8'), new Set(ids)));
     errors.push(...validateSensitive(readFileSync(SENSITIVE_CSV, 'utf8'), new Set(ids)));
+    errors.push(...checkReviewSheets(loadSheetInput()));
     const report = formatTraitsReport(ledger.rows, ids.length, statSync(TRAITS_FILE).size);
     for (const line of report.lines) process.stdout.write(`${line}\n`);
     for (const w of report.warnings) process.stdout.write(`warning: ${w}\n`);

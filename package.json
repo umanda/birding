@@ -54,6 +54,7 @@
     "test": "jest",
     "content:build": "tsx tools/content/build-content.ts",
     "validate:content": "tsx tools/content/validate-content.ts",
+    "traits:review-sheet": "tsx tools/content/review-sheet.ts",
     "media:build": "tsx tools/content/media/build-media.ts",
     "media:ingest": "tsx tools/content/media/ingest-media.ts",
     "media:check": "tsx tools/content/media/check-media.ts"
