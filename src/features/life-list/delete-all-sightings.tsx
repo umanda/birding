@@ -1,5 +1,13 @@
-import { useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { useEffect, useRef, useState } from 'react';
+import {
+  AccessibilityInfo,
+  findNodeHandle,
+  Platform,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 import { useSettings } from '@/features/settings';
 import { radius, size, space } from '@/shared/theme/tokens';
@@ -10,14 +18,33 @@ import { useLifeList } from './life-list-context';
 
 type Step = 'idle' | 'confirming' | 'deleting' | 'done' | 'failed';
 
+const DISABLED_OPACITY = 0.5; // same value as sighting-sheet and photo-pack-section
+
 // Confirms in place (no modal) so the warning stays next to the button on every platform.
 export function DeleteAllSightings(): React.JSX.Element {
   const { colors } = useTheme();
   const { language, t } = useSettings();
   const { status, sightings, removeAllUnsynced } = useLifeList();
   const [step, setStep] = useState<Step>('idle');
+  const titleRef = useRef<React.ComponentRef<typeof Text>>(null);
   const count = sightings.length;
-  const canDelete = status === 'ready' && count > 0 && step !== 'deleting';
+  const ready = status === 'ready';
+  const deleting = step === 'deleting';
+  const confirming = step === 'confirming' || deleting || step === 'failed';
+  // The done message belongs to the empty list; new sightings make it stale.
+  const doneShown = step === 'done' && count === 0;
+  const resultKey = doneShown ? 'deleteAll.done' : step === 'failed' ? 'deleteAll.failed' : null;
+  const result = resultKey ? t(resultKey) : '';
+
+  // iOS ignores accessibilityLiveRegion, so it needs an explicit announcement.
+  useEffect(() => {
+    if (result && Platform.OS === 'ios') AccessibilityInfo.announceForAccessibility(result);
+  }, [result]);
+
+  useEffect(() => {
+    const node = findNodeHandle(titleRef.current);
+    if (step === 'confirming' && node) AccessibilityInfo.setAccessibilityFocus(node);
+  }, [step]);
 
   const confirm = async (): Promise<void> => {
     setStep('deleting');
@@ -29,11 +56,12 @@ export function DeleteAllSightings(): React.JSX.Element {
     }
   };
 
-  const text = (
-    key: Parameters<typeof t>[0],
-    color: string = colors.text,
-    style = 'body' as const,
-  ) => <Text style={[typeStyle(style, language), { color }]}>{t(key)}</Text>;
+  const summary = (): string => {
+    if (!ready) return '';
+    if (count === 0) return t('deleteAll.empty');
+    return t('deleteAll.count', { count });
+  };
+
   const button = (label: string, onPress: () => void, disabled: boolean, destructive = false) => (
     <Pressable
       accessibilityRole="button"
@@ -55,37 +83,40 @@ export function DeleteAllSightings(): React.JSX.Element {
     </Pressable>
   );
 
-  const summary =
-    status === 'ready' && count === 0
-      ? t('deleteAll.empty')
-      : status === 'ready'
-        ? t('deleteAll.count', { count })
-        : '';
-  const confirming = step === 'confirming' || step === 'deleting' || step === 'failed';
-
   return (
     <View style={styles.box}>
-      <Text style={[typeStyle('body', language), { color: colors.text }]}>{summary}</Text>
+      <Text style={[typeStyle('body', language), { color: colors.text }]}>{summary()}</Text>
       {confirming ? (
         <View style={[styles.confirm, { borderColor: colors.error }]}>
           <Text
+            ref={titleRef}
             accessibilityRole="header"
             style={[typeStyle('title', language), { color: colors.text }]}
           >
             {t('deleteAll.confirmTitle')}
           </Text>
-          {text('deleteAll.confirmBody')}
+          <Text style={[typeStyle('body', language), { color: colors.text }]}>
+            {t('deleteAll.confirmBody')}
+          </Text>
           <View style={styles.row}>
-            {button(t('deleteAll.cancel'), () => setStep('idle'), step === 'deleting')}
-            {button(t('deleteAll.confirm'), () => void confirm(), step === 'deleting', true)}
+            {button(t('deleteAll.cancel'), () => setStep('idle'), deleting)}
+            {button(t('deleteAll.confirm'), () => void confirm(), deleting, true)}
           </View>
         </View>
       ) : (
-        button(t('deleteAll.button'), () => setStep('confirming'), !canDelete, true)
+        button(t('deleteAll.button'), () => setStep('confirming'), !ready || count === 0, true)
       )}
       <View accessibilityLiveRegion="polite">
-        {step === 'done' && text('deleteAll.done')}
-        {step === 'failed' && text('deleteAll.failed', colors.error)}
+        {result ? (
+          <Text
+            style={[
+              typeStyle('body', language),
+              { color: step === 'failed' ? colors.error : colors.text },
+            ]}
+          >
+            {result}
+          </Text>
+        ) : null}
       </View>
     </View>
   );
@@ -96,12 +127,12 @@ const styles = StyleSheet.create({
   confirm: { gap: space[2], borderWidth: 2, borderRadius: radius.md, padding: space[4] },
   row: { flexDirection: 'row', gap: space[2] },
   button: {
-    minHeight: size.buttonLg - 8,
-    minWidth: size.buttonLg - 8,
+    minHeight: size.touchMin,
+    minWidth: size.touchMin,
     borderWidth: 2,
     borderRadius: radius.md,
     paddingHorizontal: space[4],
     justifyContent: 'center',
   },
-  disabled: { opacity: 0.4 },
+  disabled: { opacity: DISABLED_OPACITY },
 });

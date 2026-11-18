@@ -1,10 +1,10 @@
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { act, fireEvent, render, screen } from '@testing-library/react-native';
 
 import { SettingsProvider } from '@/features/settings';
 import { createMemoryStore } from '@/test-utils/memory-store';
 
 import { DeleteAllSightings } from './delete-all-sightings';
-import { LifeListProvider } from './life-list-context';
+import { LifeListProvider, useLifeList } from './life-list-context';
 import type { LifeListRepository } from './life-list-repository';
 import { createMemoryRepository } from './memory-repository';
 
@@ -71,5 +71,37 @@ describe('DeleteAllSightings', () => {
     await fireEvent.press(screen.getByRole('button', { name: 'Delete' }));
     expect(await screen.findByText(/Couldn't delete/)).toBeTruthy();
     expect(screen.getByText('2 sightings saved on this device')).toBeTruthy();
+  });
+
+  it('disables both buttons while deleting', async () => {
+    const repo = await seeded(1);
+    repo.removeAllUnsynced = () => new Promise<void>(() => undefined);
+    await show(async () => repo);
+    await fireEvent.press(await screen.findByRole('button', { name: BUTTON }));
+    await fireEvent.press(screen.getByRole('button', { name: 'Delete' }));
+    expect(screen.getByRole('button', { name: 'Delete' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Cancel' })).toBeDisabled();
+  });
+
+  it('drops the done message once a new sighting is added', async () => {
+    let add: ReturnType<typeof useLifeList>['add'] = () => Promise.reject(new Error('unset'));
+    function Grab(): null {
+      add = useLifeList().add;
+      return null;
+    }
+    const repo = await seeded(1);
+    await render(
+      <SettingsProvider store={createMemoryStore()}>
+        <LifeListProvider open={async () => repo}>
+          <DeleteAllSightings />
+          <Grab />
+        </LifeListProvider>
+      </SettingsProvider>,
+    );
+    await fireEvent.press(await screen.findByRole('button', { name: BUTTON }));
+    await fireEvent.press(screen.getByRole('button', { name: 'Delete' }));
+    expect(await screen.findByText('All sightings deleted')).toBeTruthy();
+    await act(async () => void (await add(input)));
+    expect(screen.queryByText('All sightings deleted')).toBeNull();
   });
 });

@@ -1,5 +1,5 @@
 import { Link } from 'expo-router';
-import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text } from 'react-native';
 
 import { DeleteAllSightings } from '@/features/life-list';
 import { useSettings } from '@/features/settings';
@@ -13,7 +13,7 @@ export function MeScreen(): React.JSX.Element {
   const { language, t } = useSettings();
   const { colors } = useTheme();
   return (
-    <View style={[styles.screen, { backgroundColor: colors.bg }]}>
+    <ScrollView style={{ backgroundColor: colors.bg }} contentContainerStyle={styles.screen}>
       <Link href="/photo-credits" accessibilityRole="link" style={styles.link}>
         <Text style={[typeStyle('body', language), { color: colors.primary }]}>
           {t('credits.title')}
@@ -21,11 +21,11 @@ export function MeScreen(): React.JSX.Element {
       </Link>
       <PhotoPackSection />
       <DeleteAllSightings />
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  screen: { flex: 1, padding: SCREEN_PADDING },
+  screen: { padding: SCREEN_PADDING },
   link: { minHeight: size.touchMin, justifyContent: 'center' },
 });
