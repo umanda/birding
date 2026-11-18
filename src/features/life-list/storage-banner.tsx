@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { useEffect } from 'react';
+import { AccessibilityInfo, Platform, StyleSheet, Text, View } from 'react-native';
 
 import { useSettings } from '@/features/settings';
 import { space } from '@/shared/theme/tokens';
@@ -14,13 +15,19 @@ export function StorageBanner(): React.JSX.Element {
   const { colors } = useTheme();
   const { language, t } = useSettings();
   const { storage } = useLifeList();
+  const blocked = storage === 'memory';
+  const message = t('lifeList.storageBlocked');
+
+  // iOS ignores accessibilityLiveRegion, so it needs an explicit announcement.
+  useEffect(() => {
+    if (blocked && Platform.OS === 'ios') AccessibilityInfo.announceForAccessibility(message);
+  }, [blocked, message]);
+
   return (
     <View accessibilityLiveRegion="polite" testID={STORAGE_BANNER_TEST_ID}>
-      {storage === 'memory' && (
+      {blocked && (
         <View style={[styles.banner, { backgroundColor: colors.surface }]}>
-          <Text style={[typeStyle('body', language), { color: colors.text }]}>
-            {t('lifeList.storageBlocked')}
-          </Text>
+          <Text style={[typeStyle('body', language), { color: colors.text }]}>{message}</Text>
         </View>
       )}
     </View>

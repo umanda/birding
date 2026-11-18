@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react-native';
 import { SettingsProvider } from '@/features/settings';
 import { createMemoryStore } from '@/test-utils/memory-store';
 
+import type { LifeListRepository } from './life-list-repository';
 import { LifeListProvider } from './life-list-context';
 import { createMemoryRepository } from './memory-repository';
 import { StorageBanner } from './storage-banner';
@@ -12,9 +13,7 @@ jest.mock('expo-localization', () => ({ getLocales: () => [{ languageCode: 'en' 
 
 const MESSAGE = "Sightings can't be saved on this device right now.";
 
-const wrap = (
-  open: () => Promise<ReturnType<typeof createMemoryRepository>>,
-): React.JSX.Element => (
+const wrap = (open: () => Promise<LifeListRepository>): React.JSX.Element => (
   <SettingsProvider store={createMemoryStore()}>
     <LifeListProvider open={open}>
       <StorageBanner />
