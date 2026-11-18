@@ -2,6 +2,7 @@ import { Slot } from 'expo-router';
 import { renderRouter, screen } from 'expo-router/testing-library';
 
 import TabsLayout from '@/app/(tabs)/_layout';
+import { createMemoryRepository, LifeListProvider } from '@/features/life-list';
 import { MeScreen } from '@/features/me';
 import { ComingSoonScreen } from '@/features/shell';
 import { SettingsProvider } from '@/features/settings';
@@ -9,10 +10,14 @@ import { createMemoryStore } from '@/test-utils/memory-store';
 
 jest.mock('expo-localization', () => ({ getLocales: () => [{ languageCode: 'si' }] }));
 
+const openMemory = async () => createMemoryRepository();
+
 function Root(): React.JSX.Element {
   return (
     <SettingsProvider store={createMemoryStore()}>
-      <Slot />
+      <LifeListProvider open={openMemory}>
+        <Slot />
+      </LifeListProvider>
     </SettingsProvider>
   );
 }

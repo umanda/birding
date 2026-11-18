@@ -59,7 +59,7 @@ Persistence, offline, storage errors
   the app, then all 3 sightings and "Endemics 2 of 35" are still there, with no failed request (Playwright).
 - Given the web app's first save, then `navigator.storage.persist()` is requested once. A refusal does not block saving.
 - Given IndexedDB cannot be opened (storage disabled, some private-browsing modes), then the app uses an in-memory store
-  and shows a banner: "This browser isn't saving your list. Sightings will be lost when you close it." Everything else works.
+  and shows a banner: "Sightings can't be saved on this device right now. They'll be lost when you close the app." Everything else works.
 - Given a save fails (for example, the quota is exceeded), then the sheet stays open with my input and shows
   "Couldn't save. Your device may be out of space." and Retry. Nothing is half-saved.
 - Given stored rows fail the shape check on read, then those rows are skipped and logged in dev. The rest of the list loads.
@@ -108,7 +108,7 @@ for ADR 0006), `content_version`, `created_at`, `updated_at`, `deleted_at?`, `sy
   `add(input)`, `update(id, patch)`, `remove(id)` (soft), `removeAllUnsynced()`. Implementations: `idb-repository.ts` (web,
   `idb`, object store `sightings` with a `species_id` index), `sqlite-repository.ts` (native, expo-sqlite,
   `PRAGMA user_version`) and `memory-repository.ts` (tests and the storage-blocked fallback). The provider (slice 5)
-  chooses the store explicitly per platform, so there is no `.native`/`.web` file pair for the stores themselves. `updated_at` is
+  uses one opener per platform (`open-store.ts` web, `open-store.native.ts` native); the stores share code and have no `.native`/`.web` pair of their own. `updated_at` is
   not indexed until sync needs it. One contract test suite runs against all of them that can run in Jest.
 - Migrations are numbered and forward-only (`0001_init`). The idb version number equals the migration count.
 - New dependencies: `idb`, and `fake-indexeddb` (dev). For UUIDs, web uses `crypto.randomUUID()`. On native,

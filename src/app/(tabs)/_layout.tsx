@@ -1,6 +1,7 @@
 import { Tabs } from 'expo-router/js-tabs';
 import { StyleSheet, View } from 'react-native';
 
+import { StorageBanner } from '@/features/life-list';
 import { LanguageToggle, useSettings } from '@/features/settings';
 import type { MessageKey } from '@/shared/i18n/translate';
 import { useServiceWorkerUpdate } from '@/shared/platform/service-worker-update';
@@ -25,6 +26,7 @@ export default function TabsLayout(): React.JSX.Element {
   return (
     <View style={styles.root}>
       <UpdateBannerRegion visible={updateAvailable} language={language} t={t} onReload={reload} />
+      <StorageBanner />
       <Tabs
         screenOptions={{
           headerRight: () => <LanguageToggle />,

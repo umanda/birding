@@ -197,5 +197,6 @@
   "sighting.save": "Save",
   "sighting.cancel": "Cancel",
   "sighting.retry": "Retry",
-  "sighting.saveFailed": "Couldn't save. Your device may be out of space."
+  "sighting.saveFailed": "Couldn't save. Your device may be out of space.",
+  "lifeList.storageBlocked": "Sightings can't be saved on this device right now. They'll be lost when you close the app."
 }
