@@ -1,6 +1,13 @@
-import { checkMedia } from './check-media';
+import { checkMedia, mediaReport } from './check-media';
 import type { FileInfo } from './check-media';
-import { creditOf } from './media-manifest';
+import {
+  MASTERS_MAX_BYTES,
+  PHOTO_CACHE_MAX_ENTRIES,
+  PHOTO_PACK_MAX_BYTES,
+  budgetErrors,
+  creditOf,
+  mastersErrors,
+} from './media-manifest';
 import type { ManifestImage, MediaManifest } from './media-manifest';
 import type { MediaRow } from './media-schema';
 
@@ -158,5 +165,41 @@ describe('checkMedia primary thumbnail', () => {
   it('reports a primary image without a thumb', () => {
     const out = run(manifest({ ...image(), thumb: null }));
     expect(out).toContain('thumb must be present exactly when primary');
+  });
+});
+
+describe('photo pack and cache budgets', () => {
+  const withFullBytes = (bytes: number): ManifestImage => {
+    const img = image();
+    img.full.bytes = bytes;
+    return img;
+  };
+  const budgetsOf = (...images: ManifestImage[]): string[] => budgetErrors(images);
+
+  it('accepts a pack at the limit and rejects one over it', () => {
+    const each = 100 * 1024;
+    const full = Array.from({ length: PHOTO_PACK_MAX_BYTES / each }, () => withFullBytes(each));
+    expect(budgetsOf(...full)).toEqual([]);
+    expect(budgetsOf(...full, withFullBytes(1)).join()).toContain('photo pack');
+  });
+
+  it('accepts masters at the limit and rejects them over it', () => {
+    expect(mastersErrors(MASTERS_MAX_BYTES)).toEqual([]);
+    expect(mastersErrors(MASTERS_MAX_BYTES + 1).join()).toContain('masters');
+  });
+
+  it('keeps the photo cache at least as large as the number of full images', () => {
+    const many = Array.from({ length: PHOTO_CACHE_MAX_ENTRIES }, () => withFullBytes(1));
+    expect(budgetsOf(...many)).toEqual([]);
+    expect(budgetsOf(...many, withFullBytes(1)).join()).toContain('PHOTO_CACHE_MAX_ENTRIES');
+  });
+});
+
+describe('mediaReport', () => {
+  it('summarises coverage, sizes and plumages', () => {
+    const female = { ...image(), image_id: 'img-2', plumage_key: 'female' };
+    const text = mediaReport(manifest(image(), female), ['slb-a', 'slb-b', 'slb-c'], { masters: 0, publicMedia: 0 });
+    expect(text).toContain('species with a photo 1 / 3; without 2');
+    expect(text).toContain('images per plumage: male 1, female 1');
   });
 });

@@ -19,7 +19,14 @@ export const FULL_FALLBACKS = [
   { edge: FULL.edge, quality: 55 },
   { edge: 900, quality: 55 },
 ];
-export const THUMBS_TOTAL_MAX_BYTES = 4 * 1024 * 1024;
+const MIB = 1024 * 1024;
+export const THUMBS_TOTAL_MAX_BYTES = 4 * MIB;
+// Spec 006 budgets. The pack is the sum of full images (Me > Download offline pack).
+export const PHOTO_PACK_MAX_BYTES = 75 * MIB;
+export const MASTERS_MAX_BYTES = 150 * MIB;
+// Runtime cache of full photos. Fixed and above the image count so a complete pack is never
+// evicted; budgetErrors fails when the manifest outgrows it.
+export const PHOTO_CACHE_MAX_ENTRIES = 1000;
 export const HASH_LENGTH = 8;
 
 // ADR 0004: one thumbnail per species. Its image is the first reviewed one in this plumage
@@ -104,7 +111,23 @@ export function budgetErrors(images: readonly ManifestImage[]): string[] {
   if (thumbsTotal > THUMBS_TOTAL_MAX_BYTES) {
     errors.push(`thumbs total ${thumbsTotal} bytes, over the ${THUMBS_TOTAL_MAX_BYTES} byte budget`);
   }
+  const packBytes = packBytesOf(images);
+  if (packBytes > PHOTO_PACK_MAX_BYTES) {
+    errors.push(`photo pack ${packBytes} bytes, over the ${PHOTO_PACK_MAX_BYTES} byte budget`);
+  }
+  if (images.length > PHOTO_CACHE_MAX_ENTRIES) {
+    errors.push(`${images.length} full images exceed PHOTO_CACHE_MAX_ENTRIES (${PHOTO_CACHE_MAX_ENTRIES})`);
+  }
   return errors;
+}
+
+export function packBytesOf(images: readonly ManifestImage[]): number {
+  return images.reduce((sum, i) => sum + i.full.bytes, 0);
+}
+
+export function mastersErrors(mastersBytes: number): string[] {
+  if (mastersBytes <= MASTERS_MAX_BYTES) return [];
+  return [`masters ${mastersBytes} bytes, over the ${MASTERS_MAX_BYTES} byte budget`];
 }
 
 export function targetWarnings(images: readonly ManifestImage[]): string[] {

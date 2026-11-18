@@ -1,4 +1,5 @@
 import { generateSW } from 'workbox-build';
+import { PHOTO_CACHE_MAX_ENTRIES } from '../content/media/media-manifest';
 
 const DIST_DIR = 'dist';
 // The generated worker, the sitemap debug page and source maps are not part of the shell.
@@ -18,8 +19,8 @@ const MAX_FILE_BYTES = 5 * 1024 * 1024; // the single JS bundle exceeds Workbox'
 // ADR 0004: full photos are cached when first viewed. File names carry a content hash, so an
 // entry is never stale and the cache needs no versioned invalidation beyond its name.
 const PHOTO_CACHE_NAME = 'photos-v1';
-const PHOTO_CACHE_MAX_ENTRIES = 600;
 const PRECACHE_BUDGET_BYTES = 10 * 1024 * 1024; // ADR 0001 shell budget
+const PRECACHE_WARN_BYTES = 9 * 1024 * 1024; // early notice, spec 006 risk R5
 
 // Run after `expo export`. Precaches the static export so every route opens offline.
 async function main(): Promise<void> {
@@ -57,6 +58,11 @@ async function main(): Promise<void> {
   if (size > PRECACHE_BUDGET_BYTES) {
     const budgetMb = PRECACHE_BUDGET_BYTES / 1024 / 1024;
     throw new Error(`Precache is ${size} bytes, over the ${budgetMb} MB budget (ADR 0001).`);
+  }
+  if (size > PRECACHE_WARN_BYTES) {
+    process.stderr.write(
+      `warning: precache is ${size} bytes, above 9 MiB (hard limit 10 MB, ADR 0001)\n`,
+    );
   }
 }
 
