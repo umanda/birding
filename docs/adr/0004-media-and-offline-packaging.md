@@ -37,7 +37,9 @@ optional (UX 01 §2.1). Data and index packaging belong to ADR 0006.
 - **Web/PWA offline:** the Workbox precache holds the app shell, fonts, data files and
   **thumbnails**; species pages come from one precached `species/[id].html` template via a navigation
   fallback (295 pages would be 13.9 MB, over ADR 0001's 10 MB budget; the precache is about 4 MB).
-  Amendment: plate pages (43) likewise come from one precached `plate/[id].html` template (`public/plate-navigation.js`). Full images use a runtime **CacheFirst** cache (`photos-v1`). "Download offline pack"
+  Amendment (M8): plate pages (43) likewise come from one precached `plate/[id].html` template,
+  served by `public/plate-navigation.js` (Workbox allows only one navigation fallback).
+  Full images use a runtime **CacheFirst** cache (`photos-v1`). "Download offline pack"
   (Me tab) fetches all full images from the manifest into that cache with progress, Wi-Fi hint and
   resume, and calls `navigator.storage.persist()`. Use content-hashed file names, so updates only download changed images.
 - **Native offline:** thumbnails are bundled as app assets. Full images download on demand or as the

@@ -154,7 +154,8 @@ regenerating before each merge.** `[Orn]` = ornithologist drafts. `[Owner]` = ow
 1b. C feat(content): per-question coverage report, flag for ≥ 2 unknown core questions, `traits.json` size log (~70)
 2.  C chore(media): CI totals for the pack (≤ 75 MB) and masters (≤ 150 MB), the `public/media` total, and a photo
     coverage report. `PHOTO_CACHE_MAX_ENTRIES` derived from the manifest (or 1000). `build-sw.ts` warns above 9 MiB (~110)
-3.  C perf(pwa): serve `plate/[id].html` from one template via `navigateFallback`, like species pages (−1.7 MB),
+3.  C perf(pwa): serve `plate/[id].html` from one template via a small imported SW fetch listener
+    (generateSW allows one `navigateFallback`, used by species pages) (−1.7 MB),
     with a one-line ADR 0004 amendment and the offline e2e updated (~90)
 4.  C test(identify): accuracy reporting per plate and batch (top-5, top-10, hard-group, easy, original 25, demo).
     Adds `scenario_source`/`hard_group` columns and composition checks, the unknowns-cannot-outrank test, and a logged
