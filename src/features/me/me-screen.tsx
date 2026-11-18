@@ -1,6 +1,7 @@
 import { Link } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 
+import { DeleteAllSightings } from '@/features/life-list';
 import { useSettings } from '@/features/settings';
 import { SCREEN_PADDING, size } from '@/shared/theme/tokens';
 import { typeStyle } from '@/shared/theme/type-style';
@@ -19,6 +20,7 @@ export function MeScreen(): React.JSX.Element {
         </Text>
       </Link>
       <PhotoPackSection />
+      <DeleteAllSightings />
     </View>
   );
 }

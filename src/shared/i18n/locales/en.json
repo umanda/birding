@@ -198,5 +198,15 @@
   "sighting.cancel": "Cancel",
   "sighting.retry": "Retry",
   "sighting.saveFailed": "Couldn't save. Your device may be out of space.",
-  "lifeList.storageBlocked": "Sightings can't be saved on this device right now. They'll be lost when you close the app."
+  "lifeList.storageBlocked": "Sightings can't be saved on this device right now. They'll be lost when you close the app.",
+  "deleteAll.count.one": "{count} sighting saved on this device",
+  "deleteAll.count.other": "{count} sightings saved on this device",
+  "deleteAll.empty": "No sightings saved on this device",
+  "deleteAll.button": "Delete all sightings on this device",
+  "deleteAll.confirmTitle": "Delete all sightings?",
+  "deleteAll.confirmBody": "This removes every sighting from this device. It can't be undone.",
+  "deleteAll.confirm": "Delete",
+  "deleteAll.cancel": "Cancel",
+  "deleteAll.done": "All sightings deleted",
+  "deleteAll.failed": "Couldn't delete. Your sightings are still saved."
 }
