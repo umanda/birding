@@ -2,6 +2,7 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { useEffect } from 'react';
 
+import { LifeListProvider } from '@/features/life-list';
 import { SettingsProvider } from '@/features/settings';
 import { keyValueStore } from '@/shared/platform/key-value-store';
 import { registerServiceWorker } from '@/shared/platform/register-service-worker';
@@ -23,11 +24,13 @@ export default function RootLayout() {
   // Render immediately: fallback fonts swap in, so static HTML hydrates and nothing blocks.
   return (
     <SettingsProvider store={keyValueStore}>
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="plate/[id]" options={{ headerShown: true }} />
-        <Stack.Screen name="species/[id]" options={{ headerShown: true }} />
-        <Stack.Screen name="photo-credits" options={{ headerShown: true }} />
-      </Stack>
+      <LifeListProvider>
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="plate/[id]" options={{ headerShown: true }} />
+          <Stack.Screen name="species/[id]" options={{ headerShown: true }} />
+          <Stack.Screen name="photo-credits" options={{ headerShown: true }} />
+        </Stack>
+      </LifeListProvider>
     </SettingsProvider>
   );
 }
