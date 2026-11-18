@@ -104,11 +104,12 @@ Sighting (hand-written type guard, no zod in the client; ADR 0007), the same sha
 `id` (UUID v4, made on the client), `species_id`, `seen_on` (local date `YYYY-MM-DD`; [Assumption] a date is enough),
 `place_name?`, `zone?` (identify `Zone`), `count?`, `note?`, `lat_rounded?`, `lon_rounded?` (always null in M6, kept
 for ADR 0006), `content_version`, `created_at`, `updated_at`, `deleted_at?`, `synced_at?` (always null in M6). Timestamps are ISO UTC.
-- `LifeListRepository` (`src/features/life-list/types.ts`): `list()` (rows that are not deleted), `add(input)`,
-  `update(id, patch)`, `remove(id)` (soft), `removeAllUnsynced()`. Implementations: `sightings-db.ts` (web default,
-  `idb`, object store `sightings` with `species_id` and `updated_at` indexes), `sightings-db.native.ts`
-  (expo-sqlite, `PRAGMA user_version`), and `memory-repository.ts` (tests and the storage-blocked fallback). One
-  contract test suite runs against all of them that can run in Jest.
+- `LifeListRepository` (`src/features/life-list/life-list-repository.ts`): `list()` (rows that are not deleted), `get(id)`,
+  `add(input)`, `update(id, patch)`, `remove(id)` (soft), `removeAllUnsynced()`. Implementations: `idb-repository.ts` (web,
+  `idb`, object store `sightings` with a `species_id` index), `sqlite-repository.ts` (native, expo-sqlite,
+  `PRAGMA user_version`) and `memory-repository.ts` (tests and the storage-blocked fallback). The provider (slice 5)
+  chooses the store explicitly per platform, so there is no `.native`/`.web` file pair for the stores themselves. `updated_at` is
+  not indexed until sync needs it. One contract test suite runs against all of them that can run in Jest.
 - Migrations are numbered and forward-only (`0001_init`). The idb version number equals the migration count.
 - New dependencies: `idb`, and `fake-indexeddb` (dev). For UUIDs, web uses `crypto.randomUUID()`. On native,
   `typescript-expert` confirms Hermes support or adds `expo-crypto`.
