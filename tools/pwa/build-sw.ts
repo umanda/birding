@@ -2,10 +2,17 @@ import { generateSW } from 'workbox-build';
 
 const DIST_DIR = 'dist';
 // The generated worker, the sitemap debug page and source maps are not part of the shell.
+// Per-plate HTML (43 files) is skipped likewise; `plate/[id].html` is its template (public/plate-navigation.js).
 // Per-species HTML (295 x ~35 KB) is skipped: with it the precache exceeds ADR 0001's 10 MB
 // budget. Species pages are served from the `species/[id].html` template (see below) because
 // the species data ships inside the JS bundle and the router reads the id from the URL.
-const NOT_PRECACHED = ['sw.js', '_sitemap.html', '**/*.map', 'species/slb-*.html'];
+const NOT_PRECACHED = [
+  'sw.js',
+  '_sitemap.html',
+  '**/*.map',
+  'species/slb-*.html',
+  'plate/plate-*.html',
+];
 const SPECIES_TEMPLATE = '/species/[id].html';
 const MAX_FILE_BYTES = 5 * 1024 * 1024; // the single JS bundle exceeds Workbox's 2 MB default
 // ADR 0004: full photos are cached when first viewed. File names carry a content hash, so an
@@ -21,6 +28,7 @@ async function main(): Promise<void> {
     // thumb.webp lives in the one brace pattern: a separate media glob warns while the manifest is empty.
     globPatterns: ['**/*.{html,js,css,png,ico,ttf,woff2,json,thumb.webp}'],
     globIgnores: NOT_PRECACHED,
+    importScripts: ['/plate-navigation.js'],
     swDest: `${DIST_DIR}/sw.js`,
     maximumFileSizeToCacheInBytes: MAX_FILE_BYTES,
     // `/browse?occ=E` must resolve to the precached /browse.html, so ignore every query string.
