@@ -213,3 +213,29 @@ describe('isMatch', () => {
     expect(isMatch(at(rank([traits], answers), 0))).toBe(expected);
   });
 });
+
+describe('rank with unknown traits', () => {
+  const answers: Answers = {
+    month: 1,
+    zone: 'wet_lowland',
+    habitat: 'forest',
+    size: 'M',
+    colours: ['green'],
+    behaviour: 'tree_bush',
+  };
+  const fullMatch: SpeciesTraits = {
+    species_id: 'full',
+    zones: ['wet_lowland'],
+    habitats: ['forest'],
+    size: ['M'],
+    colours: [['green']],
+    behaviours: ['tree_bush'],
+    months: Array<'present'>(12).fill('present'),
+  };
+
+  it('cannot outrank a species that fully matches', () => {
+    const allUnknown: SpeciesTraits = { species_id: 'unknown' };
+    const ranked = rank([allUnknown, fullMatch], answers, { order: { unknown: 0, full: 1 } });
+    expect(ranked[0]?.species_id).toBe('full');
+  });
+});
