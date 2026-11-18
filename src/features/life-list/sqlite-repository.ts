@@ -126,7 +126,7 @@ export async function createSqliteRepository({
       if (!current) throw new Error(`sighting ${id} not found`);
       const updated = applyChanges(current, changes, deps.now());
       const assignments = EDITABLE.map((column) => `${column} = ?`).join(', ');
-      await db.runAsync(`UPDATE sightings SET ${assignments} WHERE id = ?`, [
+      await db.runAsync(`UPDATE sightings SET ${assignments} WHERE id = ? AND deleted_at IS NULL`, [
         ...EDITABLE.map((column) => updated[column]),
         id,
       ]);

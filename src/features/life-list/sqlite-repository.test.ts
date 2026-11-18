@@ -96,8 +96,7 @@ describe('sqlite migrations', () => {
     const { db, raw } = fakeDb();
     await migrate(db);
     seed(raw, [OLD_ROW]);
-    const deps = { newId: () => 'x', now: () => new Date() };
-    const repo = await createSqliteRepository({ db, deps });
+    const repo = await createSqliteRepository({ db, deps: DEPS });
     expect((await repo.list()).map((s) => s.id)).toEqual(['a']);
   });
 
