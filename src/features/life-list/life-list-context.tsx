@@ -41,10 +41,12 @@ const warnReadFailed = (error: unknown): void => {
 };
 
 async function openOrFallBack(open: () => Promise<LifeListRepository>): Promise<Opened> {
+  let opened: LifeListRepository | null = null;
   try {
-    const repo = await open();
-    return { repo, storage: 'device', rows: await repo.list() };
+    opened = await open();
+    return { repo: opened, storage: 'device', rows: await opened.list() };
   } catch (error) {
+    if (opened) closeIfPossible(opened); // opened but unreadable: do not leak the handle
     // eslint-disable-next-line no-console -- single, intentional storage-failure report
     console.warn('Life list storage unavailable; sightings are kept in memory only.', error);
     return { repo: createMemoryRepository(), storage: 'memory', rows: [] };
@@ -84,7 +86,7 @@ export function LifeListProvider({ open = openStore, children }: Props): ReactNo
     const result = await run(repo);
     // Only the write decides success; a failed re-read is logged, not reported as a failed save.
     const read = ++latestRead.current;
-    repo.list().then((rows) => {
+    await repo.list().then((rows) => {
       if (read === latestRead.current) setSightings(rows);
     }, warnReadFailed);
     return result;
