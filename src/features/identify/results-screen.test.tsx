@@ -158,9 +158,7 @@ describe('ResultsScreen with no match', () => {
 describe('ResultsScreen footer', () => {
   it('states coverage and links to Browse and Search without scrolling', async () => {
     const user = await open(MATCHING);
-    expect(
-      await screen.findByText('This guide can identify 4 of its 295 species so far'),
-    ).toBeTruthy();
+    expect(await screen.findByText('This guide can identify 4 of its 295 species')).toBeTruthy();
     expect(screen.getByRole('link', { name: 'Browse' })).toBeTruthy();
     await user.press(screen.getByRole('link', { name: 'Search' }));
     expect(screen).toHavePathname('/search');

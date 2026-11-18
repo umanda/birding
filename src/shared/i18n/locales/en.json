@@ -123,7 +123,7 @@
   "identify.results.removeLast": "Remove last answer ({label})",
   "identify.results.noneFit": "None of the birds in this guide fits all your answers.",
   "identify.results.notListed": "Not in this guide yet?",
-  "identify.results.coverage": "This guide can identify {count} of its {total} species so far",
+  "identify.results.coverage": "This guide can identify {count} of its {total} species",
   "identify.question.zone": "Where in Sri Lanka?",
   "identify.question.habitat": "What was the habitat?",
   "identify.question.size": "How big was it?",
