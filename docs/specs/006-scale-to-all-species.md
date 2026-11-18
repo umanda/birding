@@ -57,7 +57,10 @@ ID accuracy (`id-test-sightings.csv`, gated per batch)
 - The set has ≥ 100 sightings covering every plate. New columns: `scenario_source` and a test-only `hard_group`.
   At least ~20% of each batch's scenarios come from someone other than the trait drafter, or were written from plates
   or photos before the trait rows existed. At least ~60% target species that are common in at least one zone.
-  Scarce and vagrant targets are reported but not gated.
+  Scarce and vagrant targets are reported but not gated. `scenario_source` is `drafter` (the trait drafter),
+  `other` (someone else) or `plates` (written from plates or photos before the traits). A batch ≥ 1 whose mix is
+  not met fails its accuracy check; batch 0 (the M5 pilot) is reported only. Hard-group members are the test targets
+  that share a `hard_group`, so each lookalike needs its own sighting.
 - The gates are:
   - overall top-5 ≥ 70% and top-10 ≥ 90%, valid only with the mix above;
   - easy scenarios top-5 ≥ 80%;
