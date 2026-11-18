@@ -1,7 +1,7 @@
 import type { SQLiteDatabase } from 'expo-sqlite';
 
 import type { LifeListRepository, RepositoryDeps } from './life-list-repository';
-import { checkedFields, checkedInput } from './memory-repository';
+import { applyChanges, buildSighting, markDeleted } from './repository-rules';
 import { isSighting, type Sighting } from './sighting';
 
 // Forward-only. Entry N takes the database to `PRAGMA user_version = N`. Never edit a shipped one.
@@ -113,20 +113,7 @@ export async function createSqliteRepository({
     },
     get: find,
     add: async (input) => {
-      const now = deps.now();
-      const stamp = now.toISOString();
-      const sighting: Sighting = {
-        ...checkedInput(input, now),
-        id: deps.newId(),
-        species_id: input.species_id,
-        lat_rounded: null,
-        lon_rounded: null,
-        content_version: input.content_version,
-        created_at: stamp,
-        updated_at: stamp,
-        deleted_at: null,
-        synced_at: null,
-      };
+      const sighting = buildSighting(input, deps);
       const marks = COLUMNS.map(() => '?').join(', ');
       await db.runAsync(
         `INSERT INTO sightings (${COLUMNS.join(', ')}) VALUES (${marks})`,
@@ -137,9 +124,7 @@ export async function createSqliteRepository({
     update: async (id, changes) => {
       const current = await find(id);
       if (!current) throw new Error(`sighting ${id} not found`);
-      const now = deps.now();
-      const fields = checkedFields({ ...current, ...changes }, now);
-      const updated: Sighting = { ...current, ...fields, updated_at: now.toISOString() };
+      const updated = applyChanges(current, changes, deps.now());
       const assignments = EDITABLE.map((column) => `${column} = ?`).join(', ');
       await db.runAsync(`UPDATE sightings SET ${assignments} WHERE id = ?`, [
         ...EDITABLE.map((column) => updated[column]),
@@ -148,11 +133,12 @@ export async function createSqliteRepository({
       return updated;
     },
     remove: async (id) => {
-      if (!(await find(id))) return;
-      const stamp = deps.now().toISOString();
+      const current = await find(id);
+      if (!current) return;
+      const { deleted_at, updated_at } = markDeleted(current, deps.now());
       await db.runAsync('UPDATE sightings SET deleted_at = ?, updated_at = ? WHERE id = ?', [
-        stamp,
-        stamp,
+        deleted_at,
+        updated_at,
         id,
       ]);
     },
