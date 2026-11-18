@@ -30,16 +30,28 @@ const input: SheetInput = {
         occurrence_code: 'E',
         iucn_category: null,
       },
+      {
+        species_id: 'sp-c',
+        plate_id: 'p1',
+        plate_order: 3,
+        names: { en: 'Draft Bird', si: null, scientific: 'Genus draftus' },
+        occurrence_code: 'R',
+        iucn_category: null,
+      },
     ],
   },
+  plan: [
+    { species_id: 'sp-a', batch: '3' },
+    { species_id: 'sp-c', batch: '5' },
+  ],
   ledger: [
     { species_id: 'sp-a', batch: '3', unknown_traits: 'zone|month', reviewed_by: 'o', reviewed_at: '2026-11-18', note: 'no range text' },
-    { species_id: 'sp-b', batch: '4', unknown_traits: '', reviewed_by: 'o', reviewed_at: '2026-11-18', note: '' },
   ],
   traits: [
     trait('colour', 'red', { plumage_key: 'male', source: 'expert:ornithologist', confidence: 'low', note: 'a|b' }),
     trait('colour', 'black', { plumage_key: 'male' }),
     trait('size', 'M'),
+    trait('zone', 'montane', { species_id: 'sp-c', review_status: 'proposed' }),
   ],
   doubts: [{ species_id: 'sp-a', field: 'species_description', doubt: 'odd', suggested_source: 'a book' }],
   sensitive: [{ species_id: 'sp-a', reason: 'obscure_location' }],
@@ -72,12 +84,28 @@ describe('renderBatchSheet', () => {
   });
 });
 
+describe('a batch that is drafted but not approved', () => {
+  const sheet = renderBatchSheet('5', input);
+
+  it('renders its proposed rows with no ledger row', () => {
+    expect(sheet).toContain('# Traits review: batch 5');
+    expect(sheet).toContain('## Draft Bird');
+    expect(sheet).toContain('| zone | montane | - | workbook:species_description | high | proposed | - |');
+    expect(sheet).toContain('Unknown: not in the ledger yet');
+    expect(sheet).not.toContain('Test Bird');
+  });
+});
+
 describe('committed review sheets', () => {
   it('match a fresh generation for every ledger batch', () => {
     expect(checkReviewSheets(loadSheetInput())).toEqual([]);
   });
 
-  it('reports a ledger batch with no committed sheet', () => {
+  it('flags a sheet with no planned batch', () => {
+    expect(checkReviewSheets({ ...loadSheetInput(), plan: [] }).join()).toMatch(/batch-00.md: no planned batch/);
+  });
+
+  it('reports a planned batch with no committed sheet', () => {
     expect(checkReviewSheets(input).join()).toMatch(/batch-03\.md: missing/);
   });
 });

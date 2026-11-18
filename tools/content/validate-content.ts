@@ -7,6 +7,7 @@ import { validateTraits } from './traits';
 import { parseLedger, validateLedger } from './traits-ledger';
 import { validateDoubts, validateSensitive } from './review-aids';
 import { checkReviewSheets, loadSheetInput } from './review-sheet';
+import { validatePlan } from './traits-plan';
 import { formatTraitsReport } from './traits-report';
 import { validateMediaRegister } from './media/validate-media';
 
@@ -20,6 +21,7 @@ const TRAITS_CSV = 'data/content/traits.csv';
 const LEDGER_CSV = 'data/content/traits-batches.csv';
 const DOUBTS_CSV = 'data/content/workbook-doubts.csv';
 const SENSITIVE_CSV = 'data/content/sensitive-species.csv';
+const PLAN_CSV = 'data/content/traits-plan.csv';
 const TRAITS_FILE = 'content/traits.json';
 const TEXT_FILE = 'content/species-text.json';
 export const TEXT_MAX_GZIP_BYTES = 250 * 1024; // lazy-loaded, but still precached (spec 003)
@@ -214,6 +216,7 @@ function main(): void {
     errors.push(...validateLedger(ledger, new Set(ids), traits.rows));
     errors.push(...validateDoubts(readFileSync(DOUBTS_CSV, 'utf8'), new Set(ids)));
     errors.push(...validateSensitive(readFileSync(SENSITIVE_CSV, 'utf8'), new Set(ids)));
+    errors.push(...validatePlan(readFileSync(PLAN_CSV, 'utf8'), new Set(ids), ledger.rows));
     errors.push(...checkReviewSheets(loadSheetInput()));
     const report = formatTraitsReport(ledger.rows, ids.length, statSync(TRAITS_FILE).size);
     for (const line of report.lines) process.stdout.write(`${line}\n`);

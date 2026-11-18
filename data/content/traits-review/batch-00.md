@@ -1,6 +1,6 @@
 # Traits review: batch 0
 
-Generated from traits.csv, traits-batches.csv, workbook-doubts.csv and sensitive-species.csv. Do not edit by hand: run `npm run traits:review-sheet -- --batch 0`.
+Generated from traits.csv, traits-plan.csv, traits-batches.csv, workbook-doubts.csv and sensitive-species.csv. Do not edit by hand: run `npm run traits:review-sheet -- --batch 0`.
 34 species. Review every row. Zones: wet_lowland, wet_midhill, montane, intermediate, dry_lowland, arid_coast_north.
 
 ## Sri Lanka Junglefowl / වලි කුකුළා / *Gallus lafayettii*
