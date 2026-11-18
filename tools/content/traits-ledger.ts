@@ -24,7 +24,7 @@ const LedgerRowSchema = z.object({
   batch: z.string().regex(/^\d+$/, 'batch must be a whole number'),
   unknown_traits: z.string(),
   reviewed_by: z.string().min(1, 'blank reviewed_by'),
-  reviewed_at: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'reviewed_at must be YYYY-MM-DD'),
+  reviewed_at: z.string().date('reviewed_at must be YYYY-MM-DD'),
   note: z.string(),
 });
 export type LedgerRow = z.infer<typeof LedgerRowSchema>;
@@ -86,7 +86,7 @@ function checkCoverage(unknowns: Unknown[], reviewed: TraitRow[]): string[] {
   for (const { trait, plumage } of unknowns.filter((u) => u.plumage !== undefined)) {
     const rows = reviewed.filter((r) => r.trait === trait);
     if (rows.length === 0) errors.push(`${trait}:${plumage} needs the whole trait, or reviewed rows`);
-    if (rows.some((r) => r.plumage_key === plumage)) {
+    if (rows.some((r) => r.plumage_key === plumage || r.plumage_key === '')) {
       errors.push(`${trait}:${plumage} is unknown but has reviewed rows`);
     }
   }

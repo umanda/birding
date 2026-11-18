@@ -62,6 +62,7 @@ describe('validateLedger', () => {
     expect(check('colour:juvenile', ['colour'], ...rows)).toEqual([]);
   });
 
+it('rejects a plumage unknown when a blank-key row covers every plumage', () => {    expect(check('colour:juvenile')[0]).toMatch(/colour:juvenile is unknown but has/);  });
   it('rejects a plumage that is unknown but reviewed', () => {
     const rows = ['sp-a,colour,blue,juvenile,expert:x,high,reviewed,'];
     expect(check('colour:juvenile', ['colour'], ...rows)[0]).toMatch(/colour:juvenile is unknown but has/);
@@ -96,10 +97,10 @@ describe('validateLedger', () => {
     expect(validateLedger(parseLedger(LEDGER_HEADER), IDS, traits)[0]).toMatch(/not in the ledger/);
   });
 
-  it('ignores proposed rows when checking coverage', () => {
+  it('does not count proposed rows as coverage', () => {
     const traits = validateTraits(traitsCsv().replace(/reviewed/g, 'proposed'), IDS).rows;
     const ledger = parseLedger(`${LEDGER_HEADER}\nsp-a,0,,owner,2026-11-17,`);
-    expect(validateLedger(ledger, IDS, traits).length).toBeGreaterThan(0);
+    expect(validateLedger(ledger, IDS, traits)[0]).toMatch(/has no reviewed row/);
   });
 });
 
@@ -127,5 +128,6 @@ describe('the real ledger', () => {
     const built = JSON.parse(readFileSync('content/traits.json', 'utf8')) as { species: object };
     expect(ledger.rows.map((r) => r.species_id).sort()).toEqual(Object.keys(built.species).sort());
     expect(ledger.rows.every((r) => r.batch === '0')).toBe(true);
+expect(ledger.rows).toHaveLength(34);
   });
 });
