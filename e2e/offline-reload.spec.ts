@@ -36,7 +36,7 @@ const routes: RouteCase[] = [
     name: 'identify results',
     path: '/identify/results?month=7&zone=wet_lowland',
     expectRendered: (page) =>
-      expect(page.getByText(/This guide can identify \d+ of \d+ species so far/)).toBeVisible(),
+      expect(page.getByText(/This guide can identify \d+ of its \d+ species/)).toBeVisible(),
   },
   {
     name: 'search',
