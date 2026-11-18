@@ -1,10 +1,13 @@
-import { render, screen, userEvent } from '@testing-library/react-native';
+import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 
 import { createT } from '@/shared/i18n/translate';
 
 import { NOTE_MAX, PLACE_NAME_MAX } from './sighting';
 import type { Sighting } from './sighting';
 import { SightingSheet } from './sighting-sheet';
+
+// The first render in a cold jest worker loads the theme, fonts and modal modules and can pass 5 s.
+jest.setTimeout(30000);
 
 const t = createT('en');
 const TODAY = '2026-11-18';
@@ -68,6 +71,16 @@ describe('SightingSheet', () => {
     await user.press(screen.getByRole('button', { name: 'Yesterday' }));
     expect(screen.getByLabelText('Date (YYYY-MM-DD)').props.value).toBe('2026-11-17');
     expect(saveButton()).toBeEnabled();
+  });
+
+  it('waits for a complete date or a blur before showing the date error', async () => {
+    await setup();
+    const date = screen.getByLabelText('Date (YYYY-MM-DD)');
+    await fireEvent.changeText(date, '2026-1');
+    expect(screen.queryByText(/today or earlier/)).toBeNull();
+    expect(saveButton()).toBeDisabled();
+    await fireEvent(date, 'blur');
+    expect(screen.getByText(/today or earlier/)).toBeTruthy();
   });
 
   it('limits place and note length with the validator constants', async () => {

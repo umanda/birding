@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
-import { ZONES } from '@/shared/data/traits-vocabulary';
 import type { Language } from '@/shared/i18n/language';
 import type { Rendered } from '@/shared/i18n/localized';
 import type { MessageKey, Translate } from '@/shared/i18n/translate';
@@ -14,14 +13,16 @@ import type { CleanFields, Sighting } from './sighting';
 import {
   dayBefore,
   emptyValues,
-  findErrorKey,
+  findFormError,
   toCleanFields,
   valuesFromSighting,
 } from './sighting-form';
 import type { FormValues } from './sighting-form';
+import { ZoneChips } from './zone-chips';
 
 const COUNT_INPUT_MAX_LENGTH = 3; // "999"
 const DATE_INPUT_MAX_LENGTH = 10; // "YYYY-MM-DD"
+const DISABLED_OPACITY = 0.5; // no opacity token exists yet; same value as photo-pack-section
 
 type Props = {
   name: Rendered; // species name, already in the UI language
@@ -50,7 +51,11 @@ export function SightingSheet({
   );
   const [saving, setSaving] = useState(false);
   const [failed, setFailed] = useState(false);
-  const errorKey = findErrorKey(values, todayDate);
+  const [dateLeft, setDateLeft] = useState(false);
+  const problem = findFormError(values, todayDate);
+  // Do not scold a half-typed date: wait until it is complete or the field loses focus.
+  const dateDone = dateLeft || values.seen_on.length >= DATE_INPUT_MAX_LENGTH;
+  const shownKey = problem && (problem.field !== 'seen_on' || dateDone) ? problem.key : null;
   const set = (change: Partial<FormValues>): void => setValues((v) => ({ ...v, ...change }));
 
   const save = async (): Promise<void> => {
@@ -65,8 +70,8 @@ export function SightingSheet({
     }
   };
 
-  const textStyle = (name: 'title' | 'body' | 'label') => [
-    typeStyle(name, language),
+  const textStyle = (variant: 'title' | 'body' | 'label') => [
+    typeStyle(variant, language),
     { color: colors.text },
   ];
   const inputStyle = [styles.input, textStyle('body'), { borderColor: colors.primary }];
@@ -80,15 +85,16 @@ export function SightingSheet({
       accessibilityState={{ disabled }}
       disabled={disabled}
       onPress={onPress}
-      style={[styles.button, { borderColor: colors.primary, opacity: disabled ? 0.5 : 1 }]}
+      style={[
+        styles.button,
+        { borderColor: colors.primary, opacity: disabled ? DISABLED_OPACITY : 1 },
+      ]}
     >
       <Text style={textStyle('label')}>{text}</Text>
     </Pressable>
   );
   const message = (key: MessageKey): React.JSX.Element => (
-    <Text accessibilityRole="alert" style={[typeStyle('body', language), { color: colors.error }]}>
-      {t(key)}
-    </Text>
+    <Text style={[typeStyle('body', language), { color: colors.error }]}>{t(key)}</Text>
   );
 
   return (
@@ -112,6 +118,7 @@ export function SightingSheet({
             accessibilityLabel={t('sighting.date')}
             value={values.seen_on}
             onChangeText={(seen_on) => set({ seen_on })}
+            onBlur={() => setDateLeft(true)}
             maxLength={DATE_INPUT_MAX_LENGTH}
             keyboardType="numbers-and-punctuation"
             style={inputStyle}
@@ -131,33 +138,12 @@ export function SightingSheet({
           />
 
           {label('sighting.zone')}
-          <View role="radiogroup" style={styles.row}>
-            {ZONES.map((zone) => {
-              const checked = values.zone === zone;
-              return (
-                <Pressable
-                  key={zone}
-                  accessibilityRole="radio"
-                  accessibilityLabel={t(`identify.zone.${zone}`)}
-                  accessibilityState={{ checked }}
-                  aria-checked={checked}
-                  onPress={() => set({ zone: checked ? null : zone })}
-                  style={[
-                    styles.button,
-                    {
-                      borderColor: colors.primary,
-                      borderWidth: checked ? borderWidth.thick : borderWidth.thin,
-                    },
-                  ]}
-                >
-                  <Text style={textStyle('body')}>
-                    {checked ? <Text aria-hidden>{'✓ '}</Text> : null}
-                    {t(`identify.zone.${zone}`)}
-                  </Text>
-                </Pressable>
-              );
-            })}
-          </View>
+          <ZoneChips
+            zone={values.zone}
+            language={language}
+            t={t}
+            onChange={(zone) => set({ zone })}
+          />
 
           {label('sighting.count')}
           <TextInput
@@ -179,13 +165,13 @@ export function SightingSheet({
             style={[inputStyle, styles.note]}
           />
 
-          <View aria-live="polite">
-            {errorKey ? message(errorKey) : null}
+          <View accessibilityLiveRegion="polite">
+            {shownKey ? message(shownKey) : null}
             {failed ? message('sighting.saveFailed') : null}
           </View>
           <View style={styles.row}>
             {button(t('sighting.cancel'), onCancel)}
-            {button(t(failed ? 'sighting.retry' : 'sighting.save'), save, saving || !!errorKey)}
+            {button(t(failed ? 'sighting.retry' : 'sighting.save'), save, saving || !!problem)}
           </View>
         </ScrollView>
       </View>
