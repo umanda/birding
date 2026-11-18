@@ -1,5 +1,5 @@
 # 005 — Life list, local-only (M6)
-Status: Approved (owner, 2026-11-18)
+Status: Done (2026-11-18, PRs #85–#109)
 
 ## Problem
 Emma (tourist), Kasun (student) and Ruwan (guide) want to record the birds they have seen and count their endemics.
