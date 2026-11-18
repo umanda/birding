@@ -179,5 +179,10 @@
   "identify.monthName.9": "සැප්තැම්බර්",
   "identify.monthName.10": "ඔක්තෝබර්",
   "identify.monthName.11": "නොවැම්බර්",
-  "identify.monthName.12": "දෙසැම්බර්"
+  "identify.monthName.12": "දෙසැම්බර්",
+  "sighting.error.date": "අද හෝ ඊට පෙර දිනයක් ඇතුළත් කරන්න, උදා: 2026-11-18.",
+  "sighting.error.place": "ස්ථානයේ නම දීර්ඝ වැඩියි.",
+  "sighting.error.zone": "කලාපයක් තෝරන්න.",
+  "sighting.error.count": "1 සිට 999 දක්වා පූර්ණ සංඛ්‍යාවක් ඇතුළත් කරන්න, නැතහොත් හිස්ව තබන්න.",
+  "sighting.error.note": "සටහන දීර්ඝ වැඩියි."
 }
