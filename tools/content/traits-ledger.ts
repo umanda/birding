@@ -56,7 +56,7 @@ export function parseLedger(csv: string): Ledger {
 
 type Unknown = { trait: string; plumage: string | undefined };
 
-function parseUnknowns(list: string): Unknown[] {
+export function parseUnknowns(list: string): Unknown[] {
   if (list === '') return [];
   return list.split('|').map((entry) => {
     const [trait = '', ...rest] = entry.split(':');

@@ -74,9 +74,7 @@ describe('CoverageFooter', () => {
       },
       { initialUrl: '/' },
     );
-    expect(
-      await screen.findByText('This guide can identify 30 of 295 species so far'),
-    ).toBeTruthy();
+    expect(await screen.findByText('This guide can identify 30 of its 295 species')).toBeTruthy();
     expect(screen.getByRole('link', { name: 'Browse' })).toBeTruthy();
     await user.press(screen.getByRole('link', { name: 'Search' }));
     expect(screen).toHavePathname('/search');

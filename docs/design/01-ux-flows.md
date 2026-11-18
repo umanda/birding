@@ -103,7 +103,7 @@ flowchart TD
 - Answer chips sit at the top (month chip first). Each answer chip has ✕ to remove it (it becomes "Not sure"). The list re-ranks at once and focus stays on the chip row.
 - Each row is the shared Species row with a thumbnail. It shows the thumbnail (or "No photo yet"), the primary name in the UI language, the other-language name, the italic scientific name, the occurrence badge, and a **why line** such as "Size ✓ · Colours ✓ · Habitat ✓". A one-size-off answer shows `Size ≈`.
 - Flags are their own line, with an icon plus text and no colour-only cue: `⚑ Not usually here in November` / `⚑ Not usually in Wet lowlands`, and `ⓘ Data incomplete` when a used trait has no reviewed value. Flagged species stay in the list, lower down.
-- The list ends with a coverage footer: "This guide can identify 30 of 295 species so far. Not here? Browse · Search".
+- The list ends with a coverage footer: "This guide can identify 30 of its 295 species. Not here? Browse · Search".
 - If questions are still unanswered, a secondary footer button reads "Answer more questions (2 left)" and opens the first unanswered one.
 - Tapping a row opens `/species/[id]`. Back returns with the same answers, list and scroll position.
 

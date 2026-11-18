@@ -1,0 +1,6 @@
+species_id,field,doubt,suggested_source
+slb-chrysocolaptes-stricklandi,species_description,"Says ""golden-yellow crown and crest"". This conflicts with the same row's male_female_identification (male red crown, female black crown with white spots), which matches the ornithologist's knowledge. Not tagged yellow.","Warakagoda et al. 2012"
+slb-leptocoma-zeylonica,species_description,"Says the male has ""glossy green crown and upperparts"". In life the male's mantle and wing-coverts look dark maroon. Kept green (medium) in traits.csv; rufous may be better.",
+slb-cinnyris-asiaticus,species_description,"""greyish-brown lower belly"" (existing flag F7). Not used in colours.",
+slb-eudynamys-scolopaceus,juvenile_immature_plumage,"Says juveniles resemble the female (brown, spotted). The ornithologist recalls juveniles as largely blackish with pale spots. Workbook value kept at medium confidence.",
+slb-egretta-gularis,sri_lanka_occurrence_code,"Workbook says winter migrant Oct-Apr (M). The ornithologist believes birds are present year-round in the north-west (Mannar, Kalpitiya). Needs a status check before the month rows are reviewed. The code is not changed.","eBird bar charts and a CBC status check"

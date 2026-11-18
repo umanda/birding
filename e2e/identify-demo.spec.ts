@@ -105,7 +105,7 @@ test('identifies the five demo birds offline, signed out', async ({ page, contex
     await page.getByRole('tab', { name: label('tabs.identify') }).click();
     await answerAllQuestions(page, sighting);
     await page.getByRole('button', { name: /^See \d+ match/ }).click();
-    await expect(page.getByText(/This guide can identify \d+ of \d+ species so far/)).toBeVisible();
+    await expect(page.getByText(/This guide can identify \d+ of its \d+ species/)).toBeVisible();
     const resultRows = page.locator('a[href^="/species/"]');
     await expect(resultRows.first()).toBeVisible();
     const topNames = (await resultRows.allTextContents()).slice(0, TOP_RESULTS);
