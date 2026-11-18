@@ -58,16 +58,28 @@ describe('idb migrations', () => {
     const old = await openDB(dbName, 1, { upgrade: (db) => void db.createObjectStore('other') });
     old.close();
     const second = jest.fn();
-    migrations.push(second);
-    try {
-      const db = await openSightingsDb(dbName);
-      expect(db.version).toBe(2);
-      expect(second).toHaveBeenCalledTimes(1);
-      db.close();
-    } finally {
-      migrations.pop();
-      await deleteDB(dbName);
-    }
+    const db = await openSightingsDb(dbName, [...migrations, second]);
+    expect(db.version).toBe(2);
+    expect(second).toHaveBeenCalledTimes(1);
+    db.close();
+    await deleteDB(dbName);
+  });
+
+  it('lets a newer version open while an older connection is still open', async () => {
+    const dbName = uniqueName();
+    await openSightingsDb(dbName); // stays open on purpose
+    const newTab = await openSightingsDb(dbName, [...migrations, jest.fn()]);
+    expect(newTab.version).toBe(migrations.length + 1);
+    newTab.close();
+    await deleteDB(dbName);
+  });
+
+  it('asks the user to reload when the stored version is newer', async () => {
+    const dbName = uniqueName();
+    const newer = await openSightingsDb(dbName, [...migrations, jest.fn()]);
+    newer.close();
+    await expect(openSightingsDb(dbName)).rejects.toThrow(/out of date, reload/);
+    await deleteDB(dbName);
   });
 });
 
@@ -90,6 +102,22 @@ describe('idb raw rows', () => {
   });
 });
 
+describe('idb transactions', () => {
+  const input = { species_id: 's', seen_on: '2026-11-10', content_version: 'v1' };
+
+  it('a remove then a stale update does not bring the row back', async () => {
+    const dbName = uniqueName();
+    const deps: RepositoryDeps = { newId: () => 'a', now: () => new Date(2026, 10, 18, 9) };
+    const repo = await createIdbRepository({ dbName, deps });
+    await repo.add(input);
+    const [, update] = await Promise.allSettled([repo.remove('a'), repo.update('a', { count: 2 })]);
+    expect(update.status).toBe('rejected');
+    expect(await repo.get('a')).toBeNull();
+    repo.close();
+    await deleteDB(dbName);
+  });
+});
+
 describe('storage blocked', () => {
   afterEach(() => jest.restoreAllMocks());
 
@@ -104,6 +132,11 @@ describe('storage blocked', () => {
 });
 
 describe('requestPersistentStorage', () => {
+  const realStorage = Object.getOwnPropertyDescriptor(navigator, 'storage');
+  afterEach(() => {
+    if (realStorage) Object.defineProperty(navigator, 'storage', realStorage);
+    else Reflect.deleteProperty(navigator, 'storage');
+  });
   const setStorage = (storage: unknown): void => {
     Object.defineProperty(navigator, 'storage', { value: storage, configurable: true });
   };
@@ -124,6 +157,22 @@ describe('requestPersistentStorage', () => {
     await request();
     await request();
     expect(persist).toHaveBeenCalledTimes(1);
+  });
+
+  it('is requested by the first save', async () => {
+    const persist = jest.fn().mockResolvedValue(true);
+    setStorage({ persist });
+    let created = createIdbRepository;
+    jest.isolateModules(() => {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      created = require('./idb-repository').createIdbRepository;
+    });
+    const dbName = uniqueName();
+    const repo = await created({ dbName });
+    await repo.add({ species_id: 's', seen_on: '2026-11-10', content_version: 'v1' });
+    expect(persist).toHaveBeenCalledTimes(1);
+    repo.close();
+    await deleteDB(dbName);
   });
 
   it('ignores a refusal and a missing API', async () => {

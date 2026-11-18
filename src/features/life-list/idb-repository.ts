@@ -11,11 +11,12 @@ type SightingsSchema = DBSchema & {
   sightings: { key: string; value: unknown; indexes: { species_id: string } };
 };
 type SightingsDb = IDBPDatabase<SightingsSchema>;
+type Migration = (db: SightingsDb) => void;
 
 // Numbered, forward-only. The IndexedDB version is the number of migrations, so
 // migration N runs when a database is opened at version N-1 or lower. Never edit one
 // that has shipped: append a new one.
-export const migrations: ((db: SightingsDb) => void)[] = [
+export const migrations: Migration[] = [
   // 0001_init
   (db) => {
     const store = db.createObjectStore(STORE, { keyPath: 'id' });
@@ -23,23 +24,34 @@ export const migrations: ((db: SightingsDb) => void)[] = [
   },
 ];
 
-// Rejects with a clear error when the browser will not open IndexedDB
-// (storage disabled, some private modes). The provider catches it and falls back to memory.
-export async function openSightingsDb(dbName: string): Promise<SightingsDb> {
+// Rejects with a clear error when the browser will not open IndexedDB (storage disabled,
+// some private modes) or when another tab already upgraded it. The provider catches it.
+// `steps` is a parameter so tests can add a migration without changing the real list.
+export async function openSightingsDb(
+  dbName: string,
+  steps: Migration[] = migrations,
+): Promise<SightingsDb> {
   try {
-    return await openDB<SightingsSchema>(dbName, migrations.length, {
-      upgrade: (db, oldVersion) => {
-        migrations.slice(oldVersion).forEach((migrate) => migrate(db));
-      },
+    const db: SightingsDb = await openDB<SightingsSchema>(dbName, steps.length, {
+      upgrade: (upgrading, oldVersion) =>
+        steps.slice(oldVersion).forEach((migrate) => migrate(upgrading)),
+      // Do not hold up another tab that needs to upgrade.
+      blocking: () => db.close(),
+      terminated: () => db.close(),
     });
+    return db;
   } catch (cause) {
-    throw new Error(`Browser storage is unavailable, sightings cannot be saved: ${String(cause)}`, {
-      cause,
-    });
+    const reason =
+      cause instanceof Error && cause.name === 'VersionError'
+        ? 'This page is out of date, reload it'
+        : 'Browser storage is unavailable, sightings cannot be saved';
+    throw new Error(`${reason}: ${String(cause)}`, { cause });
   }
 }
 
 export type IdbRepository = LifeListRepository & { close: () => void };
+
+const asLive = (row: unknown): Sighting | null => (isSighting(row) && isLive(row) ? row : null);
 
 export async function createIdbRepository({
   dbName,
@@ -50,33 +62,35 @@ export async function createIdbRepository({
 }): Promise<IdbRepository> {
   const db = await openSightingsDb(dbName);
 
-  async function readLive(id: string): Promise<Sighting | null> {
-    const row: unknown = await db.get(STORE, id);
-    return isSighting(row) && isLive(row) ? row : null;
-  }
-
   return {
     close: () => db.close(),
     list: async () => {
       const rows: unknown[] = await db.getAll(STORE);
-      return rows.filter(isSighting).filter(isLive).sort(newestFirst);
+      return rows.flatMap((row) => asLive(row) ?? []).sort(newestFirst);
     },
-    get: readLive,
+    get: async (id) => asLive(await db.get(STORE, id)),
     add: async (input) => {
       const sighting = buildSighting(input, deps);
       await db.put(STORE, sighting);
+      void requestPersistentStorage();
       return sighting;
     },
+    // Read and write share one transaction with no other await between them, so a
+    // concurrent remove cannot be overwritten by a stale update.
     update: async (id, changes) => {
-      const current = await readLive(id);
+      const tx = db.transaction(STORE, 'readwrite');
+      const current = asLive(await tx.store.get(id));
       if (!current) throw new Error(`sighting ${id} not found`);
       const updated = applyChanges(current, changes, deps.now());
-      await db.put(STORE, updated);
+      await tx.store.put(updated);
+      await tx.done;
       return updated;
     },
     remove: async (id) => {
-      const current = await readLive(id);
-      if (current) await db.put(STORE, markDeleted(current, deps.now()));
+      const tx = db.transaction(STORE, 'readwrite');
+      const current = asLive(await tx.store.get(id));
+      if (current) await tx.store.put(markDeleted(current, deps.now()));
+      await tx.done;
     },
     removeAllUnsynced: async () => {
       const tx = db.transaction(STORE, 'readwrite');
