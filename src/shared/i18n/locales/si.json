@@ -237,5 +237,10 @@
   "lifeList.summary.sightings.other": "දැකීම් {count}",
   "lifeList.row.one": "පළමු {first} · අවසන් {last} · දැකීම් {count}",
   "lifeList.row.other": "පළමු {first} · අවසන් {last} · දැකීම් {count}",
-  "lifeList.removed": "මෙම මාර්ගෝපදේශයේ තවදුරටත් නැත"
+  "lifeList.removed": "මෙම මාර්ගෝපදේශයේ තවදුරටත් නැත",
+  "lifeList.sort": "අනුපිළිවෙල",
+  "lifeList.sort.recent": "මෑත",
+  "lifeList.sort.name": "අකාරාදී (A–Z)",
+  "lifeList.sort.plate": "පුවරු අනුව",
+  "lifeList.noMatch": "ගැළපෙන දැකීම් නැත"
 }

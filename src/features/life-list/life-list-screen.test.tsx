@@ -102,4 +102,48 @@ describe('LifeListScreen', () => {
     await user.press(await screen.findByText(endemicB.names.en));
     await waitFor(() => expect(screen).toHavePathname(`/species/${endemicB.species_id}`));
   });
+
+  describe('sort and filters', () => {
+    const FRANCOLIN = 'Painted Francolin'; // resident, seen 1 April
+    const SPURFOWL = 'Sri Lanka Spurfowl'; // endemic, last seen 9 March
+    const JUNGLEFOWL = 'Sri Lanka Junglefowl'; // endemic, seen 1 February
+    const TITLES = new RegExp(`^(${FRANCOLIN}|${SPURFOWL}|${JUNGLEFOWL})$`);
+    const shown = (): string[] =>
+      screen.getAllByText(TITLES).map((node) => String(node.props.children));
+
+    it('defaults to Recent and marks it checked', async () => {
+      await show(seeded);
+      await screen.findByText('3 species');
+      expect(screen.getByRole('radio', { name: 'Recent', checked: true })).toBeTruthy();
+      expect(shown()).toEqual([FRANCOLIN, SPURFOWL, JUNGLEFOWL]);
+    });
+
+    it('sorts A to Z by name', async () => {
+      const user = userEvent.setup();
+      await show(seeded);
+      await user.press(await screen.findByRole('radio', { name: 'A–Z' }));
+      expect(shown()).toEqual([FRANCOLIN, JUNGLEFOWL, SPURFOWL]);
+      expect(screen.getByRole('radio', { name: 'A–Z', checked: true })).toBeTruthy();
+    });
+
+    it('sorts by plate order', async () => {
+      const user = userEvent.setup();
+      await show(seeded);
+      await user.press(await screen.findByRole('radio', { name: 'By plate' }));
+      expect(shown()).toEqual([FRANCOLIN, SPURFOWL, JUNGLEFOWL]); // plate-01 orders 1, 2, 4;
+    });
+
+    it('filters to endemics, keeps the summary, and clears from the no-match state', async () => {
+      const user = userEvent.setup();
+      await show(seeded);
+      await user.press(await screen.findByRole('checkbox', { name: 'Endemic' }));
+      expect(shown()).toHaveLength(2);
+      expect(screen.getByText('3 species')).toBeTruthy();
+      await user.press(screen.getByRole('checkbox', { name: 'Endemic' }));
+      await user.press(screen.getByRole('checkbox', { name: 'Migrant' }));
+      expect(await screen.findByText('No sightings match')).toBeTruthy();
+      await user.press(screen.getByRole('button', { name: 'Clear filters' }));
+      expect(shown()).toHaveLength(3);
+    });
+  });
 });
