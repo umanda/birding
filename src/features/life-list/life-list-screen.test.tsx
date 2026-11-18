@@ -4,7 +4,7 @@ import { renderRouter, screen, waitFor } from 'expo-router/testing-library';
 import { Text } from 'react-native';
 
 import { SettingsProvider } from '@/features/settings';
-import { getAllSpecies, getPlate } from '@/shared/data/content';
+import { getAllSpecies } from '@/shared/data/content';
 import type { Species } from '@/shared/data/content-schema';
 import { createMemoryStore } from '@/test-utils/memory-store';
 
@@ -104,28 +104,25 @@ describe('LifeListScreen', () => {
   });
 
   describe('sort and filters', () => {
-    const trio = [endemicA, endemicB, resident];
+    const FRANCOLIN = 'Painted Francolin'; // resident, seen 1 April
+    const SPURFOWL = 'Sri Lanka Spurfowl'; // endemic, last seen 9 March
+    const JUNGLEFOWL = 'Sri Lanka Junglefowl'; // endemic, seen 1 February
+    const TITLES = new RegExp(`^(${FRANCOLIN}|${SPURFOWL}|${JUNGLEFOWL})$`);
     const shown = (): string[] =>
-      screen
-        .getAllByText(/^First /)
-        .map((node) => String(node.props.children))
-        .map((text) => trio.find((_, i) => text.includes(DATES[i] ?? ''))?.names.en ?? '');
-    const DATES = ['9 March', '1 February', '1 April'];
-    const names = (list: Species[]): string[] => list.map((item) => item.names.en);
+      screen.getAllByText(TITLES).map((node) => String(node.props.children));
 
     it('defaults to Recent and marks it checked', async () => {
       await show(seeded);
       await screen.findByText('3 species');
       expect(screen.getByRole('radio', { name: 'Recent', checked: true })).toBeTruthy();
-      expect(shown()).toEqual(names([resident, endemicA, endemicB]));
+      expect(shown()).toEqual([FRANCOLIN, SPURFOWL, JUNGLEFOWL]);
     });
 
     it('sorts A to Z by name', async () => {
       const user = userEvent.setup();
       await show(seeded);
       await user.press(await screen.findByRole('radio', { name: 'A–Z' }));
-      const byName = [...trio].sort((a, b) => a.names.en.localeCompare(b.names.en));
-      expect(shown()).toEqual(names(byName));
+      expect(shown()).toEqual([FRANCOLIN, JUNGLEFOWL, SPURFOWL]);
       expect(screen.getByRole('radio', { name: 'A–Z', checked: true })).toBeTruthy();
     });
 
@@ -133,16 +130,7 @@ describe('LifeListScreen', () => {
       const user = userEvent.setup();
       await show(seeded);
       await user.press(await screen.findByRole('radio', { name: 'By plate' }));
-      const plateKey = (s: Species): number[] => [
-        getPlate(s.plate_id)?.plate_number ?? 0,
-        s.plate_order,
-      ];
-      const byPlate = [...trio].sort((a, b) => {
-        const [pa = 0, oa = 0] = plateKey(a);
-        const [pb = 0, ob = 0] = plateKey(b);
-        return pa - pb || oa - ob;
-      });
-      expect(shown()).toEqual(names(byPlate));
+      expect(shown()).toEqual([FRANCOLIN, SPURFOWL, JUNGLEFOWL]); // plate-01 orders 1, 2, 4;
     });
 
     it('filters to endemics, keeps the summary, and clears from the no-match state', async () => {
