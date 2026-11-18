@@ -11,7 +11,10 @@ Codes are case-sensitive.
 
 `species_id,trait,value,plumage_key,source,confidence,review_status,note`
 
-- `species_id`: must exist in `content/content.json` and in `data/content/traits-pilot.csv`.
+- `species_id`: must exist in `content/content.json`. A species ships in `traits.json` only when it is listed in
+  `data/content/traits-batches.csv` (the ledger, spec 006; batch 0 is the 34 pilot species). Each of the seven
+  traits then has a `reviewed` row or is named in the ledger's `unknown_traits` (`trait` or `trait:plumage_key`,
+  `|`-separated), never both. `data/content/traits-pilot.csv` is historical: the original pilot list, no longer read.
 - `trait`: one of `zone`, `habitat`, `size`, `colour`, `behaviour`, `month`, `commonness`.
 - `plumage_key`: blank (the row applies to every plumage), or one of `male`, `female`,
   `juvenile`, `adult`, `breeding`, `non_breeding`, `eclipse`, `morph_<name>` (pilot uses

@@ -4,6 +4,7 @@ import { ContentSchema } from '../../src/shared/data/content-schema';
 import { SpeciesTextFileSchema } from '../../src/shared/data/species-text-schema';
 import type { Content } from '../../src/shared/data/content-schema';
 import { validateTraits } from './traits';
+import { parseLedger, validateLedger } from './traits-ledger';
 import { validateMediaRegister } from './media/validate-media';
 
 export const EXPECTED_SPECIES = 295;
@@ -13,6 +14,7 @@ const FACTSHEET_HOST = 'datazone.birdlife.org';
 const SCHEME = /\b([A-Za-z][A-Za-z0-9+.-]*):\/\//g;
 const CONTENT_FILE = 'content/content.json';
 const TRAITS_CSV = 'data/content/traits.csv';
+const LEDGER_CSV = 'data/content/traits-batches.csv';
 const TEXT_FILE = 'content/species-text.json';
 export const TEXT_MAX_GZIP_BYTES = 250 * 1024; // lazy-loaded, but still precached (spec 003)
 
@@ -202,6 +204,9 @@ function main(): void {
     );
     const traits = validateTraits(readFileSync(TRAITS_CSV, 'utf8'), new Set(ids));
     errors.push(...traits.errors);
+    const ledger = parseLedger(readFileSync(LEDGER_CSV, 'utf8'));
+    errors.push(...validateLedger(ledger, new Set(ids), traits.rows));
+    process.stdout.write(`ledger: ${ledger.rows.length} species\n`);
     const byStatus = Object.entries(traits.counts).map(([status, n]) => `${n} ${status}`);
     process.stdout.write(`traits: ${byStatus.join(', ')} rows\n`);
   }
