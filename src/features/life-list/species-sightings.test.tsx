@@ -29,6 +29,7 @@ describe('SpeciesSightings', () => {
   it('announces every save on iOS, even with the same text', async () => {
     jest.replaceProperty(Platform, 'OS', 'ios');
     const announce = jest.spyOn(AccessibilityInfo, 'announceForAccessibility').mockImplementation();
+    announce.mockClear(); // a spy that was not restored keeps its earlier calls
     await render(tree(async () => createMemoryRepository()));
     await waitFor(() => expect(screen.getByRole('button', { name: 'I saw this' })).toBeEnabled());
     await press('I saw this');
@@ -39,7 +40,6 @@ describe('SpeciesSightings', () => {
     await waitFor(() => expect(announce).toHaveBeenCalledTimes(2));
     expect(announce).toHaveBeenCalledWith('Saved on this device');
     announce.mockRestore();
-    jest.restoreAllMocks();
   });
 
   it('offers "I saw this", saves, then confirms and summarises', async () => {
@@ -70,5 +70,74 @@ describe('SpeciesSightings', () => {
     expect(screen.getByRole('button', { name: 'I saw this' })).toBeDisabled();
     finish(createMemoryRepository());
     await waitFor(() => expect(screen.getByRole('button', { name: 'I saw this' })).toBeEnabled());
+  });
+});
+
+describe('SpeciesSightings rows', () => {
+  async function seeded(wrap: (repo: LifeListRepository) => LifeListRepository = (r) => r) {
+    const repo = createMemoryRepository();
+    await repo.add({ ...base, species_id: SPECIES, seen_on: '2020-03-01' });
+    await repo.add({ ...base, species_id: SPECIES, seen_on: '2020-11-18', place_name: 'Mannar' });
+    await repo.add({
+      ...base,
+      species_id: 'other',
+      seen_on: '2020-12-25',
+      place_name: 'Elsewhere',
+    });
+    await render(tree(async () => wrap(repo)));
+    await screen.findByText('Seen 2 times · last 18 November 2020');
+  }
+
+  it('lists only this species, newest first', async () => {
+    await seeded();
+    expect(screen.queryByText('Elsewhere')).toBeNull();
+    const places = screen.getAllByText(/Yala|Mannar/).map((node) => node.props.children);
+    expect(places).toEqual(['Mannar', 'Yala']);
+  });
+
+  it('edits a sighting through the sheet', async () => {
+    await seeded();
+    await press('Edit sighting from 18 November 2020');
+    await fireEvent.changeText(screen.getByLabelText('Place (optional)'), 'Wilpattu');
+    await press('Save');
+    expect(await screen.findByText('Wilpattu')).toBeTruthy();
+    expect(screen.queryByText('Mannar')).toBeNull();
+  });
+
+  it('deletes only after confirmation and announces it', async () => {
+    await seeded();
+    await press('Delete sighting from 18 November 2020');
+    await press('Keep it');
+    expect(screen.getByText('Mannar')).toBeTruthy();
+
+    await press('Delete sighting from 18 November 2020');
+    expect(screen.getByText('Delete this sighting?')).toBeTruthy();
+    await press('Yes, delete sighting from 18 November 2020');
+    await waitFor(() => expect(screen.queryByText('Mannar')).toBeNull());
+    expect(screen.getByText('Sighting deleted')).toBeTruthy();
+    expect(screen.getByText('Seen 1 time · last 1 March 2020')).toBeTruthy();
+  });
+
+  it('announces each of two deletes in a row', async () => {
+    jest.replaceProperty(Platform, 'OS', 'ios');
+    const announce = jest.spyOn(AccessibilityInfo, 'announceForAccessibility').mockImplementation();
+    announce.mockClear(); // a spy that was not restored keeps its earlier calls
+    await seeded();
+    for (const date of ['18 November 2020', '1 March 2020']) {
+      await press(`Delete sighting from ${date}`);
+      await press(`Yes, delete sighting from ${date}`);
+      await waitFor(() => expect(screen.queryByText(`Delete this sighting?`)).toBeNull());
+    }
+    await waitFor(() => expect(announce).toHaveBeenCalledTimes(2));
+    expect(announce).toHaveBeenNthCalledWith(2, 'Sighting deleted');
+    announce.mockRestore();
+  });
+
+  it('keeps the row and says so when the delete fails', async () => {
+    await seeded((repo) => ({ ...repo, remove: () => Promise.reject(new Error('disk full')) }));
+    await press('Delete sighting from 18 November 2020');
+    await press('Yes, delete sighting from 18 November 2020');
+    expect(await screen.findByText("Couldn't delete. Please try again.")).toBeTruthy();
+    expect(screen.getByText('Mannar')).toBeTruthy();
   });
 });
