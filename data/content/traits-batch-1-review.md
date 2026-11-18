@@ -360,63 +360,63 @@ There are 50 scenarios (t26–t75), and every one of the 33 species is a target 
 `hard_group`) and 26 are hard. 30 of 50 (60%) target a species rated common in at least one zone. That rating
 comes from my own proposed commonness, so the check is partly circular until commonness is reviewed.
 
-**Composition gap:** all 50 are `scenario_source=orn-drafter`. I wrote them with knowledge of the trait rows, so
+**Composition gap:** all 50 are `scenario_source=drafter`. I wrote them with knowledge of the trait rows, so
 the spec's at-least-20% independent share is **not met**. Please have the owner or a guide write about 10 to 13
 more, from plates or photos and **before** reading `traits.csv`, with `scenario_source=owner-blind` (or
 `guide-blind`). Prefer common targets.
 
 ```csv
 sighting_id,month,zone,habitat,size,colours,behaviour,expected_species_id,demo,scenario_source,hard_group
-t26,3,arid_coast_north,open_country,XL,brown|orange|white,ground,slb-ortygornis-pondicerianus,no,orn-drafter,
-t27,8,intermediate,open_country,XL,black|white|orange,ground,slb-francolinus-pictus,no,orn-drafter,
-t28,6,wet_lowland,forest,XL,rufous|black|white,ground,slb-galloperdix-bicalcarata,no,orn-drafter,forest-gamebirds
-t29,1,dry_lowland,open_country,S,brown|black,ground,slb-turnix-suscitator,no,orn-drafter,quail-buttonquail
-t30,11,wet_lowland,open_country,S,brown,ground,slb-synoicus-chinensis,no,orn-drafter,quail-buttonquail
-t31,2,arid_coast_north,freshwater,XL,white|black,swimming,slb-nettapus-coromandelianus,no,orn-drafter,
-t32,7,dry_lowland,freshwater,XL,brown|rufous,swimming,slb-dendrocygna-javanica,no,orn-drafter,whistling-ducks
-t33,1,arid_coast_north,freshwater,XXL,rufous|brown|white,swimming,slb-dendrocygna-bicolor,no,orn-drafter,whistling-ducks
-t34,5,dry_lowland,freshwater,XXL,brown|grey|yellow,swimming,slb-anas-poecilorhyncha,no,orn-drafter,
-t35,1,arid_coast_north,coast,XL,rufous|grey|yellow,swimming,slb-mareca-penelope,no,orn-drafter,
-t36,12,arid_coast_north,coast,XL,brown,swimming,slb-mareca-penelope,no,orn-drafter,female-dabbling-ducks
-t37,2,arid_coast_north,coast,XXL,brown|white|grey,swimming,slb-anas-acuta,no,orn-drafter,
-t38,1,arid_coast_north,freshwater,XXL,brown,swimming,slb-anas-acuta,no,orn-drafter,female-dabbling-ducks
-t39,12,arid_coast_north,coast,XL,green|white|rufous,swimming,slb-spatula-clypeata,no,orn-drafter,
-t40,2,dry_lowland,freshwater,XL,brown,swimming,slb-spatula-clypeata,no,orn-drafter,female-dabbling-ducks
-t41,6,wet_lowland,freshwater,L,brown|grey,swimming,slb-tachybaptus-ruficollis,no,orn-drafter,
-t42,4,wet_lowland,town_garden,XL,grey|black,perched_open,slb-columba-livia,no,orn-drafter,
-t43,10,montane,forest,XL,grey|purple,tree_bush,slb-columba-torringtoniae,no,orn-drafter,
-t44,9,arid_coast_north,open_country,XL,grey|brown|black,perched_open,slb-streptopelia-decaocto,no,orn-drafter,collared-spotted-dove
-t45,3,wet_lowland,forest,L,green|rufous,ground,slb-chalcophaps-indica,no,orn-drafter,
-t46,7,dry_lowland,forest,L,green|orange|grey,tree_bush,slb-treron-bicinctus,no,orn-drafter,green-pigeons
-t47,1,wet_lowland,forest,L,green|yellow,tree_bush,slb-treron-pompadora,no,orn-drafter,green-pigeons
-t48,5,intermediate,forest,XL,grey|green|yellow,tree_bush,slb-treron-phoenicopterus,no,orn-drafter,green-pigeons
-t49,8,wet_lowland,forest,XXL,green|grey,tree_bush,slb-ducula-aenea,no,orn-drafter,
-t50,2,dry_lowland,open_country,XL,green|blue,tree_bush,slb-phaenicophaeus-viridirostris,no,orn-drafter,
-t51,3,wet_lowland,forest,XL,black|white|red,tree_bush,slb-phaenicophaeus-pyrrhocephalus,no,orn-drafter,
-t52,6,dry_lowland,open_country,XL,brown|rufous,ground,slb-taccocua-leschenaultii,no,orn-drafter,
-t53,4,wet_lowland,forest,XL,black|rufous,tree_bush,slb-centropus-chlororhynchos,no,orn-drafter,coucals
-t54,9,wet_lowland,town_garden,XXL,black|rufous,ground,slb-centropus-sinensis,no,orn-drafter,coucals
-t55,12,wet_midhill,forest,XL,black|rufous|white,tree_bush,slb-clamator-coromandus,no,orn-drafter,
-t56,5,dry_lowland,open_country,XL,black|white,perched_open,slb-clamator-jacobinus,no,orn-drafter,
-t57,2,wet_midhill,town_garden,XL,grey|rufous|white,tree_bush,slb-hierococcyx-varius,no,orn-drafter,grey-cuckoos-shikra
-t58,3,wet_lowland,forest,XL,grey|white,tree_bush,slb-cuculus-micropterus,no,orn-drafter,grey-cuckoos-shikra
-t59,12,dry_lowland,open_country,L,grey|white,perched_open,slb-cacomantis-passerinus,no,orn-drafter,
-t60,1,dry_lowland,town_garden,L,rufous|white,tree_bush,slb-cacomantis-passerinus,no,orn-drafter,small-rufous-cuckoos
-t61,7,wet_lowland,forest,L,rufous|brown|white,tree_bush,slb-cacomantis-sonneratii,no,orn-drafter,small-rufous-cuckoos
-t62,10,wet_lowland,forest,L,black,tree_bush,slb-surniculus-dicruroides,no,orn-drafter,drongo-cuckoo-drongos
-t63,9,wet_lowland,freshwater,XL,brown|rufous,swimming,slb-dendrocygna-javanica,no,orn-drafter,whistling-ducks
-t64,2,dry_lowland,freshwater,L,rufous|brown,swimming,slb-tachybaptus-ruficollis,no,orn-drafter,
-t65,11,dry_lowland,town_garden,XL,grey,ground,slb-columba-livia,no,orn-drafter,
-t66,4,dry_lowland,open_country,XXL,black|rufous,ground,slb-centropus-sinensis,no,orn-drafter,coucals
-t67,6,wet_midhill,forest,XXL,green|grey|white,tree_bush,slb-ducula-aenea,no,orn-drafter,
-t68,10,wet_midhill,forest,L,green|rufous|yellow,tree_bush,slb-treron-pompadora,no,orn-drafter,green-pigeons
-t69,12,intermediate,forest,L,green|brown|grey,ground,slb-chalcophaps-indica,no,orn-drafter,
-t70,8,intermediate,forest,XL,green|grey|blue,tree_bush,slb-phaenicophaeus-viridirostris,no,orn-drafter,
-t71,3,dry_lowland,forest,L,green|yellow|grey,tree_bush,slb-treron-bicinctus,no,orn-drafter,green-pigeons
-t72,5,wet_midhill,town_garden,XL,brown|rufous,tree_bush,slb-hierococcyx-varius,no,orn-drafter,grey-cuckoos-shikra
-t73,7,dry_lowland,open_country,XL,grey|brown|black,perched_open,slb-streptopelia-decaocto,no,orn-drafter,collared-spotted-dove
-t74,1,arid_coast_north,open_country,S,brown|rufous,ground,slb-turnix-suscitator,no,orn-drafter,quail-buttonquail
-t75,2,arid_coast_north,open_country,XL,brown|orange,ground,slb-ortygornis-pondicerianus,no,orn-drafter,
+t26,3,arid_coast_north,open_country,XL,brown|orange|white,ground,slb-ortygornis-pondicerianus,no,drafter,
+t27,8,intermediate,open_country,XL,black|white|orange,ground,slb-francolinus-pictus,no,drafter,
+t28,6,wet_lowland,forest,XL,rufous|black|white,ground,slb-galloperdix-bicalcarata,no,drafter,forest-gamebirds
+t29,1,dry_lowland,open_country,S,brown|black,ground,slb-turnix-suscitator,no,drafter,quail-buttonquail
+t30,11,wet_lowland,open_country,S,brown,ground,slb-synoicus-chinensis,no,drafter,quail-buttonquail
+t31,2,arid_coast_north,freshwater,XL,white|black,swimming,slb-nettapus-coromandelianus,no,drafter,
+t32,7,dry_lowland,freshwater,XL,brown|rufous,swimming,slb-dendrocygna-javanica,no,drafter,whistling-ducks
+t33,1,arid_coast_north,freshwater,XXL,rufous|brown|white,swimming,slb-dendrocygna-bicolor,no,drafter,whistling-ducks
+t34,5,dry_lowland,freshwater,XXL,brown|grey|yellow,swimming,slb-anas-poecilorhyncha,no,drafter,
+t35,1,arid_coast_north,coast,XL,rufous|grey|yellow,swimming,slb-mareca-penelope,no,drafter,
+t36,12,arid_coast_north,coast,XL,brown,swimming,slb-mareca-penelope,no,drafter,female-dabbling-ducks
+t37,2,arid_coast_north,coast,XXL,brown|white|grey,swimming,slb-anas-acuta,no,drafter,
+t38,1,arid_coast_north,freshwater,XXL,brown,swimming,slb-anas-acuta,no,drafter,female-dabbling-ducks
+t39,12,arid_coast_north,coast,XL,green|white|rufous,swimming,slb-spatula-clypeata,no,drafter,
+t40,2,dry_lowland,freshwater,XL,brown,swimming,slb-spatula-clypeata,no,drafter,female-dabbling-ducks
+t41,6,wet_lowland,freshwater,L,brown|grey,swimming,slb-tachybaptus-ruficollis,no,drafter,
+t42,4,wet_lowland,town_garden,XL,grey|black,perched_open,slb-columba-livia,no,drafter,
+t43,10,montane,forest,XL,grey|purple,tree_bush,slb-columba-torringtoniae,no,drafter,
+t44,9,arid_coast_north,open_country,XL,grey|brown|black,perched_open,slb-streptopelia-decaocto,no,drafter,collared-spotted-dove
+t45,3,wet_lowland,forest,L,green|rufous,ground,slb-chalcophaps-indica,no,drafter,
+t46,7,dry_lowland,forest,L,green|orange|grey,tree_bush,slb-treron-bicinctus,no,drafter,green-pigeons
+t47,1,wet_lowland,forest,L,green|yellow,tree_bush,slb-treron-pompadora,no,drafter,green-pigeons
+t48,5,intermediate,forest,XL,grey|green|yellow,tree_bush,slb-treron-phoenicopterus,no,drafter,green-pigeons
+t49,8,wet_lowland,forest,XXL,green|grey,tree_bush,slb-ducula-aenea,no,drafter,
+t50,2,dry_lowland,open_country,XL,green|blue,tree_bush,slb-phaenicophaeus-viridirostris,no,drafter,
+t51,3,wet_lowland,forest,XL,black|white|red,tree_bush,slb-phaenicophaeus-pyrrhocephalus,no,drafter,
+t52,6,dry_lowland,open_country,XL,brown|rufous,ground,slb-taccocua-leschenaultii,no,drafter,
+t53,4,wet_lowland,forest,XL,black|rufous,tree_bush,slb-centropus-chlororhynchos,no,drafter,coucals
+t54,9,wet_lowland,town_garden,XXL,black|rufous,ground,slb-centropus-sinensis,no,drafter,coucals
+t55,12,wet_midhill,forest,XL,black|rufous|white,tree_bush,slb-clamator-coromandus,no,drafter,
+t56,5,dry_lowland,open_country,XL,black|white,perched_open,slb-clamator-jacobinus,no,drafter,
+t57,2,wet_midhill,town_garden,XL,grey|rufous|white,tree_bush,slb-hierococcyx-varius,no,drafter,grey-cuckoos-shikra
+t58,3,wet_lowland,forest,XL,grey|white,tree_bush,slb-cuculus-micropterus,no,drafter,grey-cuckoos-shikra
+t59,12,dry_lowland,open_country,L,grey|white,perched_open,slb-cacomantis-passerinus,no,drafter,
+t60,1,dry_lowland,town_garden,L,rufous|white,tree_bush,slb-cacomantis-passerinus,no,drafter,small-rufous-cuckoos
+t61,7,wet_lowland,forest,L,rufous|brown|white,tree_bush,slb-cacomantis-sonneratii,no,drafter,small-rufous-cuckoos
+t62,10,wet_lowland,forest,L,black,tree_bush,slb-surniculus-dicruroides,no,drafter,drongo-cuckoo-drongos
+t63,9,wet_lowland,freshwater,XL,brown|rufous,swimming,slb-dendrocygna-javanica,no,drafter,whistling-ducks
+t64,2,dry_lowland,freshwater,L,rufous|brown,swimming,slb-tachybaptus-ruficollis,no,drafter,
+t65,11,dry_lowland,town_garden,XL,grey,ground,slb-columba-livia,no,drafter,
+t66,4,dry_lowland,open_country,XXL,black|rufous,ground,slb-centropus-sinensis,no,drafter,coucals
+t67,6,wet_midhill,forest,XXL,green|grey|white,tree_bush,slb-ducula-aenea,no,drafter,
+t68,10,wet_midhill,forest,L,green|rufous|yellow,tree_bush,slb-treron-pompadora,no,drafter,green-pigeons
+t69,12,intermediate,forest,L,green|brown|grey,ground,slb-chalcophaps-indica,no,drafter,
+t70,8,intermediate,forest,XL,green|grey|blue,tree_bush,slb-phaenicophaeus-viridirostris,no,drafter,
+t71,3,dry_lowland,forest,L,green|yellow|grey,tree_bush,slb-treron-bicinctus,no,drafter,green-pigeons
+t72,5,wet_midhill,town_garden,XL,brown|rufous,tree_bush,slb-hierococcyx-varius,no,drafter,grey-cuckoos-shikra
+t73,7,dry_lowland,open_country,XL,grey|brown|black,perched_open,slb-streptopelia-decaocto,no,drafter,collared-spotted-dove
+t74,1,arid_coast_north,open_country,S,brown|rufous,ground,slb-turnix-suscitator,no,drafter,quail-buttonquail
+t75,2,arid_coast_north,open_country,XL,brown|orange,ground,slb-ortygornis-pondicerianus,no,drafter,
 ```
 
 Scenarios I expect to be weakest: t40 (female Shoveler vs Garganey, Lesser Whistling-duck and Cotton
