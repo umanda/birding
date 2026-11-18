@@ -26,6 +26,12 @@ describe('validatePlan', () => {
     expect(validatePlan(`${HEADER}sp-a,2\n`, IDS, [approved('sp-a', '0')])[0]).toMatch(/batch 2 but the ledger says 0/);
   });
 
+  it('rejects a ledger species that is not planned', () => {
+    expect(validatePlan(HEADER, IDS, [approved('sp-a', '0')])).toEqual([
+      'traits-plan.csv: sp-a: in the ledger but not planned',
+    ]);
+  });
+
   it('rejects a bad batch and a bad header', () => {
     expect(validatePlan(`${HEADER}sp-a,x\n`, IDS, [])[0]).toMatch(/whole number/);
     expect(validatePlan('species_id\n', IDS, [])[0]).toMatch(/header must be/);

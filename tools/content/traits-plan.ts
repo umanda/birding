@@ -34,5 +34,9 @@ export function validatePlan(csv: string, speciesIds: ReadonlySet<string>, ledge
       errors.push(`traits-plan.csv: ${id}: batch ${batch} but the ledger says ${approved.batch}`);
     }
   }
+  // An approved species must be planned, or its batch would never get a review sheet.
+  for (const { species_id: id } of ledger) {
+    if (!seen.has(id)) errors.push(`traits-plan.csv: ${id}: in the ledger but not planned`);
+  }
   return errors;
 }
