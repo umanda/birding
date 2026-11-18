@@ -1,3 +1,4 @@
+import { AccessibilityInfo, Platform } from 'react-native';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
 
 import { createT } from '@/shared/i18n/translate';
@@ -25,6 +26,22 @@ function tree(open: () => Promise<LifeListRepository>): React.JSX.Element {
 const press = (label: string) => fireEvent.press(screen.getByRole('button', { name: label }));
 
 describe('SpeciesSightings', () => {
+  it('announces every save on iOS, even with the same text', async () => {
+    jest.replaceProperty(Platform, 'OS', 'ios');
+    const announce = jest.spyOn(AccessibilityInfo, 'announceForAccessibility').mockImplementation();
+    await render(tree(async () => createMemoryRepository()));
+    await waitFor(() => expect(screen.getByRole('button', { name: 'I saw this' })).toBeEnabled());
+    await press('I saw this');
+    await press('Save');
+    await screen.findByText('Saved on this device');
+    await press('Add another sighting');
+    await press('Save');
+    await waitFor(() => expect(announce).toHaveBeenCalledTimes(2));
+    expect(announce).toHaveBeenCalledWith('Saved on this device');
+    announce.mockRestore();
+    jest.restoreAllMocks();
+  });
+
   it('offers "I saw this", saves, then confirms and summarises', async () => {
     const repo = createMemoryRepository();
     await render(tree(async () => repo));
