@@ -14,8 +14,8 @@ export type Sighting = {
   zone: Zone | null;
   count: number | null;
   note: string | null;
-  lat_rounded: null; // always null in M6, kept for ADR 0006
-  lon_rounded: null;
+  lat_rounded: number | null; // always null in M6, kept for ADR 0006
+  lon_rounded: number | null;
   content_version: string;
   created_at: string; // ISO UTC
   updated_at: string;
@@ -26,22 +26,31 @@ export type Sighting = {
 // What the user can edit. Blank (undefined, null or '') is stored as null.
 export type SightingFields = {
   seen_on: string;
-  place_name?: string | null;
-  zone?: Zone | null;
-  count?: number | null;
-  note?: string | null;
+  place_name?: string | null | undefined;
+  zone?: Zone | null | undefined;
+  count?: number | null | undefined;
+  note?: string | null | undefined;
 };
 export type SightingInput = SightingFields & { species_id: string; content_version: string };
-export type CleanFields = Required<SightingFields>;
+export type CleanFields = {
+  seen_on: string;
+  place_name: string | null;
+  zone: Zone | null;
+  count: number | null;
+  note: string | null;
+};
 
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
-const ISO_PATTERN = /^\d{4}-\d{2}-\d{2}T[\d:.]+Z$/;
+const ISO_PATTERN = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/; // Date.toISOString() form
 
 const isFilled = (v: unknown): v is string => typeof v === 'string' && v !== '';
 const isNullOr = (v: unknown, check: (x: unknown) => boolean): boolean => v === null || check(v);
+const isText = (v: unknown): boolean => typeof v === 'string';
 const isShortText = (max: number) => (v: unknown) => typeof v === 'string' && v.length <= max;
+const isWholeCount = (v: unknown): boolean => Number.isInteger(v) && (v as number) > 0;
 const isCount = (v: unknown): boolean =>
-  Number.isInteger(v) && (v as number) >= COUNT_MIN && (v as number) <= COUNT_MAX;
+  isWholeCount(v) && (v as number) >= COUNT_MIN && (v as number) <= COUNT_MAX;
+const isCoordinate = (v: unknown): boolean => typeof v === 'number' && Number.isFinite(v);
 const isZone = (v: unknown): boolean => ZONES.some((zone) => zone === v);
 const isIsoTime = (v: unknown): boolean => typeof v === 'string' && ISO_PATTERN.test(v);
 
@@ -56,7 +65,8 @@ export function toLocalDate(now: Date): string {
   return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
 }
 
-// Storage boundary: stored rows are untrusted, so check every field before use.
+// Storage boundary: checks the SHAPE of a stored row only. Write rules (limits, ZONES, future
+// dates) live in findFieldsError, so a row saved under older rules is still readable.
 export function isSighting(value: unknown): value is Sighting {
   if (typeof value !== 'object' || value === null) return false;
   const row = value as Record<string, unknown>;
@@ -64,12 +74,12 @@ export function isSighting(value: unknown): value is Sighting {
     isFilled(row.id) &&
     isFilled(row.species_id) &&
     isCalendarDate(row.seen_on) &&
-    isNullOr(row.place_name, isShortText(PLACE_NAME_MAX)) &&
-    isNullOr(row.zone, isZone) &&
-    isNullOr(row.count, isCount) &&
-    isNullOr(row.note, isShortText(NOTE_MAX)) &&
-    row.lat_rounded === null &&
-    row.lon_rounded === null &&
+    isNullOr(row.place_name, isText) &&
+    isNullOr(row.zone, isFilled) &&
+    isNullOr(row.count, isWholeCount) &&
+    isNullOr(row.note, isText) &&
+    isNullOr(row.lat_rounded, isCoordinate) &&
+    isNullOr(row.lon_rounded, isCoordinate) &&
     isFilled(row.content_version) &&
     isIsoTime(row.created_at) &&
     isIsoTime(row.updated_at) &&
@@ -78,9 +88,13 @@ export function isSighting(value: unknown): value is Sighting {
   );
 }
 
-const blankToNull = <T>(value: T | null | undefined): T | null =>
-  value === undefined || (value as unknown) === '' ? null : value;
+const isBlank = (value: unknown): boolean =>
+  value === undefined || (typeof value === 'string' && value.trim() === '');
 
+const blankToNull = <T>(value: T | null | undefined): T | null =>
+  isBlank(value) ? null : (value as T);
+
+// Blank (undefined, '' or whitespace-only text) becomes null. Other text is kept untouched.
 export function cleanFields(fields: SightingFields): CleanFields {
   return {
     seen_on: fields.seen_on,
@@ -91,7 +105,7 @@ export function cleanFields(fields: SightingFields): CleanFields {
   };
 }
 
-// Returns the first problem as a message, or null when the fields are valid.
+// Write rules. Returns the first problem as a message, or null when the fields are valid.
 export function findFieldsError(fields: CleanFields, today: string): string | null {
   if (!isCalendarDate(fields.seen_on)) return 'seen_on must be a YYYY-MM-DD date';
   if (fields.seen_on > today) return 'seen_on cannot be in the future';
