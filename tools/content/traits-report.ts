@@ -1,12 +1,14 @@
 import { ID_QUESTIONS, TRAIT_NAMES } from './traits';
-import type { LedgerRow } from './traits-ledger';
+import { parseUnknowns, type LedgerRow } from './traits-ledger';
 
 export const MIN_UNKNOWN_CORE_WARNING = 2;
 
 type QuestionCoverage = { reviewed: number; unknown: number; notInLedger: number };
 
 function wholeUnknowns(row: LedgerRow): string[] {
-  return row.unknown_traits === '' ? [] : row.unknown_traits.split('|').filter((e) => !e.includes(':'));
+  return parseUnknowns(row.unknown_traits)
+    .filter((u) => u.plumage === undefined)
+    .map((u) => u.trait);
 }
 
 // Assumes validateLedger passed: a ledger species has each question either reviewed or whole-unknown.
