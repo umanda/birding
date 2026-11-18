@@ -1,13 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import {
-  AccessibilityInfo,
-  findNodeHandle,
-  Platform,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { AccessibilityInfo, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { useSettings } from '@/features/settings';
 import { radius, size, space } from '@/shared/theme/tokens';
@@ -33,17 +25,24 @@ export function DeleteAllSightings(): React.JSX.Element {
   const confirming = step === 'confirming' || deleting || step === 'failed';
   // The done message belongs to the empty list; new sightings make it stale.
   const doneShown = step === 'done' && count === 0;
-  const resultKey = doneShown ? 'deleteAll.done' : step === 'failed' ? 'deleteAll.failed' : null;
-  const result = resultKey ? t(resultKey) : '';
+  const result = resultMessage();
+
+  function resultMessage(): string {
+    if (doneShown) return t('deleteAll.done');
+    if (step === 'failed') return t('deleteAll.failed');
+    return '';
+  }
 
   // iOS ignores accessibilityLiveRegion, so it needs an explicit announcement.
   useEffect(() => {
     if (result && Platform.OS === 'ios') AccessibilityInfo.announceForAccessibility(result);
   }, [result]);
 
+  // Move screen-reader focus to the confirm title. Web has no equivalent (react-native-web
+  // throws in findNodeHandle and lacks sendAccessibilityEvent), so it is skipped there.
   useEffect(() => {
-    const node = findNodeHandle(titleRef.current);
-    if (step === 'confirming' && node) AccessibilityInfo.setAccessibilityFocus(node);
+    if (step !== 'confirming' || Platform.OS === 'web' || !titleRef.current) return;
+    AccessibilityInfo.sendAccessibilityEvent(titleRef.current, 'focus');
   }, [step]);
 
   const confirm = async (): Promise<void> => {

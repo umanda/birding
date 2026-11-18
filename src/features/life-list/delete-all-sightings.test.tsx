@@ -1,4 +1,5 @@
 import { act, fireEvent, render, screen } from '@testing-library/react-native';
+import { AccessibilityInfo } from 'react-native';
 
 import { SettingsProvider } from '@/features/settings';
 import { createMemoryStore } from '@/test-utils/memory-store';
@@ -81,6 +82,16 @@ describe('DeleteAllSightings', () => {
     await fireEvent.press(screen.getByRole('button', { name: 'Delete' }));
     expect(screen.getByRole('button', { name: 'Delete' })).toBeDisabled();
     expect(screen.getByRole('button', { name: 'Cancel' })).toBeDisabled();
+  });
+
+  it('moves screen-reader focus to the confirm title', async () => {
+    const focus = jest
+      .spyOn(AccessibilityInfo, 'sendAccessibilityEvent')
+      .mockImplementation(() => {});
+    await show(() => seeded(1));
+    await fireEvent.press(await screen.findByRole('button', { name: BUTTON }));
+    expect(focus).toHaveBeenCalledWith(expect.anything(), 'focus');
+    focus.mockRestore();
   });
 
   it('drops the done message once a new sighting is added', async () => {
