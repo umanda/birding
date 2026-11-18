@@ -208,5 +208,11 @@
   "deleteAll.confirm": "මකන්න",
   "deleteAll.cancel": "අවලංගු කරන්න",
   "deleteAll.done": "සියලු දැකීම් මකා දමන ලදී",
-  "deleteAll.failed": "මැකීමට නොහැකි විය. ඔබගේ දැකීම් තවමත් සුරැකී ඇත."
+  "deleteAll.failed": "මැකීමට නොහැකි විය. ඔබගේ දැකීම් තවමත් සුරැකී ඇත.",
+  "sightings.add": "මම මෙය දුටුවා",
+  "sightings.addAnother": "තවත් දැකීමක් එක් කරන්න",
+  "sightings.seen.one": "වාර {count}ක් දැක ඇත · අවසන් වරට {date}",
+  "sightings.seen.other": "වාර {count}ක් දැක ඇත · අවසන් වරට {date}",
+  "sightings.date": "{year} {month} {day}",
+  "sightings.saved": "මෙම උපාංගයේ සුරැකිණි"
 }

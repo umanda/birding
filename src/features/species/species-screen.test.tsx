@@ -2,6 +2,7 @@ import { Slot, Stack, router } from 'expo-router';
 import { act, renderRouter, screen } from 'expo-router/testing-library';
 import { Text } from 'react-native';
 
+import { LifeListProvider, createMemoryRepository } from '@/features/life-list';
 import { SettingsProvider } from '@/features/settings';
 import type { Species } from '@/shared/data/content-schema';
 import { createT } from '@/shared/i18n/translate';
@@ -15,10 +16,14 @@ jest.mock('expo-localization', () => ({ getLocales: () => [{ languageCode: mockL
 const JUNGLEFOWL_ID = 'slb-gallus-lafayettii';
 const PEAFOWL_PLATE_SI = 'මොනරා';
 
+const openMemory = async () => createMemoryRepository();
+
 function Root(): React.JSX.Element {
   return (
     <SettingsProvider store={createMemoryStore()}>
-      <Slot />
+      <LifeListProvider open={openMemory}>
+        <Slot />
+      </LifeListProvider>
     </SettingsProvider>
   );
 }
@@ -81,7 +86,9 @@ describe('species screen', () => {
     function Wrapped(): React.JSX.Element {
       return (
         <SettingsProvider store={createMemoryStore()}>
-          <Stack />
+          <LifeListProvider open={openMemory}>
+            <Stack />
+          </LifeListProvider>
         </SettingsProvider>
       );
     }
@@ -98,7 +105,11 @@ describe('species screen', () => {
 describe('SpeciesDetail', () => {
   it('reads Not recorded for blank values', async () => {
     await renderRouter({
-      index: () => <SpeciesDetail species={blankSinhala} language="en" t={createT('en')} />,
+      index: () => (
+        <LifeListProvider open={openMemory}>
+          <SpeciesDetail species={blankSinhala} language="en" t={createT('en')} />
+        </LifeListProvider>
+      ),
     });
     expect(await screen.findByText('Test Bird')).toBeTruthy();
     expect(screen.getByText('Global status (working value): Not recorded')).toBeTruthy();
@@ -109,7 +120,11 @@ describe('SpeciesDetail', () => {
 
   it('uses the English heading in the Sinhala UI when the Sinhala name is blank', async () => {
     await renderRouter({
-      index: () => <SpeciesDetail species={blankSinhala} language="si" t={createT('si')} />,
+      index: () => (
+        <LifeListProvider open={openMemory}>
+          <SpeciesDetail species={blankSinhala} language="si" t={createT('si')} />
+        </LifeListProvider>
+      ),
     });
     expect(await screen.findByRole('header', { name: 'Test Bird' })).toBeTruthy();
   });
