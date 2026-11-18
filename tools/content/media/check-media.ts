@@ -1,21 +1,28 @@
 import { createHash } from 'node:crypto';
-import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
 import {
   HASH_LENGTH,
   MANIFEST_FILE,
+  MASTERS_MAX_BYTES,
   OUTPUT_SUBDIR,
+  PHOTO_PACK_MAX_BYTES,
   PUBLIC_DIR,
   budgetErrors,
   choosePrimaries,
   creditOf,
+  mastersErrors,
+  packBytesOf,
   parseManifest,
   targetWarnings,
 } from './media-manifest';
 import type { ManifestImage, MediaManifest, Variant } from './media-manifest';
+import type { Content } from '../../../src/shared/data/content-schema';
 import { MediaRowSchema } from './media-schema';
 import type { MediaRow } from './media-schema';
 import { MEDIA_DIR, REGISTER_FILE, parseRegister } from './validate-media';
+
+const CONTENT_FILE = 'content/content.json';
 
 // Hashes of files as found on disk. Generated files are keyed by path relative to public/,
 // masters by the register's `file` column.
@@ -118,16 +125,52 @@ function readRows(): { rows: MediaRow[]; errors: string[] } {
   return { rows, errors };
 }
 
+function webpBytes(dir: string): number {
+  if (!existsSync(dir)) return 0;
+  const entries = readdirSync(dir, { recursive: true, withFileTypes: true }).filter((e) => e.isFile() && e.name.endsWith('.webp'));
+  return entries.reduce((sum, e) => sum + statSync(path.join(e.parentPath, e.name)).size, 0);
+}
+
+const toMib = (bytes: number): string => `${(bytes / 1024 / 1024).toFixed(1)} MiB`;
+
+// Concise size and coverage report, printed when the check passes.
+export function mediaReport(
+  manifest: MediaManifest,
+  speciesIds: readonly string[],
+  sizes: { masters: number; publicMedia: number },
+): string {
+  const withPhotos = new Set(manifest.images.map((i) => i.species_id));
+  const perPlumage = new Map<string, number>();
+  for (const { plumage_key: key } of manifest.images) perPlumage.set(key, (perPlumage.get(key) ?? 0) + 1);
+  const plumages = [...perPlumage].map(([key, n]) => `${key} ${n}`).join(', ');
+  const without = speciesIds.filter((id) => !withPhotos.has(id)).length;
+  return [
+    `media manifest ok: ${manifest.images.length} images`,
+    `photo pack ${toMib(packBytesOf(manifest.images))} of ${toMib(PHOTO_PACK_MAX_BYTES)}`,
+    `masters ${toMib(sizes.masters)} of ${toMib(MASTERS_MAX_BYTES)}; public/media ${toMib(sizes.publicMedia)}`,
+    `species with a photo ${withPhotos.size} / ${speciesIds.length}; without ${without}`,
+    `images per plumage: ${plumages || 'none'}`,
+  ].join('\n');
+}
+
+function readSpeciesIds(): string[] {
+  const content = JSON.parse(readFileSync(CONTENT_FILE, 'utf8')) as Content;
+  return content.species.map((s) => s.species_id);
+}
+
 function main(): void {
   const { rows, errors } = readRows();
   const { manifest, errors: manifestErrors } = parseManifest(readFileSync(MANIFEST_FILE, 'utf8'));
   errors.push(...manifestErrors);
+  const mastersBytes = webpBytes(MEDIA_DIR);
   if (manifest && errors.length === 0) {
+    errors.push(...mastersErrors(mastersBytes));
     errors.push(...checkMedia({ rows, manifest, files: readFiles(), masters: readMasters(rows) }));
     for (const warning of targetWarnings(manifest.images)) process.stderr.write(`warning: ${warning}\n`);
   }
   if (errors.length > 0 || !manifest) throw new Error(`Media check failed:\n${errors.join('\n')}`);
-  process.stdout.write(`media manifest ok: ${manifest.images.length} images\n`);
+  const publicMedia = webpBytes(path.join(PUBLIC_DIR, OUTPUT_SUBDIR));
+  process.stdout.write(`${mediaReport(manifest, readSpeciesIds(), { masters: mastersBytes, publicMedia })}\n`);
 }
 
 if (require.main === module) {
