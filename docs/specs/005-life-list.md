@@ -62,7 +62,7 @@ Persistence, offline, storage errors
   and shows a banner: "This browser isn't saving your list. Sightings will be lost when you close it." Everything else works.
 - Given a save fails (for example, the quota is exceeded), then the sheet stays open with my input and shows
   "Couldn't save. Your device may be out of space." and Retry. Nothing is half-saved.
-- Given stored rows fail zod validation on read, then those rows are skipped and logged in dev. The rest of the list loads.
+- Given stored rows fail the shape check on read, then those rows are skipped and logged in dev. The rest of the list loads.
 - Given a sighting whose `species_id` is no longer in the content, then its row shows the id and "No longer in this
   guide". It is never dropped (ADR 0006).
 - Given migration `0001_init`, then a test opens an empty store, migrates it and confirms the version. Each later
@@ -100,7 +100,7 @@ flowchart TD
 Facts: the content provides `species_id`, names, `occurrence_code`, `plate_order` and thumbnails. There are 35 `E`
 species. User data is new and is never mixed with content (ADR 0006). No workbook data is changed.
 
-Sighting (`zod` schema, ADR 0007), the same shape on both stores:
+Sighting (hand-written type guard, no zod in the client; ADR 0007), the same shape on both stores:
 `id` (UUID v4, made on the client), `species_id`, `seen_on` (local date `YYYY-MM-DD`; [Assumption] a date is enough),
 `place_name?`, `zone?` (identify `Zone`), `count?`, `note?`, `lat_rounded?`, `lon_rounded?` (always null in M6, kept
 for ADR 0006), `content_version`, `created_at`, `updated_at`, `deleted_at?`, `synced_at?` (always null in M6). Timestamps are ISO UTC.
@@ -124,7 +124,7 @@ for ADR 0006), `content_version`, `created_at`, `updated_at`, `deleted_at?`, `sy
 
 ## PR slices
 Each slice leaves `main` green. Storage lands before UI. The UI uses the memory repository until slice 5 wires in the real stores.
-1. feat(life-list): sighting zod schema, `LifeListRepository` interface, memory repository, contract test suite (~180)
+1. feat(life-list): sighting model and type guard, `LifeListRepository` interface, memory repository, contract test suite (~180)
 2. feat(life-list): pure `aggregate.ts`: species rows (first, last, N), totals, endemics of E-count, per-code counts,
    sort and filter, unknown-species rows. Unit tests including 2,000 sightings (~180)
 3. feat(life-list): web `idb` repository, migration `0001_init`, `persist()` request, contract tests on
