@@ -237,5 +237,10 @@
   "lifeList.summary.sightings.other": "{count} sightings",
   "lifeList.row.one": "First {first} · Last {last} · {count} sighting",
   "lifeList.row.other": "First {first} · Last {last} · {count} sightings",
-  "lifeList.removed": "No longer in this guide"
+  "lifeList.removed": "No longer in this guide",
+  "lifeList.sort": "Sort by",
+  "lifeList.sort.recent": "Recent",
+  "lifeList.sort.name": "A–Z",
+  "lifeList.sort.plate": "By plate",
+  "lifeList.noMatch": "No sightings match"
 }

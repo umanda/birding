@@ -4,7 +4,7 @@ import { renderRouter, screen, waitFor } from 'expo-router/testing-library';
 import { Text } from 'react-native';
 
 import { SettingsProvider } from '@/features/settings';
-import { getAllSpecies } from '@/shared/data/content';
+import { getAllSpecies, getPlate } from '@/shared/data/content';
 import type { Species } from '@/shared/data/content-schema';
 import { createMemoryStore } from '@/test-utils/memory-store';
 
@@ -101,5 +101,61 @@ describe('LifeListScreen', () => {
     await show(seeded);
     await user.press(await screen.findByText(endemicB.names.en));
     await waitFor(() => expect(screen).toHavePathname(`/species/${endemicB.species_id}`));
+  });
+
+  describe('sort and filters', () => {
+    const trio = [endemicA, endemicB, resident];
+    const shown = (): string[] =>
+      screen
+        .getAllByText(/^First /)
+        .map((node) => String(node.props.children))
+        .map((text) => trio.find((_, i) => text.includes(DATES[i] ?? ''))?.names.en ?? '');
+    const DATES = ['9 March', '1 February', '1 April'];
+    const names = (list: Species[]): string[] => list.map((item) => item.names.en);
+
+    it('defaults to Recent and marks it checked', async () => {
+      await show(seeded);
+      await screen.findByText('3 species');
+      expect(screen.getByRole('radio', { name: 'Recent', checked: true })).toBeTruthy();
+      expect(shown()).toEqual(names([resident, endemicA, endemicB]));
+    });
+
+    it('sorts A to Z by name', async () => {
+      const user = userEvent.setup();
+      await show(seeded);
+      await user.press(await screen.findByRole('radio', { name: 'A–Z' }));
+      const byName = [...trio].sort((a, b) => a.names.en.localeCompare(b.names.en));
+      expect(shown()).toEqual(names(byName));
+      expect(screen.getByRole('radio', { name: 'A–Z', checked: true })).toBeTruthy();
+    });
+
+    it('sorts by plate order', async () => {
+      const user = userEvent.setup();
+      await show(seeded);
+      await user.press(await screen.findByRole('radio', { name: 'By plate' }));
+      const plateKey = (s: Species): number[] => [
+        getPlate(s.plate_id)?.plate_number ?? 0,
+        s.plate_order,
+      ];
+      const byPlate = [...trio].sort((a, b) => {
+        const [pa = 0, oa = 0] = plateKey(a);
+        const [pb = 0, ob = 0] = plateKey(b);
+        return pa - pb || oa - ob;
+      });
+      expect(shown()).toEqual(names(byPlate));
+    });
+
+    it('filters to endemics, keeps the summary, and clears from the no-match state', async () => {
+      const user = userEvent.setup();
+      await show(seeded);
+      await user.press(await screen.findByRole('checkbox', { name: 'Endemic' }));
+      expect(shown()).toHaveLength(2);
+      expect(screen.getByText('3 species')).toBeTruthy();
+      await user.press(screen.getByRole('checkbox', { name: 'Endemic' }));
+      await user.press(screen.getByRole('checkbox', { name: 'Migrant' }));
+      expect(await screen.findByText('No sightings match')).toBeTruthy();
+      await user.press(screen.getByRole('button', { name: 'Clear filters' }));
+      expect(shown()).toHaveLength(3);
+    });
   });
 });
