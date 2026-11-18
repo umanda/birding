@@ -147,7 +147,7 @@ describe('validateTraits status and key rules', () => {
 
 describe('buildTraits', () => {
   const build = (...rows: [string, string, string, string][]): ReturnType<typeof buildTraits> =>
-    buildTraits(validateTraits(csv(...rows), IDS).rows);
+    buildTraits(validateTraits(csv(...rows), IDS).rows, new Set(['sp-a']));
 
   it('uses reviewed rows only', () => {
     const out = build(['zone', 'montane', '', 'proposed'], ['habitat', 'forest', '', 'rejected']);
@@ -194,5 +194,20 @@ describe('buildTraits', () => {
       behaviours: ['ground'],
       commonness: { montane: 'scarce' },
     });
+  });
+});
+
+describe('buildTraits ledger gate', () => {
+  const rows = validateTraits(
+    ['sp-a', 'sp-b'].map((id) => `${id},zone,montane,,expert:x,high,reviewed,`).reduce((a, l) => `${a}\n${l}`, HEADER),
+    IDS,
+  ).rows;
+
+  it('ships only species listed in the ledger', () => {
+    expect(Object.keys(buildTraits(rows, new Set(['sp-b'])).species)).toEqual(['sp-b']);
+  });
+
+  it('ships nothing for an empty ledger', () => {
+    expect(buildTraits(rows, new Set()).species).toEqual({});
   });
 });

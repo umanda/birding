@@ -61,9 +61,9 @@ function speciesTraits(species_id: string, rows: TraitRow[]): SpeciesTraits {
   return { species_id, ...(Object.fromEntries(known) as Omit<SpeciesTraits, 'species_id'>) };
 }
 
-// Only reviewed rows ship. Species are sorted by id so the file is deterministic.
-export function buildTraits(rows: TraitRow[]): TraitsFile {
-  const reviewed = rows.filter((r) => r.review_status === 'reviewed');
+// Only reviewed rows of ledger species ship. Species are sorted by id so the file is deterministic.
+export function buildTraits(rows: TraitRow[], ledgerIds: ReadonlySet<string>): TraitsFile {
+  const reviewed = rows.filter((r) => r.review_status === 'reviewed' && ledgerIds.has(r.species_id));
   const ids = [...new Set(reviewed.map((r) => r.species_id))].sort();
   const species = Object.fromEntries(
     ids.map((id) => [id, speciesTraits(id, reviewed.filter((r) => r.species_id === id))]),

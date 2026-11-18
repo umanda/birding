@@ -22,9 +22,9 @@ export const TRAITS_COLUMNS = [
 const REVIEW_STATUSES = ['proposed', 'reviewed', 'rejected'];
 const CONFIDENCES = ['high', 'medium', 'low'];
 const MONTH_VALUES = ['all', ...Array.from({ length: 12 }, (_, i) => String(i + 1))];
-const PLUMAGE_KEYS = ['male', 'female', 'juvenile', 'adult', 'breeding', 'non_breeding', 'eclipse'];
-const MORPH_KEY = /^morph_[a-z0-9_]+$/;
-const KEYED_TRAITS = ['colour', 'size'];
+export const PLUMAGE_KEYS = ['male', 'female', 'juvenile', 'adult', 'breeding', 'non_breeding', 'eclipse'];
+export const MORPH_KEY = /^morph_[a-z0-9_]+$/;
+export const KEYED_TRAITS = ['colour', 'size'];
 
 // Blank cells are '' here; note is free text and may be blank.
 export type TraitRow = Record<(typeof TRAITS_COLUMNS)[number], string>;
@@ -33,6 +33,9 @@ export type TraitsReport = {
   errors: string[];
   counts: Record<string, number>;
 };
+
+export const ID_QUESTIONS = ['zone', 'habitat', 'size', 'colour', 'behaviour', 'month'];
+export const TRAIT_NAMES = [...ID_QUESTIONS, 'commonness'];
 
 const VOCABULARY: Record<string, readonly string[]> = {
   zone: ZONES,

@@ -1,5 +1,8 @@
 # Pilot traits: owner review sheet
 
+> **Historical.** This sheet and `traits-pilot.csv` describe the M5 pilot as first proposed. The pilot rows are now
+> `reviewed`, and `traits-batches.csv` (batch 0) is the list of species that ship.
+
 Data: `traits.csv` (534 trait rows + 153 commonness rows), `traits-pilot.csv` (34 species; House Sparrow added as the S size reference),
 vocabulary and rules in `traits-vocabulary.md`, test set in `id-test-sightings.csv` (24 sightings,
 5 demo). Everything is `review_status=proposed`. Workbook occurrence and IUCN values are themselves
