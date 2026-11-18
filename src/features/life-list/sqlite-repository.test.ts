@@ -65,7 +65,10 @@ describeLifeListRepository('sqlite', async (seedRows, deps) => {
   const { db, raw } = fakeDb();
   await migrate(db);
   seed(raw, seedRows);
-  return { repository: createSqliteRepository({ db, deps }), cleanup: async () => raw.close() };
+  return {
+    repository: await createSqliteRepository({ db, deps }),
+    cleanup: async () => raw.close(),
+  };
 });
 
 const OLD_ROW = {
@@ -76,6 +79,8 @@ const OLD_ROW = {
   created_at: '2026-11-10T08:00:00.000Z',
   updated_at: '2026-11-10T08:00:00.000Z',
 };
+
+const DEPS = { newId: () => 'x', now: () => new Date() };
 
 describe('sqlite migrations', () => {
   it('0001_init sets user_version, adds the species index and is not applied twice', async () => {
@@ -91,7 +96,8 @@ describe('sqlite migrations', () => {
     const { db, raw } = fakeDb();
     await migrate(db);
     seed(raw, [OLD_ROW]);
-    const repo = createSqliteRepository({ db, deps: { newId: () => 'x', now: () => new Date() } });
+    const deps = { newId: () => 'x', now: () => new Date() };
+    const repo = await createSqliteRepository({ db, deps });
     expect((await repo.list()).map((s) => s.id)).toEqual(['a']);
   });
 
@@ -99,12 +105,14 @@ describe('sqlite migrations', () => {
     const { db, raw } = fakeDb();
     raw.exec(`PRAGMA user_version = ${MIGRATIONS.length + 1}`);
     await expect(migrate(db)).rejects.toThrow(/newer/);
+    await expect(createSqliteRepository({ db, deps: DEPS })).rejects.toThrow(/newer/);
   });
 
   it('rolls back a failed migration', async () => {
     const { db, raw } = fakeDb();
     raw.exec('CREATE TABLE sightings (id TEXT)'); // makes 0001 fail
     await expect(migrate(db)).rejects.toThrow();
+    await expect(createSqliteRepository({ db, deps: DEPS })).rejects.toThrow();
     expect(raw.prepare('PRAGMA user_version').get()).toEqual({ user_version: 0 });
   });
 });

@@ -5,7 +5,9 @@ import { checkedFields, checkedInput } from './memory-repository';
 import { isSighting, type Sighting } from './sighting';
 
 // Forward-only. Entry N takes the database to `PRAGMA user_version = N`. Never edit a shipped one.
-// `extra` keeps JSON for fields this app version does not know, so a newer version's data survives.
+// `extra` holds JSON for fields this app version does not know. It is filled when rows arrive from
+// a newer client (sync), so their data survives an edit here. A migration that promotes a key out of
+// `extra` into a column must copy it (json_extract) and then remove it (json_remove).
 export const MIGRATIONS: readonly string[] = [
   `CREATE TABLE sightings (
      id TEXT PRIMARY KEY NOT NULL,
@@ -46,7 +48,13 @@ export const COLUMNS = [
   'synced_at',
 ] as const;
 const EDITABLE = ['seen_on', 'place_name', 'zone', 'count', 'note', 'updated_at'] as const;
-const NEWEST_FIRST = 'ORDER BY seen_on DESC, created_at DESC';
+const NEWEST_FIRST = 'ORDER BY seen_on DESC, created_at DESC, id DESC';
+
+function migrationSql(version: number): string {
+  const sql = MIGRATIONS[version - 1];
+  if (!sql) throw new Error(`life list migration ${version} has no SQL`);
+  return sql;
+}
 
 export async function migrate(db: SQLiteDatabase): Promise<void> {
   const found = await db.getFirstAsync<{ user_version: number }>('PRAGMA user_version');
@@ -56,7 +64,7 @@ export async function migrate(db: SQLiteDatabase): Promise<void> {
   }
   for (let next = version + 1; next <= MIGRATIONS.length; next++) {
     await db.withTransactionAsync(async () => {
-      await db.execAsync(MIGRATIONS[next - 1] ?? '');
+      await db.execAsync(migrationSql(next));
       await db.execAsync(`PRAGMA user_version = ${next}`);
     });
   }
@@ -79,18 +87,16 @@ function toSighting(row: Row): Sighting | null {
   return isSighting(sighting) ? sighting : null;
 }
 
-export function createSqliteRepository({
+export async function createSqliteRepository({
   db,
   deps,
 }: {
   db: SQLiteDatabase;
   deps: RepositoryDeps;
-}): LifeListRepository {
-  // Pending migrations run once, before the first query.
-  const ready = migrate(db);
+}): Promise<LifeListRepository> {
+  await migrate(db); // a failed or too-new database rejects here, at open
 
   const find = async (id: string): Promise<Sighting | null> => {
-    await ready;
     const row = await db.getFirstAsync<Row>(
       'SELECT * FROM sightings WHERE id = ? AND deleted_at IS NULL',
       id,
@@ -100,7 +106,6 @@ export function createSqliteRepository({
 
   return {
     list: async () => {
-      await ready;
       const sql = `SELECT * FROM sightings WHERE deleted_at IS NULL ${NEWEST_FIRST}`;
       return (await db.getAllAsync<Row>(sql))
         .map(toSighting)
@@ -108,7 +113,6 @@ export function createSqliteRepository({
     },
     get: find,
     add: async (input) => {
-      await ready;
       const now = deps.now();
       const stamp = now.toISOString();
       const sighting: Sighting = {
@@ -153,7 +157,6 @@ export function createSqliteRepository({
       ]);
     },
     removeAllUnsynced: async () => {
-      await ready;
       await db.runAsync('DELETE FROM sightings WHERE synced_at IS NULL');
     },
   };
