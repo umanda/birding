@@ -65,6 +65,8 @@ test('browsing, searching and reading work offline after first load, without rel
 
   await page.getByRole('link', { name: /^Plate 1 ·/ }).click();
   await expect(page.getByRole('heading', { name: /^Plate 1 ·/ })).toBeVisible();
+  await page.reload(); // direct plate load offline, with the filter query, served from the template
+  await expect(page.getByRole('heading', { name: /^Plate 1 ·/ })).toBeVisible();
   await expect(page.getByRole('link', { name: ENGLISH_NAME })).toBeVisible();
   await expect(page.getByRole('link', { name: /Indian Peafowl/ })).toHaveCount(0);
   await page.getByRole('link', { name: ENGLISH_NAME }).click();

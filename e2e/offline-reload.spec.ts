@@ -9,6 +9,8 @@ const junglefowl = content.species.find((s) => s.species_id === JUNGLEFOWL_ID);
 if (!junglefowl) throw new Error(`${JUNGLEFOWL_ID} missing from content.json`);
 const FIRST_PLATE = content.plates[0];
 if (!FIRST_PLATE) throw new Error('content.json has no plates');
+const LAST_PLATE = content.plates[content.plates.length - 1];
+if (!LAST_PLATE) throw new Error('content.json has no plates');
 
 type RouteCase = { name: string; path: string; expectRendered: (page: Page) => Promise<void> };
 
@@ -51,6 +53,15 @@ const routes: RouteCase[] = [
     path: `/plate/${FIRST_PLATE.plate_id}`,
     expectRendered: (page) =>
       expect(page.getByRole('heading', { name: /^Plate 1 ·/ })).toBeVisible(),
+  },
+  // Different plates share one precached template, so a second plate proves the id is read from the URL.
+  {
+    name: 'last plate',
+    path: `/plate/${LAST_PLATE.plate_id}`,
+    expectRendered: (page) =>
+      expect(
+        page.getByRole('heading', { name: new RegExp(`^Plate ${LAST_PLATE.plate_number} ·`) }),
+      ).toBeVisible(),
   },
   {
     name: 'species',
