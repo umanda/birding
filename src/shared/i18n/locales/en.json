@@ -179,5 +179,10 @@
   "identify.monthName.9": "September",
   "identify.monthName.10": "October",
   "identify.monthName.11": "November",
-  "identify.monthName.12": "December"
+  "identify.monthName.12": "December",
+  "sighting.error.date": "Enter a date that is today or earlier, like 2026-11-18.",
+  "sighting.error.place": "The place name is too long.",
+  "sighting.error.zone": "Choose one of the zones.",
+  "sighting.error.count": "Enter a whole number from 1 to 999, or leave it empty.",
+  "sighting.error.note": "The note is too long."
 }

@@ -1,6 +1,7 @@
 import {
   cleanFields,
   findFieldsError,
+  findFieldsErrorId,
   isCalendarDate,
   isSighting,
   toLocalDate,
@@ -118,5 +119,15 @@ describe('findFieldsError (write rules)', () => {
     ['a bad zone', { zone: 'moon' as never }],
   ])('rejects %s', (_label, over) => {
     expect(findFieldsError(fields(over), today)).not.toBeNull();
+  });
+
+  it.each([
+    ['seen_on', { seen_on: '2026-11-19' }],
+    ['place_name', { place_name: 'x'.repeat(81) }],
+    ['zone', { zone: 'moon' as never }],
+    ['count', { count: 0 }],
+    ['note', { note: 'x'.repeat(501) }],
+  ])('names %s as the failing field', (id, over) => {
+    expect(findFieldsErrorId(fields(over), today)).toBe(id);
   });
 });

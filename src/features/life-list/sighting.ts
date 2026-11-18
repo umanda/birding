@@ -105,15 +105,28 @@ export function cleanFields(fields: SightingFields): CleanFields {
   };
 }
 
-// Write rules. Returns the first problem as a message, or null when the fields are valid.
-export function findFieldsError(fields: CleanFields, today: string): string | null {
-  if (!isCalendarDate(fields.seen_on)) return 'seen_on must be a YYYY-MM-DD date';
-  if (fields.seen_on > today) return 'seen_on cannot be in the future';
-  if (!isNullOr(fields.place_name, isShortText(PLACE_NAME_MAX))) return 'place_name is too long';
-  if (!isNullOr(fields.zone, isZone)) return 'zone is not a known zone';
-  if (!isNullOr(fields.count, isCount)) {
-    return `count must be a whole number ${COUNT_MIN}-${COUNT_MAX}`;
-  }
-  if (!isNullOr(fields.note, isShortText(NOTE_MAX))) return 'note is too long';
+export type FieldId = 'seen_on' | 'place_name' | 'zone' | 'count' | 'note';
+
+const FIELD_PROBLEMS: Record<FieldId, string> = {
+  seen_on: 'seen_on must be a YYYY-MM-DD date that is not in the future',
+  place_name: 'place_name is too long',
+  zone: 'zone is not a known zone',
+  count: `count must be a whole number ${COUNT_MIN}-${COUNT_MAX}`,
+  note: 'note is too long',
+};
+
+// Write rules. Returns the first field that breaks them, or null when the fields are valid.
+export function findFieldsErrorId(fields: CleanFields, today: string): FieldId | null {
+  if (!isCalendarDate(fields.seen_on) || fields.seen_on > today) return 'seen_on';
+  if (!isNullOr(fields.place_name, isShortText(PLACE_NAME_MAX))) return 'place_name';
+  if (!isNullOr(fields.zone, isZone)) return 'zone';
+  if (!isNullOr(fields.count, isCount)) return 'count';
+  if (!isNullOr(fields.note, isShortText(NOTE_MAX))) return 'note';
   return null;
+}
+
+// Same rules as a message for logs and repository errors.
+export function findFieldsError(fields: CleanFields, today: string): string | null {
+  const id = findFieldsErrorId(fields, today);
+  return id === null ? null : FIELD_PROBLEMS[id];
 }
