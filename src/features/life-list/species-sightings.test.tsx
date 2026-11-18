@@ -63,6 +63,13 @@ describe('SpeciesSightings', () => {
     expect(await screen.findByText('Seen 2 times · last 18 November 2020')).toBeTruthy();
   });
 
+  it('warns on the species page when sightings cannot be stored', async () => {
+    const warn = jest.spyOn(console, 'warn').mockImplementation(() => {});
+    await render(tree(() => Promise.reject(new Error('blocked'))));
+    expect(await screen.findByText(/can't be saved on this device/)).toBeTruthy();
+    warn.mockRestore();
+  });
+
   it('disables the button while the store is loading', async () => {
     let finish: (repo: LifeListRepository) => void = () => undefined;
     const opening = new Promise<LifeListRepository>((resolve) => (finish = resolve));

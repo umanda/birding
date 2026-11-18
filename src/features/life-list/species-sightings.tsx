@@ -14,6 +14,7 @@ import type { CleanFields, Sighting } from './sighting';
 import { formatSeenOn } from './sighting-date';
 import { SightingRows } from './sighting-rows';
 import { SightingSheet } from './sighting-sheet';
+import { StorageBannerView } from './storage-banner';
 
 const DISABLED_OPACITY = 0.5; // same value as sighting-sheet; no opacity token yet
 
@@ -63,6 +64,8 @@ export function SpeciesSightings({ speciesId, name, language, t }: Props): React
 
   return (
     <View style={styles.section}>
+      {/* The species page sits above the tabs, so it needs its own warning where people save. */}
+      <StorageBannerView language={language} t={t} />
       <Pressable
         accessibilityRole="button"
         accessibilityLabel={addLabel}
