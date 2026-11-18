@@ -61,7 +61,7 @@ async function main(): Promise<void> {
   }
   if (size > PRECACHE_WARN_BYTES) {
     process.stderr.write(
-      `warning: precache is ${size} bytes, above 9 MiB (hard limit 10 MB, ADR 0001)\n`,
+      `warning: precache is ${size} bytes, above 9 MiB (hard limit 10 MiB, ADR 0001)\n`,
     );
   }
 }

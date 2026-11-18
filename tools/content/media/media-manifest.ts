@@ -22,6 +22,7 @@ export const FULL_FALLBACKS = [
 const MIB = 1024 * 1024;
 export const THUMBS_TOTAL_MAX_BYTES = 4 * MIB;
 // Spec 006 budgets. The pack is the sum of full images (Me > Download offline pack).
+// The spec's MB budgets are applied as MiB on purpose.
 export const PHOTO_PACK_MAX_BYTES = 75 * MIB;
 export const MASTERS_MAX_BYTES = 150 * MIB;
 // Runtime cache of full photos. Fixed and above the image count so a complete pack is never

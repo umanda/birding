@@ -125,13 +125,13 @@ function readRows(): { rows: MediaRow[]; errors: string[] } {
   return { rows, errors };
 }
 
-function directoryBytes(dir: string): number {
+function webpBytes(dir: string): number {
   if (!existsSync(dir)) return 0;
-  const entries = readdirSync(dir, { recursive: true, withFileTypes: true }).filter((e) => e.isFile());
+  const entries = readdirSync(dir, { recursive: true, withFileTypes: true }).filter((e) => e.isFile() && e.name.endsWith('.webp'));
   return entries.reduce((sum, e) => sum + statSync(path.join(e.parentPath, e.name)).size, 0);
 }
 
-const toMb = (bytes: number): string => `${(bytes / 1024 / 1024).toFixed(1)} MB`;
+const toMib = (bytes: number): string => `${(bytes / 1024 / 1024).toFixed(1)} MiB`;
 
 // Concise size and coverage report, printed when the check passes.
 export function mediaReport(
@@ -146,8 +146,8 @@ export function mediaReport(
   const without = speciesIds.filter((id) => !withPhotos.has(id)).length;
   return [
     `media manifest ok: ${manifest.images.length} images`,
-    `photo pack ${toMb(packBytesOf(manifest.images))} of ${toMb(PHOTO_PACK_MAX_BYTES)}`,
-    `masters ${toMb(sizes.masters)} of ${toMb(MASTERS_MAX_BYTES)}; public/media ${toMb(sizes.publicMedia)}`,
+    `photo pack ${toMib(packBytesOf(manifest.images))} of ${toMib(PHOTO_PACK_MAX_BYTES)}`,
+    `masters ${toMib(sizes.masters)} of ${toMib(MASTERS_MAX_BYTES)}; public/media ${toMib(sizes.publicMedia)}`,
     `species with a photo ${withPhotos.size} / ${speciesIds.length}; without ${without}`,
     `images per plumage: ${plumages || 'none'}`,
   ].join('\n');
@@ -162,14 +162,14 @@ function main(): void {
   const { rows, errors } = readRows();
   const { manifest, errors: manifestErrors } = parseManifest(readFileSync(MANIFEST_FILE, 'utf8'));
   errors.push(...manifestErrors);
-  const mastersBytes = directoryBytes(MEDIA_DIR);
+  const mastersBytes = webpBytes(MEDIA_DIR);
   if (manifest && errors.length === 0) {
     errors.push(...mastersErrors(mastersBytes));
     errors.push(...checkMedia({ rows, manifest, files: readFiles(), masters: readMasters(rows) }));
     for (const warning of targetWarnings(manifest.images)) process.stderr.write(`warning: ${warning}\n`);
   }
   if (errors.length > 0 || !manifest) throw new Error(`Media check failed:\n${errors.join('\n')}`);
-  const publicMedia = directoryBytes(path.join(PUBLIC_DIR, OUTPUT_SUBDIR));
+  const publicMedia = webpBytes(path.join(PUBLIC_DIR, OUTPUT_SUBDIR));
   process.stdout.write(`${mediaReport(manifest, readSpeciesIds(), { masters: mastersBytes, publicMedia })}\n`);
 }
 
