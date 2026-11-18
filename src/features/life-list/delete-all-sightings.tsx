@@ -84,7 +84,9 @@ export function DeleteAllSightings(): React.JSX.Element {
 
   return (
     <View style={styles.box}>
-      <Text style={[typeStyle('body', language), { color: colors.text }]}>{summary()}</Text>
+      {ready ? (
+        <Text style={[typeStyle('body', language), { color: colors.text }]}>{summary()}</Text>
+      ) : null}
       {confirming ? (
         <View style={[styles.confirm, { borderColor: colors.error }]}>
           <Text
