@@ -198,5 +198,15 @@
   "sighting.cancel": "අවලංගු කරන්න",
   "sighting.retry": "නැවත උත්සාහ කරන්න",
   "sighting.saveFailed": "සුරැකීමට නොහැකි විය. ඔබේ උපාංගයේ ඉඩ අවසන් වී ඇති විය හැක.",
-  "lifeList.storageBlocked": "මෙම උපාංගයේ දැකීම් දැනට සුරැකිය නොහැක. යෙදුම වසන විට ඒවා නැති වී යයි."
+  "lifeList.storageBlocked": "මෙම උපාංගයේ දැකීම් දැනට සුරැකිය නොහැක. යෙදුම වසන විට ඒවා නැති වී යයි.",
+  "deleteAll.count.one": "මෙම උපාංගයේ දැකීම් {count}ක් සුරැකිය",
+  "deleteAll.count.other": "මෙම උපාංගයේ දැකීම් {count}ක් සුරැකිය",
+  "deleteAll.empty": "මෙම උපාංගයේ සුරකින ලද දැකීම් නැත",
+  "deleteAll.button": "මෙම උපාංගයේ සියලු දැකීම් මකන්න",
+  "deleteAll.confirmTitle": "සියලු දැකීම් මකන්නද?",
+  "deleteAll.confirmBody": "මෙමගින් මෙම උපාංගයෙන් සියලු දැකීම් ඉවත් වේ. මෙය ආපසු හැරවිය නොහැක.",
+  "deleteAll.confirm": "මකන්න",
+  "deleteAll.cancel": "අවලංගු කරන්න",
+  "deleteAll.done": "සියලු දැකීම් මකා දමන ලදී",
+  "deleteAll.failed": "මැකීමට නොහැකි විය. ඔබගේ දැකීම් තවමත් සුරැකී ඇත."
 }
