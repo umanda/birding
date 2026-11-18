@@ -175,10 +175,9 @@ test.describe('life list with storage blocked', () => {
     expect(watch.pageErrors).toEqual([]);
   });
 
-  // The banner lives in the tab layout, which the species page covers, so a user saving there is
-  // never told the sighting will be lost. App bug, reported with this PR; not fixed here.
-  test.fixme('shows the storage banner on the species page too', async ({ page }) => {
+  // The species page sits above the tabs, so it carries its own banner (#107).
+  test('shows the storage banner on the species page too', async ({ page }) => {
     await openSpecies(page);
-    await expect(page.getByText(STORAGE_BLOCKED)).toBeVisible();
+    await expect(page.getByText(STORAGE_BLOCKED).filter({ visible: true })).toBeVisible();
   });
 });
