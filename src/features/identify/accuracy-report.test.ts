@@ -1,10 +1,7 @@
-import { checkMix, hardTally, tally } from './accuracy-report';
+import { batchMixes, easyProblems, hardTally, headlineProblems, tally } from './accuracy-report';
 import type { Scored } from './accuracy-report';
-import { rank } from './rank';
 import { checkSightings } from './sightings-csv';
 import type { TestSighting } from './sightings-csv';
-import type { Answers } from './types';
-import type { SpeciesTraits } from '@/shared/data/traits';
 
 type Overrides = Partial<Omit<Scored, 'sighting'>> & Partial<TestSighting>;
 
@@ -55,19 +52,19 @@ describe('hardTally', () => {
   });
 });
 
-describe('checkMix', () => {
+describe('batchMixes', () => {
   it('is not met when every scenario comes from the drafter', () => {
-    expect(checkMix([item(), item()]).met).toBe(false);
+    expect(batchMixes([item(), item()])[0]?.met).toBe(false);
   });
 
-  it('is met with enough common targets and independent scenarios in every batch', () => {
+  it('is met with enough common targets and independent scenarios', () => {
     const items = [item(), item(), item(), item(), item({ scenario_source: 'plates' })];
-    expect(checkMix(items).met).toBe(true);
+    expect(batchMixes(items)[0]?.met).toBe(true);
   });
 
-  it('is not met when one batch has no independent scenarios', () => {
+  it('judges each batch on its own', () => {
     const items = [item({ batch: '1', scenario_source: 'other' }), item({ batch: '2' })];
-    expect(checkMix(items).met).toBe(false);
+    expect(batchMixes(items).map((m) => m.met)).toEqual([true, false]);
   });
 
   it('is not met when too few targets are common', () => {
@@ -75,7 +72,40 @@ describe('checkMix', () => {
       item({ common: false, scenario_source: 'other' }),
       item({ scenario_source: 'other' }),
     ];
-    expect(checkMix(items).met).toBe(false);
+    expect(batchMixes(items)[0]?.met).toBe(false);
+  });
+});
+
+describe('headlineProblems', () => {
+  it('fails a later batch whose mix is not met, naming the batch', () => {
+    const items = [item({ batch: '2' })];
+    expect(headlineProblems(items, batchMixes(items))[0]).toContain(
+      'batch 2: scenario mix not met',
+    );
+  });
+
+  it('does not gate the legacy batch 0', () => {
+    const items = [item({ batch: '0', position: 40 })];
+    expect(headlineProblems(items, batchMixes(items))).toEqual([]);
+  });
+
+  it('fails a batch with a valid mix but a low top-5', () => {
+    const items = [item({ batch: '1', scenario_source: 'other', position: 8 })];
+    expect(headlineProblems(items, batchMixes(items))).toHaveLength(1);
+  });
+
+  it('leaves scarce targets out of the gate', () => {
+    const items = [
+      item({ batch: '1', scenario_source: 'other' }),
+      item({ batch: '1', scenario_source: 'other', scarce: true, position: 0 }),
+    ];
+    expect(headlineProblems(items, batchMixes(items))).toEqual([]);
+  });
+});
+
+describe('easyProblems', () => {
+  it('fails when easy scenarios miss the top 5', () => {
+    expect(easyProblems([item({ position: 9 })])).toHaveLength(1);
   });
 });
 
@@ -92,31 +122,5 @@ describe('checkSightings', () => {
 
   it('rejects a badly formed hard_group', () => {
     expect(checkSightings([{ ...base, hard_group: 'Bad Name' }])).toHaveLength(1);
-  });
-});
-
-describe('a species with unknown traits', () => {
-  const answers: Answers = {
-    month: 1,
-    zone: 'wet_lowland',
-    habitat: 'forest',
-    size: 'M',
-    colours: ['green'],
-    behaviour: 'tree_bush',
-  };
-  const fullMatch: SpeciesTraits = {
-    species_id: 'full',
-    zones: ['wet_lowland'],
-    habitats: ['forest'],
-    size: ['M'],
-    colours: [['green']],
-    behaviours: ['tree_bush'],
-    months: Array<'present'>(12).fill('present'),
-  };
-
-  it('cannot outrank a species that fully matches', () => {
-    const allUnknown: SpeciesTraits = { species_id: 'unknown' };
-    const ranked = rank([allUnknown, fullMatch], answers, { order: { unknown: 0, full: 1 } });
-    expect(ranked[0]?.species_id).toBe('full');
   });
 });

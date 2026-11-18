@@ -8,10 +8,9 @@ import type {
   Zone,
 } from '@/shared/data/traits-vocabulary';
 
-// drafter wrote the traits and the scenario; other is a second person; plates was written from
-// plates or photos before the trait rows existed. Only drafter scenarios are self-confirming.
+// drafter: the person who wrote the trait rows (self-confirming); other: a second person;
+// plates: written from plates or photos before the trait rows existed.
 export const SCENARIO_SOURCES = ['drafter', 'other', 'plates'] as const;
-export type ScenarioSource = (typeof SCENARIO_SOURCES)[number];
 
 export type TestSighting = {
   sighting_id: string;
