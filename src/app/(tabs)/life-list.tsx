@@ -1,1 +1,1 @@
-export { ComingSoonScreen as default } from '@/features/shell';
+export { LifeListScreen as default } from '@/features/life-list';

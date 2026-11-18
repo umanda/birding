@@ -225,5 +225,17 @@
   "sightings.keep": "තබාගන්න",
   "sightings.deleted": "දැකීම මකා දැමිණි",
   "sightings.deleteFailed": "මැකීමට නොහැකි විය. නැවත උත්සාහ කරන්න.",
-  "sightings.howMany": "ගණන: {count}"
+  "sightings.howMany": "ගණන: {count}",
+  "lifeList.loading": "ඔබේ ලැයිස්තුව පූරණය වෙමින්…",
+  "lifeList.empty": "ඔබේ ලැයිස්තුව හිස්ය. එක් කිරීමට කුරුල්ලෙකු සොයන්න.",
+  "lifeList.savedHere": "මෙම උපාංගයේ පමණක් සුරැකේ",
+  "lifeList.summary.species.one": "විශේෂ {count}",
+  "lifeList.summary.species.other": "විශේෂ {count}",
+  "lifeList.summary.endemics": "ස්වදේශික {count} / {total}",
+  "lifeList.summary.endemicsLabel": "ස්වදේශික {total}කින් {count}",
+  "lifeList.summary.sightings.one": "දැකීම් {count}",
+  "lifeList.summary.sightings.other": "දැකීම් {count}",
+  "lifeList.row.one": "පළමු {first} · අවසන් {last} · දැකීම් {count}",
+  "lifeList.row.other": "පළමු {first} · අවසන් {last} · දැකීම් {count}",
+  "lifeList.removed": "මෙම මාර්ගෝපදේශයේ තවදුරටත් නැත"
 }

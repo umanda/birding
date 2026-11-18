@@ -225,5 +225,17 @@
   "sightings.keep": "Keep it",
   "sightings.deleted": "Sighting deleted",
   "sightings.deleteFailed": "Couldn't delete. Please try again.",
-  "sightings.howMany": "Count: {count}"
+  "sightings.howMany": "Count: {count}",
+  "lifeList.loading": "Loading your list…",
+  "lifeList.empty": "Your list is empty. Find a bird to add.",
+  "lifeList.savedHere": "Saved on this device only",
+  "lifeList.summary.species.one": "{count} species",
+  "lifeList.summary.species.other": "{count} species",
+  "lifeList.summary.endemics": "Endemics {count} of {total}",
+  "lifeList.summary.endemicsLabel": "{count} of {total} endemics",
+  "lifeList.summary.sightings.one": "{count} sighting",
+  "lifeList.summary.sightings.other": "{count} sightings",
+  "lifeList.row.one": "First {first} · Last {last} · {count} sighting",
+  "lifeList.row.other": "First {first} · Last {last} · {count} sightings",
+  "lifeList.removed": "No longer in this guide"
 }
