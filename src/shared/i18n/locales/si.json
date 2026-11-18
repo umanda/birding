@@ -184,5 +184,18 @@
   "sighting.error.place": "ස්ථානයේ නම දීර්ඝ වැඩියි.",
   "sighting.error.zone": "කලාපයක් තෝරන්න.",
   "sighting.error.count": "1 සිට 999 දක්වා පූර්ණ සංඛ්‍යාවක් ඇතුළත් කරන්න, නැතහොත් හිස්ව තබන්න.",
-  "sighting.error.note": "සටහන දීර්ඝ වැඩියි."
+  "sighting.error.note": "සටහන දීර්ඝ වැඩියි.",
+  "sighting.title.add": "මම මෙය දුටුවා",
+  "sighting.title.edit": "දැකීම සංස්කරණය",
+  "sighting.date": "දිනය (YYYY-MM-DD)",
+  "sighting.today": "අද",
+  "sighting.yesterday": "ඊයේ",
+  "sighting.place": "ස්ථානය (අමතර)",
+  "sighting.zone": "කලාපය (අමතර)",
+  "sighting.count": "කීයක් (අමතර)",
+  "sighting.note": "සටහන (අමතර)",
+  "sighting.save": "සුරකින්න",
+  "sighting.cancel": "අවලංගු කරන්න",
+  "sighting.retry": "නැවත උත්සාහ කරන්න",
+  "sighting.saveFailed": "සුරැකීමට නොහැකි විය. ඔබේ උපාංගයේ ඉඩ අවසන් වී ඇති විය හැක."
 }

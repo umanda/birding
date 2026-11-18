@@ -184,5 +184,18 @@
   "sighting.error.place": "The place name is too long.",
   "sighting.error.zone": "Choose one of the zones.",
   "sighting.error.count": "Enter a whole number from 1 to 999, or leave it empty.",
-  "sighting.error.note": "The note is too long."
+  "sighting.error.note": "The note is too long.",
+  "sighting.title.add": "I saw this",
+  "sighting.title.edit": "Edit sighting",
+  "sighting.date": "Date (YYYY-MM-DD)",
+  "sighting.today": "Today",
+  "sighting.yesterday": "Yesterday",
+  "sighting.place": "Place (optional)",
+  "sighting.zone": "Zone (optional)",
+  "sighting.count": "How many (optional)",
+  "sighting.note": "Note (optional)",
+  "sighting.save": "Save",
+  "sighting.cancel": "Cancel",
+  "sighting.retry": "Retry",
+  "sighting.saveFailed": "Couldn't save. Your device may be out of space."
 }
