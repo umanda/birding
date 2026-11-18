@@ -29,11 +29,7 @@ export function LifeListRowItem({ row, language, t }: Props): React.JSX.Element 
   };
 
   return (
-    <Link
-      href={{ pathname: '/species/[id]', params: { id: row.species_id } }}
-      accessibilityRole="link"
-      asChild
-    >
+    <Link href={{ pathname: '/species/[id]', params: { id: row.species_id } }} asChild>
       <Pressable style={styles.row}>
         <Text style={[typeStyle('title', name.language), { color: colors.text }]}>{name.text}</Text>
         <Text style={[typeStyle('body', language), { color: colors.textMuted }]}>

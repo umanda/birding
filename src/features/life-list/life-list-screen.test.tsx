@@ -84,6 +84,18 @@ describe('LifeListScreen', () => {
     expect(texts[1]).toContain('9 March 2026');
   });
 
+  it('keeps a species that left the guide, by id, and counts it in the summary', async () => {
+    await show(async () => {
+      const repo = createMemoryRepository();
+      await repo.add({ ...base, species_id: 'slb-gone', seen_on: '2026-05-01' });
+      return repo;
+    });
+    expect(await screen.findByText('slb-gone')).toBeTruthy();
+    expect(screen.getByText('No longer in this guide')).toBeTruthy();
+    expect(screen.getByText('No longer in this guide: 1')).toBeTruthy();
+    expect(screen.getByText('1 species')).toBeTruthy();
+  });
+
   it('opens the species page when a row is pressed', async () => {
     const user = userEvent.setup();
     await show(seeded);

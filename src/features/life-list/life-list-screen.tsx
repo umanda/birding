@@ -1,6 +1,6 @@
 import { Link } from 'expo-router';
 import { useMemo } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { useSettings } from '@/features/settings';
 import { getAllSpecies } from '@/shared/data/content';
@@ -38,13 +38,20 @@ export function LifeListScreen(): React.JSX.Element {
   const empty = (
     <View style={styles.empty}>
       <Text style={body}>{t('lifeList.empty')}</Text>
-      {(['/', '/search'] as const).map((href) => (
-        <Link key={href} href={href} accessibilityRole="link" style={styles.link}>
+      <Link href="/" asChild>
+        <Pressable style={styles.link}>
           <Text style={[typeStyle('label', language), { color: colors.primary }]}>
-            {t(href === '/' ? 'tabs.identify' : 'tabs.search')}
+            {t('tabs.identify')}
           </Text>
-        </Link>
-      ))}
+        </Pressable>
+      </Link>
+      <Link href="/search" asChild>
+        <Pressable style={styles.link}>
+          <Text style={[typeStyle('label', language), { color: colors.primary }]}>
+            {t('tabs.search')}
+          </Text>
+        </Pressable>
+      </Link>
     </View>
   );
 
