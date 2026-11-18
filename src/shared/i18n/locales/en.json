@@ -214,5 +214,16 @@
   "sightings.seen.one": "Seen {count} time · last {date}",
   "sightings.seen.other": "Seen {count} times · last {date}",
   "sightings.date": "{day} {month} {year}",
-  "sightings.saved": "Saved on this device"
+  "sightings.saved": "Saved on this device",
+  "sightings.title": "Your sightings",
+  "sightings.edit": "Edit",
+  "sightings.editLabel": "Edit sighting from {date}",
+  "sightings.delete": "Delete",
+  "sightings.deleteLabel": "Delete sighting from {date}",
+  "sightings.confirm": "Delete this sighting?",
+  "sightings.confirmDeleteLabel": "Yes, delete sighting from {date}",
+  "sightings.keep": "Keep it",
+  "sightings.deleted": "Sighting deleted",
+  "sightings.deleteFailed": "Couldn't delete. Please try again.",
+  "sightings.howMany": "Count: {count}"
 }

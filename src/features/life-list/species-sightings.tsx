@@ -10,20 +10,22 @@ import { typeStyle } from '@/shared/theme/type-style';
 import { useTheme } from '@/shared/theme/use-theme';
 
 import { useLifeList } from './life-list-context';
-import type { CleanFields } from './sighting';
+import type { CleanFields, Sighting } from './sighting';
 import { formatSeenOn } from './sighting-date';
+import { SightingRows } from './sighting-rows';
 import { SightingSheet } from './sighting-sheet';
 
 const DISABLED_OPACITY = 0.5; // same value as sighting-sheet; no opacity token yet
 
 type Message = { text: string; id: number };
+type Editing = { sighting?: Sighting } | null; // null = sheet closed; {} = add
 type Props = { speciesId: string; name: Rendered; language: Language; t: Translate };
 
-/** "I saw this" button and the times-seen summary for one species. */
+/** "I saw this" button, the times-seen summary and this species' own sightings. */
 export function SpeciesSightings({ speciesId, name, language, t }: Props): React.JSX.Element {
   const { colors } = useTheme();
-  const { status, sightings, add } = useLifeList();
-  const [adding, setAdding] = useState(false);
+  const { status, sightings, add, update, remove } = useLifeList();
+  const [editing, setEditing] = useState<Editing>(null);
   // The id changes on every message so a repeated text is announced again.
   const [message, setMessage] = useState<Message>({ text: '', id: 0 });
   const mine = sightings.filter((sighting) => sighting.species_id === speciesId);
@@ -41,9 +43,22 @@ export function SpeciesSightings({ speciesId, name, language, t }: Props): React
   const say = (text: string): void => setMessage((previous) => ({ text, id: previous.id + 1 }));
 
   const save = async (fields: CleanFields): Promise<void> => {
-    await add({ ...fields, species_id: speciesId, content_version: getContentVersion() });
-    setAdding(false); // only on success; a throw keeps the sheet open with Retry
+    const existing = editing?.sighting;
+    if (existing) await update(existing.id, fields);
+    else await add({ ...fields, species_id: speciesId, content_version: getContentVersion() });
+    setEditing(null); // only on success; a throw keeps the sheet open with Retry
     say(t('sightings.saved'));
+  };
+
+  const deleteSighting = async (id: string): Promise<boolean> => {
+    try {
+      await remove(id);
+      say(t('sightings.deleted'));
+      return true;
+    } catch {
+      say(t('sightings.deleteFailed'));
+      return false;
+    }
   };
 
   return (
@@ -53,7 +68,7 @@ export function SpeciesSightings({ speciesId, name, language, t }: Props): React
         accessibilityLabel={addLabel}
         accessibilityState={{ disabled: !ready }}
         disabled={!ready}
-        onPress={() => setAdding(true)}
+        onPress={() => setEditing({})}
         style={[
           styles.button,
           { backgroundColor: colors.primary, opacity: ready ? 1 : DISABLED_OPACITY },
@@ -73,13 +88,31 @@ export function SpeciesSightings({ speciesId, name, language, t }: Props): React
           </Text>
         ) : null}
       </View>
-      {adding ? (
+      {mine.length ? (
+        <>
+          <Text
+            accessibilityRole="header"
+            style={[typeStyle('title', language), { color: colors.text }]}
+          >
+            {t('sightings.title')}
+          </Text>
+          <SightingRows
+            sightings={mine}
+            language={language}
+            t={t}
+            onEdit={(sighting) => setEditing({ sighting })}
+            onDelete={deleteSighting}
+          />
+        </>
+      ) : null}
+      {editing ? (
         <SightingSheet
           name={name}
           language={language}
           t={t}
+          sighting={editing.sighting}
           onSave={save}
-          onCancel={() => setAdding(false)}
+          onCancel={() => setEditing(null)}
         />
       ) : null}
     </View>

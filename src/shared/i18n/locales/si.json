@@ -214,5 +214,16 @@
   "sightings.seen.one": "වාර {count}ක් දැක ඇත · අවසන් වරට {date}",
   "sightings.seen.other": "වාර {count}ක් දැක ඇත · අවසන් වරට {date}",
   "sightings.date": "{year} {month} {day}",
-  "sightings.saved": "මෙම උපාංගයේ සුරැකිණි"
+  "sightings.saved": "මෙම උපාංගයේ සුරැකිණි",
+  "sightings.title": "ඔබේ දැකීම්",
+  "sightings.edit": "සංස්කරණය",
+  "sightings.editLabel": "{date} දැකීම සංස්කරණය කරන්න",
+  "sightings.delete": "මකන්න",
+  "sightings.deleteLabel": "{date} දැකීම මකන්න",
+  "sightings.confirm": "මෙම දැකීම මකන්නද?",
+  "sightings.confirmDeleteLabel": "ඔව්, {date} දැකීම මකන්න",
+  "sightings.keep": "තබාගන්න",
+  "sightings.deleted": "දැකීම මකා දැමිණි",
+  "sightings.deleteFailed": "මැකීමට නොහැකි විය. නැවත උත්සාහ කරන්න.",
+  "sightings.howMany": "ගණන: {count}"
 }
