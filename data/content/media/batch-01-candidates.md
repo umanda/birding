@@ -1,6 +1,6 @@
 # Batch 1 photo candidates (M8, spec 006)
 
-Status: **proposed; research complete for all 33 species**. No images were downloaded into the repo, no `.webp` files were created and `licences.csv` was not edited. The owner reviews every candidate before any row is added.
+Status: **approved by the owner on 2026-11-27**. No images were downloaded into the repo, no `.webp` files were created and `licences.csv` was not edited. The owner reviews every candidate before any row is added.
 
 Species: the 33 batch-1 species (plates 1 to 6, not in the pilot), taken from the batch-1 traits review sheet (`data/content/traits-review/batch-01.md`, PR #115). None of them is on `sensitive-species.csv`. iNaturalist already hides the exact location for some of them (Sri Lanka Wood-pigeon, Sri Lanka Red-faced Malkoha, Green Imperial-pigeon): only "Sri Lanka" is shown.
 
