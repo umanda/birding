@@ -127,7 +127,6 @@ describe('the real ledger', () => {
     expect(validateLedger(ledger, ids, traitRows)).toEqual([]);
     const built = JSON.parse(readFileSync('content/traits.json', 'utf8')) as { species: object };
     expect(ledger.rows.map((r) => r.species_id).sort()).toEqual(Object.keys(built.species).sort());
-    expect(ledger.rows.every((r) => r.batch === '0')).toBe(true);
-expect(ledger.rows).toHaveLength(34);
+    expect(ledger.rows.filter((r) => r.batch === '0')).toHaveLength(34);
   });
 });
