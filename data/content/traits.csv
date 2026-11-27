@@ -686,3 +686,550 @@ slb-passer-domesticus,commonness,montane:uncommon,,expert:ornithologist,low,revi
 slb-passer-domesticus,commonness,intermediate:common,,expert:ornithologist,medium,reviewed,
 slb-passer-domesticus,commonness,dry_lowland:common,,expert:ornithologist,medium,reviewed,towns and villages
 slb-passer-domesticus,commonness,arid_coast_north:common,,expert:ornithologist,medium,reviewed,
+slb-francolinus-pictus,zone,intermediate,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,Sinhala prose: patchy in dry and semi-dry lowlands; Uva records
+slb-francolinus-pictus,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,south-east lowland records; wb says abundance unconfirmed
+slb-francolinus-pictus,habitat,open_country,,workbook:species_description,high,reviewed,grassland scrub and cultivation (Sinhala prose)
+slb-francolinus-pictus,size,XL,,workbook:species_description,high,reviewed,~31 cm (Sinhala prose)
+slb-francolinus-pictus,colour,black,,workbook:species_description,low,reviewed,wb: a fairly dark bird; blackish body is my reading; brown upperparts omitted by 3-colour cap
+slb-francolinus-pictus,colour,white,,workbook:species_description,medium,reviewed,clear white spots above and below
+slb-francolinus-pictus,colour,orange,,workbook:species_description,medium,reviewed,red-orange face and throat
+slb-francolinus-pictus,behaviour,ground,,workbook:species_description,high,reviewed,ground-dwelling; hides in grass cover
+slb-francolinus-pictus,month,all,,workbook:seasonality_months_seen,high,reviewed,resident
+slb-francolinus-pictus,commonness,intermediate:uncommon,,expert:ornithologist,low,reviewed,local; wb says current abundance unconfirmed
+slb-francolinus-pictus,commonness,dry_lowland:scarce,,expert:ornithologist,low,reviewed,
+slb-galloperdix-bicalcarata,zone,wet_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,wb: commoner in deep wet-zone forest
+slb-galloperdix-bicalcarata,zone,wet_midhill,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,wb names mid-elevation wet-zone forest blocks
+slb-galloperdix-bicalcarata,zone,montane,,workbook:sri_lanka_distribution_and_hotspots,low,reviewed,wb: some riverine forest in the hills; check eBird
+slb-galloperdix-bicalcarata,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,low,reviewed,wb: some dry-zone riverine forest
+slb-galloperdix-bicalcarata,habitat,forest,,workbook:species_description,high,reviewed,forest floor and leaf litter
+slb-galloperdix-bicalcarata,size,XL,,workbook:species_description,high,reviewed,~37 cm (Sinhala prose)
+slb-galloperdix-bicalcarata,colour,rufous,male,workbook:male_female_identification,medium,reviewed,maroon-brown body mapped to rufous (Sinhala prose)
+slb-galloperdix-bicalcarata,colour,black,male,workbook:male_female_identification,medium,reviewed,black-and-white scaling
+slb-galloperdix-bicalcarata,colour,white,male,workbook:male_female_identification,medium,reviewed,white spots; red bill and legs omitted by 3-colour cap
+slb-galloperdix-bicalcarata,colour,rufous,female,workbook:male_female_identification,medium,reviewed,plain reddish-brown underparts
+slb-galloperdix-bicalcarata,colour,brown,female,expert:ornithologist,medium,reviewed,plainer brown upperparts; wb only says less patterned
+slb-galloperdix-bicalcarata,behaviour,ground,,workbook:species_description,high,reviewed,very shy; runs rather than flies
+slb-galloperdix-bicalcarata,month,all,,workbook:seasonality_months_seen,high,reviewed,resident
+slb-galloperdix-bicalcarata,commonness,wet_lowland:uncommon,,expert:ornithologist,medium,reviewed,heard far more often than seen
+slb-galloperdix-bicalcarata,commonness,wet_midhill:uncommon,,expert:ornithologist,medium,reviewed,
+slb-galloperdix-bicalcarata,commonness,montane:scarce,,expert:ornithologist,low,reviewed,
+slb-galloperdix-bicalcarata,commonness,dry_lowland:scarce,,expert:ornithologist,low,reviewed,riverine forest only
+slb-ortygornis-pondicerianus,zone,arid_coast_north,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,wb: north-western and northern dry areas
+slb-ortygornis-pondicerianus,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,wb: dry lowlands
+slb-ortygornis-pondicerianus,habitat,open_country,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,dry grassland scrub and farmland
+slb-ortygornis-pondicerianus,size,XL,,workbook:species_description,high,reviewed,30-35 cm (Sinhala prose)
+slb-ortygornis-pondicerianus,colour,brown,,workbook:species_description,high,reviewed,grey-brown and chestnut upperparts
+slb-ortygornis-pondicerianus,colour,orange,,workbook:species_description,high,reviewed,orange face and throat
+slb-ortygornis-pondicerianus,colour,white,,workbook:species_description,medium,reviewed,white-buff underparts with fine black bars; black necklace omitted by 3-colour cap
+slb-ortygornis-pondicerianus,behaviour,ground,,workbook:field_spotting_tips,high,reviewed,pairs or family groups on the ground
+slb-ortygornis-pondicerianus,month,all,,workbook:seasonality_months_seen,high,reviewed,resident year-round
+slb-ortygornis-pondicerianus,commonness,arid_coast_north:common,,expert:ornithologist,medium,reviewed,
+slb-ortygornis-pondicerianus,commonness,dry_lowland:uncommon,,expert:ornithologist,low,reviewed,mainly the north-west; check eBird
+slb-turnix-suscitator,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,wb: common in dry-zone lowland grassland
+slb-turnix-suscitator,zone,intermediate,,expert:ornithologist,medium,reviewed,not explicit in wb
+slb-turnix-suscitator,zone,arid_coast_north,,expert:ornithologist,medium,reviewed,not explicit in wb
+slb-turnix-suscitator,zone,wet_lowland,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,wb: also wet zone in suitable habitat
+slb-turnix-suscitator,zone,wet_midhill,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-turnix-suscitator,zone,montane,,workbook:sri_lanka_distribution_and_hotspots,low,reviewed,wb: also the hills; check eBird
+slb-turnix-suscitator,habitat,open_country,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,grassland farmland and roadside grass
+slb-turnix-suscitator,size,S,,workbook:species_description,high,reviewed,13-15 cm; female larger but no separate lengths
+slb-turnix-suscitator,colour,brown,female,expert:ornithologist,medium,reviewed,barred brown upperparts; wb gives no body colour
+slb-turnix-suscitator,colour,black,female,workbook:male_female_identification,high,reviewed,black bib and throat patch
+slb-turnix-suscitator,colour,rufous,female,expert:ornithologist,medium,reviewed,rufous-buff breast and flanks
+slb-turnix-suscitator,colour,brown,male,expert:ornithologist,medium,reviewed,wb: smaller and duller; no black bib
+slb-turnix-suscitator,colour,rufous,male,expert:ornithologist,low,reviewed,buff-rufous flanks
+slb-turnix-suscitator,behaviour,ground,,workbook:field_spotting_tips,high,reviewed,runs through grass rather than flying
+slb-turnix-suscitator,month,all,,workbook:seasonality_months_seen,high,reviewed,resident
+slb-turnix-suscitator,commonness,dry_lowland:common,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,wb (Sinhala): common in dry-zone lowland grassland
+slb-turnix-suscitator,commonness,intermediate:common,,expert:ornithologist,medium,reviewed,
+slb-turnix-suscitator,commonness,arid_coast_north:common,,expert:ornithologist,medium,reviewed,
+slb-turnix-suscitator,commonness,wet_lowland:uncommon,,expert:ornithologist,low,reviewed,
+slb-turnix-suscitator,commonness,wet_midhill:uncommon,,expert:ornithologist,low,reviewed,
+slb-turnix-suscitator,commonness,montane:scarce,,expert:ornithologist,low,reviewed,
+slb-synoicus-chinensis,zone,wet_lowland,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,wb: lowland grassland and cultivation; no zones named
+slb-synoicus-chinensis,zone,intermediate,,workbook:sri_lanka_distribution_and_hotspots,low,reviewed,
+slb-synoicus-chinensis,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-synoicus-chinensis,habitat,open_country,,workbook:species_description,high,reviewed,grass and wet grassy cover at field edges
+slb-synoicus-chinensis,size,S,,workbook:species_description,medium,reviewed,wb 15-18 cm spans S/M; length looks large (see doubts)
+slb-synoicus-chinensis,size,M,,workbook:species_description,low,reviewed,wb 15-18 cm; see doubts
+slb-synoicus-chinensis,colour,blue,male,workbook:male_female_identification,medium,reviewed,blue-grey face throat and breast
+slb-synoicus-chinensis,colour,brown,male,expert:ornithologist,medium,reviewed,brown upperparts; not explicit in wb
+slb-synoicus-chinensis,colour,rufous,male,expert:ornithologist,medium,reviewed,chestnut belly; black-and-white throat omitted by 3-colour cap
+slb-synoicus-chinensis,colour,brown,female,workbook:male_female_identification,high,reviewed,brown-buff with bars and spots
+slb-synoicus-chinensis,behaviour,ground,,workbook:field_spotting_tips,high,reviewed,usually seen only when flushed
+slb-synoicus-chinensis,month,all,,workbook:seasonality_months_seen,medium,reviewed,wb: mainly resident with local movements
+slb-synoicus-chinensis,commonness,wet_lowland:uncommon,,expert:ornithologist,low,reviewed,easily overlooked
+slb-synoicus-chinensis,commonness,intermediate:scarce,,expert:ornithologist,low,reviewed,
+slb-synoicus-chinensis,commonness,dry_lowland:uncommon,,expert:ornithologist,low,reviewed,
+slb-nettapus-coromandelianus,zone,arid_coast_north,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,Tissa; Bundala; Anawilundawa
+slb-nettapus-coromandelianus,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,wb: mainly lowland tanks
+slb-nettapus-coromandelianus,zone,intermediate,,expert:ornithologist,medium,reviewed,not explicit in wb
+slb-nettapus-coromandelianus,zone,wet_lowland,,expert:ornithologist,low,reviewed,local; check eBird
+slb-nettapus-coromandelianus,habitat,freshwater,,workbook:species_description,high,reviewed,well-vegetated tanks and ponds
+slb-nettapus-coromandelianus,size,XL,,workbook:species_description,high,reviewed,30-35 cm
+slb-nettapus-coromandelianus,colour,white,male,workbook:male_female_identification,high,reviewed,white head and neck
+slb-nettapus-coromandelianus,colour,black,male,workbook:male_female_identification,high,reviewed,black crown back and wings; green gloss omitted
+slb-nettapus-coromandelianus,colour,brown,female,workbook:species_description,high,reviewed,grey-brown
+slb-nettapus-coromandelianus,colour,white,female,expert:ornithologist,medium,reviewed,pale face and underparts; dark eye-stripe per wb
+slb-nettapus-coromandelianus,behaviour,swimming,,workbook:field_spotting_tips,high,reviewed,among floating vegetation
+slb-nettapus-coromandelianus,month,all,,workbook:seasonality_months_seen,high,reviewed,resident; local movements with water levels
+slb-nettapus-coromandelianus,commonness,arid_coast_north:uncommon,,expert:ornithologist,medium,reviewed,
+slb-nettapus-coromandelianus,commonness,dry_lowland:uncommon,,expert:ornithologist,medium,reviewed,
+slb-nettapus-coromandelianus,commonness,intermediate:uncommon,,expert:ornithologist,low,reviewed,
+slb-nettapus-coromandelianus,commonness,wet_lowland:scarce,,expert:ornithologist,low,reviewed,
+slb-dendrocygna-bicolor,zone,arid_coast_north,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,Bundala; Tissa
+slb-dendrocygna-bicolor,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,Minneriya; Udawalawe; Wilpattu
+slb-dendrocygna-bicolor,habitat,freshwater,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,large tanks and marshes
+slb-dendrocygna-bicolor,habitat,open_country,,workbook:species_description,medium,reviewed,wet grassland and cultivation
+slb-dendrocygna-bicolor,size,XXL,,workbook:species_description,high,reviewed,45-53 cm
+slb-dendrocygna-bicolor,colour,rufous,,workbook:species_description,medium,reviewed,golden-brown fulvous body (Sinhala prose)
+slb-dendrocygna-bicolor,colour,brown,,workbook:species_description,medium,reviewed,darker back and wings
+slb-dendrocygna-bicolor,colour,white,,workbook:species_description,medium,reviewed,white and black flank stripes; black omitted by 3-colour cap
+slb-dendrocygna-bicolor,behaviour,swimming,,workbook:field_spotting_tips,medium,reviewed,flocks on water
+slb-dendrocygna-bicolor,commonness,arid_coast_north:scarce,,expert:ornithologist,low,reviewed,I believe it is rare here; confirm against CBC list; month left unknown (see doubts)
+slb-dendrocygna-bicolor,commonness,dry_lowland:scarce,,expert:ornithologist,low,reviewed,
+slb-dendrocygna-javanica,zone,wet_lowland,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,wb: very widespread in the lowlands
+slb-dendrocygna-javanica,zone,intermediate,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,Sigiriya
+slb-dendrocygna-javanica,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,Minneriya; Wilpattu
+slb-dendrocygna-javanica,zone,arid_coast_north,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,Bundala; Tissa; Anawilundawa
+slb-dendrocygna-javanica,habitat,freshwater,,workbook:species_description,high,reviewed,
+slb-dendrocygna-javanica,habitat,open_country,,workbook:species_description,medium,reviewed,paddy and wet grassland
+slb-dendrocygna-javanica,size,XL,,workbook:species_description,high,reviewed,40-43 cm
+slb-dendrocygna-javanica,colour,brown,,workbook:species_description,high,reviewed,brown body
+slb-dendrocygna-javanica,colour,rufous,,workbook:species_description,medium,reviewed,wb: chestnut head and neck; I believe the chestnut is on wing-coverts and flanks (see doubts)
+slb-dendrocygna-javanica,behaviour,swimming,,workbook:field_spotting_tips,high,reviewed,large flocks on water
+slb-dendrocygna-javanica,month,all,,workbook:seasonality_months_seen,high,reviewed,wb: R+(M); present all year
+slb-dendrocygna-javanica,commonness,dry_lowland:common,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,wb (Sinhala): seen in good numbers
+slb-dendrocygna-javanica,commonness,arid_coast_north:common,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-dendrocygna-javanica,commonness,intermediate:common,,expert:ornithologist,medium,reviewed,
+slb-dendrocygna-javanica,commonness,wet_lowland:common,,expert:ornithologist,medium,reviewed,
+slb-anas-poecilorhyncha,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,Minneriya; Udawalawe; Wilpattu
+slb-anas-poecilorhyncha,zone,arid_coast_north,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,Bundala; Tissa
+slb-anas-poecilorhyncha,habitat,freshwater,,workbook:species_description,high,reviewed,
+slb-anas-poecilorhyncha,habitat,coast,,workbook:species_description,medium,reviewed,coastal lagoons
+slb-anas-poecilorhyncha,size,XXL,,workbook:species_description,high,reviewed,55-63 cm
+slb-anas-poecilorhyncha,colour,brown,,workbook:species_description,high,reviewed,grey-brown body
+slb-anas-poecilorhyncha,colour,grey,,workbook:species_description,medium,reviewed,
+slb-anas-poecilorhyncha,colour,yellow,,workbook:field_spotting_tips,medium,reviewed,yellow bill tip; wb calls it the best mark; green speculum omitted
+slb-anas-poecilorhyncha,behaviour,swimming,,workbook:species_description,medium,reviewed,
+slb-anas-poecilorhyncha,month,all,,workbook:seasonality_months_seen,high,reviewed,code R/M; wb text says R+M
+slb-anas-poecilorhyncha,commonness,dry_lowland:uncommon,,expert:ornithologist,low,reviewed,wb says abundant in the dry zone; I believe scarce to uncommon (see doubts)
+slb-anas-poecilorhyncha,commonness,arid_coast_north:uncommon,,expert:ornithologist,low,reviewed,
+slb-mareca-penelope,zone,arid_coast_north,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,Bundala; Tissa; north-west coastal wetlands
+slb-mareca-penelope,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,low,reviewed,wb: large lowland tanks
+slb-mareca-penelope,habitat,coast,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,lagoons
+slb-mareca-penelope,habitat,freshwater,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,
+slb-mareca-penelope,size,XL,,workbook:species_description,high,reviewed,42-50 cm spans XL/XXL
+slb-mareca-penelope,size,XXL,,workbook:species_description,high,reviewed,42-50 cm spans XL/XXL
+slb-mareca-penelope,colour,rufous,male,workbook:male_female_identification,high,reviewed,chestnut head
+slb-mareca-penelope,colour,grey,male,workbook:male_female_identification,high,reviewed,grey body
+slb-mareca-penelope,colour,yellow,male,workbook:male_female_identification,high,reviewed,yellow forehead
+slb-mareca-penelope,colour,rufous,female,workbook:male_female_identification,medium,reviewed,rufous-brown mottled
+slb-mareca-penelope,colour,brown,female,workbook:male_female_identification,medium,reviewed,
+slb-mareca-penelope,colour,rufous,eclipse,workbook:male_female_identification,medium,reviewed,wb: eclipse male can resemble female
+slb-mareca-penelope,colour,brown,eclipse,workbook:male_female_identification,medium,reviewed,
+slb-mareca-penelope,behaviour,swimming,,workbook:species_description,high,reviewed,
+slb-mareca-penelope,behaviour,ground,,workbook:field_spotting_tips,medium,reviewed,grazes at the water edge
+slb-mareca-penelope,month,10,,workbook:seasonality_months_seen,medium,reviewed,wb: usually Oct-Apr; mostly Nov-Mar
+slb-mareca-penelope,month,11,,workbook:seasonality_months_seen,high,reviewed,
+slb-mareca-penelope,month,12,,workbook:seasonality_months_seen,high,reviewed,
+slb-mareca-penelope,month,1,,workbook:seasonality_months_seen,high,reviewed,
+slb-mareca-penelope,month,2,,workbook:seasonality_months_seen,high,reviewed,
+slb-mareca-penelope,month,3,,workbook:seasonality_months_seen,high,reviewed,
+slb-mareca-penelope,month,4,,workbook:seasonality_months_seen,medium,reviewed,
+slb-mareca-penelope,commonness,arid_coast_north:uncommon,,expert:ornithologist,medium,reviewed,small numbers in season
+slb-mareca-penelope,commonness,dry_lowland:scarce,,expert:ornithologist,low,reviewed,
+slb-anas-acuta,zone,arid_coast_north,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,Bundala; Tissa
+slb-anas-acuta,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,Minneriya; Wilpattu
+slb-anas-acuta,habitat,freshwater,,workbook:species_description,high,reviewed,
+slb-anas-acuta,habitat,coast,,workbook:species_description,high,reviewed,lagoons
+slb-anas-acuta,size,XXL,,workbook:species_description,high,reviewed,59-76 cm incl. male tail spans XXL/XXXL
+slb-anas-acuta,size,XXXL,,workbook:species_description,medium,reviewed,only with the male's long tail
+slb-anas-acuta,colour,brown,male,workbook:male_female_identification,high,reviewed,chocolate-brown head
+slb-anas-acuta,colour,white,male,workbook:male_female_identification,high,reviewed,white neck stripe and breast
+slb-anas-acuta,colour,grey,male,workbook:species_description,high,reviewed,grey body
+slb-anas-acuta,colour,brown,female,workbook:male_female_identification,high,reviewed,mottled brown
+slb-anas-acuta,behaviour,swimming,,workbook:species_description,high,reviewed,
+slb-anas-acuta,month,11,,workbook:seasonality_months_seen,medium,reviewed,wb: usually Nov-Mar; Oct and Apr not listed
+slb-anas-acuta,month,12,,workbook:seasonality_months_seen,high,reviewed,
+slb-anas-acuta,month,1,,workbook:seasonality_months_seen,high,reviewed,
+slb-anas-acuta,month,2,,workbook:seasonality_months_seen,high,reviewed,
+slb-anas-acuta,month,3,,workbook:seasonality_months_seen,medium,reviewed,
+slb-anas-acuta,commonness,arid_coast_north:common,,expert:ornithologist,medium,reviewed,in season; flocks on coastal lagoons
+slb-anas-acuta,commonness,dry_lowland:uncommon,,expert:ornithologist,medium,reviewed,
+slb-spatula-clypeata,zone,arid_coast_north,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,Bundala; Tissa; north-west and south coastal wetlands
+slb-spatula-clypeata,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,low,reviewed,wb: large lowland tanks
+slb-spatula-clypeata,habitat,coast,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,lagoons
+slb-spatula-clypeata,habitat,freshwater,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,
+slb-spatula-clypeata,size,XL,,workbook:species_description,high,reviewed,44-52 cm spans XL/XXL
+slb-spatula-clypeata,size,XXL,,workbook:species_description,high,reviewed,44-52 cm spans XL/XXL
+slb-spatula-clypeata,colour,green,male,workbook:male_female_identification,high,reviewed,green head
+slb-spatula-clypeata,colour,white,male,workbook:male_female_identification,high,reviewed,white breast
+slb-spatula-clypeata,colour,rufous,male,workbook:male_female_identification,high,reviewed,chestnut flanks
+slb-spatula-clypeata,colour,brown,female,workbook:male_female_identification,high,reviewed,mottled brown; orange bill sides omitted
+slb-spatula-clypeata,colour,brown,eclipse,workbook:male_female_identification,medium,reviewed,wb: eclipse male resembles female
+slb-spatula-clypeata,behaviour,swimming,,workbook:field_spotting_tips,high,reviewed,filter-feeds with head in the water
+slb-spatula-clypeata,month,10,,workbook:seasonality_months_seen,low,reviewed,wb: usually Nov-Mar; sometimes Oct and Apr
+slb-spatula-clypeata,month,11,,workbook:seasonality_months_seen,high,reviewed,
+slb-spatula-clypeata,month,12,,workbook:seasonality_months_seen,high,reviewed,
+slb-spatula-clypeata,month,1,,workbook:seasonality_months_seen,high,reviewed,
+slb-spatula-clypeata,month,2,,workbook:seasonality_months_seen,high,reviewed,
+slb-spatula-clypeata,month,3,,workbook:seasonality_months_seen,high,reviewed,
+slb-spatula-clypeata,month,4,,workbook:seasonality_months_seen,low,reviewed,
+slb-spatula-clypeata,commonness,arid_coast_north:uncommon,,expert:ornithologist,medium,reviewed,in season
+slb-spatula-clypeata,commonness,dry_lowland:scarce,,expert:ornithologist,low,reviewed,
+slb-tachybaptus-ruficollis,zone,wet_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,Colombo wetlands
+slb-tachybaptus-ruficollis,zone,wet_midhill,,expert:ornithologist,medium,reviewed,wb says island-wide lowlands; montane not tagged
+slb-tachybaptus-ruficollis,zone,intermediate,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,many rural tanks
+slb-tachybaptus-ruficollis,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,
+slb-tachybaptus-ruficollis,zone,arid_coast_north,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,Tissa; Bundala; Anawilundawa
+slb-tachybaptus-ruficollis,habitat,freshwater,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,
+slb-tachybaptus-ruficollis,habitat,town_garden,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,urban park ponds
+slb-tachybaptus-ruficollis,size,L,,workbook:species_description,high,reviewed,23-29 cm
+slb-tachybaptus-ruficollis,colour,rufous,breeding,workbook:species_description,high,reviewed,chestnut neck and cheeks
+slb-tachybaptus-ruficollis,colour,brown,breeding,expert:ornithologist,medium,reviewed,dark brown upperparts; not explicit in wb
+slb-tachybaptus-ruficollis,colour,yellow,breeding,workbook:species_description,medium,reviewed,yellow gape patch
+slb-tachybaptus-ruficollis,colour,brown,non_breeding,workbook:species_description,high,reviewed,brown-grey
+slb-tachybaptus-ruficollis,colour,grey,non_breeding,workbook:species_description,medium,reviewed,
+slb-tachybaptus-ruficollis,behaviour,swimming,,workbook:field_spotting_tips,high,reviewed,dives and resurfaces some distance away
+slb-tachybaptus-ruficollis,month,all,,workbook:seasonality_months_seen,high,reviewed,resident year-round
+slb-tachybaptus-ruficollis,commonness,wet_lowland:common,,expert:ornithologist,medium,reviewed,
+slb-tachybaptus-ruficollis,commonness,wet_midhill:uncommon,,expert:ornithologist,low,reviewed,
+slb-tachybaptus-ruficollis,commonness,intermediate:common,,expert:ornithologist,medium,reviewed,
+slb-tachybaptus-ruficollis,commonness,dry_lowland:common,,expert:ornithologist,medium,reviewed,
+slb-tachybaptus-ruficollis,commonness,arid_coast_north:common,,expert:ornithologist,medium,reviewed,
+slb-columba-livia,zone,wet_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,wb: towns and cities throughout Sri Lanka
+slb-columba-livia,zone,wet_midhill,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-columba-livia,zone,montane,,workbook:sri_lanka_distribution_and_hotspots,low,reviewed,hill towns; check eBird
+slb-columba-livia,zone,intermediate,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-columba-livia,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-columba-livia,zone,arid_coast_north,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,ports and coastal towns
+slb-columba-livia,habitat,town_garden,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,
+slb-columba-livia,habitat,open_country,,workbook:species_description,medium,reviewed,agricultural areas
+slb-columba-livia,habitat,coast,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,ports
+slb-columba-livia,size,XL,,workbook:species_description,high,reviewed,30-35 cm
+slb-columba-livia,colour,grey,,workbook:species_description,high,reviewed,blue-grey wild type
+slb-columba-livia,colour,black,,workbook:species_description,medium,reviewed,two dark wing bars and tail band
+slb-columba-livia,colour,purple,,workbook:species_description,medium,reviewed,iridescent green-purple neck; feral birds vary widely in colour
+slb-columba-livia,behaviour,ground,,expert:ornithologist,medium,reviewed,feeds on seeds grain and scraps
+slb-columba-livia,behaviour,perched_open,,workbook:species_description,medium,reviewed,ledges roofs and buildings
+slb-columba-livia,month,all,,workbook:seasonality_months_seen,high,reviewed,resident year-round
+slb-columba-livia,commonness,wet_lowland:common,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,wb: common resident
+slb-columba-livia,commonness,wet_midhill:common,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-columba-livia,commonness,montane:uncommon,,expert:ornithologist,low,reviewed,
+slb-columba-livia,commonness,intermediate:common,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-columba-livia,commonness,dry_lowland:common,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-columba-livia,commonness,arid_coast_north:common,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-columba-torringtoniae,zone,montane,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,central hills
+slb-columba-torringtoniae,zone,wet_midhill,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,wb: central hills and wet-zone forests
+slb-columba-torringtoniae,habitat,forest,,workbook:species_description,high,reviewed,mature wet-zone and montane forest
+slb-columba-torringtoniae,size,XL,,workbook:species_description,high,reviewed,~40 cm
+slb-columba-torringtoniae,colour,grey,,workbook:species_description,high,reviewed,grey head and breast
+slb-columba-torringtoniae,colour,purple,,workbook:species_description,medium,reviewed,maroon to purplish mantle
+slb-columba-torringtoniae,colour,black,,workbook:species_description,low,reviewed,dark wings and chequered black-and-white nape
+slb-columba-torringtoniae,behaviour,tree_bush,,workbook:species_description,high,reviewed,arboreal; fruiting canopy trees
+slb-columba-torringtoniae,month,all,,workbook:seasonality_months_seen,high,reviewed,resident year-round
+slb-columba-torringtoniae,commonness,montane:uncommon,,expert:ornithologist,medium,reviewed,
+slb-columba-torringtoniae,commonness,wet_midhill:scarce,,expert:ornithologist,low,reviewed,
+slb-streptopelia-decaocto,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,wb: dry and intermediate zones
+slb-streptopelia-decaocto,zone,intermediate,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-streptopelia-decaocto,zone,arid_coast_north,,expert:ornithologist,medium,reviewed,not explicit in wb; I believe commonest in the north and north-west
+slb-streptopelia-decaocto,habitat,open_country,,workbook:species_description,high,reviewed,farmland and scrub
+slb-streptopelia-decaocto,habitat,town_garden,,workbook:species_description,high,reviewed,villages and gardens
+slb-streptopelia-decaocto,size,XL,,workbook:species_description,high,reviewed,31-33 cm
+slb-streptopelia-decaocto,colour,grey,,workbook:species_description,high,reviewed,pale sandy-grey
+slb-streptopelia-decaocto,colour,brown,,workbook:species_description,medium,reviewed,sandy-buff tone
+slb-streptopelia-decaocto,colour,black,,workbook:species_description,medium,reviewed,narrow black half-collar
+slb-streptopelia-decaocto,behaviour,perched_open,,workbook:field_spotting_tips,high,reviewed,wires and rooftops
+slb-streptopelia-decaocto,behaviour,ground,,expert:ornithologist,medium,reviewed,feeds on seeds and grain on the ground
+slb-streptopelia-decaocto,month,all,,workbook:seasonality_months_seen,high,reviewed,resident year-round
+slb-streptopelia-decaocto,commonness,arid_coast_north:common,,expert:ornithologist,medium,reviewed,
+slb-streptopelia-decaocto,commonness,dry_lowland:uncommon,,expert:ornithologist,medium,reviewed,
+slb-streptopelia-decaocto,commonness,intermediate:scarce,,expert:ornithologist,low,reviewed,
+slb-chalcophaps-indica,zone,wet_lowland,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,wb: wet intermediate and dry-zone wooded habitats
+slb-chalcophaps-indica,zone,wet_midhill,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-chalcophaps-indica,zone,intermediate,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,
+slb-chalcophaps-indica,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,
+slb-chalcophaps-indica,habitat,forest,,workbook:species_description,high,reviewed,
+slb-chalcophaps-indica,habitat,town_garden,,workbook:species_description,medium,reviewed,shaded gardens and plantations
+slb-chalcophaps-indica,size,L,,workbook:species_description,high,reviewed,23-28 cm
+slb-chalcophaps-indica,colour,green,male,workbook:species_description,high,reviewed,emerald wings and back
+slb-chalcophaps-indica,colour,rufous,male,workbook:species_description,medium,reviewed,maroon to purple-brown body
+slb-chalcophaps-indica,colour,white,male,workbook:male_female_identification,medium,reviewed,white forehead; orange-red bill and legs omitted by 3-colour cap
+slb-chalcophaps-indica,colour,green,female,workbook:male_female_identification,high,reviewed,
+slb-chalcophaps-indica,colour,brown,female,expert:ornithologist,medium,reviewed,browner body; wb says duller
+slb-chalcophaps-indica,colour,grey,female,workbook:male_female_identification,medium,reviewed,greyish face
+slb-chalcophaps-indica,behaviour,ground,,workbook:species_description,high,reviewed,walks quietly on the forest floor
+slb-chalcophaps-indica,month,all,,workbook:seasonality_months_seen,high,reviewed,resident year-round
+slb-chalcophaps-indica,commonness,wet_lowland:common,,expert:ornithologist,medium,reviewed,
+slb-chalcophaps-indica,commonness,wet_midhill:common,,expert:ornithologist,medium,reviewed,
+slb-chalcophaps-indica,commonness,intermediate:uncommon,,expert:ornithologist,medium,reviewed,
+slb-chalcophaps-indica,commonness,dry_lowland:uncommon,,expert:ornithologist,medium,reviewed,
+slb-treron-bicinctus,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,Yala; Wilpattu; Trincomalee area
+slb-treron-bicinctus,zone,arid_coast_north,,expert:ornithologist,low,reviewed,wb: near-coastal forest; zone mapping is mine
+slb-treron-bicinctus,zone,intermediate,,expert:ornithologist,medium,reviewed,not explicit in wb
+slb-treron-bicinctus,zone,wet_lowland,,expert:ornithologist,low,reviewed,not explicit in wb; check eBird
+slb-treron-bicinctus,habitat,forest,,workbook:species_description,high,reviewed,
+slb-treron-bicinctus,size,L,,workbook:species_description,high,reviewed,~29 cm (Sinhala prose)
+slb-treron-bicinctus,colour,green,male,workbook:species_description,high,reviewed,
+slb-treron-bicinctus,colour,orange,male,workbook:male_female_identification,high,reviewed,orange breast band; lilac band omitted by 3-colour cap
+slb-treron-bicinctus,colour,grey,male,workbook:species_description,medium,reviewed,grey nape and central tail
+slb-treron-bicinctus,colour,green,female,workbook:male_female_identification,high,reviewed,
+slb-treron-bicinctus,colour,yellow,female,workbook:male_female_identification,high,reviewed,yellow-green breast
+slb-treron-bicinctus,colour,grey,female,workbook:male_female_identification,medium,reviewed,grey-slate central tail
+slb-treron-bicinctus,behaviour,tree_bush,,workbook:species_description,high,reviewed,canopy of fruiting trees
+slb-treron-bicinctus,month,all,,workbook:seasonality_months_seen,high,reviewed,resident
+slb-treron-bicinctus,commonness,dry_lowland:common,,expert:ornithologist,medium,reviewed,
+slb-treron-bicinctus,commonness,arid_coast_north:uncommon,,expert:ornithologist,low,reviewed,
+slb-treron-bicinctus,commonness,intermediate:uncommon,,expert:ornithologist,medium,reviewed,
+slb-treron-bicinctus,commonness,wet_lowland:scarce,,expert:ornithologist,low,reviewed,
+slb-treron-phoenicopterus,zone,intermediate,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,wb: very restricted; eastern foothill records
+slb-treron-phoenicopterus,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,wb: dry zone
+slb-treron-phoenicopterus,habitat,forest,,workbook:species_description,high,reviewed,
+slb-treron-phoenicopterus,habitat,open_country,,workbook:species_description,medium,reviewed,wooded farmland
+slb-treron-phoenicopterus,size,XL,,workbook:species_description,high,reviewed,~33 cm (Sinhala prose)
+slb-treron-phoenicopterus,colour,grey,,workbook:species_description,high,reviewed,grey head
+slb-treron-phoenicopterus,colour,green,,workbook:species_description,high,reviewed,
+slb-treron-phoenicopterus,colour,yellow,,workbook:species_description,high,reviewed,yellow collar and feet; female duller but keyed together
+slb-treron-phoenicopterus,behaviour,tree_bush,,workbook:field_spotting_tips,high,reviewed,fruiting trees
+slb-treron-phoenicopterus,month,all,,workbook:seasonality_months_seen,medium,reviewed,wb: resident; no monthly data
+slb-treron-phoenicopterus,commonness,intermediate:scarce,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,wb (Sinhala): very limited and rare
+slb-treron-phoenicopterus,commonness,dry_lowland:scarce,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-treron-pompadora,zone,wet_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,lowland forest to lower hills
+slb-treron-pompadora,zone,wet_midhill,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,
+slb-treron-pompadora,zone,intermediate,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-treron-pompadora,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-treron-pompadora,zone,montane,,workbook:sri_lanka_distribution_and_hotspots,low,reviewed,wb: rare in the upper central hills
+slb-treron-pompadora,habitat,forest,,workbook:species_description,high,reviewed,upper canopy
+slb-treron-pompadora,size,L,,workbook:species_description,high,reviewed,26-28 cm (Sinhala prose)
+slb-treron-pompadora,colour,green,male,workbook:species_description,high,reviewed,
+slb-treron-pompadora,colour,rufous,male,workbook:male_female_identification,high,reviewed,dark maroon mantle mapped to rufous
+slb-treron-pompadora,colour,yellow,male,workbook:species_description,high,reviewed,yellow face and throat; red legs omitted by 3-colour cap
+slb-treron-pompadora,colour,green,female,workbook:male_female_identification,high,reviewed,
+slb-treron-pompadora,colour,yellow,female,workbook:male_female_identification,high,reviewed,yellow face and throat
+slb-treron-pompadora,behaviour,tree_bush,,workbook:species_description,high,reviewed,
+slb-treron-pompadora,month,all,,workbook:seasonality_months_seen,high,reviewed,resident year-round
+slb-treron-pompadora,commonness,wet_lowland:common,,expert:ornithologist,medium,reviewed,
+slb-treron-pompadora,commonness,wet_midhill:common,,expert:ornithologist,medium,reviewed,
+slb-treron-pompadora,commonness,intermediate:uncommon,,expert:ornithologist,medium,reviewed,
+slb-treron-pompadora,commonness,dry_lowland:uncommon,,expert:ornithologist,low,reviewed,
+slb-treron-pompadora,commonness,montane:scarce,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,wb (Sinhala): rare or few in the upper hills
+slb-ducula-aenea,zone,wet_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,lowland forest and wooded areas
+slb-ducula-aenea,zone,wet_midhill,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,Kitulgala
+slb-ducula-aenea,zone,intermediate,,expert:ornithologist,medium,reviewed,not explicit in wb
+slb-ducula-aenea,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,Wilpattu
+slb-ducula-aenea,zone,arid_coast_north,,workbook:sri_lanka_distribution_and_hotspots,low,reviewed,Tissa (counts as arid coast by the zone rule)
+slb-ducula-aenea,habitat,forest,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,
+slb-ducula-aenea,habitat,town_garden,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,gardens with fruiting trees
+slb-ducula-aenea,size,XXL,,workbook:species_description,medium,reviewed,~45 cm sits on the XL/XXL boundary (as Grey Hornbill)
+slb-ducula-aenea,colour,green,,workbook:species_description,high,reviewed,metallic green upperparts
+slb-ducula-aenea,colour,grey,,expert:ornithologist,medium,reviewed,head and underparts look pale grey in life (see doubts)
+slb-ducula-aenea,colour,white,,workbook:species_description,low,reviewed,wb: white head and underparts; maroon undertail omitted
+slb-ducula-aenea,behaviour,tree_bush,,workbook:field_spotting_tips,high,reviewed,fruiting trees and palms
+slb-ducula-aenea,month,all,,workbook:seasonality_months_seen,high,reviewed,resident and non-migratory
+slb-ducula-aenea,commonness,wet_lowland:common,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,wb (Sinhala): found in good numbers
+slb-ducula-aenea,commonness,wet_midhill:common,,expert:ornithologist,medium,reviewed,
+slb-ducula-aenea,commonness,intermediate:common,,expert:ornithologist,medium,reviewed,
+slb-ducula-aenea,commonness,dry_lowland:common,,expert:ornithologist,medium,reviewed,
+slb-ducula-aenea,commonness,arid_coast_north:uncommon,,expert:ornithologist,low,reviewed,
+slb-phaenicophaeus-viridirostris,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,Yala; Wilpattu; Udawalawe; Kumana
+slb-phaenicophaeus-viridirostris,zone,intermediate,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,
+slb-phaenicophaeus-viridirostris,zone,arid_coast_north,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,Bundala
+slb-phaenicophaeus-viridirostris,zone,wet_lowland,,workbook:sri_lanka_distribution_and_hotspots,low,reviewed,wb: locally in other zones
+slb-phaenicophaeus-viridirostris,habitat,forest,,workbook:species_description,high,reviewed,open dry forest
+slb-phaenicophaeus-viridirostris,habitat,open_country,,workbook:species_description,high,reviewed,scrub thorn thickets and chena
+slb-phaenicophaeus-viridirostris,size,XL,,workbook:species_description,high,reviewed,~39 cm
+slb-phaenicophaeus-viridirostris,colour,green,,workbook:species_description,high,reviewed,dark green upperparts and green bill
+slb-phaenicophaeus-viridirostris,colour,grey,,workbook:species_description,medium,reviewed,grey-green tones
+slb-phaenicophaeus-viridirostris,colour,blue,,workbook:species_description,medium,reviewed,blue eye patch (the key mark); white tail tips omitted
+slb-phaenicophaeus-viridirostris,behaviour,tree_bush,,workbook:field_spotting_tips,high,reviewed,climbs through foliage
+slb-phaenicophaeus-viridirostris,month,all,,workbook:seasonality_months_seen,high,reviewed,resident year-round
+slb-phaenicophaeus-viridirostris,commonness,dry_lowland:common,,expert:ornithologist,medium,reviewed,
+slb-phaenicophaeus-viridirostris,commonness,intermediate:uncommon,,expert:ornithologist,medium,reviewed,
+slb-phaenicophaeus-viridirostris,commonness,arid_coast_north:uncommon,,expert:ornithologist,medium,reviewed,
+slb-phaenicophaeus-viridirostris,commonness,wet_lowland:scarce,,expert:ornithologist,low,reviewed,
+slb-phaenicophaeus-pyrrhocephalus,zone,wet_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,wet-zone rainforest
+slb-phaenicophaeus-pyrrhocephalus,zone,wet_midhill,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,other wet-zone forest remnants
+slb-phaenicophaeus-pyrrhocephalus,habitat,forest,,workbook:species_description,high,reviewed,tall canopy
+slb-phaenicophaeus-pyrrhocephalus,size,XL,,workbook:species_description,high,reviewed,40-47 cm spans XL/XXL
+slb-phaenicophaeus-pyrrhocephalus,size,XXL,,workbook:species_description,high,reviewed,40-47 cm spans XL/XXL
+slb-phaenicophaeus-pyrrhocephalus,colour,black,,workbook:species_description,high,reviewed,glossy black upperparts throat and breast
+slb-phaenicophaeus-pyrrhocephalus,colour,white,,workbook:species_description,high,reviewed,white lower underparts
+slb-phaenicophaeus-pyrrhocephalus,colour,red,,workbook:species_description,high,reviewed,red face patch; apple-green bill omitted by 3-colour cap
+slb-phaenicophaeus-pyrrhocephalus,behaviour,tree_bush,,workbook:field_spotting_tips,high,reviewed,canopy; joins mixed flocks
+slb-phaenicophaeus-pyrrhocephalus,month,all,,workbook:seasonality_months_seen,high,reviewed,resident year-round
+slb-phaenicophaeus-pyrrhocephalus,commonness,wet_lowland:uncommon,,expert:ornithologist,medium,reviewed,
+slb-phaenicophaeus-pyrrhocephalus,commonness,wet_midhill:scarce,,expert:ornithologist,low,reviewed,
+slb-taccocua-leschenaultii,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,Yala; Udawalawe
+slb-taccocua-leschenaultii,zone,intermediate,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,
+slb-taccocua-leschenaultii,zone,arid_coast_north,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,Bundala
+slb-taccocua-leschenaultii,habitat,open_country,,workbook:species_description,high,reviewed,dry scrub and thorn jungle
+slb-taccocua-leschenaultii,habitat,forest,,workbook:species_description,medium,reviewed,open deciduous woodland
+slb-taccocua-leschenaultii,size,XL,,workbook:species_description,high,reviewed,42-43 cm
+slb-taccocua-leschenaultii,colour,brown,,workbook:species_description,high,reviewed,
+slb-taccocua-leschenaultii,colour,rufous,,workbook:species_description,medium,reviewed,earthy brown-rufous upperparts
+slb-taccocua-leschenaultii,colour,red,,workbook:species_description,medium,reviewed,red-to-yellow bill; white tail tips omitted
+slb-taccocua-leschenaultii,behaviour,ground,,workbook:species_description,high,reviewed,mainly terrestrial
+slb-taccocua-leschenaultii,behaviour,tree_bush,,workbook:field_spotting_tips,medium,reviewed,low in scrub
+slb-taccocua-leschenaultii,month,all,,workbook:seasonality_months_seen,high,reviewed,resident year-round
+slb-taccocua-leschenaultii,commonness,dry_lowland:uncommon,,expert:ornithologist,medium,reviewed,
+slb-taccocua-leschenaultii,commonness,intermediate:uncommon,,expert:ornithologist,low,reviewed,
+slb-taccocua-leschenaultii,commonness,arid_coast_north:uncommon,,expert:ornithologist,medium,reviewed,
+slb-centropus-chlororhynchos,zone,wet_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,wet-zone lowland rainforest
+slb-centropus-chlororhynchos,zone,wet_midhill,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,wb: generally below ~800 m
+slb-centropus-chlororhynchos,habitat,forest,,workbook:species_description,high,reviewed,dense undergrowth and cane thickets
+slb-centropus-chlororhynchos,size,XL,,workbook:species_description,medium,reviewed,wb: up to about 45 cm; no lower bound given
+slb-centropus-chlororhynchos,size,XXL,,workbook:species_description,low,reviewed,45 cm upper bound touches XXL
+slb-centropus-chlororhynchos,colour,black,,workbook:species_description,high,reviewed,dark glossy purple-green head and body mapped to black
+slb-centropus-chlororhynchos,colour,rufous,,workbook:species_description,high,reviewed,chestnut wings
+slb-centropus-chlororhynchos,colour,green,,workbook:species_description,low,reviewed,pale green bill only; the key mark vs Greater Coucal
+slb-centropus-chlororhynchos,behaviour,tree_bush,,workbook:species_description,high,reviewed,dense undergrowth
+slb-centropus-chlororhynchos,behaviour,ground,,expert:ornithologist,medium,reviewed,emerges at edges after rain
+slb-centropus-chlororhynchos,month,all,,workbook:seasonality_months_seen,high,reviewed,resident
+slb-centropus-chlororhynchos,commonness,wet_lowland:uncommon,,expert:ornithologist,medium,reviewed,heard far more often than seen
+slb-centropus-chlororhynchos,commonness,wet_midhill:scarce,,expert:ornithologist,low,reviewed,
+slb-centropus-sinensis,zone,wet_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,wb: wet and dry zones
+slb-centropus-sinensis,zone,wet_midhill,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-centropus-sinensis,zone,intermediate,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,
+slb-centropus-sinensis,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,
+slb-centropus-sinensis,zone,arid_coast_north,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,montane not tagged; reviewer to confirm
+slb-centropus-sinensis,habitat,open_country,,workbook:species_description,high,reviewed,scrub grassland and paddy margins
+slb-centropus-sinensis,habitat,town_garden,,workbook:species_description,high,reviewed,
+slb-centropus-sinensis,habitat,forest,,workbook:species_description,medium,reviewed,forest edges
+slb-centropus-sinensis,habitat,freshwater,,workbook:species_description,medium,reviewed,reedbeds and wetlands
+slb-centropus-sinensis,size,XXL,,workbook:species_description,high,reviewed,48-52 cm
+slb-centropus-sinensis,colour,black,,workbook:species_description,high,reviewed,glossy black head and body
+slb-centropus-sinensis,colour,rufous,,workbook:species_description,high,reviewed,chestnut wings
+slb-centropus-sinensis,behaviour,ground,,workbook:field_spotting_tips,high,reviewed,walks deliberately on the ground
+slb-centropus-sinensis,behaviour,tree_bush,,expert:ornithologist,medium,reviewed,clambers in bushes
+slb-centropus-sinensis,month,all,,workbook:seasonality_months_seen,high,reviewed,resident year-round
+slb-centropus-sinensis,commonness,wet_lowland:common,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,wb: common and commonly encountered
+slb-centropus-sinensis,commonness,wet_midhill:common,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-centropus-sinensis,commonness,intermediate:common,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-centropus-sinensis,commonness,dry_lowland:common,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-centropus-sinensis,commonness,arid_coast_north:common,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-clamator-coromandus,habitat,forest,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,wooded habitats and forest edges; zone left unknown (wb names no region)
+slb-clamator-coromandus,habitat,town_garden,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,gardens and plantations
+slb-clamator-coromandus,size,XL,,workbook:species_description,high,reviewed,33-34 cm
+slb-clamator-coromandus,colour,black,,workbook:species_description,high,reviewed,dark glossy crested head and upperparts
+slb-clamator-coromandus,colour,rufous,,workbook:species_description,high,reviewed,chestnut wings
+slb-clamator-coromandus,colour,white,,workbook:species_description,medium,reviewed,pale underparts (see doubts on barring)
+slb-clamator-coromandus,behaviour,tree_bush,,workbook:field_spotting_tips,high,reviewed,sits quietly in canopy and edges
+slb-clamator-coromandus,month,10,,expert:ornithologist,low,reviewed,wb: northern winter with no months; months are my mapping; confirm with CBC records
+slb-clamator-coromandus,month,11,,expert:ornithologist,low,reviewed,
+slb-clamator-coromandus,month,12,,expert:ornithologist,low,reviewed,
+slb-clamator-coromandus,month,1,,expert:ornithologist,low,reviewed,
+slb-clamator-coromandus,month,2,,expert:ornithologist,low,reviewed,
+slb-clamator-coromandus,month,3,,expert:ornithologist,low,reviewed,
+slb-clamator-coromandus,month,4,,expert:ornithologist,low,reviewed,
+slb-clamator-jacobinus,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,Udawalawe
+slb-clamator-jacobinus,zone,intermediate,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,
+slb-clamator-jacobinus,zone,arid_coast_north,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,Bundala
+slb-clamator-jacobinus,habitat,open_country,,workbook:species_description,high,reviewed,scrub cultivation and grassland edges
+slb-clamator-jacobinus,habitat,forest,,workbook:species_description,medium,reviewed,open woodland
+slb-clamator-jacobinus,habitat,town_garden,,workbook:species_description,medium,reviewed,
+slb-clamator-jacobinus,size,XL,,workbook:species_description,high,reviewed,~33 cm
+slb-clamator-jacobinus,colour,black,,workbook:species_description,high,reviewed,
+slb-clamator-jacobinus,colour,white,,workbook:species_description,high,reviewed,
+slb-clamator-jacobinus,behaviour,perched_open,,workbook:field_spotting_tips,high,reviewed,exposed branches and wires
+slb-clamator-jacobinus,behaviour,tree_bush,,workbook:field_spotting_tips,medium,reviewed,edges of scrub
+slb-clamator-jacobinus,month,all,,workbook:seasonality_months_seen,high,reviewed,resident per CBC country list
+slb-clamator-jacobinus,commonness,dry_lowland:uncommon,,expert:ornithologist,medium,reviewed,wb: local and easily overlooked
+slb-clamator-jacobinus,commonness,intermediate:uncommon,,expert:ornithologist,medium,reviewed,
+slb-clamator-jacobinus,commonness,arid_coast_north:uncommon,,expert:ornithologist,medium,reviewed,
+slb-hierococcyx-varius,zone,wet_midhill,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,Kandy hill country
+slb-hierococcyx-varius,zone,montane,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,central hills
+slb-hierococcyx-varius,zone,intermediate,,expert:ornithologist,low,reviewed,foothills; not explicit in wb
+slb-hierococcyx-varius,zone,wet_lowland,,workbook:sri_lanka_distribution_and_hotspots,low,reviewed,wb: migrants may occur in lowlands
+slb-hierococcyx-varius,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,low,reviewed,wb: migrants may occur in lowlands
+slb-hierococcyx-varius,habitat,town_garden,,workbook:species_description,high,reviewed,wooded gardens and plantations
+slb-hierococcyx-varius,habitat,forest,,workbook:species_description,high,reviewed,
+slb-hierococcyx-varius,size,XL,,workbook:species_description,high,reviewed,~34 cm
+slb-hierococcyx-varius,colour,grey,adult,workbook:species_description,high,reviewed,grey-brown upperparts
+slb-hierococcyx-varius,colour,white,adult,workbook:species_description,medium,reviewed,pale barred underparts; yellow eye-ring omitted
+slb-hierococcyx-varius,colour,rufous,adult,expert:ornithologist,medium,reviewed,rufous wash on breast; not in wb
+slb-hierococcyx-varius,colour,brown,juvenile,workbook:juvenile_immature_plumage,high,reviewed,
+slb-hierococcyx-varius,colour,rufous,juvenile,workbook:juvenile_immature_plumage,medium,reviewed,warmer rufous tones
+slb-hierococcyx-varius,behaviour,tree_bush,,workbook:field_spotting_tips,high,reviewed,hawk-like posture in trees
+slb-hierococcyx-varius,month,all,,workbook:seasonality_months_seen,high,reviewed,R/M: resident race all year
+slb-hierococcyx-varius,commonness,wet_midhill:common,,expert:ornithologist,medium,reviewed,often heard in season
+slb-hierococcyx-varius,commonness,montane:uncommon,,expert:ornithologist,low,reviewed,
+slb-hierococcyx-varius,commonness,intermediate:uncommon,,expert:ornithologist,low,reviewed,
+slb-hierococcyx-varius,commonness,wet_lowland:scarce,,expert:ornithologist,low,reviewed,
+slb-hierococcyx-varius,commonness,dry_lowland:scarce,,expert:ornithologist,low,reviewed,
+slb-cuculus-micropterus,zone,wet_lowland,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,wb: lowlands and hills
+slb-cuculus-micropterus,zone,wet_midhill,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-cuculus-micropterus,zone,intermediate,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-cuculus-micropterus,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,montane not tagged; reviewer to confirm
+slb-cuculus-micropterus,habitat,forest,,workbook:species_description,high,reviewed,
+slb-cuculus-micropterus,habitat,town_garden,,workbook:species_description,medium,reviewed,plantations and garden trees
+slb-cuculus-micropterus,size,XL,,workbook:species_description,high,reviewed,~33 cm
+slb-cuculus-micropterus,colour,grey,,workbook:species_description,high,reviewed,
+slb-cuculus-micropterus,colour,white,,workbook:species_description,high,reviewed,pale underparts with narrow dark bars
+slb-cuculus-micropterus,behaviour,tree_bush,,workbook:field_spotting_tips,high,reviewed,concealed canopy perch
+slb-cuculus-micropterus,month,all,,workbook:seasonality_months_seen,high,reviewed,R/M per CBC
+slb-cuculus-micropterus,commonness,wet_lowland:uncommon,,expert:ornithologist,medium,reviewed,heard more often than seen
+slb-cuculus-micropterus,commonness,wet_midhill:uncommon,,expert:ornithologist,medium,reviewed,
+slb-cuculus-micropterus,commonness,intermediate:uncommon,,expert:ornithologist,low,reviewed,
+slb-cuculus-micropterus,commonness,dry_lowland:uncommon,,expert:ornithologist,low,reviewed,
+slb-cacomantis-passerinus,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,Udawalawe
+slb-cacomantis-passerinus,zone,arid_coast_north,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,Bundala
+slb-cacomantis-passerinus,zone,intermediate,,expert:ornithologist,medium,reviewed,not explicit in wb
+slb-cacomantis-passerinus,zone,wet_lowland,,expert:ornithologist,low,reviewed,not explicit in wb
+slb-cacomantis-passerinus,zone,wet_midhill,,expert:ornithologist,low,reviewed,not explicit in wb
+slb-cacomantis-passerinus,habitat,open_country,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,open country and scrub
+slb-cacomantis-passerinus,habitat,town_garden,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,
+slb-cacomantis-passerinus,habitat,forest,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,woodland edges
+slb-cacomantis-passerinus,size,L,,workbook:species_description,high,reviewed,~23 cm
+slb-cacomantis-passerinus,colour,grey,male,workbook:male_female_identification,high,reviewed,grey above and below
+slb-cacomantis-passerinus,colour,white,male,workbook:species_description,medium,reviewed,whitish lower belly
+slb-cacomantis-passerinus,colour,grey,female,workbook:male_female_identification,medium,reviewed,
+slb-cacomantis-passerinus,colour,rufous,female,workbook:male_female_identification,medium,reviewed,rufous wash on upper breast
+slb-cacomantis-passerinus,colour,rufous,morph_hepatic,expert:ornithologist,medium,reviewed,hepatic female; not described in wb (see doubts)
+slb-cacomantis-passerinus,colour,white,morph_hepatic,expert:ornithologist,medium,reviewed,barred whitish underparts
+slb-cacomantis-passerinus,behaviour,tree_bush,,workbook:field_spotting_tips,medium,reviewed,moves through cover
+slb-cacomantis-passerinus,behaviour,perched_open,,workbook:field_spotting_tips,medium,reviewed,briefly on exposed perches
+slb-cacomantis-passerinus,month,10,,expert:ornithologist,low,reviewed,wb: northern winter with no months; September arrivals possible; confirm with CBC records
+slb-cacomantis-passerinus,month,11,,expert:ornithologist,medium,reviewed,
+slb-cacomantis-passerinus,month,12,,expert:ornithologist,medium,reviewed,
+slb-cacomantis-passerinus,month,1,,expert:ornithologist,medium,reviewed,
+slb-cacomantis-passerinus,month,2,,expert:ornithologist,medium,reviewed,
+slb-cacomantis-passerinus,month,3,,expert:ornithologist,medium,reviewed,
+slb-cacomantis-passerinus,month,4,,expert:ornithologist,low,reviewed,
+slb-cacomantis-passerinus,commonness,dry_lowland:common,,expert:ornithologist,medium,reviewed,in season
+slb-cacomantis-passerinus,commonness,arid_coast_north:uncommon,,expert:ornithologist,medium,reviewed,
+slb-cacomantis-passerinus,commonness,intermediate:uncommon,,expert:ornithologist,low,reviewed,
+slb-cacomantis-passerinus,commonness,wet_lowland:uncommon,,expert:ornithologist,low,reviewed,
+slb-cacomantis-passerinus,commonness,wet_midhill:uncommon,,expert:ornithologist,low,reviewed,
+slb-cacomantis-sonneratii,zone,wet_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,wet regions
+slb-cacomantis-sonneratii,zone,wet_midhill,,expert:ornithologist,medium,reviewed,not explicit in wb
+slb-cacomantis-sonneratii,zone,intermediate,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,Ella area mapped to intermediate
+slb-cacomantis-sonneratii,zone,dry_lowland,,workbook:sri_lanka_distribution_and_hotspots,medium,reviewed,wb: dry regions
+slb-cacomantis-sonneratii,habitat,forest,,workbook:species_description,high,reviewed,forest edges and open woodland
+slb-cacomantis-sonneratii,habitat,town_garden,,workbook:species_description,medium,reviewed,wooded gardens and plantations
+slb-cacomantis-sonneratii,size,L,,workbook:species_description,high,reviewed,~23 cm
+slb-cacomantis-sonneratii,colour,rufous,,workbook:species_description,high,reviewed,warm bay upperparts
+slb-cacomantis-sonneratii,colour,brown,,workbook:species_description,medium,reviewed,
+slb-cacomantis-sonneratii,colour,white,,workbook:species_description,medium,reviewed,pale throat and barred underparts
+slb-cacomantis-sonneratii,behaviour,tree_bush,,workbook:species_description,high,reviewed,stays within foliage
+slb-cacomantis-sonneratii,month,all,,workbook:seasonality_months_seen,high,reviewed,resident year-round
+slb-cacomantis-sonneratii,commonness,wet_lowland:uncommon,,expert:ornithologist,medium,reviewed,heard more often than seen
+slb-cacomantis-sonneratii,commonness,wet_midhill:uncommon,,expert:ornithologist,low,reviewed,
+slb-cacomantis-sonneratii,commonness,intermediate:uncommon,,expert:ornithologist,low,reviewed,
+slb-cacomantis-sonneratii,commonness,dry_lowland:scarce,,expert:ornithologist,low,reviewed,
+slb-surniculus-dicruroides,zone,wet_lowland,,workbook:sri_lanka_distribution_and_hotspots,high,reviewed,Sinharaja
+slb-surniculus-dicruroides,zone,wet_midhill,,expert:ornithologist,medium,reviewed,not explicit in wb
+slb-surniculus-dicruroides,zone,intermediate,,expert:ornithologist,low,reviewed,not explicit in wb
+slb-surniculus-dicruroides,zone,dry_lowland,,expert:ornithologist,low,reviewed,not explicit in wb; check eBird
+slb-surniculus-dicruroides,habitat,forest,,workbook:species_description,high,reviewed,
+slb-surniculus-dicruroides,habitat,town_garden,,workbook:species_description,low,reviewed,dense gardens and plantations
+slb-surniculus-dicruroides,size,L,,workbook:species_description,high,reviewed,25-28 cm
+slb-surniculus-dicruroides,colour,black,adult,workbook:species_description,high,reviewed,glossy black; red eye is an accent
+slb-surniculus-dicruroides,colour,black,juvenile,workbook:juvenile_immature_plumage,medium,reviewed,duller brownish-black
+slb-surniculus-dicruroides,colour,white,juvenile,workbook:juvenile_immature_plumage,medium,reviewed,pale scaling and spots
+slb-surniculus-dicruroides,behaviour,tree_bush,,workbook:species_description,high,reviewed,canopy and mixed flocks
+slb-surniculus-dicruroides,month,all,,workbook:seasonality_months_seen,high,reviewed,resident per CBC country list
+slb-surniculus-dicruroides,commonness,wet_lowland:uncommon,,expert:ornithologist,medium,reviewed,local and easily overlooked
+slb-surniculus-dicruroides,commonness,wet_midhill:uncommon,,expert:ornithologist,low,reviewed,
+slb-surniculus-dicruroides,commonness,intermediate:scarce,,expert:ornithologist,low,reviewed,
+slb-surniculus-dicruroides,commonness,dry_lowland:scarce,,expert:ornithologist,low,reviewed,
