@@ -106,6 +106,7 @@ describe('committed review sheets', () => {
   });
 
   it('reports a planned batch with no committed sheet', () => {
-    expect(checkReviewSheets(input).join()).toMatch(/batch-03\.md: missing/);
+    const plan = [{ species_id: 'sp-a', batch: '99' }];
+    expect(checkReviewSheets({ ...input, plan }).join()).toMatch(/batch-99\.md: missing/);
   });
 });
