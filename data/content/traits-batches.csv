@@ -33,3 +33,119 @@ slb-microcarbo-niger,0,,owner,2026-11-17,M5 pilot; owner-approved in PR #68
 slb-argya-affinis,0,,owner,2026-11-17,M5 pilot; owner-approved in PR #68
 slb-zosterops-ceylonensis,0,,owner,2026-11-17,M5 pilot; owner-approved in PR #68
 slb-passer-domesticus,0,,owner,2026-11-17,M5 pilot; owner-approved in PR #69
+slb-francolinus-pictus,1,,owner,2026-11-27,M8 batch 1
+slb-galloperdix-bicalcarata,1,,owner,2026-11-27,M8 batch 1
+slb-ortygornis-pondicerianus,1,,owner,2026-11-27,M8 batch 1
+slb-turnix-suscitator,1,,owner,2026-11-27,M8 batch 1
+slb-synoicus-chinensis,1,,owner,2026-11-27,M8 batch 1
+slb-nettapus-coromandelianus,1,,owner,2026-11-27,M8 batch 1
+slb-dendrocygna-bicolor,1,month,owner,2026-11-27,M8 batch 1; month unknown: code M conflicts with seasonality text R+M
+slb-dendrocygna-javanica,1,,owner,2026-11-27,M8 batch 1
+slb-anas-poecilorhyncha,1,,owner,2026-11-27,M8 batch 1
+slb-mareca-penelope,1,,owner,2026-11-27,M8 batch 1
+slb-anas-acuta,1,,owner,2026-11-27,M8 batch 1
+slb-spatula-clypeata,1,,owner,2026-11-27,M8 batch 1
+slb-tachybaptus-ruficollis,1,,owner,2026-11-27,M8 batch 1
+slb-columba-livia,1,,owner,2026-11-27,M8 batch 1
+slb-columba-torringtoniae,1,,owner,2026-11-27,M8 batch 1
+slb-streptopelia-decaocto,1,,owner,2026-11-27,M8 batch 1
+slb-chalcophaps-indica,1,,owner,2026-11-27,M8 batch 1
+slb-treron-bicinctus,1,,owner,2026-11-27,M8 batch 1
+slb-treron-phoenicopterus,1,,owner,2026-11-27,M8 batch 1
+slb-treron-pompadora,1,,owner,2026-11-27,M8 batch 1
+slb-ducula-aenea,1,,owner,2026-11-27,M8 batch 1
+slb-phaenicophaeus-viridirostris,1,,owner,2026-11-27,M8 batch 1
+slb-phaenicophaeus-pyrrhocephalus,1,,owner,2026-11-27,M8 batch 1
+slb-taccocua-leschenaultii,1,,owner,2026-11-27,M8 batch 1
+slb-centropus-chlororhynchos,1,,owner,2026-11-27,M8 batch 1
+slb-centropus-sinensis,1,,owner,2026-11-27,M8 batch 1
+slb-clamator-coromandus,1,zone|commonness,owner,2026-11-27,M8 batch 1; zone unknown: workbook names no region
+slb-clamator-jacobinus,1,,owner,2026-11-27,M8 batch 1
+slb-hierococcyx-varius,1,,owner,2026-11-27,M8 batch 1
+slb-cuculus-micropterus,1,,owner,2026-11-27,M8 batch 1
+slb-cacomantis-passerinus,1,,owner,2026-11-27,M8 batch 1
+slb-cacomantis-sonneratii,1,,owner,2026-11-27,M8 batch 1
+slb-surniculus-dicruroides,1,,owner,2026-11-27,M8 batch 1
+slb-aerodramus-unicolor,2,,owner,2026-11-27,M8 batch 2
+slb-tachymarptis-melba,2,month,owner,2026-11-27,M8 batch 2; month unknown: code R conflicts with seasonality text (visitor or passage)
+slb-hirundapus-giganteus,2,month,owner,2026-11-27,M8 batch 2; month unknown: irregular and no months in workbook
+slb-apus-affinis,2,,owner,2026-11-27,M8 batch 2
+slb-cypsiurus-balasiensis,2,,owner,2026-11-27,M8 batch 2
+slb-hemiprocne-coronata,2,,owner,2026-11-27,M8 batch 2
+slb-cecropis-hyperythra,2,,owner,2026-11-27,M8 batch 2
+slb-hirundo-domicola,2,,owner,2026-11-27,M8 batch 2
+slb-gallicrex-cinerea,2,,owner,2026-11-27,M8 batch 2
+slb-gallinula-chloropus,2,,owner,2026-11-27,M8 batch 2
+slb-rallina-eurizonoides,2,,owner,2026-11-27,M8 batch 2
+slb-porphyrio-porphyrio,2,,owner,2026-11-27,M8 batch 2
+slb-fulica-atra,2,,owner,2026-11-27,M8 batch 2
+slb-esacus-recurvirostris,2,,owner,2026-11-27,M8 batch 2
+slb-burhinus-indicus,2,,owner,2026-11-27,M8 batch 2
+slb-dromas-ardeola,2,,owner,2026-11-27,M8 batch 2
+slb-himantopus-himantopus,2,,owner,2026-11-27,M8 batch 2
+slb-recurvirostra-avosetta,2,,owner,2026-11-27,M8 batch 2
+slb-vanellus-malabaricus,2,,owner,2026-11-27,M8 batch 2
+slb-haematopus-ostralegus,2,,owner,2026-11-27,M8 batch 2
+slb-pluvialis-squatarola,2,,owner,2026-11-27,M8 batch 2
+slb-charadrius-hiaticula,2,,owner,2026-11-27,M8 batch 2
+slb-anarhynchus-alexandrinus,2,,owner,2026-11-27,M8 batch 2
+slb-thinornis-dubius,2,,owner,2026-11-27,M8 batch 2
+slb-anarhynchus-leschenaultii,2,,owner,2026-11-27,M8 batch 2
+slb-anarhynchus-mongolus,2,commonness,owner,2026-11-27,M8 batch 2; commonness unknown: post-split status in Sri Lanka unclear
+slb-rostratula-benghalensis,2,,owner,2026-11-27,M8 batch 2
+slb-hydrophasianus-chirurgus,2,,owner,2026-11-27,M8 batch 2
+slb-gallinago-stenura,2,,owner,2026-11-27,M8 batch 2
+slb-limosa-limosa,2,,owner,2026-11-27,M8 batch 2
+slb-limosa-lapponica,2,,owner,2026-11-27,M8 batch 2
+slb-numenius-arquata,2,,owner,2026-11-27,M8 batch 2
+slb-numenius-phaeopus,2,,owner,2026-11-27,M8 batch 2
+slb-tringa-totanus,3,,owner,2026-11-27,M8 batch 3
+slb-tringa-stagnatilis,3,,owner,2026-11-27,M8 batch 3
+slb-tringa-nebularia,3,,owner,2026-11-27,M8 batch 3
+slb-tringa-ochropus,3,,owner,2026-11-27,M8 batch 3
+slb-xenus-cinereus,3,,owner,2026-11-27,M8 batch 3
+slb-tringa-glareola,3,,owner,2026-11-27,M8 batch 3
+slb-arenaria-interpres,3,,owner,2026-11-27,M8 batch 3
+slb-calidris-alba,3,,owner,2026-11-27,M8 batch 3
+slb-calidris-ferruginea,3,,owner,2026-11-27,M8 batch 3
+slb-calidris-minuta,3,,owner,2026-11-27,M8 batch 3
+slb-cursorius-coromandelicus,3,,owner,2026-11-27,M8 batch 3
+slb-glareola-lactea,3,,owner,2026-11-27,M8 batch 3
+slb-glareola-maldivarum,3,,owner,2026-11-27,M8 batch 3
+slb-phalaropus-lobatus,3,,owner,2026-11-27,M8 batch 3
+slb-larus-fuscus,3,,owner,2026-11-27,M8 batch 3
+slb-ichthyaetus-ichthyaetus,3,,owner,2026-11-27,M8 batch 3
+slb-chroicocephalus-brunnicephalus,3,,owner,2026-11-27,M8 batch 3
+slb-gelochelidon-nilotica,3,,owner,2026-11-27,M8 batch 3
+slb-hydroprogne-caspia,3,,owner,2026-11-27,M8 batch 3
+slb-thalasseus-bengalensis,3,month,owner,2026-11-27,M8 batch 3; month unknown: code M conflicts with year-round records and no months in workbook
+slb-thalasseus-bergii,3,,owner,2026-11-27,M8 batch 3
+slb-sterna-dougallii,3,,owner,2026-11-27,M8 batch 3
+slb-sternula-saundersi,3,,owner,2026-11-27,M8 batch 3
+slb-onychoprion-anaethetus,3,,owner,2026-11-27,M8 batch 3
+slb-onychoprion-fuscatus,3,,owner,2026-11-27,M8 batch 3
+slb-chlidonias-hybrida,3,month,owner,2026-11-27,M8 batch 3; month unknown: code M conflicts with year-round records and workbook asks for confirmation
+slb-chlidonias-leucopterus,3,,owner,2026-11-27,M8 batch 3
+slb-phoenicopterus-roseus,4,,owner,2026-11-27,M8 batch 4; size from ext source
+slb-mycteria-leucocephala,4,,owner,2026-11-27,M8 batch 4; size from ext source
+slb-anastomus-oscitans,4,,owner,2026-11-27,M8 batch 4; size from ext source
+slb-ciconia-episcopus,4,,owner,2026-11-27,M8 batch 4; size from ext source
+slb-threskiornis-melanocephalus,4,,owner,2026-11-27,M8 batch 4; size from ext source
+slb-plegadis-falcinellus,4,,owner,2026-11-27,M8 batch 4; size from ext source
+slb-ephippiorhynchus-asiaticus,4,,owner,2026-11-27,M8 batch 4; size from ext source
+slb-leptoptilos-javanicus,4,,owner,2026-11-27,M8 batch 4; size from ext source
+slb-platalea-leucorodia,4,,owner,2026-11-27,M8 batch 4; size from ext source
+slb-pelecanus-philippensis,4,,owner,2026-11-27,M8 batch 4
+slb-phalacrocorax-carbo,4,,owner,2026-11-27,M8 batch 4; size from ext source
+slb-phalacrocorax-fuscicollis,4,,owner,2026-11-27,M8 batch 4; size from ext source
+slb-anhinga-melanogaster,4,,owner,2026-11-27,M8 batch 4
+slb-botaurus-cinnamomeus,4,,owner,2026-11-27,M8 batch 4
+slb-botaurus-sinensis,4,,owner,2026-11-27,M8 batch 4
+slb-nycticorax-nycticorax,4,,owner,2026-11-27,M8 batch 4
+slb-botaurus-flavicollis,4,,owner,2026-11-27,M8 batch 4
+slb-butorides-atricapilla,4,,owner,2026-11-27,M8 batch 4
+slb-ardea-cinerea,4,,owner,2026-11-27,M8 batch 4
+slb-ardea-purpurea,4,,owner,2026-11-27,M8 batch 4
+slb-egretta-garzetta,4,,owner,2026-11-27,M8 batch 4
+slb-ardea-intermedia,4,,owner,2026-11-27,M8 batch 4
+slb-ardea-alba,4,,owner,2026-11-27,M8 batch 4

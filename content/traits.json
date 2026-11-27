@@ -100,6 +100,49 @@
         "arid_coast_north": "common"
       }
     },
+    "slb-aerodramus-unicolor": {
+      "species_id": "slb-aerodramus-unicolor",
+      "zones": [
+        "montane",
+        "wet_midhill",
+        "wet_lowland"
+      ],
+      "habitats": [
+        "open_country",
+        "forest"
+      ],
+      "size": [
+        "XS"
+      ],
+      "colours": [
+        [
+          "brown",
+          "grey"
+        ]
+      ],
+      "behaviours": [
+        "aerial"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "montane": "common",
+        "wet_midhill": "uncommon",
+        "wet_lowland": "uncommon"
+      }
+    },
     "slb-amaurornis-phoenicurus": {
       "species_id": "slb-amaurornis-phoenicurus",
       "zones": [
@@ -146,6 +189,485 @@
         "intermediate": "common",
         "dry_lowland": "common",
         "arid_coast_north": "common"
+      }
+    },
+    "slb-anarhynchus-alexandrinus": {
+      "species_id": "slb-anarhynchus-alexandrinus",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "S",
+        "M"
+      ],
+      "colours": [
+        [
+          "brown",
+          "white",
+          "black"
+        ],
+        [
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "dry_lowland": "uncommon"
+      }
+    },
+    "slb-anarhynchus-leschenaultii": {
+      "species_id": "slb-anarhynchus-leschenaultii",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "brown",
+          "white"
+        ],
+        [
+          "rufous",
+          "white",
+          "black"
+        ]
+      ],
+      "behaviours": [
+        "ground",
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "dry_lowland": "uncommon"
+      }
+    },
+    "slb-anarhynchus-mongolus": {
+      "species_id": "slb-anarhynchus-mongolus",
+      "zones": [
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "M"
+      ],
+      "colours": [
+        [
+          "brown",
+          "white"
+        ],
+        [
+          "rufous",
+          "white",
+          "black"
+        ]
+      ],
+      "behaviours": [
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ]
+    },
+    "slb-anas-acuta": {
+      "species_id": "slb-anas-acuta",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "freshwater",
+        "coast"
+      ],
+      "size": [
+        "XXL",
+        "XXXL"
+      ],
+      "colours": [
+        [
+          "brown",
+          "white",
+          "grey"
+        ],
+        [
+          "brown"
+        ]
+      ],
+      "behaviours": [
+        "swimming"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "dry_lowland": "uncommon"
+      }
+    },
+    "slb-anas-poecilorhyncha": {
+      "species_id": "slb-anas-poecilorhyncha",
+      "zones": [
+        "dry_lowland",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "freshwater",
+        "coast"
+      ],
+      "size": [
+        "XXL"
+      ],
+      "colours": [
+        [
+          "brown",
+          "grey",
+          "yellow"
+        ]
+      ],
+      "behaviours": [
+        "swimming"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "uncommon",
+        "arid_coast_north": "uncommon"
+      }
+    },
+    "slb-anastomus-oscitans": {
+      "species_id": "slb-anastomus-oscitans",
+      "zones": [
+        "wet_lowland",
+        "dry_lowland",
+        "arid_coast_north",
+        "intermediate",
+        "wet_midhill"
+      ],
+      "habitats": [
+        "freshwater",
+        "open_country"
+      ],
+      "size": [
+        "XXXL"
+      ],
+      "colours": [
+        [
+          "white",
+          "grey",
+          "black"
+        ],
+        [
+          "brown",
+          "grey"
+        ]
+      ],
+      "behaviours": [
+        "wading",
+        "ground",
+        "aerial"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "common",
+        "dry_lowland": "common",
+        "arid_coast_north": "common",
+        "intermediate": "common",
+        "wet_midhill": "uncommon"
+      }
+    },
+    "slb-anhinga-melanogaster": {
+      "species_id": "slb-anhinga-melanogaster",
+      "zones": [
+        "dry_lowland",
+        "wet_lowland",
+        "arid_coast_north",
+        "intermediate"
+      ],
+      "habitats": [
+        "freshwater",
+        "coast"
+      ],
+      "size": [
+        "XXXL"
+      ],
+      "colours": [
+        [
+          "black",
+          "white",
+          "brown"
+        ],
+        [
+          "brown",
+          "white",
+          "black"
+        ],
+        [
+          "brown"
+        ]
+      ],
+      "behaviours": [
+        "swimming",
+        "perched_open"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "common",
+        "wet_lowland": "uncommon",
+        "arid_coast_north": "uncommon",
+        "intermediate": "uncommon"
+      }
+    },
+    "slb-apus-affinis": {
+      "species_id": "slb-apus-affinis",
+      "zones": [
+        "wet_lowland",
+        "wet_midhill",
+        "montane",
+        "intermediate",
+        "dry_lowland",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "town_garden",
+        "open_country",
+        "freshwater"
+      ],
+      "size": [
+        "S"
+      ],
+      "colours": [
+        [
+          "black",
+          "white",
+          "brown"
+        ]
+      ],
+      "behaviours": [
+        "aerial"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "common",
+        "wet_midhill": "common",
+        "montane": "uncommon",
+        "intermediate": "common",
+        "dry_lowland": "common",
+        "arid_coast_north": "common"
+      }
+    },
+    "slb-ardea-alba": {
+      "species_id": "slb-ardea-alba",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland",
+        "wet_lowland",
+        "intermediate"
+      ],
+      "habitats": [
+        "freshwater",
+        "coast",
+        "open_country"
+      ],
+      "size": [
+        "XXXL"
+      ],
+      "colours": [
+        [
+          "white",
+          "yellow",
+          "black"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "dry_lowland": "common",
+        "wet_lowland": "common",
+        "intermediate": "common"
+      }
+    },
+    "slb-ardea-cinerea": {
+      "species_id": "slb-ardea-cinerea",
+      "zones": [
+        "dry_lowland",
+        "arid_coast_north",
+        "wet_lowland",
+        "intermediate"
+      ],
+      "habitats": [
+        "freshwater",
+        "coast",
+        "open_country"
+      ],
+      "size": [
+        "XXXL"
+      ],
+      "colours": [
+        [
+          "grey",
+          "white",
+          "black"
+        ],
+        [
+          "grey",
+          "brown"
+        ]
+      ],
+      "behaviours": [
+        "wading",
+        "aerial"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "common",
+        "arid_coast_north": "common",
+        "wet_lowland": "uncommon",
+        "intermediate": "uncommon"
       }
     },
     "slb-ardea-coromanda": {
@@ -198,6 +720,105 @@
         "intermediate": "common",
         "dry_lowland": "common",
         "arid_coast_north": "common"
+      }
+    },
+    "slb-ardea-intermedia": {
+      "species_id": "slb-ardea-intermedia",
+      "zones": [
+        "wet_lowland",
+        "intermediate",
+        "dry_lowland",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "freshwater",
+        "open_country",
+        "coast"
+      ],
+      "size": [
+        "XXL",
+        "XXXL"
+      ],
+      "colours": [
+        [
+          "white",
+          "yellow",
+          "black"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "common",
+        "intermediate": "common",
+        "dry_lowland": "common",
+        "arid_coast_north": "common"
+      }
+    },
+    "slb-ardea-purpurea": {
+      "species_id": "slb-ardea-purpurea",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland",
+        "wet_lowland",
+        "intermediate"
+      ],
+      "habitats": [
+        "freshwater",
+        "open_country",
+        "coast"
+      ],
+      "size": [
+        "XXXL"
+      ],
+      "colours": [
+        [
+          "rufous",
+          "grey",
+          "purple"
+        ],
+        [
+          "brown",
+          "rufous"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "dry_lowland": "common",
+        "wet_lowland": "common",
+        "intermediate": "uncommon"
       }
     },
     "slb-ardeola-grayii": {
@@ -254,6 +875,54 @@
         "arid_coast_north": "common"
       }
     },
+    "slb-arenaria-interpres": {
+      "species_id": "slb-arenaria-interpres",
+      "zones": [
+        "arid_coast_north",
+        "wet_lowland",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "brown",
+          "black",
+          "white"
+        ],
+        [
+          "rufous",
+          "black",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "uncommon",
+        "wet_lowland": "scarce",
+        "dry_lowland": "scarce"
+      }
+    },
     "slb-argya-affinis": {
       "species_id": "slb-argya-affinis",
       "zones": [
@@ -299,6 +968,873 @@
         "wet_midhill": "common",
         "intermediate": "common",
         "dry_lowland": "common"
+      }
+    },
+    "slb-botaurus-cinnamomeus": {
+      "species_id": "slb-botaurus-cinnamomeus",
+      "zones": [
+        "wet_lowland",
+        "arid_coast_north",
+        "dry_lowland",
+        "intermediate",
+        "wet_midhill"
+      ],
+      "habitats": [
+        "freshwater",
+        "open_country"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "rufous",
+          "brown"
+        ],
+        [
+          "brown",
+          "rufous"
+        ],
+        [
+          "brown"
+        ]
+      ],
+      "behaviours": [
+        "wading",
+        "tree_bush",
+        "aerial"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "uncommon",
+        "arid_coast_north": "uncommon",
+        "dry_lowland": "uncommon",
+        "intermediate": "uncommon",
+        "wet_midhill": "scarce"
+      }
+    },
+    "slb-botaurus-flavicollis": {
+      "species_id": "slb-botaurus-flavicollis",
+      "zones": [
+        "wet_lowland",
+        "arid_coast_north",
+        "dry_lowland",
+        "wet_midhill"
+      ],
+      "habitats": [
+        "freshwater",
+        "forest",
+        "coast"
+      ],
+      "size": [
+        "XXL"
+      ],
+      "colours": [
+        [
+          "black",
+          "yellow",
+          "white"
+        ],
+        [
+          "brown",
+          "yellow",
+          "white"
+        ],
+        [
+          "brown"
+        ]
+      ],
+      "behaviours": [
+        "tree_bush",
+        "wading",
+        "aerial"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "uncommon",
+        "arid_coast_north": "scarce",
+        "dry_lowland": "scarce",
+        "wet_midhill": "scarce"
+      }
+    },
+    "slb-botaurus-sinensis": {
+      "species_id": "slb-botaurus-sinensis",
+      "zones": [
+        "wet_lowland",
+        "arid_coast_north",
+        "dry_lowland",
+        "intermediate"
+      ],
+      "habitats": [
+        "freshwater",
+        "open_country"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "yellow",
+          "brown",
+          "black"
+        ],
+        [
+          "brown",
+          "yellow"
+        ],
+        [
+          "brown"
+        ]
+      ],
+      "behaviours": [
+        "tree_bush",
+        "wading",
+        "aerial"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "uncommon",
+        "arid_coast_north": "uncommon",
+        "dry_lowland": "uncommon",
+        "intermediate": "uncommon"
+      }
+    },
+    "slb-burhinus-indicus": {
+      "species_id": "slb-burhinus-indicus",
+      "zones": [
+        "dry_lowland",
+        "arid_coast_north",
+        "intermediate"
+      ],
+      "habitats": [
+        "open_country",
+        "coast"
+      ],
+      "size": [
+        "XL",
+        "XXL"
+      ],
+      "colours": [
+        [
+          "brown",
+          "yellow",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "uncommon",
+        "arid_coast_north": "uncommon",
+        "intermediate": "scarce"
+      }
+    },
+    "slb-butorides-atricapilla": {
+      "species_id": "slb-butorides-atricapilla",
+      "zones": [
+        "wet_lowland",
+        "arid_coast_north",
+        "dry_lowland",
+        "intermediate"
+      ],
+      "habitats": [
+        "coast",
+        "freshwater"
+      ],
+      "size": [
+        "XL",
+        "XXL"
+      ],
+      "colours": [
+        [
+          "grey",
+          "black",
+          "green"
+        ],
+        [
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "perched_open",
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "uncommon",
+        "arid_coast_north": "uncommon",
+        "dry_lowland": "uncommon",
+        "intermediate": "uncommon"
+      }
+    },
+    "slb-cacomantis-passerinus": {
+      "species_id": "slb-cacomantis-passerinus",
+      "zones": [
+        "dry_lowland",
+        "arid_coast_north",
+        "intermediate",
+        "wet_lowland",
+        "wet_midhill"
+      ],
+      "habitats": [
+        "open_country",
+        "town_garden",
+        "forest"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "grey",
+          "white"
+        ],
+        [
+          "grey",
+          "rufous"
+        ],
+        [
+          "rufous",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "tree_bush",
+        "perched_open"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "common",
+        "arid_coast_north": "uncommon",
+        "intermediate": "uncommon",
+        "wet_lowland": "uncommon",
+        "wet_midhill": "uncommon"
+      }
+    },
+    "slb-cacomantis-sonneratii": {
+      "species_id": "slb-cacomantis-sonneratii",
+      "zones": [
+        "wet_lowland",
+        "wet_midhill",
+        "intermediate",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "forest",
+        "town_garden"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "rufous",
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "tree_bush"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "uncommon",
+        "wet_midhill": "uncommon",
+        "intermediate": "uncommon",
+        "dry_lowland": "scarce"
+      }
+    },
+    "slb-calidris-alba": {
+      "species_id": "slb-calidris-alba",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "M"
+      ],
+      "colours": [
+        [
+          "grey",
+          "white",
+          "black"
+        ]
+      ],
+      "behaviours": [
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "scarce",
+        "dry_lowland": "scarce"
+      }
+    },
+    "slb-calidris-ferruginea": {
+      "species_id": "slb-calidris-ferruginea",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "M",
+        "L"
+      ],
+      "colours": [
+        [
+          "grey",
+          "white"
+        ],
+        [
+          "rufous",
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "dry_lowland": "uncommon"
+      }
+    },
+    "slb-calidris-minuta": {
+      "species_id": "slb-calidris-minuta",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "coast",
+        "freshwater"
+      ],
+      "size": [
+        "S"
+      ],
+      "colours": [
+        [
+          "grey",
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "ground",
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "dry_lowland": "uncommon"
+      }
+    },
+    "slb-cecropis-hyperythra": {
+      "species_id": "slb-cecropis-hyperythra",
+      "zones": [
+        "dry_lowland",
+        "wet_midhill",
+        "montane",
+        "intermediate",
+        "wet_lowland",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "open_country",
+        "town_garden"
+      ],
+      "size": [
+        "S"
+      ],
+      "colours": [
+        [
+          "rufous",
+          "blue",
+          "black"
+        ]
+      ],
+      "behaviours": [
+        "aerial",
+        "perched_open"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "common",
+        "wet_midhill": "common",
+        "montane": "uncommon",
+        "intermediate": "common",
+        "wet_lowland": "common",
+        "arid_coast_north": "uncommon"
+      }
+    },
+    "slb-centropus-chlororhynchos": {
+      "species_id": "slb-centropus-chlororhynchos",
+      "zones": [
+        "wet_lowland",
+        "wet_midhill"
+      ],
+      "habitats": [
+        "forest"
+      ],
+      "size": [
+        "XL",
+        "XXL"
+      ],
+      "colours": [
+        [
+          "black",
+          "rufous",
+          "green"
+        ]
+      ],
+      "behaviours": [
+        "tree_bush",
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "uncommon",
+        "wet_midhill": "scarce"
+      }
+    },
+    "slb-centropus-sinensis": {
+      "species_id": "slb-centropus-sinensis",
+      "zones": [
+        "wet_lowland",
+        "wet_midhill",
+        "intermediate",
+        "dry_lowland",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "open_country",
+        "town_garden",
+        "forest",
+        "freshwater"
+      ],
+      "size": [
+        "XXL"
+      ],
+      "colours": [
+        [
+          "black",
+          "rufous"
+        ]
+      ],
+      "behaviours": [
+        "ground",
+        "tree_bush"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "common",
+        "wet_midhill": "common",
+        "intermediate": "common",
+        "dry_lowland": "common",
+        "arid_coast_north": "common"
+      }
+    },
+    "slb-chalcophaps-indica": {
+      "species_id": "slb-chalcophaps-indica",
+      "zones": [
+        "wet_lowland",
+        "wet_midhill",
+        "intermediate",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "forest",
+        "town_garden"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "green",
+          "rufous",
+          "white"
+        ],
+        [
+          "green",
+          "brown",
+          "grey"
+        ]
+      ],
+      "behaviours": [
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "common",
+        "wet_midhill": "common",
+        "intermediate": "uncommon",
+        "dry_lowland": "uncommon"
+      }
+    },
+    "slb-charadrius-hiaticula": {
+      "species_id": "slb-charadrius-hiaticula",
+      "zones": [
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "M"
+      ],
+      "colours": [
+        [
+          "brown",
+          "white",
+          "orange"
+        ]
+      ],
+      "behaviours": [
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "uncommon"
+      }
+    },
+    "slb-chlidonias-hybrida": {
+      "species_id": "slb-chlidonias-hybrida",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland",
+        "intermediate",
+        "wet_lowland",
+        "wet_midhill"
+      ],
+      "habitats": [
+        "freshwater",
+        "coast"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "white",
+          "grey",
+          "black"
+        ],
+        [
+          "black",
+          "grey",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "aerial"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "dry_lowland": "common",
+        "intermediate": "common",
+        "wet_lowland": "uncommon",
+        "wet_midhill": "scarce"
+      }
+    },
+    "slb-chlidonias-leucopterus": {
+      "species_id": "slb-chlidonias-leucopterus",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "freshwater",
+        "coast"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "white",
+          "black",
+          "grey"
+        ],
+        [
+          "black",
+          "white",
+          "grey"
+        ]
+      ],
+      "behaviours": [
+        "aerial"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "uncommon",
+        "dry_lowland": "scarce"
+      }
+    },
+    "slb-chroicocephalus-brunnicephalus": {
+      "species_id": "slb-chroicocephalus-brunnicephalus",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "coast",
+        "freshwater"
+      ],
+      "size": [
+        "XL",
+        "XXL"
+      ],
+      "colours": [
+        [
+          "white",
+          "grey",
+          "red"
+        ],
+        [
+          "brown",
+          "white",
+          "red"
+        ]
+      ],
+      "behaviours": [
+        "aerial",
+        "swimming"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "dry_lowland": "uncommon"
       }
     },
     "slb-chrysocolaptes-stricklandi": {
@@ -347,6 +1883,54 @@
         "montane": "uncommon",
         "intermediate": "uncommon",
         "dry_lowland": "uncommon"
+      }
+    },
+    "slb-ciconia-episcopus": {
+      "species_id": "slb-ciconia-episcopus",
+      "zones": [
+        "dry_lowland",
+        "intermediate"
+      ],
+      "habitats": [
+        "freshwater",
+        "open_country",
+        "forest"
+      ],
+      "size": [
+        "XXXL"
+      ],
+      "colours": [
+        [
+          "black",
+          "white",
+          "red"
+        ],
+        [
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "wading",
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "uncommon",
+        "intermediate": "uncommon"
       }
     },
     "slb-cinnyris-asiaticus": {
@@ -399,6 +1983,178 @@
         "dry_lowland": "common",
         "arid_coast_north": "common",
         "intermediate": "uncommon"
+      }
+    },
+    "slb-clamator-coromandus": {
+      "species_id": "slb-clamator-coromandus",
+      "habitats": [
+        "forest",
+        "town_garden"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "black",
+          "rufous",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "tree_bush"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present"
+      ]
+    },
+    "slb-clamator-jacobinus": {
+      "species_id": "slb-clamator-jacobinus",
+      "zones": [
+        "dry_lowland",
+        "intermediate",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "open_country",
+        "forest",
+        "town_garden"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "black",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "perched_open",
+        "tree_bush"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "uncommon",
+        "intermediate": "uncommon",
+        "arid_coast_north": "uncommon"
+      }
+    },
+    "slb-columba-livia": {
+      "species_id": "slb-columba-livia",
+      "zones": [
+        "wet_lowland",
+        "wet_midhill",
+        "montane",
+        "intermediate",
+        "dry_lowland",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "town_garden",
+        "open_country",
+        "coast"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "grey",
+          "black",
+          "purple"
+        ]
+      ],
+      "behaviours": [
+        "ground",
+        "perched_open"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "common",
+        "wet_midhill": "common",
+        "montane": "uncommon",
+        "intermediate": "common",
+        "dry_lowland": "common",
+        "arid_coast_north": "common"
+      }
+    },
+    "slb-columba-torringtoniae": {
+      "species_id": "slb-columba-torringtoniae",
+      "zones": [
+        "montane",
+        "wet_midhill"
+      ],
+      "habitats": [
+        "forest"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "grey",
+          "purple",
+          "black"
+        ]
+      ],
+      "behaviours": [
+        "tree_bush"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "montane": "uncommon",
+        "wet_midhill": "scarce"
       }
     },
     "slb-copsychus-saularis": {
@@ -507,6 +2263,212 @@
         "arid_coast_north": "common"
       }
     },
+    "slb-cuculus-micropterus": {
+      "species_id": "slb-cuculus-micropterus",
+      "zones": [
+        "wet_lowland",
+        "wet_midhill",
+        "intermediate",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "forest",
+        "town_garden"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "grey",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "tree_bush"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "uncommon",
+        "wet_midhill": "uncommon",
+        "intermediate": "uncommon",
+        "dry_lowland": "uncommon"
+      }
+    },
+    "slb-cursorius-coromandelicus": {
+      "species_id": "slb-cursorius-coromandelicus",
+      "zones": [
+        "dry_lowland",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "open_country"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "brown",
+          "white",
+          "rufous"
+        ]
+      ],
+      "behaviours": [
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "uncommon",
+        "dry_lowland": "scarce"
+      }
+    },
+    "slb-cypsiurus-balasiensis": {
+      "species_id": "slb-cypsiurus-balasiensis",
+      "zones": [
+        "wet_lowland",
+        "intermediate",
+        "dry_lowland",
+        "arid_coast_north",
+        "wet_midhill"
+      ],
+      "habitats": [
+        "town_garden",
+        "open_country",
+        "coast"
+      ],
+      "size": [
+        "S"
+      ],
+      "colours": [
+        [
+          "brown"
+        ]
+      ],
+      "behaviours": [
+        "aerial"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "common",
+        "intermediate": "common",
+        "dry_lowland": "common",
+        "arid_coast_north": "common",
+        "wet_midhill": "uncommon"
+      }
+    },
+    "slb-dendrocygna-bicolor": {
+      "species_id": "slb-dendrocygna-bicolor",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "freshwater",
+        "open_country"
+      ],
+      "size": [
+        "XXL"
+      ],
+      "colours": [
+        [
+          "rufous",
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "swimming"
+      ],
+      "commonness": {
+        "arid_coast_north": "scarce",
+        "dry_lowland": "scarce"
+      }
+    },
+    "slb-dendrocygna-javanica": {
+      "species_id": "slb-dendrocygna-javanica",
+      "zones": [
+        "wet_lowland",
+        "intermediate",
+        "dry_lowland",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "freshwater",
+        "open_country"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "brown",
+          "rufous"
+        ]
+      ],
+      "behaviours": [
+        "swimming"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "common",
+        "arid_coast_north": "common",
+        "intermediate": "common",
+        "wet_lowland": "common"
+      }
+    },
     "slb-dicrurus-macrocercus": {
       "species_id": "slb-dicrurus-macrocercus",
       "zones": [
@@ -546,6 +2508,145 @@
       ],
       "commonness": {
         "wet_lowland": "uncommon",
+        "intermediate": "common",
+        "dry_lowland": "common",
+        "arid_coast_north": "common"
+      }
+    },
+    "slb-dromas-ardeola": {
+      "species_id": "slb-dromas-ardeola",
+      "zones": [
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "white",
+          "black"
+        ],
+        [
+          "white",
+          "grey"
+        ]
+      ],
+      "behaviours": [
+        "wading",
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "uncommon"
+      }
+    },
+    "slb-ducula-aenea": {
+      "species_id": "slb-ducula-aenea",
+      "zones": [
+        "wet_lowland",
+        "wet_midhill",
+        "intermediate",
+        "dry_lowland",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "forest",
+        "town_garden"
+      ],
+      "size": [
+        "XXL"
+      ],
+      "colours": [
+        [
+          "green",
+          "grey",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "tree_bush"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "common",
+        "wet_midhill": "common",
+        "intermediate": "common",
+        "dry_lowland": "common",
+        "arid_coast_north": "uncommon"
+      }
+    },
+    "slb-egretta-garzetta": {
+      "species_id": "slb-egretta-garzetta",
+      "zones": [
+        "wet_lowland",
+        "intermediate",
+        "dry_lowland",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "freshwater",
+        "coast",
+        "open_country",
+        "town_garden"
+      ],
+      "size": [
+        "XXL"
+      ],
+      "colours": [
+        [
+          "white",
+          "black",
+          "yellow"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "common",
         "intermediate": "common",
         "dry_lowland": "common",
         "arid_coast_north": "common"
@@ -592,6 +2693,94 @@
       "commonness": {
         "arid_coast_north": "uncommon",
         "wet_lowland": "scarce"
+      }
+    },
+    "slb-ephippiorhynchus-asiaticus": {
+      "species_id": "slb-ephippiorhynchus-asiaticus",
+      "zones": [
+        "dry_lowland",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "freshwater",
+        "open_country"
+      ],
+      "size": [
+        "XXXL"
+      ],
+      "colours": [
+        [
+          "black",
+          "white",
+          "red"
+        ],
+        [
+          "brown"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "scarce",
+        "arid_coast_north": "scarce"
+      }
+    },
+    "slb-esacus-recurvirostris": {
+      "species_id": "slb-esacus-recurvirostris",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "coast",
+        "open_country",
+        "freshwater"
+      ],
+      "size": [
+        "XXL"
+      ],
+      "colours": [
+        [
+          "grey",
+          "white",
+          "yellow"
+        ]
+      ],
+      "behaviours": [
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "uncommon",
+        "dry_lowland": "uncommon"
       }
     },
     "slb-eudynamys-scolopaceus": {
@@ -649,6 +2838,295 @@
         "arid_coast_north": "uncommon"
       }
     },
+    "slb-francolinus-pictus": {
+      "species_id": "slb-francolinus-pictus",
+      "zones": [
+        "intermediate",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "open_country"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "black",
+          "white",
+          "orange"
+        ]
+      ],
+      "behaviours": [
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "intermediate": "uncommon",
+        "dry_lowland": "scarce"
+      }
+    },
+    "slb-fulica-atra": {
+      "species_id": "slb-fulica-atra",
+      "zones": [
+        "dry_lowland",
+        "intermediate",
+        "arid_coast_north",
+        "wet_lowland"
+      ],
+      "habitats": [
+        "freshwater"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "black",
+          "white"
+        ],
+        [
+          "grey",
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "swimming"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "uncommon",
+        "intermediate": "uncommon",
+        "arid_coast_north": "uncommon",
+        "wet_lowland": "scarce"
+      }
+    },
+    "slb-gallicrex-cinerea": {
+      "species_id": "slb-gallicrex-cinerea",
+      "zones": [
+        "wet_lowland",
+        "dry_lowland",
+        "intermediate",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "freshwater",
+        "open_country"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "black",
+          "red",
+          "grey"
+        ],
+        [
+          "brown"
+        ]
+      ],
+      "behaviours": [
+        "wading",
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "uncommon",
+        "dry_lowland": "uncommon",
+        "intermediate": "uncommon",
+        "arid_coast_north": "scarce"
+      }
+    },
+    "slb-gallinago-stenura": {
+      "species_id": "slb-gallinago-stenura",
+      "zones": [
+        "dry_lowland",
+        "arid_coast_north",
+        "wet_lowland",
+        "intermediate"
+      ],
+      "habitats": [
+        "freshwater",
+        "open_country"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "brown",
+          "white",
+          "black"
+        ]
+      ],
+      "behaviours": [
+        "wading",
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "uncommon",
+        "arid_coast_north": "uncommon",
+        "wet_lowland": "uncommon",
+        "intermediate": "uncommon"
+      }
+    },
+    "slb-gallinula-chloropus": {
+      "species_id": "slb-gallinula-chloropus",
+      "zones": [
+        "wet_lowland",
+        "wet_midhill",
+        "intermediate",
+        "dry_lowland",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "freshwater",
+        "town_garden"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "grey",
+          "red",
+          "white"
+        ],
+        [
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "swimming",
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "common",
+        "wet_midhill": "uncommon",
+        "intermediate": "uncommon",
+        "dry_lowland": "common",
+        "arid_coast_north": "common"
+      }
+    },
+    "slb-galloperdix-bicalcarata": {
+      "species_id": "slb-galloperdix-bicalcarata",
+      "zones": [
+        "wet_lowland",
+        "wet_midhill",
+        "montane",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "forest"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "rufous",
+          "black",
+          "white"
+        ],
+        [
+          "rufous",
+          "brown"
+        ]
+      ],
+      "behaviours": [
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "uncommon",
+        "wet_midhill": "uncommon",
+        "montane": "scarce",
+        "dry_lowland": "scarce"
+      }
+    },
     "slb-gallus-lafayettii": {
       "species_id": "slb-gallus-lafayettii",
       "zones": [
@@ -703,6 +3181,183 @@
         "montane": "uncommon",
         "intermediate": "common",
         "dry_lowland": "common",
+        "arid_coast_north": "scarce"
+      }
+    },
+    "slb-gelochelidon-nilotica": {
+      "species_id": "slb-gelochelidon-nilotica",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland",
+        "intermediate"
+      ],
+      "habitats": [
+        "coast",
+        "freshwater",
+        "open_country"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "white",
+          "grey",
+          "black"
+        ]
+      ],
+      "behaviours": [
+        "aerial"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "dry_lowland": "uncommon",
+        "intermediate": "uncommon"
+      }
+    },
+    "slb-glareola-lactea": {
+      "species_id": "slb-glareola-lactea",
+      "zones": [
+        "dry_lowland",
+        "arid_coast_north",
+        "intermediate"
+      ],
+      "habitats": [
+        "freshwater",
+        "coast"
+      ],
+      "size": [
+        "S",
+        "M"
+      ],
+      "colours": [
+        [
+          "grey",
+          "white",
+          "black"
+        ]
+      ],
+      "behaviours": [
+        "aerial",
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "uncommon",
+        "arid_coast_north": "uncommon",
+        "intermediate": "uncommon"
+      }
+    },
+    "slb-glareola-maldivarum": {
+      "species_id": "slb-glareola-maldivarum",
+      "zones": [
+        "dry_lowland",
+        "arid_coast_north",
+        "intermediate"
+      ],
+      "habitats": [
+        "open_country",
+        "freshwater"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "brown",
+          "white",
+          "black"
+        ]
+      ],
+      "behaviours": [
+        "aerial",
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "uncommon",
+        "arid_coast_north": "uncommon",
+        "intermediate": "scarce"
+      }
+    },
+    "slb-haematopus-ostralegus": {
+      "species_id": "slb-haematopus-ostralegus",
+      "zones": [
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "XL",
+        "XXL"
+      ],
+      "colours": [
+        [
+          "black",
+          "white",
+          "orange"
+        ]
+      ],
+      "behaviours": [
+        "wading",
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
         "arid_coast_north": "scarce"
       }
     },
@@ -808,6 +3463,226 @@
         "arid_coast_north": "common"
       }
     },
+    "slb-hemiprocne-coronata": {
+      "species_id": "slb-hemiprocne-coronata",
+      "zones": [
+        "dry_lowland",
+        "intermediate",
+        "arid_coast_north",
+        "wet_lowland"
+      ],
+      "habitats": [
+        "forest",
+        "open_country"
+      ],
+      "size": [
+        "M"
+      ],
+      "colours": [
+        [
+          "grey",
+          "white",
+          "rufous"
+        ],
+        [
+          "grey",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "perched_open",
+        "aerial"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "common",
+        "intermediate": "uncommon",
+        "arid_coast_north": "uncommon",
+        "wet_lowland": "scarce"
+      }
+    },
+    "slb-hierococcyx-varius": {
+      "species_id": "slb-hierococcyx-varius",
+      "zones": [
+        "wet_midhill",
+        "montane",
+        "intermediate",
+        "wet_lowland",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "town_garden",
+        "forest"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "grey",
+          "white",
+          "rufous"
+        ],
+        [
+          "brown",
+          "rufous"
+        ]
+      ],
+      "behaviours": [
+        "tree_bush"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_midhill": "common",
+        "montane": "uncommon",
+        "intermediate": "uncommon",
+        "wet_lowland": "scarce",
+        "dry_lowland": "scarce"
+      }
+    },
+    "slb-himantopus-himantopus": {
+      "species_id": "slb-himantopus-himantopus",
+      "zones": [
+        "wet_lowland",
+        "dry_lowland",
+        "arid_coast_north",
+        "intermediate"
+      ],
+      "habitats": [
+        "freshwater",
+        "coast",
+        "open_country"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "white",
+          "black",
+          "pink"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "common",
+        "dry_lowland": "common",
+        "arid_coast_north": "common",
+        "intermediate": "common"
+      }
+    },
+    "slb-hirundapus-giganteus": {
+      "species_id": "slb-hirundapus-giganteus",
+      "zones": [
+        "wet_midhill",
+        "wet_lowland"
+      ],
+      "habitats": [
+        "forest",
+        "open_country"
+      ],
+      "size": [
+        "M"
+      ],
+      "colours": [
+        [
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "aerial"
+      ],
+      "commonness": {
+        "wet_midhill": "uncommon",
+        "wet_lowland": "scarce"
+      }
+    },
+    "slb-hirundo-domicola": {
+      "species_id": "slb-hirundo-domicola",
+      "zones": [
+        "montane",
+        "wet_midhill"
+      ],
+      "habitats": [
+        "open_country",
+        "town_garden"
+      ],
+      "size": [
+        "S"
+      ],
+      "colours": [
+        [
+          "black",
+          "rufous",
+          "grey"
+        ]
+      ],
+      "behaviours": [
+        "aerial",
+        "perched_open"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "montane": "common",
+        "wet_midhill": "common"
+      }
+    },
     "slb-hirundo-rustica": {
       "species_id": "slb-hirundo-rustica",
       "zones": [
@@ -858,6 +3733,195 @@
         "intermediate": "common",
         "dry_lowland": "common",
         "arid_coast_north": "common"
+      }
+    },
+    "slb-hydrophasianus-chirurgus": {
+      "species_id": "slb-hydrophasianus-chirurgus",
+      "zones": [
+        "dry_lowland",
+        "arid_coast_north",
+        "wet_lowland",
+        "intermediate"
+      ],
+      "habitats": [
+        "freshwater"
+      ],
+      "size": [
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "colours": [
+        [
+          "black",
+          "white",
+          "yellow"
+        ],
+        [
+          "brown",
+          "white",
+          "black"
+        ]
+      ],
+      "behaviours": [
+        "wading",
+        "swimming"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "common",
+        "arid_coast_north": "common",
+        "wet_lowland": "uncommon",
+        "intermediate": "common"
+      }
+    },
+    "slb-hydroprogne-caspia": {
+      "species_id": "slb-hydroprogne-caspia",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "coast",
+        "freshwater"
+      ],
+      "size": [
+        "XXL"
+      ],
+      "colours": [
+        [
+          "white",
+          "grey",
+          "red"
+        ]
+      ],
+      "behaviours": [
+        "aerial",
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "uncommon",
+        "dry_lowland": "uncommon"
+      }
+    },
+    "slb-ichthyaetus-ichthyaetus": {
+      "species_id": "slb-ichthyaetus-ichthyaetus",
+      "zones": [
+        "arid_coast_north",
+        "wet_lowland"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "XXL",
+        "XXXL"
+      ],
+      "colours": [
+        [
+          "brown",
+          "white"
+        ],
+        [
+          "white",
+          "grey",
+          "black"
+        ]
+      ],
+      "behaviours": [
+        "ground",
+        "aerial"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "scarce",
+        "wet_lowland": "scarce"
+      }
+    },
+    "slb-larus-fuscus": {
+      "species_id": "slb-larus-fuscus",
+      "zones": [
+        "arid_coast_north",
+        "wet_lowland"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "XXL"
+      ],
+      "colours": [
+        [
+          "brown",
+          "white"
+        ],
+        [
+          "grey",
+          "white",
+          "yellow"
+        ]
+      ],
+      "behaviours": [
+        "aerial",
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "uncommon",
+        "wet_lowland": "scarce"
       }
     },
     "slb-leptocoma-zeylonica": {
@@ -914,6 +3978,193 @@
         "arid_coast_north": "uncommon"
       }
     },
+    "slb-leptoptilos-javanicus": {
+      "species_id": "slb-leptoptilos-javanicus",
+      "zones": [
+        "dry_lowland",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "freshwater",
+        "open_country",
+        "forest"
+      ],
+      "size": [
+        "XXXL"
+      ],
+      "colours": [
+        [
+          "grey",
+          "white",
+          "yellow"
+        ],
+        [
+          "brown"
+        ]
+      ],
+      "behaviours": [
+        "ground",
+        "wading",
+        "aerial"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "uncommon",
+        "arid_coast_north": "scarce"
+      }
+    },
+    "slb-limosa-lapponica": {
+      "species_id": "slb-limosa-lapponica",
+      "zones": [
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "brown",
+          "grey",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "scarce"
+      }
+    },
+    "slb-limosa-limosa": {
+      "species_id": "slb-limosa-limosa",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "coast",
+        "freshwater",
+        "open_country"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "grey",
+          "white",
+          "black"
+        ],
+        [
+          "rufous",
+          "grey",
+          "black"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "dry_lowland": "uncommon"
+      }
+    },
+    "slb-mareca-penelope": {
+      "species_id": "slb-mareca-penelope",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "coast",
+        "freshwater"
+      ],
+      "size": [
+        "XL",
+        "XXL"
+      ],
+      "colours": [
+        [
+          "rufous",
+          "grey",
+          "yellow"
+        ],
+        [
+          "rufous",
+          "brown"
+        ],
+        [
+          "rufous",
+          "brown"
+        ]
+      ],
+      "behaviours": [
+        "swimming",
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "uncommon",
+        "dry_lowland": "scarce"
+      }
+    },
     "slb-microcarbo-niger": {
       "species_id": "slb-microcarbo-niger",
       "zones": [
@@ -968,6 +4219,238 @@
         "arid_coast_north": "common"
       }
     },
+    "slb-mycteria-leucocephala": {
+      "species_id": "slb-mycteria-leucocephala",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland",
+        "intermediate"
+      ],
+      "habitats": [
+        "freshwater",
+        "coast"
+      ],
+      "size": [
+        "XXXL"
+      ],
+      "colours": [
+        [
+          "white",
+          "black",
+          "pink"
+        ],
+        [
+          "brown",
+          "grey"
+        ]
+      ],
+      "behaviours": [
+        "wading",
+        "aerial"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "dry_lowland": "common",
+        "intermediate": "uncommon"
+      }
+    },
+    "slb-nettapus-coromandelianus": {
+      "species_id": "slb-nettapus-coromandelianus",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland",
+        "intermediate",
+        "wet_lowland"
+      ],
+      "habitats": [
+        "freshwater"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "white",
+          "black"
+        ],
+        [
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "swimming"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "uncommon",
+        "dry_lowland": "uncommon",
+        "intermediate": "uncommon",
+        "wet_lowland": "scarce"
+      }
+    },
+    "slb-numenius-arquata": {
+      "species_id": "slb-numenius-arquata",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "XXL"
+      ],
+      "colours": [
+        [
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "uncommon",
+        "dry_lowland": "scarce"
+      }
+    },
+    "slb-numenius-phaeopus": {
+      "species_id": "slb-numenius-phaeopus",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland",
+        "wet_lowland"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "XL",
+        "XXL"
+      ],
+      "colours": [
+        [
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "wading",
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "dry_lowland": "common",
+        "wet_lowland": "uncommon"
+      }
+    },
+    "slb-nycticorax-nycticorax": {
+      "species_id": "slb-nycticorax-nycticorax",
+      "zones": [
+        "arid_coast_north",
+        "wet_lowland",
+        "dry_lowland",
+        "intermediate"
+      ],
+      "habitats": [
+        "freshwater",
+        "coast"
+      ],
+      "size": [
+        "XXL"
+      ],
+      "colours": [
+        [
+          "grey",
+          "black",
+          "white"
+        ],
+        [
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "tree_bush",
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "uncommon",
+        "wet_lowland": "uncommon",
+        "dry_lowland": "uncommon",
+        "intermediate": "uncommon"
+      }
+    },
     "slb-ocyceros-gingalensis": {
       "species_id": "slb-ocyceros-gingalensis",
       "zones": [
@@ -1011,6 +4494,88 @@
         "wet_midhill": "uncommon",
         "intermediate": "common",
         "dry_lowland": "common"
+      }
+    },
+    "slb-onychoprion-anaethetus": {
+      "species_id": "slb-onychoprion-anaethetus",
+      "zones": [
+        "arid_coast_north",
+        "wet_lowland"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "black",
+          "white",
+          "grey"
+        ]
+      ],
+      "behaviours": [
+        "aerial"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "uncommon",
+        "wet_lowland": "uncommon"
+      }
+    },
+    "slb-onychoprion-fuscatus": {
+      "species_id": "slb-onychoprion-fuscatus",
+      "zones": [
+        "arid_coast_north",
+        "wet_lowland"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "XL",
+        "XXL"
+      ],
+      "colours": [
+        [
+          "black",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "aerial"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "scarce",
+        "wet_lowland": "scarce"
       }
     },
     "slb-oriolus-xanthornus": {
@@ -1066,6 +4631,47 @@
         "wet_midhill": "common",
         "intermediate": "common",
         "dry_lowland": "common"
+      }
+    },
+    "slb-ortygornis-pondicerianus": {
+      "species_id": "slb-ortygornis-pondicerianus",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "open_country"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "brown",
+          "orange",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "dry_lowland": "uncommon"
       }
     },
     "slb-passer-domesticus": {
@@ -1173,6 +4779,426 @@
         "arid_coast_north": "uncommon"
       }
     },
+    "slb-pelecanus-philippensis": {
+      "species_id": "slb-pelecanus-philippensis",
+      "zones": [
+        "dry_lowland",
+        "arid_coast_north",
+        "wet_lowland",
+        "intermediate"
+      ],
+      "habitats": [
+        "freshwater",
+        "coast"
+      ],
+      "size": [
+        "XXXL"
+      ],
+      "colours": [
+        [
+          "white",
+          "grey",
+          "black"
+        ],
+        [
+          "brown",
+          "grey"
+        ]
+      ],
+      "behaviours": [
+        "swimming",
+        "aerial",
+        "tree_bush"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "common",
+        "arid_coast_north": "common",
+        "wet_lowland": "uncommon",
+        "intermediate": "uncommon"
+      }
+    },
+    "slb-phaenicophaeus-pyrrhocephalus": {
+      "species_id": "slb-phaenicophaeus-pyrrhocephalus",
+      "zones": [
+        "wet_lowland",
+        "wet_midhill"
+      ],
+      "habitats": [
+        "forest"
+      ],
+      "size": [
+        "XL",
+        "XXL"
+      ],
+      "colours": [
+        [
+          "black",
+          "white",
+          "red"
+        ]
+      ],
+      "behaviours": [
+        "tree_bush"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "uncommon",
+        "wet_midhill": "scarce"
+      }
+    },
+    "slb-phaenicophaeus-viridirostris": {
+      "species_id": "slb-phaenicophaeus-viridirostris",
+      "zones": [
+        "dry_lowland",
+        "intermediate",
+        "arid_coast_north",
+        "wet_lowland"
+      ],
+      "habitats": [
+        "forest",
+        "open_country"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "green",
+          "grey",
+          "blue"
+        ]
+      ],
+      "behaviours": [
+        "tree_bush"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "common",
+        "intermediate": "uncommon",
+        "arid_coast_north": "uncommon",
+        "wet_lowland": "scarce"
+      }
+    },
+    "slb-phalacrocorax-carbo": {
+      "species_id": "slb-phalacrocorax-carbo",
+      "zones": [
+        "dry_lowland",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "freshwater",
+        "coast"
+      ],
+      "size": [
+        "XXXL"
+      ],
+      "colours": [
+        [
+          "black",
+          "white"
+        ],
+        [
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "swimming",
+        "perched_open"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "uncommon",
+        "arid_coast_north": "uncommon"
+      }
+    },
+    "slb-phalacrocorax-fuscicollis": {
+      "species_id": "slb-phalacrocorax-fuscicollis",
+      "zones": [
+        "dry_lowland",
+        "arid_coast_north",
+        "intermediate",
+        "wet_lowland"
+      ],
+      "habitats": [
+        "freshwater",
+        "coast"
+      ],
+      "size": [
+        "XXL"
+      ],
+      "colours": [
+        [
+          "black",
+          "white"
+        ],
+        [
+          "brown",
+          "white"
+        ],
+        [
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "swimming",
+        "perched_open"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "common",
+        "arid_coast_north": "common",
+        "intermediate": "common",
+        "wet_lowland": "uncommon"
+      }
+    },
+    "slb-phalaropus-lobatus": {
+      "species_id": "slb-phalaropus-lobatus",
+      "zones": [
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "M"
+      ],
+      "colours": [
+        [
+          "grey",
+          "white",
+          "black"
+        ]
+      ],
+      "behaviours": [
+        "swimming"
+      ],
+      "months": [
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "scarce"
+      }
+    },
+    "slb-phoenicopterus-roseus": {
+      "species_id": "slb-phoenicopterus-roseus",
+      "zones": [
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "XXXL"
+      ],
+      "colours": [
+        [
+          "pink",
+          "black",
+          "white"
+        ],
+        [
+          "grey",
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "uncommon"
+      }
+    },
+    "slb-platalea-leucorodia": {
+      "species_id": "slb-platalea-leucorodia",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "coast",
+        "freshwater"
+      ],
+      "size": [
+        "XXXL"
+      ],
+      "colours": [
+        [
+          "white",
+          "black"
+        ],
+        [
+          "white",
+          "black",
+          "yellow"
+        ],
+        [
+          "white",
+          "pink",
+          "black"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "uncommon",
+        "dry_lowland": "uncommon"
+      }
+    },
+    "slb-plegadis-falcinellus": {
+      "species_id": "slb-plegadis-falcinellus",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "freshwater",
+        "open_country",
+        "coast"
+      ],
+      "size": [
+        "XXL"
+      ],
+      "colours": [
+        [
+          "black",
+          "purple",
+          "brown"
+        ],
+        [
+          "brown"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "uncommon",
+        "dry_lowland": "scarce"
+      }
+    },
     "slb-pluvialis-fulva": {
       "species_id": "slb-pluvialis-fulva",
       "zones": [
@@ -1220,6 +5246,108 @@
         "arid_coast_north": "common",
         "wet_lowland": "uncommon",
         "dry_lowland": "uncommon"
+      }
+    },
+    "slb-pluvialis-squatarola": {
+      "species_id": "slb-pluvialis-squatarola",
+      "zones": [
+        "arid_coast_north",
+        "wet_lowland",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "L",
+        "XL"
+      ],
+      "colours": [
+        [
+          "grey",
+          "white",
+          "black"
+        ],
+        [
+          "black",
+          "white",
+          "grey"
+        ]
+      ],
+      "behaviours": [
+        "ground",
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "wet_lowland": "scarce",
+        "dry_lowland": "uncommon"
+      }
+    },
+    "slb-porphyrio-porphyrio": {
+      "species_id": "slb-porphyrio-porphyrio",
+      "zones": [
+        "wet_lowland",
+        "intermediate",
+        "dry_lowland",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "freshwater",
+        "open_country"
+      ],
+      "size": [
+        "XL",
+        "XXL"
+      ],
+      "colours": [
+        [
+          "purple",
+          "blue",
+          "red"
+        ],
+        [
+          "brown",
+          "grey"
+        ]
+      ],
+      "behaviours": [
+        "wading",
+        "swimming"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "common",
+        "intermediate": "common",
+        "dry_lowland": "common",
+        "arid_coast_north": "common"
       }
     },
     "slb-psittacula-krameri": {
@@ -1326,6 +5454,187 @@
         "arid_coast_north": "common"
       }
     },
+    "slb-rallina-eurizonoides": {
+      "species_id": "slb-rallina-eurizonoides",
+      "zones": [
+        "wet_lowland",
+        "wet_midhill"
+      ],
+      "habitats": [
+        "forest"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "brown",
+          "rufous",
+          "grey"
+        ]
+      ],
+      "behaviours": [
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "scarce",
+        "wet_midhill": "scarce"
+      }
+    },
+    "slb-recurvirostra-avosetta": {
+      "species_id": "slb-recurvirostra-avosetta",
+      "zones": [
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "coast",
+        "freshwater"
+      ],
+      "size": [
+        "XL",
+        "XXL"
+      ],
+      "colours": [
+        [
+          "black",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "scarce"
+      }
+    },
+    "slb-rostratula-benghalensis": {
+      "species_id": "slb-rostratula-benghalensis",
+      "zones": [
+        "wet_lowland",
+        "arid_coast_north",
+        "dry_lowland",
+        "intermediate"
+      ],
+      "habitats": [
+        "freshwater",
+        "open_country"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "rufous",
+          "green",
+          "white"
+        ],
+        [
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "wading",
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "uncommon",
+        "arid_coast_north": "uncommon",
+        "dry_lowland": "uncommon",
+        "intermediate": "scarce"
+      }
+    },
+    "slb-spatula-clypeata": {
+      "species_id": "slb-spatula-clypeata",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "coast",
+        "freshwater"
+      ],
+      "size": [
+        "XL",
+        "XXL"
+      ],
+      "colours": [
+        [
+          "green",
+          "white",
+          "rufous"
+        ],
+        [
+          "brown"
+        ],
+        [
+          "brown"
+        ]
+      ],
+      "behaviours": [
+        "swimming"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "uncommon",
+        "dry_lowland": "scarce"
+      }
+    },
     "slb-spatula-querquedula": {
       "species_id": "slb-spatula-querquedula",
       "zones": [
@@ -1429,6 +5738,53 @@
         "arid_coast_north": "common"
       }
     },
+    "slb-sterna-dougallii": {
+      "species_id": "slb-sterna-dougallii",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland",
+        "wet_lowland"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "white",
+          "black",
+          "red"
+        ],
+        [
+          "white",
+          "black"
+        ]
+      ],
+      "behaviours": [
+        "aerial"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "uncommon",
+        "dry_lowland": "scarce",
+        "wet_lowland": "scarce"
+      }
+    },
     "slb-sternula-albifrons": {
       "species_id": "slb-sternula-albifrons",
       "zones": [
@@ -1480,6 +5836,313 @@
         "arid_coast_north": "common",
         "wet_lowland": "uncommon",
         "dry_lowland": "uncommon"
+      }
+    },
+    "slb-sternula-saundersi": {
+      "species_id": "slb-sternula-saundersi",
+      "zones": [
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "black",
+          "white",
+          "grey"
+        ]
+      ],
+      "behaviours": [
+        "aerial"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "scarce"
+      }
+    },
+    "slb-streptopelia-decaocto": {
+      "species_id": "slb-streptopelia-decaocto",
+      "zones": [
+        "dry_lowland",
+        "intermediate",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "open_country",
+        "town_garden"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "grey",
+          "brown",
+          "black"
+        ]
+      ],
+      "behaviours": [
+        "perched_open",
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "dry_lowland": "uncommon",
+        "intermediate": "scarce"
+      }
+    },
+    "slb-surniculus-dicruroides": {
+      "species_id": "slb-surniculus-dicruroides",
+      "zones": [
+        "wet_lowland",
+        "wet_midhill",
+        "intermediate",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "forest",
+        "town_garden"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "black"
+        ],
+        [
+          "black",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "tree_bush"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "uncommon",
+        "wet_midhill": "uncommon",
+        "intermediate": "scarce",
+        "dry_lowland": "scarce"
+      }
+    },
+    "slb-synoicus-chinensis": {
+      "species_id": "slb-synoicus-chinensis",
+      "zones": [
+        "wet_lowland",
+        "intermediate",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "open_country"
+      ],
+      "size": [
+        "S",
+        "M"
+      ],
+      "colours": [
+        [
+          "blue",
+          "brown",
+          "rufous"
+        ],
+        [
+          "brown"
+        ]
+      ],
+      "behaviours": [
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "uncommon",
+        "intermediate": "scarce",
+        "dry_lowland": "uncommon"
+      }
+    },
+    "slb-taccocua-leschenaultii": {
+      "species_id": "slb-taccocua-leschenaultii",
+      "zones": [
+        "dry_lowland",
+        "intermediate",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "open_country",
+        "forest"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "brown",
+          "rufous",
+          "red"
+        ]
+      ],
+      "behaviours": [
+        "ground",
+        "tree_bush"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "uncommon",
+        "intermediate": "uncommon",
+        "arid_coast_north": "uncommon"
+      }
+    },
+    "slb-tachybaptus-ruficollis": {
+      "species_id": "slb-tachybaptus-ruficollis",
+      "zones": [
+        "wet_lowland",
+        "wet_midhill",
+        "intermediate",
+        "dry_lowland",
+        "arid_coast_north"
+      ],
+      "habitats": [
+        "freshwater",
+        "town_garden"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "rufous",
+          "brown",
+          "yellow"
+        ],
+        [
+          "brown",
+          "grey"
+        ]
+      ],
+      "behaviours": [
+        "swimming"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "common",
+        "wet_midhill": "uncommon",
+        "intermediate": "common",
+        "dry_lowland": "common",
+        "arid_coast_north": "common"
+      }
+    },
+    "slb-tachymarptis-melba": {
+      "species_id": "slb-tachymarptis-melba",
+      "zones": [
+        "montane",
+        "wet_midhill",
+        "intermediate",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "open_country"
+      ],
+      "size": [
+        "M",
+        "L"
+      ],
+      "colours": [
+        [
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "aerial"
+      ],
+      "commonness": {
+        "montane": "uncommon",
+        "wet_midhill": "uncommon",
+        "intermediate": "scarce",
+        "dry_lowland": "scarce"
       }
     },
     "slb-tachyspiza-badia": {
@@ -1593,6 +6256,605 @@
         "arid_coast_north": "scarce"
       }
     },
+    "slb-thalasseus-bengalensis": {
+      "species_id": "slb-thalasseus-bengalensis",
+      "zones": [
+        "arid_coast_north",
+        "wet_lowland",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "white",
+          "grey",
+          "orange"
+        ]
+      ],
+      "behaviours": [
+        "aerial"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "wet_lowland": "uncommon",
+        "dry_lowland": "uncommon"
+      }
+    },
+    "slb-thalasseus-bergii": {
+      "species_id": "slb-thalasseus-bergii",
+      "zones": [
+        "arid_coast_north",
+        "wet_lowland",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "XXL"
+      ],
+      "colours": [
+        [
+          "white",
+          "grey",
+          "yellow"
+        ]
+      ],
+      "behaviours": [
+        "aerial"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "wet_lowland": "common",
+        "dry_lowland": "uncommon"
+      }
+    },
+    "slb-thinornis-dubius": {
+      "species_id": "slb-thinornis-dubius",
+      "zones": [
+        "dry_lowland",
+        "arid_coast_north",
+        "wet_lowland",
+        "intermediate"
+      ],
+      "habitats": [
+        "freshwater",
+        "open_country",
+        "coast"
+      ],
+      "size": [
+        "S",
+        "M"
+      ],
+      "colours": [
+        [
+          "brown",
+          "white",
+          "black"
+        ],
+        [
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "common",
+        "arid_coast_north": "common",
+        "wet_lowland": "uncommon",
+        "intermediate": "uncommon"
+      }
+    },
+    "slb-threskiornis-melanocephalus": {
+      "species_id": "slb-threskiornis-melanocephalus",
+      "zones": [
+        "wet_lowland",
+        "dry_lowland",
+        "arid_coast_north",
+        "intermediate"
+      ],
+      "habitats": [
+        "freshwater",
+        "coast",
+        "open_country"
+      ],
+      "size": [
+        "XXL",
+        "XXXL"
+      ],
+      "colours": [
+        [
+          "white",
+          "black"
+        ],
+        [
+          "white",
+          "grey"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "common",
+        "dry_lowland": "common",
+        "arid_coast_north": "common",
+        "intermediate": "common"
+      }
+    },
+    "slb-treron-bicinctus": {
+      "species_id": "slb-treron-bicinctus",
+      "zones": [
+        "dry_lowland",
+        "arid_coast_north",
+        "intermediate",
+        "wet_lowland"
+      ],
+      "habitats": [
+        "forest"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "green",
+          "orange",
+          "grey"
+        ],
+        [
+          "green",
+          "yellow",
+          "grey"
+        ]
+      ],
+      "behaviours": [
+        "tree_bush"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "common",
+        "arid_coast_north": "uncommon",
+        "intermediate": "uncommon",
+        "wet_lowland": "scarce"
+      }
+    },
+    "slb-treron-phoenicopterus": {
+      "species_id": "slb-treron-phoenicopterus",
+      "zones": [
+        "intermediate",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "forest",
+        "open_country"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "grey",
+          "green",
+          "yellow"
+        ]
+      ],
+      "behaviours": [
+        "tree_bush"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "intermediate": "scarce",
+        "dry_lowland": "scarce"
+      }
+    },
+    "slb-treron-pompadora": {
+      "species_id": "slb-treron-pompadora",
+      "zones": [
+        "wet_lowland",
+        "wet_midhill",
+        "intermediate",
+        "dry_lowland",
+        "montane"
+      ],
+      "habitats": [
+        "forest"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "green",
+          "rufous",
+          "yellow"
+        ],
+        [
+          "green",
+          "yellow"
+        ]
+      ],
+      "behaviours": [
+        "tree_bush"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "wet_lowland": "common",
+        "wet_midhill": "common",
+        "intermediate": "uncommon",
+        "dry_lowland": "uncommon",
+        "montane": "scarce"
+      }
+    },
+    "slb-tringa-glareola": {
+      "species_id": "slb-tringa-glareola",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland",
+        "intermediate",
+        "wet_lowland",
+        "wet_midhill"
+      ],
+      "habitats": [
+        "freshwater",
+        "open_country"
+      ],
+      "size": [
+        "M",
+        "L"
+      ],
+      "colours": [
+        [
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "dry_lowland": "common",
+        "intermediate": "common",
+        "wet_lowland": "common",
+        "wet_midhill": "uncommon"
+      }
+    },
+    "slb-tringa-nebularia": {
+      "species_id": "slb-tringa-nebularia",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland",
+        "wet_lowland",
+        "intermediate"
+      ],
+      "habitats": [
+        "coast",
+        "freshwater"
+      ],
+      "size": [
+        "XL"
+      ],
+      "colours": [
+        [
+          "grey",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "dry_lowland": "common",
+        "wet_lowland": "uncommon",
+        "intermediate": "uncommon"
+      }
+    },
+    "slb-tringa-ochropus": {
+      "species_id": "slb-tringa-ochropus",
+      "zones": [
+        "dry_lowland",
+        "arid_coast_north",
+        "intermediate",
+        "wet_lowland"
+      ],
+      "habitats": [
+        "freshwater",
+        "open_country"
+      ],
+      "size": [
+        "M",
+        "L"
+      ],
+      "colours": [
+        [
+          "brown",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "uncommon",
+        "arid_coast_north": "uncommon",
+        "intermediate": "uncommon",
+        "wet_lowland": "uncommon"
+      }
+    },
+    "slb-tringa-stagnatilis": {
+      "species_id": "slb-tringa-stagnatilis",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland",
+        "intermediate",
+        "wet_lowland"
+      ],
+      "habitats": [
+        "freshwater",
+        "coast"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "grey",
+          "white"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "dry_lowland": "uncommon",
+        "intermediate": "uncommon",
+        "wet_lowland": "scarce"
+      }
+    },
+    "slb-tringa-totanus": {
+      "species_id": "slb-tringa-totanus",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland",
+        "wet_lowland"
+      ],
+      "habitats": [
+        "coast",
+        "freshwater"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "brown",
+          "white",
+          "red"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "common",
+        "dry_lowland": "uncommon",
+        "wet_lowland": "scarce"
+      }
+    },
+    "slb-turnix-suscitator": {
+      "species_id": "slb-turnix-suscitator",
+      "zones": [
+        "dry_lowland",
+        "intermediate",
+        "arid_coast_north",
+        "wet_lowland",
+        "wet_midhill",
+        "montane"
+      ],
+      "habitats": [
+        "open_country"
+      ],
+      "size": [
+        "S"
+      ],
+      "colours": [
+        [
+          "brown",
+          "black",
+          "rufous"
+        ],
+        [
+          "brown",
+          "rufous"
+        ]
+      ],
+      "behaviours": [
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "common",
+        "intermediate": "common",
+        "arid_coast_north": "common",
+        "wet_lowland": "uncommon",
+        "wet_midhill": "uncommon",
+        "montane": "scarce"
+      }
+    },
     "slb-urocissa-ornata": {
       "species_id": "slb-urocissa-ornata",
       "zones": [
@@ -1681,6 +6943,90 @@
         "intermediate": "common",
         "dry_lowland": "common",
         "arid_coast_north": "common"
+      }
+    },
+    "slb-vanellus-malabaricus": {
+      "species_id": "slb-vanellus-malabaricus",
+      "zones": [
+        "dry_lowland",
+        "arid_coast_north",
+        "intermediate"
+      ],
+      "habitats": [
+        "open_country"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "brown",
+          "black",
+          "yellow"
+        ]
+      ],
+      "behaviours": [
+        "ground"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "dry_lowland": "uncommon",
+        "arid_coast_north": "uncommon",
+        "intermediate": "scarce"
+      }
+    },
+    "slb-xenus-cinereus": {
+      "species_id": "slb-xenus-cinereus",
+      "zones": [
+        "arid_coast_north",
+        "dry_lowland"
+      ],
+      "habitats": [
+        "coast"
+      ],
+      "size": [
+        "L"
+      ],
+      "colours": [
+        [
+          "grey",
+          "white",
+          "orange"
+        ]
+      ],
+      "behaviours": [
+        "wading"
+      ],
+      "months": [
+        "present",
+        "present",
+        "present",
+        "present",
+        "absent",
+        "absent",
+        "absent",
+        "present",
+        "present",
+        "present",
+        "present",
+        "present"
+      ],
+      "commonness": {
+        "arid_coast_north": "uncommon",
+        "dry_lowland": "scarce"
       }
     },
     "slb-zosterops-ceylonensis": {
