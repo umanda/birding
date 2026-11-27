@@ -1,6 +1,6 @@
-# M8 traits batch 2: ornithologist summary for the owner (DRAFT)
+# M8 traits batch 2: ornithologist summary for the owner (approved by the owner, 2026-11-27)
 
-Status: **proposed**, not reviewed. Spec: `docs/specs/006-scale-to-all-species.md`. Rows: `traits.csv`
+Status: **approved** by the owner on 2026-11-27. Spec: `docs/specs/006-scale-to-all-species.md`. Rows: `traits.csv`
 (`review_status=proposed`). This hand-written summary comes before the generated `traits-review/batch-02.md`
 (`npm run traits:review-sheet -- --batch 2`), which is the source of truth for row-level review.
 
