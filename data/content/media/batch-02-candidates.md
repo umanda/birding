@@ -1,6 +1,6 @@
 # Batch 2 photo candidates (M8, spec 006)
 
-Status: **proposed; research complete for all 33 species**. No images were downloaded into the repo, no `.webp` files were created and `licences.csv` was not edited. The owner reviews every candidate before any row is added.
+Status: **approved by the owner on 2026-11-27**. No images were downloaded into the repo, no `.webp` files were created and `licences.csv` was not edited. The owner reviews every candidate before any row is added.
 
 Species: the 33 batch-2 species (plates 7 to 11), taken from the batch-2 traits review sheet (`data/content/traits-review/batch-02.md`, PR #121). None is on `sensitive-species.csv`, but three are treated as sensitive here (locality given at zone level only): **Indian Swiftlet** (cave nest colonies), **Great Stone-curlew** (few, ground-nesting on river and coast sandbars), **Slaty-legged Crake** (scarce, secretive). The owner may want to add them to `sensitive-species.csv`.
 
